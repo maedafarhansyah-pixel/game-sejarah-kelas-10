@@ -233,6 +233,7 @@ body{
 }
 .card:nth-child(1){animation-delay:.42s;}
 .card:nth-child(2){animation-delay:.54s;}
+.card:nth-child(3){animation-delay:.66s;}
 @keyframes cardIn{
     from{opacity:0;transform:translateY(38px) scale(.98);}
     to{opacity:1;transform:translateY(0) scale(1);}
@@ -255,11 +256,14 @@ body{
     width:220px;height:220px;
     right:-90px;top:-90px;
     border-radius:50%;
-    background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);
+    background:radial-gradient(circle,rgba(139,92,246,.22),transparent 70%);
     transition:transform .6s;
 }
 .card:nth-child(2)::after{
-    background:radial-gradient(circle,rgba(139,92,246,.22),transparent 70%);
+    background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);
+}
+.card:nth-child(3)::after{
+    background:radial-gradient(circle,rgba(245,158,11,.22),transparent 70%);
 }
 .card:hover{
     transform:translateY(-6px);
@@ -289,9 +293,19 @@ body{
     box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
     transition:transform .4s;
 }
-.card:nth-child(2) h2 .ico{
+/* Ikon kartu 1 (Pengantar Ilmu Sejarah) - ungu */
+.card:nth-child(1) h2 .ico{
     background:linear-gradient(135deg,var(--purple),var(--blue-500));
     box-shadow:0 10px 22px -8px rgba(139,92,246,.7);
+}
+/* Ikon kartu 2 (Penelitian Sejarah) - biru-cyan */
+.card:nth-child(2) h2 .ico{
+    background:linear-gradient(135deg,var(--blue-600),var(--cyan));
+    box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
+}
+.card:nth-child(3) h2 .ico{
+    background:linear-gradient(135deg,var(--amber),#fbbf24);
+    box-shadow:0 10px 22px -8px rgba(245,158,11,.7);
 }
 .card:hover h2 .ico{transform:rotate(-8deg) scale(1.07);}
 
@@ -373,6 +387,27 @@ body{
     background-position:100% 0;
 }
 .button:active{transform:translateY(-1px) scale(.99);}
+
+/* Tombol varian ungu (Pengantar Ilmu Sejarah) */
+.button.purple{
+    background:linear-gradient(120deg,var(--blue-700),var(--purple) 55%,#a78bfa);
+    background-size:200% 100%;
+    box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);
+    animation:glowPurple 3.2s ease-in-out infinite;
+}
+@keyframes glowPurple{
+    0%,100%{box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);}
+    50%{box-shadow:0 20px 44px -10px rgba(167,139,250,.7), inset 0 1px 0 rgba(255,255,255,.3);}
+}
+.button.purple:hover{background-position:100% 0;}
+
+/* Tombol varian amber (cadangan) */
+.button.amber{
+    background:linear-gradient(120deg,#b45309,var(--amber) 55%,#fbbf24);
+    background-size:200% 100%;
+    box-shadow:0 16px 34px -12px rgba(245,158,11,.75), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.button.amber:hover{background-position:100% 0;}
 
 /* kilau tombol */
 .button::after{
@@ -525,6 +560,31 @@ body{
 
 <main class="container">
 
+    <!-- ===== KARTU GAME 1: PENGANTAR ILMU SEJARAH ===== -->
+    <div class="card">
+        <h2><span class="ico">🏛️</span> Game Pengantar Ilmu Sejarah</h2>
+        <p>
+            Kenali dasar-dasar ilmu sejarah melalui permainan seru:
+            pengertian sejarah, ruang lingkup, sumber sejarah, hingga
+            cara berpikir sejarah yang kritis dan menyenangkan.
+        </p>
+
+        <div class="features">
+            <div class="feature m1"><span class="mark">🎮</span> Tantangan interaktif &amp; kuis seru</div>
+            <div class="feature m2"><span class="mark">⭐</span> Sistem poin &amp; level bertingkat</div>
+            <div class="feature m3"><span class="mark">🧠</span> Penguatan materi pengantar ilmu sejarah</div>
+        </div>
+
+        <div class="btn-wrap">
+            <a class="button purple" href="gamepengantarilmusejarah.html">
+                <span class="play">▶</span>
+                Mulai Permainan
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== KARTU GAME 2: PENELITIAN SEJARAH ===== -->
     <div class="card">
         <h2><span class="ico">📚</span> Game Penelitian Sejarah</h2>
         <p>
@@ -548,6 +608,7 @@ body{
         </div>
     </div>
 
+    <!-- ===== KARTU INFO / GAME BERIKUTNYA ===== -->
     <div class="card">
         <h2><span class="ico">📖</span> Game Lainnya</h2>
         <p>
