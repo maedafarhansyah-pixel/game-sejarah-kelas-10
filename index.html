@@ -105,7 +105,7 @@ body{
     box-shadow:0 30px 70px -30px rgba(11,31,75,.75);
 }
 
-/* Kilau bergerak */
+/* Kilau bergerak di header */
 .header::before{
     content:"";
     position:absolute;
@@ -150,20 +150,84 @@ body{
     50%{transform:scale(1.35);opacity:.65;}
 }
 
+/* ====== JUDUL HEADER ====== */
 .header h1{
     position:relative;
     margin:0 0 14px;
     font-size:clamp(28px,5vw,46px);
     font-weight:800;
     line-height:1.15;
-    letter-spacing:-.02em;
+    letter-spacing:.02em;
+    text-transform:uppercase;
     animation:fadeUp .8s .15s both;
 }
+
+/* Baris 1: GAME EDUKASI SEJARAH — gradient beranimasi + glow + kilau */
 .header h1 .grad{
-    background:linear-gradient(100deg,#ffffff 10%,#a5f3fc 45%,#ddd6fe 85%);
+    position:relative;
+    display:block;
+    background:linear-gradient(
+        100deg,
+        #ffffff 0%,
+        #a5f3fc 20%,
+        #7dd3fc 35%,
+        #c4b5fd 55%,
+        #f0abfc 70%,
+        #fde68a 85%,
+        #ffffff 100%
+    );
+    background-size:250% 100%;
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+    filter:drop-shadow(0 4px 22px rgba(125,211,252,.55))
+           drop-shadow(0 0 30px rgba(196,181,253,.35));
+    animation:gradientMove 6s linear infinite;
+}
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:250% 50%;}
+}
+
+/* Baris 2: KELAS 10 — ukuran sama, gradient cyan-neon + glow */
+.header h1 .kelas{
+    position:relative;
+    display:block;
+    margin-top:10px;
+    font-size:1em;
+    font-weight:800;
+    letter-spacing:.18em;
+    background:linear-gradient(100deg,#22d3ee 0%,#67e8f9 30%,#a5f3fc 50%,#67e8f9 70%,#22d3ee 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 12px rgba(34,211,238,.75))
+           drop-shadow(0 0 26px rgba(6,182,212,.55));
+    animation:gradientMove 4s linear infinite, kelasPulse 3s ease-in-out infinite;
+}
+@keyframes kelasPulse{
+    0%,100%{filter:drop-shadow(0 0 12px rgba(34,211,238,.75)) drop-shadow(0 0 26px rgba(6,182,212,.55));}
+    50%{filter:drop-shadow(0 0 20px rgba(34,211,238,1)) drop-shadow(0 0 40px rgba(6,182,212,.85));}
+}
+
+/* Garis dekoratif kecil di bawah KELAS 10 */
+.header h1 .kelas::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:3px;
+    margin:12px auto 0;
+    border-radius:999px;
+    background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),var(--amber),transparent);
+    background-size:200% 100%;
+    animation:lineSlide 3.5s linear infinite;
+    filter:drop-shadow(0 0 8px rgba(34,211,238,.8));
+}
+@keyframes lineSlide{
+    0%{background-position:0% 0;}
+    100%{background-position:200% 0;}
 }
 
 .header p{
@@ -525,6 +589,7 @@ body{
     .card h2 .ico{width:40px;height:40px;flex:0 0 40px;font-size:19px;}
     .button{width:100%;justify-content:center;padding:15px 22px;}
     .bg-decor .blob{filter:blur(55px);opacity:.4;}
+    .header h1 .kelas{letter-spacing:.10em;}
 }
 
 /* Aksesibilitas: kurangi animasi */
@@ -548,8 +613,10 @@ body{
 </div>
 
 <header class="header">
-    <div class="badge"><span class="dot"></span> Kelas 10 · Sejarah Indonesia</div>
-    <h1>🎓 Game Edukasi <span class="grad">Sejarah Kelas 10</span></h1>
+    <h1>
+        <span class="grad">🎓 Game Edukasi Sejarah</span>
+        <span class="kelas">Kelas 10</span>
+    </h1>
     <p>Belajar sejarah melalui permainan interaktif — pahami konsep, kumpulkan poin, dan kuasai materi dengan cara yang menyenangkan.</p>
     <div class="chips">
         <i>🎮 Interaktif</i>
