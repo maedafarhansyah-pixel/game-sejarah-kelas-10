@@ -704,7 +704,7 @@ const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const rnd=n=>Math.random()*n|0;
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
 
-/* ============ RANDOMIZATION ============ */
+/* ============ RANDOMIZATION (riwayat soal anti-pengulangan) ============ */
 const SEEN_KEY='histoexplorer_seen_v2';
 function loadSeen(){try{return JSON.parse(localStorage.getItem(SEEN_KEY))||{};}catch(e){return{};}}
 function saveSeen(s){try{localStorage.setItem(SEEN_KEY,JSON.stringify(s));}catch(e){}}
@@ -862,16 +862,28 @@ function confetti(){const c=$('#confetti');const colors=['#1e4d8c','#2563eb','#3
 function modal(emoji,title,text,badge){$('#mEmoji').textContent=emoji;$('#mTitle').textContent=title;$('#mText').innerHTML=text?`<p>${text}</p>`:'';if(badge){$('#mBadge').style.display='inline-flex';$('#mBadgeText').textContent=badge;}else{$('#mBadge').style.display='none';}$('#modal').classList.add('on');if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎'].includes(emoji)){confetti();sfxVictory();}}
 function closeModal(){$('#modal').classList.remove('on');}
 
-/* PROGRESS */
-const PROG_KEY='histoexplorer_blue_v5';
-function loadProgress(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{};}catch(e){return{};}}
-function saveProgress(p){try{localStorage.setItem(PROG_KEY,JSON.stringify(p));}catch(e){}}
-function markDone(id){const p=loadProgress();if(p[id]&&p[id].done){updateMenu();return;}p[id]={done:true,date:new Date().toISOString()};saveProgress(p);updateMenu();}
+/* ==================== PROGRESS (HANYA DI MEMORI) ====================
+   Progress belajar (tanda centang) TIDAK disimpan di localStorage,
+   sehingga otomatis hilang saat halaman dimuat ulang atau dibuka
+   di perangkat/akun lain. */
+let _progress = {};
+function loadProgress(){ return _progress; }
+function saveProgress(p){ _progress = p; }
+function markDone(id){
+  const p = loadProgress();
+  if(p[id] && p[id].done){ updateMenu(); return; }
+  p[id] = { done:true, date:new Date().toISOString() };
+  saveProgress(p);
+  updateMenu();
+}
 function resetProgress(){
-  if(!confirm('Reset semua progress & riwayat soal? Semua tanda centang akan hilang.'))return;
-  try{localStorage.removeItem(PROG_KEY);}catch(e){}
+  if(!confirm('Reset progress & riwayat soal? Semua tanda centang akan hilang.')) return;
+  _progress = {};
+  // bersihkan sisa data progress lama (jika masih ada dari versi sebelumnya)
+  try{ localStorage.removeItem('histoexplorer_blue_v5'); }catch(e){}
   clearSeenAll();
-  updateMenu();notif('Progress & riwayat soal direset!','gold');
+  updateMenu();
+  notif('Progress & riwayat soal direset!','gold');
 }
 function updateMenu(){
   const p=loadProgress();
