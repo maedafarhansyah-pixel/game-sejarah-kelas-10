@@ -700,6 +700,18 @@ body.loading .bg-decor *{
 .button .arrow{transition:transform .35s;}
 .card-link:hover .button .arrow{transform:translateX(5px);}
 
+/* Ikon indikator buka tab baru */
+.button .newwin{
+    display:inline-block;
+    margin-left:2px;
+    font-size:13px;
+    opacity:.85;
+    transition:transform .35s;
+}
+.card-link:hover .button .newwin{
+    transform:translate(3px,-3px);
+}
+
 /* ====== INFO BOX ====== */
 .info{
     position:relative;
@@ -867,7 +879,8 @@ body.loading .bg-decor *{
 
     <!-- ===== GAME 1 ===== -->
     <a class="card card-link" href="gamepengantarilmusejarah.html"
-       aria-label="Mulai Game Pengantar Ilmu Sejarah">
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Mulai Game Pengantar Ilmu Sejarah (buka di tab baru)">
         <h2><span class="ico">🏛️</span> Game Pengantar Ilmu Sejarah</h2>
         <p>
             Siap jadi <b class="hl-purple">detektif masa lalu</b>? 🕵️‍♂️
@@ -883,13 +896,15 @@ body.loading .bg-decor *{
                 <span class="play">▶</span>
                 Mulai Permainan
                 <span class="arrow">→</span>
+                <span class="newwin">↗</span>
             </span>
         </div>
     </a>
 
     <!-- ===== GAME 2 ===== -->
     <a class="card card-link" href="gamepenelitiansejarah.html"
-       aria-label="Mulai Game Penelitian Sejarah">
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Mulai Game Penelitian Sejarah (buka di tab baru)">
         <h2><span class="ico">📚</span> Game Penelitian Sejarah</h2>
         <p>
             Bagaimana cara para sejarawan <b class="hl-cyan">mengungkap
@@ -906,6 +921,7 @@ body.loading .bg-decor *{
                 <span class="play">▶</span>
                 Mulai Permainan
                 <span class="arrow">→</span>
+                <span class="newwin">↗</span>
             </span>
         </div>
     </a>
