@@ -23,6 +23,7 @@
     --cyan-light:#22d3ee;
     --purple:#8b5cf6;
     --amber:#f59e0b;
+    --green:#10b981;
 
     --ink:#0f172a;
     --muted:#5b6b85;
@@ -513,6 +514,7 @@ body.loading .bg-decor *{
 .card:nth-child(1){animation-delay:.42s;}
 .card:nth-child(2){animation-delay:.54s;}
 .card:nth-child(3){animation-delay:.66s;}
+.card:nth-child(4){animation-delay:.78s;}
 @keyframes cardIn{
     from{opacity:0;transform:translateY(38px) scale(.98);}
     to{opacity:1;transform:translateY(0) scale(1);}
@@ -569,6 +571,9 @@ body.loading .bg-decor *{
     background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);
 }
 .card:nth-child(3)::after{
+    background:radial-gradient(circle,rgba(16,185,129,.22),transparent 70%);
+}
+.card:nth-child(4)::after{
     background:radial-gradient(circle,rgba(245,158,11,.22),transparent 70%);
 }
 .card:hover{
@@ -608,6 +613,10 @@ body.loading .bg-decor *{
     box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
 }
 .card:nth-child(3) h2 .ico{
+    background:linear-gradient(135deg,var(--green),#34d399);
+    box-shadow:0 10px 22px -8px rgba(16,185,129,.7);
+}
+.card:nth-child(4) h2 .ico{
     background:linear-gradient(135deg,var(--amber),#fbbf24);
     box-shadow:0 10px 22px -8px rgba(245,158,11,.7);
 }
@@ -627,6 +636,7 @@ body.loading .bg-decor *{
 }
 .card p .hl-purple{color:var(--purple);font-weight:700;}
 .card p .hl-cyan{color:#0891b2;font-weight:700;}
+.card p .hl-green{color:#059669;font-weight:700;}
 .card p .hl-amber{color:#b45309;font-weight:700;}
 
 /* ====== BUTTON ====== */
@@ -666,6 +676,17 @@ body.loading .bg-decor *{
 @keyframes glowPurple{
     0%,100%{box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);}
     50%{box-shadow:0 20px 44px -10px rgba(167,139,250,.7), inset 0 1px 0 rgba(255,255,255,.3);}
+}
+
+.button.green{
+    background:linear-gradient(120deg,#047857,var(--green) 55%,#34d399);
+    background-size:200% 100%;
+    box-shadow:0 16px 34px -12px rgba(16,185,129,.75), inset 0 1px 0 rgba(255,255,255,.25);
+    animation:glowGreen 3.2s ease-in-out infinite;
+}
+@keyframes glowGreen{
+    0%,100%{box-shadow:0 16px 34px -12px rgba(16,185,129,.75), inset 0 1px 0 rgba(255,255,255,.25);}
+    50%{box-shadow:0 20px 44px -10px rgba(52,211,153,.7), inset 0 1px 0 rgba(255,255,255,.3);}
 }
 
 .card-link:hover .button{
@@ -918,6 +939,33 @@ body.loading .bg-decor *{
 
         <div class="btn-wrap">
             <span class="button">
+                <span class="play">▶</span>
+                Mulai Permainan
+                <span class="arrow">→</span>
+                <span class="newwin">↗</span>
+            </span>
+        </div>
+    </a>
+
+    <!-- ===== GAME 3 ===== -->
+    <a class="card card-link"
+       href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Mulai Game Kehidupan Praaksara (buka di tab baru)">
+        <h2><span class="ico">🦴</span> Game Kehidupan Praaksara</h2>
+        <p>
+            Jauh sebelum tulisan ditemukan, manusia sudah
+            <b class="hl-green">menulis sejarahnya lewat jejak</b> —
+            alat batu, lukisan gua, dan fosil. 🪨 Di game ini kamu akan
+            menelusuri <b>kehidupan manusia purba</b>: dari masa
+            <b>berburu dan meramu</b>, <b>bercocok tanam</b>, hingga
+            <b>mengenal logam</b>. Kenali jenis-jenis manusia purba di
+            Indonesia dan bukti peninggalannya, lalu buktikan bahwa kamu
+            sang <b class="hl-green">arkeolog muda</b>!
+        </p>
+
+        <div class="btn-wrap">
+            <span class="button green">
                 <span class="play">▶</span>
                 Mulai Permainan
                 <span class="arrow">→</span>
