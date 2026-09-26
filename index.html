@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-    /* Warna utama */
     --blue-900:#0b1f4b;
     --blue-800:#132f6e;
     --blue-700:#1d4ed8;
@@ -18,7 +17,6 @@
     --blue-100:#dbeafe;
     --blue-50:#eff6ff;
 
-    /* 3 warna pendukung yang serasi */
     --cyan:#06b6d4;
     --purple:#8b5cf6;
     --amber:#f59e0b;
@@ -32,7 +30,6 @@
 }
 
 *{box-sizing:border-box;}
-
 html{scroll-behavior:smooth;}
 
 body{
@@ -50,7 +47,209 @@ body{
     -webkit-font-smoothing:antialiased;
 }
 
-/* ====== Ornamen latar bergerak ====== */
+body.loading{overflow:hidden;}
+
+/* ====== LOADING ====== */
+.loader{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:24px;
+    background:
+        radial-gradient(700px 480px at 18% 12%, rgba(6,182,212,.40), transparent 60%),
+        radial-gradient(700px 480px at 85% 88%, rgba(139,92,246,.40), transparent 60%),
+        radial-gradient(600px 400px at 50% 50%, rgba(37,99,235,.35), transparent 65%),
+        linear-gradient(160deg,#0b1f4b 0%, #132f6e 50%, #1d4ed8 100%);
+    transition:opacity .55s ease, visibility .55s ease;
+}
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+.loader::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(circle at 50% 50%,#000 5%,transparent 72%);
+    -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 5%,transparent 72%);
+}
+.loader::after{
+    content:"";
+    position:absolute;
+    top:0;left:-60%;
+    width:55%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.10),transparent);
+    transform:skewX(-18deg);
+    animation:loaderSheen 3s ease-in-out infinite;
+}
+@keyframes loaderSheen{
+    0%{left:-60%;}
+    60%,100%{left:130%;}
+}
+
+.loader-box{
+    position:relative;
+    z-index:2;
+    animation:loaderPop .7s cubic-bezier(.2,.9,.25,1.15) both;
+}
+@keyframes loaderPop{
+    from{opacity:0;transform:translateY(26px) scale(.94);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.loader-ring{
+    position:relative;
+    width:118px;
+    height:118px;
+    margin:0 auto 28px;
+}
+.loader-ring span{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:3px solid transparent;
+}
+.loader-ring span:nth-child(1){
+    border-top-color:var(--cyan);
+    border-left-color:rgba(6,182,212,.35);
+    animation:spin 1.35s linear infinite;
+    filter:drop-shadow(0 0 10px rgba(34,211,238,.8));
+}
+.loader-ring span:nth-child(2){
+    inset:13px;
+    border-right-color:var(--purple);
+    border-bottom-color:rgba(139,92,246,.35);
+    animation:spin 1.05s linear infinite reverse;
+    filter:drop-shadow(0 0 10px rgba(167,139,250,.8));
+}
+.loader-ring span:nth-child(3){
+    inset:26px;
+    border-bottom-color:var(--amber);
+    border-top-color:rgba(245,158,11,.35);
+    animation:spin .85s linear infinite;
+    filter:drop-shadow(0 0 10px rgba(251,191,36,.8));
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.loader-core{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    font-size:32px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.16), transparent 70%);
+    animation:corePulse 1.6s ease-in-out infinite;
+}
+@keyframes corePulse{
+    0%,100%{transform:scale(1);filter:drop-shadow(0 0 8px rgba(255,255,255,.4));}
+    50%{transform:scale(1.14);filter:drop-shadow(0 0 20px rgba(165,243,252,.9));}
+}
+
+.loader-title{
+    font-size:clamp(17px,3.4vw,22px);
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    background:linear-gradient(100deg,#ffffff,#a5f3fc 25%,#c4b5fd 50%,#fde68a 75%,#ffffff);
+    background-size:250% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:gradientMove 4s linear infinite;
+}
+.loader-sub{
+    margin-top:8px;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:#7dd3fc;
+    text-shadow:0 0 14px rgba(34,211,238,.7);
+}
+
+.loader-bar{
+    position:relative;
+    width:min(260px,72vw);
+    height:9px;
+    margin:26px auto 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.18);
+    overflow:hidden;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.3);
+}
+.loader-bar i{
+    display:block;
+    width:0%;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--cyan),var(--blue-500) 45%,var(--purple) 75%,var(--amber));
+    background-size:200% 100%;
+    box-shadow:0 0 16px rgba(34,211,238,.85);
+    animation:gradientMove 2s linear infinite;
+}
+.loader-bar::after{
+    content:"";
+    position:absolute;
+    top:0;left:-40%;
+    width:35%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);
+    transform:skewX(-20deg);
+    animation:barSheen 1.4s linear infinite;
+}
+@keyframes barSheen{
+    0%{left:-40%;}
+    100%{left:120%;}
+}
+
+.loader-pct{
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:.12em;
+    color:#dbeafe;
+    font-variant-numeric:tabular-nums;
+}
+.loader-pct b{color:#67e8f9;}
+
+.loader-hint{
+    margin-top:14px;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:rgba(191,219,254,.75);
+}
+.loader-hint::after{
+    content:"";
+    animation:dots 1.4s steps(4,end) infinite;
+}
+@keyframes dots{
+    0%{content:"";}
+    25%{content:".";}
+    50%{content:"..";}
+    75%{content:"...";}
+    100%{content:"";}
+}
+
+body.loading .header::before,
+body.loading .header *,
+body.loading .container *,
+body.loading .footer,
+body.loading .footer *,
+body.loading .bg-decor *{
+    animation-play-state:paused !important;
+}
+
+/* ====== BACKGROUND ====== */
 .bg-decor{
     position:fixed;
     inset:0;
@@ -76,7 +275,6 @@ body{
     66%{transform:translate3d(-25px,25px,0) scale(.95);}
 }
 
-/* Grid halus di atas latar */
 .bg-decor::after{
     content:"";
     position:absolute;
@@ -89,7 +287,7 @@ body{
     -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 10%,transparent 78%);
 }
 
-/* ====== Header ====== */
+/* ====== HEADER ====== */
 .header{
     position:relative;
     z-index:2;
@@ -105,7 +303,6 @@ body{
     box-shadow:0 30px 70px -30px rgba(11,31,75,.75);
 }
 
-/* Kilau bergerak di header */
 .header::before{
     content:"";
     position:absolute;
@@ -120,37 +317,6 @@ body{
     55%,100%{left:130%;}
 }
 
-.header .badge{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 18px;
-    margin-bottom:22px;
-    font-size:12.5px;
-    font-weight:700;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:#dbeafe;
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.28);
-    border-radius:999px;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    animation:fadeUp .8s .05s both;
-}
-.header .badge span.dot{
-    width:8px;height:8px;border-radius:50%;
-    background:var(--amber);
-    box-shadow:0 0 0 4px rgba(245,158,11,.25);
-    animation:pulse 1.8s infinite;
-}
-@keyframes pulse{
-    0%,100%{transform:scale(1);opacity:1;}
-    50%{transform:scale(1.35);opacity:.65;}
-}
-
-/* ====== JUDUL HEADER ====== */
 .header h1{
     position:relative;
     margin:0 0 14px;
@@ -162,7 +328,6 @@ body{
     animation:fadeUp .8s .15s both;
 }
 
-/* Baris 1: GAME EDUKASI SEJARAH — gradient beranimasi + glow + kilau */
 .header h1 .grad{
     position:relative;
     display:block;
@@ -189,7 +354,6 @@ body{
     100%{background-position:250% 50%;}
 }
 
-/* Baris 2: KELAS 10 — ukuran sama, gradient cyan-neon + glow */
 .header h1 .kelas{
     position:relative;
     display:block;
@@ -212,7 +376,6 @@ body{
     50%{filter:drop-shadow(0 0 20px rgba(34,211,238,1)) drop-shadow(0 0 40px rgba(6,182,212,.85));}
 }
 
-/* Garis dekoratif kecil di bawah KELAS 10 */
 .header h1 .kelas::after{
     content:"";
     display:block;
@@ -272,7 +435,7 @@ body{
     to{opacity:1;transform:translateY(0);}
 }
 
-/* ====== Container & Card ====== */
+/* ====== CONTAINER & CARD ====== */
 .container{
     position:relative;
     z-index:2;
@@ -283,6 +446,7 @@ body{
 
 .card{
     position:relative;
+    display:block;
     background:var(--card);
     border:1px solid var(--stroke);
     border-radius:var(--radius);
@@ -292,7 +456,7 @@ body{
     backdrop-filter:blur(18px) saturate(160%);
     -webkit-backdrop-filter:blur(18px) saturate(160%);
     overflow:hidden;
-    transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s, border-color .45s;
     animation:cardIn .9s both;
 }
 .card:nth-child(1){animation-delay:.42s;}
@@ -303,7 +467,34 @@ body{
     to{opacity:1;transform:translateY(0) scale(1);}
 }
 
-/* Garis aksen atas */
+.card-link{
+    color:inherit;
+    text-decoration:none;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+.card-link:focus-visible{
+    outline:3px solid var(--blue-500);
+    outline-offset:4px;
+}
+.card-link::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:var(--radius);
+    background:linear-gradient(135deg,rgba(37,99,235,.06),rgba(139,92,246,.06));
+    opacity:0;
+    transition:opacity .45s;
+    pointer-events:none;
+}
+.card-link:hover::before{opacity:1;}
+.card-link:hover{
+    transform:translateY(-8px);
+    border-color:rgba(37,99,235,.35);
+    box-shadow:0 38px 78px -26px rgba(15,42,110,.5);
+}
+.card-link:active{transform:translateY(-3px) scale(.995);}
+
 .card::before{
     content:"";
     position:absolute;
@@ -313,7 +504,6 @@ body{
     opacity:.9;
 }
 
-/* Cahaya lembut di sudut */
 .card::after{
     content:"";
     position:absolute;
@@ -322,6 +512,7 @@ body{
     border-radius:50%;
     background:radial-gradient(circle,rgba(139,92,246,.22),transparent 70%);
     transition:transform .6s;
+    pointer-events:none;
 }
 .card:nth-child(2)::after{
     background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);
@@ -357,12 +548,10 @@ body{
     box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
     transition:transform .4s;
 }
-/* Ikon kartu 1 (Pengantar Ilmu Sejarah) - ungu */
 .card:nth-child(1) h2 .ico{
     background:linear-gradient(135deg,var(--purple),var(--blue-500));
     box-shadow:0 10px 22px -8px rgba(139,92,246,.7);
 }
-/* Ikon kartu 2 (Penelitian Sejarah) - biru-cyan */
 .card:nth-child(2) h2 .ico{
     background:linear-gradient(135deg,var(--blue-600),var(--cyan));
     box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
@@ -375,52 +564,23 @@ body{
 
 .card p{
     position:relative;
-    margin:0 0 14px;
+    margin:0 0 6px;
     font-size:15px;
     line-height:1.75;
     color:var(--muted);
 }
 
-/* Fitur list */
-.features{
-    position:relative;
-    display:grid;
-    gap:10px;
-    margin:18px 0 6px;
+/* Highlight kata kunci biar lebih hidup */
+.card p b{
+    color:var(--blue-800);
+    font-weight:700;
 }
-.feature{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:12px 15px;
-    font-size:14.5px;
-    font-weight:600;
-    color:#25324a;
-    background:rgba(255,255,255,.72);
-    border:1px solid rgba(37,99,235,.14);
-    border-radius:14px;
-    transition:transform .3s, border-color .3s, background .3s;
-}
-.feature:hover{
-    transform:translateX(6px);
-    border-color:rgba(37,99,235,.4);
-    background:#fff;
-}
-.feature .mark{
-    display:grid;
-    place-items:center;
-    width:30px;height:30px;
-    flex:0 0 30px;
-    font-size:14px;
-    border-radius:10px;
-    color:#fff;
-}
-.m1 .mark{background:linear-gradient(135deg,var(--blue-600),var(--blue-500));}
-.m2 .mark{background:linear-gradient(135deg,var(--cyan),#22d3ee);}
-.m3 .mark{background:linear-gradient(135deg,var(--amber),#fbbf24);}
+.card p .hl-purple{color:var(--purple);font-weight:700;}
+.card p .hl-cyan{color:#0891b2;font-weight:700;}
+.card p .hl-amber{color:#b45309;font-weight:700;}
 
-/* ====== Tombol ====== */
-.btn-wrap{position:relative;margin-top:24px;}
+/* ====== BUTTON ====== */
+.btn-wrap{position:relative;margin-top:22px;}
 
 .button{
     position:relative;
@@ -446,13 +606,7 @@ body{
     0%,100%{box-shadow:0 16px 34px -12px rgba(29,78,216,.75), inset 0 1px 0 rgba(255,255,255,.25);}
     50%{box-shadow:0 20px 44px -10px rgba(6,182,212,.7), inset 0 1px 0 rgba(255,255,255,.3);}
 }
-.button:hover{
-    transform:translateY(-4px) scale(1.02);
-    background-position:100% 0;
-}
-.button:active{transform:translateY(-1px) scale(.99);}
 
-/* Tombol varian ungu (Pengantar Ilmu Sejarah) */
 .button.purple{
     background:linear-gradient(120deg,var(--blue-700),var(--purple) 55%,#a78bfa);
     background-size:200% 100%;
@@ -463,17 +617,13 @@ body{
     0%,100%{box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);}
     50%{box-shadow:0 20px 44px -10px rgba(167,139,250,.7), inset 0 1px 0 rgba(255,255,255,.3);}
 }
-.button.purple:hover{background-position:100% 0;}
 
-/* Tombol varian amber (cadangan) */
-.button.amber{
-    background:linear-gradient(120deg,#b45309,var(--amber) 55%,#fbbf24);
-    background-size:200% 100%;
-    box-shadow:0 16px 34px -12px rgba(245,158,11,.75), inset 0 1px 0 rgba(255,255,255,.25);
+.card-link:hover .button{
+    transform:translateY(-4px) scale(1.02);
+    background-position:100% 0;
 }
-.button.amber:hover{background-position:100% 0;}
+.card-link:active .button{transform:translateY(-1px) scale(.99);}
 
-/* kilau tombol */
 .button::after{
     content:"";
     position:absolute;
@@ -483,7 +633,7 @@ body{
     transform:skewX(-20deg);
     transition:left .7s ease;
 }
-.button:hover::after{left:130%;}
+.card-link:hover .button::after{left:130%;}
 
 .button .play{
     display:grid;
@@ -495,15 +645,15 @@ body{
     border:1px solid rgba(255,255,255,.35);
     transition:transform .35s;
 }
-.button:hover .play{transform:scale(1.15) rotate(8deg);}
+.card-link:hover .button .play{transform:scale(1.15) rotate(8deg);}
 
 .button .arrow{transition:transform .35s;}
-.button:hover .arrow{transform:translateX(5px);}
+.card-link:hover .button .arrow{transform:translateX(5px);}
 
-/* ====== Info box ====== */
+/* ====== INFO BOX ====== */
 .info{
     position:relative;
-    margin-top:22px;
+    margin-top:20px;
     padding:18px 20px 18px 22px;
     font-size:14.5px;
     line-height:1.7;
@@ -530,7 +680,6 @@ body{
     background:radial-gradient(circle,rgba(139,92,246,.18),transparent 70%);
 }
 .info:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(37,99,235,.55);}
-.info strong{color:var(--blue-800);}
 .info .lbl{
     display:inline-flex;
     align-items:center;
@@ -550,7 +699,7 @@ body{
     border:1px solid rgba(245,158,11,.35);
 }
 
-/* ====== Footer ====== */
+/* ====== FOOTER ====== */
 .footer{
     position:relative;
     z-index:2;
@@ -580,7 +729,7 @@ body{
     color:var(--blue-800);
 }
 
-/* ====== Responsif ====== */
+/* ====== RESPONSIVE ====== */
 @media (max-width:600px){
     .header{padding:60px 18px 84px;border-radius:0 0 32px 32px;}
     .container{margin-top:-46px;padding:0 16px 12px;}
@@ -590,9 +739,10 @@ body{
     .button{width:100%;justify-content:center;padding:15px 22px;}
     .bg-decor .blob{filter:blur(55px);opacity:.4;}
     .header h1 .kelas{letter-spacing:.10em;}
+    .loader-ring{width:96px;height:96px;}
+    .loader-core{font-size:26px;}
 }
 
-/* Aksesibilitas: kurangi animasi */
 @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{
         animation-duration:.001ms !important;
@@ -602,7 +752,25 @@ body{
 }
 </style>
 </head>
-<body>
+<body class="loading">
+
+<!-- ==================== LOADING ==================== -->
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Memuat halaman">
+    <div class="loader-box">
+        <div class="loader-ring">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="loader-core">🎓</div>
+        </div>
+        <div class="loader-title">Game Edukasi Sejarah</div>
+        <div class="loader-sub">Kelas 10</div>
+
+        <div class="loader-bar"><i id="loaderFill"></i></div>
+        <div class="loader-pct"><b id="loaderPct">0</b>%</div>
+        <div class="loader-hint">Menyiapkan petualangan</div>
+    </div>
+</div>
 
 <!-- Ornamen latar -->
 <div class="bg-decor" aria-hidden="true">
@@ -627,55 +795,52 @@ body{
 
 <main class="container">
 
-    <!-- ===== KARTU GAME 1: PENGANTAR ILMU SEJARAH ===== -->
-    <div class="card">
+    <!-- ===== GAME 1 ===== -->
+    <a class="card card-link" href="gamepengantarilmusejarah.html"
+       aria-label="Mulai Game Pengantar Ilmu Sejarah">
         <h2><span class="ico">🏛️</span> Game Pengantar Ilmu Sejarah</h2>
         <p>
-            Kenali dasar-dasar ilmu sejarah melalui permainan seru:
-            pengertian sejarah, ruang lingkup, sumber sejarah, hingga
-            cara berpikir sejarah yang kritis dan menyenangkan.
+            Siap jadi <b class="hl-purple">detektif masa lalu</b>? 🕵️‍♂️
+            Di sini kamu akan menelusuri <b>apa itu sejarah</b>, mengapa
+            <b>waktu dan ruang</b> begitu penting, serta bagaimana
+            <b>sumber sejarah</b> menjadi kunci untuk mengungkap kisah
+            yang telah lama terkubur. Setiap jawaban benar membawamu
+            selangkah lebih dekat menjadi <b class="hl-purple">sejarawan muda</b>!
         </p>
 
-        <div class="features">
-            <div class="feature m1"><span class="mark">🎮</span> Tantangan interaktif &amp; kuis seru</div>
-            <div class="feature m2"><span class="mark">⭐</span> Sistem poin &amp; level bertingkat</div>
-            <div class="feature m3"><span class="mark">🧠</span> Penguatan materi pengantar ilmu sejarah</div>
-        </div>
-
         <div class="btn-wrap">
-            <a class="button purple" href="gamepengantarilmusejarah.html">
+            <span class="button purple">
                 <span class="play">▶</span>
                 Mulai Permainan
                 <span class="arrow">→</span>
-            </a>
+            </span>
         </div>
-    </div>
+    </a>
 
-    <!-- ===== KARTU GAME 2: PENELITIAN SEJARAH ===== -->
-    <div class="card">
+    <!-- ===== GAME 2 ===== -->
+    <a class="card card-link" href="gamepenelitiansejarah.html"
+       aria-label="Mulai Game Penelitian Sejarah">
         <h2><span class="ico">📚</span> Game Penelitian Sejarah</h2>
         <p>
-            Mari menjelajahi konsep penelitian sejarah melalui berbagai
-            permainan dan tantangan interaktif yang dirancang khusus
-            untuk siswa kelas 10.
+            Bagaimana cara para sejarawan <b class="hl-cyan">mengungkap
+            kebenaran masa lalu</b>? 🔍 Di game ini kamu akan berlatih
+            langkah demi langkah: <b>memilih topik</b>, <b>mengumpulkan
+            sumber</b>, <b>menilai keaslian</b>, hingga <b>menulis kisah
+            sejarah</b> yang dapat dipercaya. Tantangannya bertingkat —
+            selesaikan semua level dan buktikan bahwa kamu sang
+            <b class="hl-cyan">peneliti sejarah sejati</b>!
         </p>
 
-        <div class="features">
-            <div class="feature m1"><span class="mark">🎮</span> Permainan interaktif dengan alur bertahap</div>
-            <div class="feature m2"><span class="mark">⭐</span> Poin &amp; tantangan di setiap level</div>
-            <div class="feature m3"><span class="mark">🧠</span> Penguatan materi penelitian sejarah</div>
-        </div>
-
         <div class="btn-wrap">
-            <a class="button" href="gamepenelitiansejarah.html">
+            <span class="button">
                 <span class="play">▶</span>
                 Mulai Permainan
                 <span class="arrow">→</span>
-            </a>
+            </span>
         </div>
-    </div>
+    </a>
 
-    <!-- ===== KARTU INFO / GAME BERIKUTNYA ===== -->
+    <!-- ===== INFO TAMBAHAN ===== -->
     <div class="card">
         <h2><span class="ico">📖</span> Game Lainnya</h2>
         <p>
@@ -700,6 +865,72 @@ body{
     <span class="brand">Game Edukasi Sejarah Kelas 10</span>
     Belajar sejarah jadi lebih hidup ✨
 </footer>
+
+<script>
+/* ============================================================
+   LOADER — 2 detik
+   ============================================================ */
+(function () {
+    var loader  = document.getElementById('loader');
+    var fill    = document.getElementById('loaderFill');
+    var pctEl   = document.getElementById('loaderPct');
+    var DURATION = 2000;
+
+    var startTime = null;
+    var finished  = false;
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function step(now) {
+        if (startTime === null) startTime = now;
+        var t = Math.min((now - startTime) / DURATION, 1);
+        var p = Math.round(easeOutCubic(t) * 100);
+
+        fill.style.width = p + '%';
+        pctEl.textContent = p;
+
+        if (t < 1) {
+            requestAnimationFrame(step);
+        } else if (!finished) {
+            finished = true;
+            hideLoader();
+        }
+    }
+
+    function hideLoader() {
+        setTimeout(function () {
+            loader.classList.add('hide');
+            document.body.classList.remove('loading');
+
+            setTimeout(function () {
+                if (loader && loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 650);
+        }, 120);
+    }
+
+    if (document.readyState === 'complete') {
+        requestAnimationFrame(step);
+    } else {
+        window.addEventListener('load', function () {
+            requestAnimationFrame(step);
+        });
+        requestAnimationFrame(step);
+    }
+
+    setTimeout(function () {
+        if (!finished) {
+            finished = true;
+            fill.style.width = '100%';
+            pctEl.textContent = '100';
+            hideLoader();
+        }
+    }, 2600);
+})();
+</script>
 
 </body>
 </html>
