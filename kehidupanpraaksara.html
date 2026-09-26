@@ -3,564 +3,1535 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Bagian 3 : Kehidupan Pra Aksara di Indonesia — Hub Kuis Interaktif</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+<title>Praaksara Quest — 5 Game Edukasi Sejarah Kelas X</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --blue:#2563eb;--blue2:#3b82f6;--blue3:#60a5fa;--blue4:#93c5fd;--blue5:#dbeafe;--blue6:#eff6ff;
-  --cyan:#06b6d4;--cyan2:#22d3ee;--cyan3:#a5f3fc;
-  --purple:#8b5cf6;--purple2:#a78bfa;--purple3:#ddd6fe;
-  --amber:#f59e0b;--amber2:#fbbf24;
-  --green:#10b981;--red:#ef4444;
-  --ink:#0f172a;--ink2:#1e3a8a;--muted:#5b6b85;--muted2:#94a3b8;
-  --card:rgba(255,255,255,.78);--stroke:rgba(255,255,255,.85);
-  --radius:18px;--ease:cubic-bezier(0.23,1,0.32,1);
-  --shadow:0 20px 45px -18px rgba(15,42,110,.28);
-  --shadow-lg:0 30px 70px -22px rgba(15,42,110,.38);
+  --bg0:#f7fafc;--bg1:#eef5ff;--bg2:#e2edff;--bg3:#d3e3ff;
+  --gold:#0284c7;--gold2:#0369a1;--gold3:#075985;
+  --violet:#2563eb;--violet2:#1d4ed8;
+  --cyan:#0891b2;--cyan2:#0e7490;
+  --emerald:#059669;--emerald2:#047857;
+  --rose:#e11d48;--rose2:#be123c;
+  --sky:#0284c7;
+  --text:#0f172a;--muted:#7c8aa1;--muted2:#475569;
+  --card:#ffffff;--card2:#f4f8ff;
+  --line:rgba(37,99,235,.16);
+  --radius:16px;--ease:cubic-bezier(.22,1,.36,1);
+  --shadow-lg:0 18px 45px rgba(15,23,42,.10),0 6px 18px rgba(2,132,199,.10);
 }
 html,body{height:100%;overflow-x:hidden}
 body{
-  font-family:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
-  color:var(--ink);min-height:100vh;font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:radial-gradient(ellipse at top,#eef5ff 0%,#f8fbff 45%,#f7fafc 100%);
+  color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(37,99,235,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,.055) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%);
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(900px 600px at 8% -5%, rgba(6,182,212,.28), transparent 60%),
-    radial-gradient(800px 600px at 95% 0%, rgba(139,92,246,.24), transparent 55%),
-    radial-gradient(900px 700px at 50% 110%, rgba(37,99,235,.30), transparent 60%),
-    linear-gradient(160deg,#eef4ff 0%,#f7f9ff 45%,#eaf1ff 100%);
-  background-attachment:fixed;
+    radial-gradient(circle at 12% 15%,rgba(56,189,248,.18),transparent 42%),
+    radial-gradient(circle at 88% 80%,rgba(99,102,241,.13),transparent 42%);
 }
 
-/* ============ BG ORNAMENTS ============ */
-.aurora{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
-.aurora::before,.aurora::after{content:'';position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
-.aurora::before{background:radial-gradient(circle,rgba(6,182,212,.55),transparent 60%);top:-15vmax;left:-15vmax;animation:aur1 18s ease-in-out infinite}
-.aurora::after{background:radial-gradient(circle,rgba(139,92,246,.5),transparent 60%);bottom:-15vmax;right:-15vmax;animation:aur2 22s ease-in-out infinite}
-@keyframes aur1{0%,100%{transform:translate(0,0)}50%{transform:translate(10vw,7vh) scale(1.12)}}
-@keyframes aur2{0%,100%{transform:translate(0,0)}50%{transform:translate(-10vw,-7vh) scale(1.18)}}
-.orb{position:fixed;border-radius:50%;filter:blur(50px);pointer-events:none;z-index:-2;opacity:.4;animation:orbFloat 20s ease-in-out infinite}
-@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.2)}}
-#bgCanvas{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5}
-#confetti{position:fixed;inset:0;pointer-events:none;z-index:2500}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 16px 60px;position:relative;z-index:1}
 
-/* ============ SCREEN ============ */
-.screen{display:none;min-height:100vh;padding:24px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.screen.active{display:block;animation:screenIn .7s var(--ease)}
-@keyframes screenIn{0%{opacity:0;transform:translateY(24px) scale(.98)}100%{opacity:1;transform:none}}
+/* ============ SCREENS ============ */
+.screen{display:none;animation:fadeUp .5s var(--ease)}
+.screen.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
-/* ============ HERO ============ */
-.hero{text-align:center;padding:20px 0 30px;position:relative}
+/* ============ HUB ============ */
+.hub{text-align:center;padding:30px 8px 10px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:99px;
+  background:linear-gradient(135deg,rgba(2,132,199,.10),rgba(37,99,235,.06));
+  border:1.5px solid rgba(2,132,199,.30);font-size:.72rem;font-weight:800;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:18px}
+.badge i{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hub h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,5vw,2.8rem);
+  font-weight:900;letter-spacing:-.5px;line-height:1.1;
+  background:linear-gradient(120deg,#0369a1,#2563eb,#0891b2,#0369a1);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:grad 6s linear infinite;
+  margin-bottom:12px}
+@keyframes grad{to{background-position:300% 0}}
+.hub p{color:var(--muted2);max-width:620px;margin:0 auto;font-size:.95rem}
 
-.hero-title{font-size:clamp(1.4rem,4.8vw,3rem);font-weight:800;line-height:1.2;letter-spacing:-.8px;background:linear-gradient(120deg,#1d4ed8,#06b6d4,#8b5cf6,#2563eb,#1d4ed8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:blueTextShift 6s linear infinite;filter:drop-shadow(0 6px 20px rgba(37,99,235,.25));position:relative;word-break:keep-all;padding:0 8px}
-@keyframes blueTextShift{to{background-position:300% 0}}
-
-.hero-sub{margin-top:26px;color:var(--muted);font-size:clamp(1rem,2.4vw,1.35rem);max-width:720px;margin-left:auto;margin-right:auto;font-weight:600;line-height:1.5}
-.hero-sub .line-2{display:block;margin-top:10px;font-size:.82em;font-weight:500;color:var(--blue);font-style:italic;letter-spacing:.3px}
-.hero-sub b{color:var(--blue);font-weight:800}
-
-.hero-stats{display:flex;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.25))}
-.stat-lbl{font-size:.78rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-top:2px}
+.hub-stats{display:flex;justify-content:center;gap:32px;margin:24px 0;flex-wrap:wrap}
+.hs{text-align:center}
+.hs .n{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:900;
+  background:linear-gradient(135deg,#0284c7,#2563eb,#0891b2);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hs .l{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:800}
 
 /* ============ PROGRESS ============ */
-.progress-wrap{max-width:520px;margin:30px auto 0;padding:16px 22px;background:var(--card);border:1px solid var(--stroke);border-radius:16px;position:relative;overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.9rem;font-weight:700;position:relative}
-.progress-info .lbl{color:var(--muted);display:flex;align-items:center;gap:8px}
-.progress-info .val{color:var(--blue)}
-.progress-bar{height:10px;border-radius:10px;background:rgba(37,99,235,.1);overflow:hidden}
-.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);background-size:200% 100%;transition:width .6s var(--ease);box-shadow:0 0 14px rgba(37,99,235,.45);animation:barGradShift 3s linear infinite}
-@keyframes barGradShift{to{background-position:200% 0}}
-.reset-progress{margin-top:12px;text-align:center}
-.reset-progress button{background:transparent;border:1.5px dashed rgba(37,99,235,.4);color:var(--blue);padding:6px 16px;border-radius:20px;font-size:.75rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit}
-.reset-progress button:hover{background:var(--blue);color:#fff;border-style:solid;border-color:var(--blue)}
+.prog-wrap{max-width:520px;margin:22px auto 0;padding:14px 18px;border-radius:16px;
+  background:#fff;
+  border:1.5px solid var(--line);
+  box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.prog-info{display:flex;justify-content:space-between;font-size:.82rem;font-weight:800;margin-bottom:8px}
+.prog-info .lbl{color:var(--muted2)}
+.prog-info .val{color:var(--gold2)}
+.prog-bar{height:8px;border-radius:8px;background:rgba(15,23,42,.07);overflow:hidden}
+.prog-fill{height:100%;border-radius:8px;width:0%;transition:width .6s var(--ease);
+  background:linear-gradient(90deg,var(--gold),var(--violet),var(--cyan));
+  box-shadow:0 0 12px rgba(2,132,199,.35)}
+.reset-btn{margin-top:10px;padding:6px 14px;border-radius:99px;border:1.5px dashed rgba(225,29,72,.4);
+  background:transparent;color:var(--rose2);font-size:.68rem;font-weight:800;cursor:pointer;
+  font-family:inherit;letter-spacing:1px;transition:all .25s}
+.reset-btn:hover{background:rgba(225,29,72,.08);border-style:solid}
 
-/* ============ SECTION TITLE ============ */
-.section-title{display:flex;align-items:center;gap:12px;margin:38px 0 20px;padding:0 4px}
-.section-title h2{font-size:1.15rem;font-weight:800;color:var(--ink2);letter-spacing:-.3px}
-.section-title .line{flex:1;height:2px;background:linear-gradient(90deg,rgba(37,99,235,.3),transparent);border-radius:2px}
-.section-title .badge{font-size:.62rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:99px;background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.2)}
-.section-title .badge.soon{background:rgba(245,158,11,.1);color:var(--amber);border-color:rgba(245,158,11,.3)}
+/* ============ GRID ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:32px}
+@media(max-width:600px){.grid{grid-template-columns:1fr;gap:12px}}
 
-/* ============ GAME GRID ============ */
-.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
-@media(max-width:620px){.game-grid{grid-template-columns:1fr 1fr;gap:14px}}
-.gc{position:relative;border-radius:var(--radius);padding:26px 22px;background:var(--card);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--stroke);cursor:pointer;overflow:hidden;transition:transform .3s var(--ease),box-shadow .4s,border-color .3s;box-shadow:var(--shadow);animation:cardIn .7s var(--ease) backwards;display:flex;flex-direction:column}
-.gc:nth-child(1){animation-delay:.1s}.gc:nth-child(2){animation-delay:.2s}.gc:nth-child(3){animation-delay:.3s}
-.gc:nth-child(4){animation-delay:.4s}.gc:nth-child(5){animation-delay:.5s}.gc:nth-child(6){animation-delay:.6s}
-@keyframes cardIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-.gc::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cyan),var(--blue) 40%,var(--purple) 75%,var(--amber));opacity:.9;transition:opacity .3s}
-.gc:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),var(--cyan))}
-.gc:nth-child(3)::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
-.gc:nth-child(4)::before{background:linear-gradient(90deg,var(--purple),var(--purple2))}
-.gc:nth-child(5)::before{background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple))}
-.gc:nth-child(6)::before{background:linear-gradient(90deg,var(--cyan),var(--purple),var(--amber))}
+/* === KARTU KUIS: BIRU LEMBUT SELARAS LATAR === */
+.card{position:relative;padding:24px 20px;border-radius:var(--radius);cursor:pointer;
+  background:linear-gradient(160deg,#e8f1ff 0%,#d6e5fb 55%,#c5dbf8 100%);
+  border:1.5px solid rgba(96,165,250,.35);transition:all .35s var(--ease);
+  box-shadow:0 8px 22px rgba(37,99,235,.10),0 2px 6px rgba(15,23,42,.04);
+  overflow:hidden;display:flex;flex-direction:column}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.card[data-g="wheel"]::before{background:linear-gradient(90deg,#38bdf8,#0ea5e9,#06b6d4)}
+.card[data-g="detektif"]::before{background:linear-gradient(90deg,#22d3ee,#3b82f6)}
+.card[data-g="kronologi"]::before{background:linear-gradient(90deg,#60a5fa,#a78bfa)}
+.card[data-g="petualangan"]::before{background:linear-gradient(90deg,#10b981,#34d399,#06b6d4)}
+.card[data-g="jutawan"]::before{background:linear-gradient(90deg,#38bdf8,#ef4444)}
+.card::after{content:'';position:absolute;top:-40%;right:-40%;width:80%;height:80%;
+  background:radial-gradient(circle,rgba(147,197,253,.35),transparent 70%);
+  pointer-events:none;transition:opacity .35s;opacity:.7}
 
-.gc.available:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg);border-color:rgba(37,99,235,.3)}
-.gc.available:hover .gc-icon{transform:translateY(-3px) scale(1.15) rotate(-6deg)}
-.gc.available:hover .gc-num{transform:scale(1.15) rotate(-8deg);color:rgba(37,99,235,.2)}
+.card:hover{transform:translateY(-6px);
+  border-color:rgba(59,130,246,.60);
+  background:linear-gradient(160deg,#dde9fe 0%,#c7dafa 55%,#b2cdf5 100%);
+  box-shadow:0 16px 38px rgba(37,99,235,.20),0 6px 16px rgba(15,23,42,.08)}
+.card:hover .ico{transform:scale(1.15) rotate(-8deg)}
+.card:hover::after{opacity:1}
 
-.gc.locked{cursor:not-allowed;opacity:.72}
-.gc.locked:hover{transform:translateY(-2px)}
+.ico{font-size:2.4rem;display:block;margin-bottom:14px;width:fit-content;
+  transition:transform .4s var(--ease);filter:drop-shadow(0 4px 10px rgba(37,99,235,.35))}
+.card h3{font-size:1.05rem;font-weight:900;color:#1e3a8a;margin-bottom:6px;letter-spacing:-.2px}
+.card p{font-size:.82rem;color:#475569;line-height:1.5;flex:1;margin-bottom:12px}
+.card .tag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:99px;
+  font-size:.66rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;
+  background:rgba(255,255,255,.85);color:#2563eb;
+  border:1px solid rgba(37,99,235,.22);width:fit-content}
 
-.gc-num{position:absolute;top:16px;right:20px;font-size:3rem;font-weight:800;color:rgba(37,99,235,.1);line-height:1;transition:transform .4s;letter-spacing:-2px}
-.gc.locked .gc-num{color:rgba(245,158,11,.15)}
+.card.done{border-color:rgba(5,150,105,.55);
+  background:linear-gradient(160deg,#e9f7f1 0%,#d9efe5 55%,#c8e8db 100%)}
+.card.done::before{background:linear-gradient(90deg,#10b981,#34d399)!important}
+.card.done::after{content:'✓';position:absolute;top:14px;right:16px;width:30px;height:30px;
+  background:linear-gradient(135deg,#10b981,#059669);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;
+  box-shadow:0 6px 18px rgba(5,150,105,.45);animation:popIn .5s var(--ease);
+  text-shadow:none;opacity:1}
+.card.done h3{color:#065f46}
+.card.done p{color:#4b5563}
+@keyframes popIn{0%{transform:scale(0) rotate(-180deg)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
 
-.gc-icon{font-size:2.4rem;margin-bottom:16px;display:inline-block;background:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 6px 14px rgba(37,99,235,.3));transition:transform .4s var(--ease);width:fit-content}
-.gc:nth-child(3) .gc-icon{background:linear-gradient(135deg,#f59e0b,#fbbf24);filter:drop-shadow(0 6px 14px rgba(245,158,11,.3))}
-.gc:nth-child(4) .gc-icon{background:linear-gradient(135deg,#8b5cf6,#a78bfa);filter:drop-shadow(0 6px 14px rgba(139,92,246,.3))}
+/* ============ GAME HEADER ============ */
+.gh{display:flex;align-items:center;gap:12px;padding:14px 16px;margin-bottom:18px;
+  border-radius:14px;flex-wrap:wrap;
+  background:#fff;
+  border:1.5px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.gh h2{flex:1;font-size:clamp(1rem,2.6vw,1.15rem);font-weight:900;color:var(--text);min-width:180px}
+.gh h2 small{display:block;font-size:.68rem;color:var(--violet2);letter-spacing:1.6px;
+  text-transform:uppercase;font-weight:800;margin-top:3px}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(37,99,235,.22);
+  background:#f1f6ff;color:var(--violet2);cursor:pointer;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s;font-family:inherit}
+.icon-btn:hover{background:var(--violet);color:#fff;transform:scale(1.1) rotate(-10deg)}
+.pill{padding:8px 16px;border-radius:99px;font-size:.78rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold3));color:#fff;
+  white-space:nowrap;box-shadow:0 4px 14px rgba(2,132,199,.28)}
 
-.gc h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:var(--ink2);letter-spacing:-.3px}
-.gc p{font-size:.85rem;color:var(--muted);line-height:1.5;flex:1}
-.gc-tag{display:inline-block;margin-top:14px;padding:5px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.2px;border-radius:20px;text-transform:uppercase;background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.2);width:fit-content}
-.gc.locked .gc-tag{background:rgba(245,158,11,.1);color:var(--amber);border-color:rgba(245,158,11,.3)}
+/* ============ STATS BAR ============ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(85px,1fr));gap:10px;margin-bottom:16px}
+.stat{padding:12px 8px;border-radius:12px;text-align:center;
+  background:#fff;
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(15,23,42,.04)}
+.stat .l{font-size:.6rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:800}
+.stat .v{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:900;margin-top:3px;
+  background:linear-gradient(135deg,#0284c7,#2563eb);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
-.gc-badge-available{position:absolute;top:14px;left:16px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.08));border:1.5px solid rgba(16,185,129,.5);color:var(--green);border-radius:99px;font-size:.6rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
-.gc-badge-available::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:dotPulse 1.6s infinite}
-@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-.gc-badge-soon{position:absolute;top:14px;left:16px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.08));border:1.5px solid rgba(245,158,11,.5);color:#b45309;border-radius:99px;font-size:.6rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+/* ============ INSTRUCTION ============ */
+.inst{padding:14px 16px;margin-bottom:16px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(2,132,199,.07),rgba(226,237,255,.55));
+  border-left:4px solid var(--gold);font-size:.83rem;color:var(--muted2);line-height:1.65}
+.inst strong{color:var(--gold2)}
+.inst i{color:var(--gold);margin-right:6px}
 
-.play-btn{margin-top:16px;padding:11px 22px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;box-shadow:0 8px 20px rgba(37,99,235,.35);transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%}
-.play-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.5);filter:brightness(1.08)}
-.play-btn-locked{margin-top:16px;padding:11px 22px;border-radius:12px;background:rgba(245,158,11,.1);color:var(--amber);font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid rgba(245,158,11,.35);cursor:not-allowed;font-family:inherit;display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%}
+/* ============ BUTTONS ============ */
+.btn{padding:12px 22px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;
+  font-weight:900;font-size:.8rem;letter-spacing:1.2px;text-transform:uppercase;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;
+  box-shadow:0 8px 22px rgba(2,132,199,.28);transition:all .25s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(2,132,199,.38)}
+.btn.violet{background:linear-gradient(135deg,var(--violet),#3b82f6);color:#fff;
+  box-shadow:0 8px 22px rgba(37,99,235,.3)}
+.btn.green{background:linear-gradient(135deg,var(--emerald),#059669);color:#fff;
+  box-shadow:0 8px 22px rgba(5,150,105,.3)}
+.btn.ghost{background:#fff;border:1.5px solid rgba(37,99,235,.35);color:var(--violet2);
+  box-shadow:none}
+.btn.ghost:hover{background:rgba(37,99,235,.08)}
 
-/* ============ TEACHER INFO ============ */
-.teacher-card{margin-top:40px;padding:26px 24px;background:var(--card);backdrop-filter:blur(18px);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden;animation:cardIn .8s var(--ease) .7s backwards}
-.teacher-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:3px;background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--purple),transparent);border-radius:3px}
-.teacher-lbl{font-size:.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px}
-.teacher-lbl i{font-size:1rem;color:var(--cyan)}
-.teacher-name{font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,#1d4ed8,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.5px}
-.teacher-nip{margin-top:4px;font-size:.78rem;font-weight:700;color:var(--muted);font-family:ui-monospace,monospace;letter-spacing:.5px}
+/* ============ GAME 1: WHEEL ============ */
+.wheel-stage{position:relative;width:min(380px,88vw);aspect-ratio:1;margin:14px auto}
+.wheel-canvas{width:100%;height:100%;border-radius:50%;
+  filter:drop-shadow(0 16px 34px rgba(2,132,199,.20)) drop-shadow(0 0 18px rgba(56,189,248,.18));
+  cursor:pointer;transition:transform .1s}
+.wheel-pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:5;
+  width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;
+  border-top:42px solid var(--gold);filter:drop-shadow(0 0 12px rgba(2,132,199,.55))
+    drop-shadow(0 6px 12px rgba(15,23,42,.25));animation:pointerBob 1.6s ease-in-out infinite}
+@keyframes pointerBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-4px)}}
+.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:30%;aspect-ratio:1;border-radius:50%;cursor:pointer;font-family:inherit;
+  background:radial-gradient(circle at 35% 30%,#7dd3fc,#0ea5e9 45%,#0369a1);
+  border:5px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-weight:900;letter-spacing:1.5px;font-size:clamp(.8rem,3vw,1rem);
+  box-shadow:0 0 0 5px rgba(2,132,199,.18),0 0 32px rgba(2,132,199,.35),0 12px 28px rgba(15,23,42,.22);
+  z-index:4;transition:all .25s var(--ease);gap:2px;text-shadow:0 2px 6px rgba(3,8,26,.45)}
+.wheel-hub:hover{transform:translate(-50%,-50%) scale(1.07);
+  box-shadow:0 0 0 7px rgba(2,132,199,.25),0 0 48px rgba(2,132,199,.5),0 14px 32px rgba(15,23,42,.25)}
+.wheel-hub:active{transform:translate(-50%,-50%) scale(.95)}
+.wheel-hub:disabled{opacity:.6;cursor:wait}
+.wheel-hub .ico{font-size:1.6em;line-height:1}
+
+.cat-result{text-align:center;margin-top:14px;min-height:52px;
+  animation:popIn .5s var(--ease)}
+.cat-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:99px;
+  font-weight:900;color:#fff;letter-spacing:.5px;
+  box-shadow:0 8px 24px rgba(15,23,42,.18),inset 0 1px 0 rgba(255,255,255,.2)}
+.cat-badge .e{font-size:1.3em}
+
+/* ============ QUESTION BOX ============ */
+.qbox{padding:22px 20px;border-radius:16px;margin-bottom:14px;
+  background:#fff;
+  border:1.5px solid var(--line);
+  box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.qbox .qn{font-size:.7rem;letter-spacing:2px;color:var(--gold2);font-weight:900;
+  text-transform:uppercase;margin-bottom:8px}
+.qbox .qt{font-size:clamp(.95rem,2.4vw,1.08rem);font-weight:700;color:var(--text);line-height:1.55}
+.opts{display:grid;gap:9px;margin-top:16px}
+.opt{padding:14px 16px;border-radius:12px;font-family:inherit;text-align:left;cursor:pointer;
+  font-size:.88rem;font-weight:600;color:var(--text);transition:all .22s var(--ease);
+  background:#fff;
+  border:1.5px solid var(--line);display:flex;align-items:center;gap:12px}
+.opt .ltr{width:28px;height:28px;flex-shrink:0;border-radius:9px;
+  background:linear-gradient(135deg,var(--violet),#3b82f6);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.78rem}
+.opt:hover:not(:disabled){border-color:var(--gold);transform:translateX(4px);
+  background:#f5faff;box-shadow:0 6px 18px rgba(2,132,199,.14)}
+.opt.ok{background:rgba(5,150,105,.12);
+  border-color:var(--emerald2);animation:flash .5s}
+.opt.ok .ltr{background:linear-gradient(135deg,var(--emerald),#059669)}
+.opt.no{background:rgba(225,29,72,.10);
+  border-color:var(--rose2)}
+.opt.no .ltr{background:linear-gradient(135deg,var(--rose),#be123c)}
+.opt:disabled{cursor:default}
+.opt.elim{opacity:.25;pointer-events:none;text-decoration:line-through}
+@keyframes flash{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+
+.fb{margin-top:14px;padding:14px 16px;border-radius:12px;font-size:.85rem;
+  line-height:1.6;display:none;animation:fadeUp .35s}
+.fb.on{display:block}
+.fb.good{background:rgba(5,150,105,.10);border-left:4px solid var(--emerald2);color:#065f46}
+.fb.bad{background:rgba(225,29,72,.08);border-left:4px solid var(--rose2);color:#9f1239}
+.fb b{color:var(--text);font-weight:800}
+.fb .kp{margin-top:8px;padding:8px 12px;border-radius:8px;
+  background:rgba(2,132,199,.09);border-left:3px solid var(--gold);
+  color:#075985;font-weight:700;font-size:.82rem}
+
+/* ============ GAME 2: DETEKTIF ============ */
+.det-card{padding:32px 22px;border-radius:18px;text-align:center;margin:16px 0;
+  background:linear-gradient(135deg,#ffffff,#f6faff);
+  border:2px solid rgba(2,132,199,.22);
+  box-shadow:0 18px 45px rgba(15,23,42,.08),inset 0 1px 0 #fff;
+  animation:popIn .5s var(--ease)}
+.det-card .lbl{font-size:.68rem;letter-spacing:3px;color:var(--violet2);
+  text-transform:uppercase;font-weight:900;margin-bottom:12px}
+.det-card .item{font-size:clamp(1.1rem,3vw,1.4rem);font-weight:900;color:var(--text);line-height:1.4}
+.det-card .hint{font-size:.78rem;color:var(--muted);margin-top:12px;font-style:italic}
+
+.det-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+@media(max-width:520px){.det-cats{grid-template-columns:repeat(2,1fr)}}
+.dcat{padding:18px 10px;border-radius:14px;cursor:pointer;font-family:inherit;color:var(--text);
+  background:#fff;
+  border:2px solid var(--line);transition:all .25s var(--ease);
+  display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(15,23,42,.04)}
+.dcat:hover:not(:disabled){transform:translateY(-5px) scale(1.03);border-color:var(--gold);
+  box-shadow:0 12px 30px rgba(2,132,199,.18)}
+.dcat:disabled{cursor:not-allowed;opacity:.55}
+.dcat .e{font-size:2rem}
+.dcat .n{font-size:.85rem;font-weight:900;letter-spacing:.4px}
+.dcat.ok{background:rgba(5,150,105,.12);
+  border-color:var(--emerald2);animation:flash .5s}
+.dcat.no{background:rgba(225,29,72,.10);
+  border-color:var(--rose2);animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ============ GAME 3: KRONOLOGI ============ */
+.kr-q{padding:18px 20px;border-radius:14px;margin-bottom:16px;
+  background:#fff;
+  border:1.5px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.kr-q .qt{font-size:clamp(.95rem,2.4vw,1.08rem);font-weight:700;color:var(--text);line-height:1.5;margin-bottom:6px}
+.kr-q .hint{font-size:.78rem;color:var(--gold2);font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.kr-slots{display:grid;gap:8px;margin-bottom:18px}
+.kr-slot{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;min-height:54px;
+  background:#f8fbff;border:2px dashed rgba(37,99,235,.22);transition:all .3s var(--ease)}
+.kr-slot.filled{border-style:solid;border-color:var(--emerald2);
+  background:rgba(5,150,105,.10);animation:flash .4s}
+.kr-slot .no{width:30px;height:30px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem}
+.kr-slot .txt{font-weight:700;font-size:.9rem;color:var(--text)}
+.kr-slot:not(.filled) .txt{color:var(--muted);font-style:italic;font-weight:500}
+.kr-items{display:flex;flex-wrap:wrap;gap:10px}
+.kr-item{padding:12px 18px;border-radius:11px;font-family:inherit;font-weight:700;font-size:.86rem;
+  cursor:pointer;color:#1e3a8a;transition:all .22s var(--ease);
+  background:linear-gradient(135deg,#eaf3ff,#dbeafe);
+  border:1.5px solid rgba(37,99,235,.28)}
+.kr-item:hover:not(:disabled){transform:translateY(-3px) scale(1.04);border-color:var(--gold);
+  background:linear-gradient(135deg,#e0f2fe,#bae6fd);
+  box-shadow:0 8px 20px rgba(2,132,199,.18)}
+.kr-item:disabled{opacity:.3;cursor:not-allowed;transform:none}
+
+/* ============ GAME 4: PETUALANGAN ============ */
+.pet-progress{display:flex;gap:6px;margin-bottom:18px}
+.pet-dot{flex:1;height:8px;border-radius:8px;background:rgba(37,99,235,.14);transition:all .4s}
+.pet-dot.cur{background:linear-gradient(90deg,var(--gold),var(--gold3));
+  box-shadow:0 0 12px rgba(2,132,199,.45)}
+.pet-dot.done{background:var(--emerald2)}
+.pet-header{text-align:center;padding:20px 14px;margin-bottom:16px;border-radius:16px;
+  background:#fff;
+  border:1.5px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.pet-header .e{font-size:3.2rem;display:block;margin-bottom:6px;
+  filter:drop-shadow(0 6px 16px rgba(2,132,199,.28))}
+.pet-header h3{font-size:1.3rem;font-weight:900;color:var(--text);letter-spacing:-.2px}
+.pet-header .sub{font-size:.76rem;color:var(--gold2);letter-spacing:2px;text-transform:uppercase;
+  font-weight:800;margin-top:4px}
+.pet-read{padding:18px 20px;border-radius:14px;margin-bottom:16px;line-height:1.75;
+  background:linear-gradient(135deg,#f8fbff,#eef5ff);
+  border-left:4px solid var(--gold);font-size:.88rem;color:var(--muted2)}
+.pet-read b{color:var(--gold2);font-weight:800}
+.pet-read .lead{display:block;font-size:.72rem;letter-spacing:2px;color:var(--violet2);
+  text-transform:uppercase;font-weight:900;margin-bottom:10px}
+.pet-read .fact{margin-top:12px;padding:10px 14px;border-radius:10px;
+  background:rgba(8,145,178,.09);border-left:3px solid var(--cyan);
+  font-size:.82rem;color:var(--cyan2);font-weight:600}
+
+/* ============ GAME 5: JUTAWAN ============ */
+.jw-layout{display:grid;grid-template-columns:1fr 200px;gap:14px}
+@media(max-width:760px){.jw-layout{grid-template-columns:1fr}
+  .jw-tree{order:-1;display:flex!important;flex-direction:row;overflow-x:auto;padding:10px;gap:6px}
+  .jw-tree .mi{min-width:82px;flex-shrink:0;font-size:.68rem}}
+.jw-q{padding:28px 22px;border-radius:16px;text-align:center;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(2,132,199,.09),rgba(37,99,235,.05));
+  border:2.5px solid var(--gold);
+  box-shadow:0 12px 36px rgba(2,132,199,.14),inset 0 1px 0 #fff}
+.jw-q .n{font-size:.72rem;letter-spacing:2.5px;color:var(--gold2);font-weight:900;
+  text-transform:uppercase;margin-bottom:12px}
+.jw-q .q{font-size:clamp(.98rem,2.4vw,1.1rem);font-weight:700;color:var(--text);line-height:1.5}
+.jw-tree{display:flex;flex-direction:column;gap:3px;padding:12px 10px;border-radius:14px;
+  background:#fff;
+  border:1.5px solid var(--line);height:fit-content;max-height:70vh;overflow-y:auto;
+  box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.jw-tree .mi{display:flex;justify-content:space-between;padding:6px 10px;border-radius:8px;
+  font-size:.75rem;color:var(--muted2);font-weight:700;transition:all .25s}
+.jw-tree .mi.cur{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;
+  font-weight:900;transform:scale(1.05);box-shadow:0 6px 16px rgba(2,132,199,.28)}
+.jw-tree .mi.pass{color:var(--emerald2);opacity:.8}
+.jw-tree .mi.pass::before{content:'✓ '}
+.jw-tree .mi.mile{color:var(--gold2);font-weight:900}
+.jw-ll{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.ll{padding:12px;border-radius:50%;width:76px;height:76px;border:2.5px solid var(--gold);
+  background:#fff;
+  color:var(--gold2);cursor:pointer;font-weight:800;font-size:.62rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;text-align:center;line-height:1.1;transition:all .3s var(--ease);font-family:inherit;
+  box-shadow:0 6px 18px rgba(2,132,199,.12)}
+.ll i{font-size:1.15rem}
+.ll:hover:not(:disabled){background:linear-gradient(135deg,var(--gold),var(--gold3));
+  color:#fff;transform:scale(1.12) rotate(-6deg);
+  box-shadow:0 0 26px rgba(2,132,199,.4)}
+.ll:disabled{opacity:.3;cursor:not-allowed}
+
+/* ============ MODAL ============ */
+.modal{position:fixed;inset:0;background:rgba(240,246,255,.82);backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}
+.modal.on{display:flex;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.mbox{max-width:480px;width:100%;padding:32px 26px;border-radius:22px;text-align:center;
+  background:linear-gradient(160deg,#ffffff,#f4f9ff);
+  border:2px solid rgba(2,132,199,.30);
+  box-shadow:0 30px 70px rgba(15,23,42,.18),0 0 60px rgba(2,132,199,.10);
+  animation:mboxIn .5s var(--ease);max-height:90vh;overflow-y:auto}
+@keyframes mboxIn{0%{opacity:0;transform:scale(.85) translateY(20px)}100%{opacity:1;transform:none}}
+.mbox .e{font-size:4rem;margin-bottom:10px;filter:drop-shadow(0 6px 20px rgba(2,132,199,.3));
+  animation:bounceIn .8s var(--ease)}
+@keyframes bounceIn{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.mbox h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:900;
+  margin-bottom:8px;background:linear-gradient(135deg,#0369a1,#2563eb,#0891b2);
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:grad 3s linear infinite}
+.mbox .msg{color:var(--muted2);font-size:.9rem;line-height:1.6;margin-bottom:18px}
+.mbox .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;
+  padding:14px;border-radius:14px;background:#f1f6ff;border:1px solid var(--line)}
+.mbox .stats .s{text-align:center}
+.mbox .stats .v{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:900;
+  background:linear-gradient(135deg,#0284c7,#2563eb);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mbox .stats .l{font-size:.62rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:1.4px;font-weight:800;margin-top:2px}
+.mbox .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+/* ============ TOAST ============ */
+.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) translateY(-140px);
+  padding:12px 26px;border-radius:99px;font-weight:800;font-size:.85rem;z-index:9999;
+  background:linear-gradient(135deg,var(--violet),#3b82f6);color:#fff;
+  box-shadow:0 14px 40px rgba(37,99,235,.32);opacity:0;transition:all .4s var(--ease);
+  pointer-events:none;max-width:90vw;text-align:center;letter-spacing:.3px}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.ok{background:linear-gradient(135deg,var(--emerald),#059669)}
+.toast.bad{background:linear-gradient(135deg,var(--rose),#be123c)}
+.toast.gold{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff}
 
 /* ============ FOOTER ============ */
-.footer{margin-top:40px;padding:20px 16px;text-align:center;font-size:.72rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.12)}
-.footer .sch{font-weight:800;color:var(--ink2);letter-spacing:1.5px;font-size:.78rem}
-.footer .cp{margin-top:6px;opacity:.7}
+.footer{margin-top:40px;padding:22px 16px;text-align:center;font-size:.72rem;
+  color:var(--muted);border-top:1px solid var(--line)}
+.footer .sch{font-weight:900;color:var(--gold2);letter-spacing:1.5px;font-size:.8rem;margin-bottom:4px}
 
-/* ============ MODAL IFRAME ============ */
-#gameModal{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:12px;background:rgba(15,42,110,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-#gameModal.on{display:flex;animation:fadeIn .3s var(--ease)}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal-frame{position:relative;width:100%;height:100%;max-width:1200px;max-height:95vh;background:#fff;border-radius:20px;box-shadow:0 30px 80px rgba(15,42,110,.5),0 0 0 4px rgba(255,255,255,.15);overflow:hidden;animation:modalIn .5s var(--ease)}
-@keyframes modalIn{0%{opacity:0;transform:scale(.94) translateY(20px)}100%{opacity:1;transform:none}}
-.modal-frame iframe{width:100%;height:100%;border:none;display:block;background:#fff}
-.modal-close{position:absolute;top:10px;right:10px;z-index:10;width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:linear-gradient(135deg,var(--red),#dc2626);color:#fff;font-size:1.1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 6px 20px rgba(239,68,68,.5);transition:all .3s var(--ease);display:flex;align-items:center;justify-content:center}
-.modal-close:hover{transform:scale(1.1) rotate(90deg);box-shadow:0 8px 28px rgba(239,68,68,.7)}
-
-/* ============ NOTIF ============ */
-.nf{position:fixed;top:26px;left:50%;transform:translateX(-50%) translateY(-130px);padding:14px 28px;border-radius:40px;z-index:3000;font-weight:800;font-size:.9rem;background:#fff;border:2px solid var(--blue);color:var(--blue);box-shadow:0 14px 40px rgba(15,42,110,.25);opacity:0;transition:all .4s var(--ease);pointer-events:none;letter-spacing:.3px;max-width:90vw;text-align:center}
-.nf.on{opacity:1;transform:translateX(-50%) translateY(0)}
-.nf.ok{border-color:var(--green);color:var(--green)}
-.nf.gold{border-color:var(--amber);color:#b45309}
-
-/* ============ SCROLLBAR ============ */
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple));border-radius:10px}
-::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--blue2),var(--cyan2),var(--purple2))}
-
-/* ============ RESPONSIF ============ */
-@media(max-width:620px){
-  .screen{padding:16px 12px 50px}
-  .hero{padding:10px 0 20px}
-  .hero-title{letter-spacing:-.4px}
-  .hero-sub{font-size:.95rem;margin-top:18px}
-  .hero-stats{gap:22px;margin-top:24px}
-  .stat-num{font-size:1.6rem}
-  .gc{padding:22px 18px}
-  .gc-num{font-size:2.4rem;top:12px;right:14px}
-  .gc-icon{font-size:2rem;margin-bottom:12px}
-  .gc h3{font-size:.92rem}
-  .gc p{font-size:.76rem}
-  .gc-tag{font-size:.62rem;padding:4px 10px}
-  .play-btn,.play-btn-locked{font-size:.7rem;padding:9px 14px;letter-spacing:1px}
-  .gc-badge-available,.gc-badge-soon{font-size:.54rem;padding:3px 8px;top:10px;left:10px}
-  .modal-frame{max-height:98vh;border-radius:14px}
-  .modal-close{width:36px;height:36px;font-size:.95rem;top:6px;right:6px}
-}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:#eef2f7}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7dd3fc,#3b82f6);border-radius:9px}
 </style>
 </head>
 <body>
 
-<!-- BG -->
-<div class="aurora"></div>
-<canvas id="bgCanvas"></canvas>
-<canvas id="confetti"></canvas>
+<div class="wrap">
 
-<!-- ============ MAIN MENU ============ -->
-<div id="mainMenu" class="screen active">
-  <div class="hero">
-    <h1 class="hero-title">Bagian 3 : KEHIDUPAN PRA AKSARA DI INDONESIA</h1>
-    <p class="hero-sub">
-      Belajar Memahami Kehidupan Pra Aksara di Indonesia
-      <span class="line-2">Melalui permainan yang seru dan interaktif! 🎮</span>
-    </p>
+<!-- ============ HUB ============ -->
+<div id="hub" class="screen on">
+  <div class="hub">
+    <div class="badge"><i class="fas fa-compass"></i> Praaksara Quest · Kurikulum Merdeka Fase E</div>
+    <h1>PETUALANGAN MASA PRAAKSARA</h1>
+    <p>Jelajahi jejak nenek moyang bangsa Indonesia melalui 5 permainan interaktif. Pahami konsep, analisis temuan, dan refleksikan warisannya!</p>
 
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num" id="statGames">2</div><div class="stat-lbl">Games</div></div>
-      <div class="stat"><div class="stat-num">75+</div><div class="stat-lbl">Soal</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Segera</div></div>
+    <div class="hub-stats">
+      <div class="hs"><div class="n">5</div><div class="l">Games</div></div>
+      <div class="hs"><div class="n">150+</div><div class="l">Soal & Materi</div></div>
+      <div class="hs"><div class="n">∞</div><div class="l">Belajar Seru</div></div>
     </div>
 
-    <div class="progress-wrap">
-      <div class="progress-info">
-        <span class="lbl"><i class="fas fa-trophy" style="color:var(--amber)"></i> Progress Belajar</span>
-        <span class="val" id="progText">0 / 6 Game</span>
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="lbl"><i class="fas fa-trophy" style="color:var(--gold)"></i> Progress Belajar</span>
+        <span class="val" id="progText">0 / 5 Game</span>
       </div>
-      <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
-      <div class="reset-progress"><button onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Reset Progress</button></div>
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+      <div style="text-align:center"><button class="reset-btn" onclick="resetAll()"><i class="fas fa-rotate-left"></i> Reset Progress</button></div>
     </div>
   </div>
 
-  <!-- ===== GAME TERSEDIA ===== -->
-  <div class="section-title">
-    <h2><i class="fas fa-gamepad" style="color:var(--blue);margin-right:6px"></i>Game Tersedia</h2>
-    <span class="line"></span>
-    <span class="badge">2 Game</span>
-  </div>
-
-  <div class="game-grid">
-    <!-- GAME 1: RODA BERPUTAR -->
-    <div class="gc available" data-game="wheel" data-title="Kuis Roda Berputar">
-      <span class="gc-badge-available">Tersedia</span>
-      <span class="gc-num">01</span>
-      <i class="fas fa-dharmachakra gc-icon"></i>
+  <div class="grid">
+    <div class="card" data-g="wheel">
+      <span class="ico">🎡</span>
       <h3>Kuis Roda Berputar</h3>
-      <p>Putar roda untuk memilih kategori soal! 12 putaran, 9 kategori, dan 45+ soal tentang kehidupan praaksara.</p>
-      <span class="gc-tag">🎡 Putar & Jawab</span>
-      <button class="play-btn" onclick="event.stopPropagation();openGame('wheel','Kuis Roda Berputar')"><i class="fas fa-play"></i> MAINKAN</button>
+      <p>Putar roda, dapatkan kategori, jawab 45 soal pilihan ganda dari 9 topik praaksara.</p>
+      <span class="tag">🎯 9 Kategori · 45 Soal</span>
     </div>
-
-    <!-- GAME 2: KUIS INTERAKTIF -->
-    <div class="gc available" data-game="interactive" data-title="Kuis Interaktif Sejarah">
-      <span class="gc-badge-available">Tersedia</span>
-      <span class="gc-num">02</span>
-      <i class="fas fa-scroll gc-icon"></i>
-      <h3>Kuis Interaktif Sejarah</h3>
-      <p>Jawab 15 soal acak dari bank 30 soal. Gunakan bantuan 50:50, Petunjuk, dan Lewati. Ada sistem streak & level!</p>
-      <span class="gc-tag">🏺 3 Bantuan</span>
-      <button class="play-btn" onclick="event.stopPropagation();openGame('interactive','Kuis Interaktif Sejarah')"><i class="fas fa-play"></i> MAINKAN</button>
+    <div class="card" data-g="detektif">
+      <span class="ico">🔍</span>
+      <h3>Detektif Sumber</h3>
+      <p>Klasifikasikan 24 penemuan praaksara: Fosil, Artefak, Situs, atau Ecofact.</p>
+      <span class="tag">🧩 Klasifikasi Sumber</span>
     </div>
-  </div>
-
-  <!-- ===== GAME SEGERA HADIR ===== -->
-  <div class="section-title">
-    <h2><i class="fas fa-hourglass-half" style="color:var(--amber);margin-right:6px"></i>Segera Hadir</h2>
-    <span class="line"></span>
-    <span class="badge soon">4 Slot</span>
-  </div>
-
-  <div class="game-grid">
-    <!-- SLOT 3 -->
-    <div class="gc locked" data-slot="3">
-      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
-      <span class="gc-num">03</span>
-      <i class="fas fa-search gc-icon"></i>
-      <h3>Detektif Sumber Sejarah</h3>
-      <p>Klasifikasikan sumber sejarah ke kategori tepat: tertulis, lisan, atau benda. Ada 27 kartu sumber sejarah!</p>
-      <span class="gc-tag">🔍 Investigasi</span>
-      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    <div class="card" data-g="kronologi">
+      <span class="ico">⏳</span>
+      <h3>Kronologi Zaman</h3>
+      <p>Urutkan zaman, manusia purba, alat batu, situs, dan evolusi kepercayaan. 5 babak!</p>
+      <span class="tag">📊 Berpikir Kronologis</span>
     </div>
-
-    <!-- SLOT 4 -->
-    <div class="gc locked" data-slot="4">
-      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
-      <span class="gc-num">04</span>
-      <i class="fas fa-hourglass-half gc-icon"></i>
-      <h3>Penjelajah Waktu Sejarah</h3>
-      <p>Pelajari konsep waktu: Diakronik, Sinkronik, Periodik, dan Kronologis. Klasifikasikan 20 kartu ciri-ciri waktu!</p>
-      <span class="gc-tag">⏳ Konsep Waktu</span>
-      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    <div class="card" data-g="petualangan">
+      <span class="ico">🗺️</span>
+      <h3>Petualangan 5 Zaman</h3>
+      <p>Masuk ke setiap zaman praaksara, baca materi mendalam, lalu uji pemahamanmu.</p>
+      <span class="tag">📖 Baca + Refleksi</span>
     </div>
-
-    <!-- SLOT 5 -->
-    <div class="gc locked" data-slot="5">
-      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
-      <span class="gc-num">05</span>
-      <i class="fas fa-map-location-dot gc-icon"></i>
-      <h3>Misi Ilmu Sejarah</h3>
-      <p>Petualangan 5 level dengan penjelasan lengkap. Selesaikan misi untuk memahami prinsip-prinsip ilmu sejarah!</p>
-      <span class="gc-tag">🗺️ Adventure</span>
-      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
-    </div>
-
-    <!-- SLOT 6 -->
-    <div class="gc locked" data-slot="6">
-      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
-      <span class="gc-num">06</span>
-      <i class="fas fa-crown gc-icon"></i>
-      <h3>Jutawan Sejarah</h3>
-      <p>Jawab 15 soal dari bank 40 soal acak. Salah tetap bisa lanjut. 3 bantuan tersedia untuk membantumu!</p>
-      <span class="gc-tag">👑 Quiz Show</span>
-      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    <div class="card" data-g="jutawan">
+      <span class="ico">👑</span>
+      <h3>Jutawan Praaksara</h3>
+      <p>Quiz show 15 soal dengan hadiah meningkat. Punya 3 bantuan: 50:50, Audien, Telepon.</p>
+      <span class="tag">🏆 Quiz Show</span>
     </div>
   </div>
 
-  <!-- TEACHER INFO -->
-  <div class="teacher-card">
-    <div class="teacher-lbl"><i class="fas fa-chalkboard-user"></i> Guru Pengampu</div>
-    <div class="teacher-name">SYAHRANI, S.Pd.</div>
-    <div class="teacher-nip">NIP. 19751217200501 1 016</div>
-  </div>
-
-  <!-- FOOTER -->
   <div class="footer">
-    <div class="sch">🏺 BAGIAN 3 · KEHIDUPAN PRA AKSARA DI INDONESIA</div>
-    <div>Media Pembelajaran Interaktif · Sejarah Kelas X / Fase E</div>
-    <div class="cp">© 2024 · Dibuat dengan ❤️ untuk pembelajaran sejarah</div>
+    <div class="sch">🏺 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
+    <div>Guru Pengampu: <b style="color:var(--gold2)">SYAHRANI, S.Pd.</b> · NIP. 19751217200501 1 016</div>
+    <div style="margin-top:6px;opacity:.7">Media Pembelajaran Interaktif · Berbasis Pembelajaran Mendalam</div>
   </div>
 </div>
 
-<!-- ============ MODAL IFRAME ============ -->
-<div id="gameModal">
-  <div class="modal-frame">
-    <button class="modal-close" onclick="closeGame()" title="Tutup"><i class="fas fa-times"></i></button>
-    <iframe id="gameIframe" title="Game Kuis Sejarah" allow="autoplay; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-downloads"></iframe>
+<!-- ============ GAME 1: WHEEL ============ -->
+<div id="g-wheel" class="screen">
+  <div class="gh">
+    <button class="icon-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+    <h2>Kuis Roda Berputar<small><i class="fas fa-dharmachakra"></i> 9 Kategori · 45 Soal</small></h2>
+    <span class="pill" id="whPill">Putaran 1 / 12</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="l">Skor</div><div class="v" id="whScore">0</div></div>
+    <div class="stat"><div class="l">Benar</div><div class="v" id="whOk">0</div></div>
+    <div class="stat"><div class="l">Streak</div><div class="v" id="whStreak">0🔥</div></div>
+  </div>
+  <div class="inst"><i class="fas fa-circle-info"></i> <strong>Cara main:</strong> Tekan tombol <b>PUTAR</b> di tengah roda untuk memilih kategori. Jawab soal, baca pembahasan & poin kunci, lalu putar lagi. 12 putaran!</div>
+
+  <div id="whWheelView">
+    <div class="wheel-stage">
+      <div class="wheel-pointer"></div>
+      <canvas id="whCanvas" class="wheel-canvas" width="500" height="500"></canvas>
+      <button class="wheel-hub" id="whHub" onclick="spinWheel()">
+        <span class="ico">🎯</span>
+        <span>PUTAR</span>
+      </button>
+    </div>
+    <div class="cat-result" id="whCatRes"></div>
+  </div>
+
+  <div id="whQView" style="display:none">
+    <div class="qbox">
+      <div class="qn" id="whQn">SOAL 1</div>
+      <div class="qt" id="whQt">...</div>
+      <div class="opts" id="whOpts"></div>
+      <div class="fb" id="whFb"></div>
+    </div>
+    <div style="text-align:center" id="whActionBox" hidden>
+      <button class="btn violet" id="whNext" onclick="whNextRound()"><i class="fas fa-arrow-right"></i> LANJUT</button>
+    </div>
   </div>
 </div>
 
-<!-- NOTIF -->
-<div class="nf" id="nf"></div>
+<!-- ============ GAME 2: DETEKTIF ============ -->
+<div id="g-detektif" class="screen">
+  <div class="gh">
+    <button class="icon-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+    <h2>Detektif Sumber<small><i class="fas fa-search"></i> Klasifikasi 24 Penemuan</small></h2>
+    <span class="pill" id="detPill">0 / 24</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="l">Benar</div><div class="v" id="detOk">0</div></div>
+    <div class="stat"><div class="l">Salah</div><div class="v" id="detNo">0</div></div>
+    <div class="stat"><div class="l">Streak</div><div class="v" id="detStk">0🔥</div></div>
+  </div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <strong>Cara main:</strong> Baca nama penemuan di kartu, lalu klik kategori yang tepat.
+    <b>Fosil</b> 🦴 = sisa makhluk hidup membatu · <b>Artefak</b> 🏺 = benda buatan manusia · <b>Situs</b> 🪨 = lokasi penemuan · <b>Ecofact</b> 🌿 = sisa alamiah.
+  </div>
+  <div class="det-card">
+    <div class="lbl">🔎 Kartu Penemuan</div>
+    <div class="item" id="detItem">Memuat...</div>
+    <div class="hint" id="detHint">Klik kategori di bawah ⬇</div>
+  </div>
+  <div class="det-cats" id="detCats">
+    <button class="dcat" data-c="fosil"><span class="e">🦴</span><span class="n">Fosil</span></button>
+    <button class="dcat" data-c="artefak"><span class="e">🏺</span><span class="n">Artefak</span></button>
+    <button class="dcat" data-c="situs"><span class="e">🪨</span><span class="n">Situs</span></button>
+    <button class="dcat" data-c="ecofact"><span class="e">🌿</span><span class="n">Ecofact</span></button>
+  </div>
+  <div class="fb" id="detFb"></div>
+</div>
+
+<!-- ============ GAME 3: KRONOLOGI ============ -->
+<div id="g-kronologi" class="screen">
+  <div class="gh">
+    <button class="icon-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+    <h2>Kronologi Zaman<small><i class="fas fa-hourglass-half"></i> Berpikir Kronologis</small></h2>
+    <span class="pill" id="krPill">Babak 1 / 5</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="l">Babak</div><div class="v" id="krRound">1</div></div>
+    <div class="stat"><div class="l">Berhasil</div><div class="v" id="krOk">0</div></div>
+    <div class="stat"><div class="l">Skor</div><div class="v" id="krScore">0</div></div>
+  </div>
+  <div class="inst"><i class="fas fa-circle-info"></i> <strong>Cara main:</strong> Klik kartu secara berurutan dari yang <b>paling tua</b> (nomor 1) ke <b>paling muda</b>. Salah satu klik = urutan direset!</div>
+  <div class="kr-q">
+    <div class="qt" id="krQt">Memuat...</div>
+    <div class="hint">Klik berurutan dari yang paling TUA ⬇</div>
+  </div>
+  <div class="kr-slots" id="krSlots"></div>
+  <div class="kr-items" id="krItems"></div>
+</div>
+
+<!-- ============ GAME 4: PETUALANGAN ============ -->
+<div id="g-petualangan" class="screen">
+  <div class="gh">
+    <button class="icon-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+    <h2>Petualangan 5 Zaman<small><i class="fas fa-map"></i> Baca Materi + Refleksi</small></h2>
+    <span class="pill" id="petPill">Level 1 / 5</span>
+  </div>
+  <div class="pet-progress" id="petProgress"></div>
+  <div class="pet-header">
+    <span class="e" id="petE">🪨</span>
+    <h3 id="petTitle">Paleolitikum</h3>
+    <div class="sub" id="petSub">ZAMAN BATU TUA</div>
+  </div>
+  <div class="pet-read">
+    <span class="lead">📖 Materi Pembelajaran</span>
+    <div id="petText">Memuat materi...</div>
+  </div>
+  <div class="qbox">
+    <div class="qn" id="petQn">SOAL 1 / 4</div>
+    <div class="qt" id="petQt">...</div>
+    <div class="opts" id="petOpts"></div>
+    <div class="fb" id="petFb"></div>
+  </div>
+  <div style="text-align:center" id="petActBox" hidden>
+    <button class="btn green" id="petNext" onclick="petNextQ()"><i class="fas fa-arrow-right"></i> LANJUT</button>
+  </div>
+</div>
+
+<!-- ============ GAME 5: JUTAWAN ============ -->
+<div id="g-jutawan" class="screen">
+  <div class="gh">
+    <button class="icon-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+    <h2>Jutawan Praaksara<small><i class="fas fa-crown"></i> 15 Soal · 3 Bantuan</small></h2>
+    <span class="pill" id="jwPill">Soal 1 / 15</span>
+  </div>
+  <div class="jw-layout">
+    <div>
+      <div class="jw-q">
+        <div class="n" id="jwN">Pertanyaan 1 · 100 poin</div>
+        <div class="q" id="jwQ">Memuat...</div>
+      </div>
+      <div class="opts" id="jwOpts"></div>
+      <div class="jw-ll">
+        <button class="ll" id="jw50" onclick="useLL('fifty')"><i class="fas fa-cut"></i>50:50</button>
+        <button class="ll" id="jwAud" onclick="useLL('aud')"><i class="fas fa-users"></i>Audien</button>
+        <button class="ll" id="jwTel" onclick="useLL('tel')"><i class="fas fa-phone"></i>Telepon</button>
+      </div>
+    </div>
+    <div class="jw-tree" id="jwTree"></div>
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal">
+  <div class="mbox">
+    <div class="e" id="mE">🎉</div>
+    <h2 id="mT">Selesai!</h2>
+    <div class="msg" id="mP">Kamu telah menyelesaikan game ini.</div>
+    <div class="stats" id="mS"></div>
+    <div class="acts">
+      <button class="btn" onclick="closeModal()"><i class="fas fa-check"></i> Lanjut</button>
+      <button class="btn ghost" onclick="closeModal();goHome()"><i class="fas fa-home"></i> Menu</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+'use strict';
+const $ = id => document.getElementById(id);
+const $$ = s => document.querySelectorAll(s);
 
-/* ============ FLOATING ORBS ============ */
-(function(){
-  const cols=['#3b82f6','#06b6d4','#8b5cf6','#60a5fa','#a78bfa','#22d3ee'];
-  for(let i=0;i<6;i++){
-    const o=document.createElement('div');o.className='orb';
-    const sz=80+Math.random()*130;
-    o.style.width=sz+'px';o.style.height=sz+'px';
-    o.style.background=cols[i%cols.length];
-    o.style.left=(Math.random()*100)+'%';
-    o.style.top=(Math.random()*100)+'%';
-    o.style.animationDelay=(Math.random()*10)+'s';
-    o.style.animationDuration=(15+Math.random()*10)+'s';
-    document.body.appendChild(o);
-  }
-})();
+/* =========================================================
+   UTIL
+   ========================================================= */
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 
-/* ============ CLICK BURST ============ */
-document.addEventListener('click',e=>{
-  for(let i=0;i<8;i++){
-    const p=document.createElement('div');
-    p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:5px;height:5px;border-radius:50%;background:${['#2563eb','#06b6d4','#8b5cf6','#f59e0b'][i%4]};pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px currentColor;transition:all .5s cubic-bezier(.2,.8,.2,1)`;
-    document.body.appendChild(p);
-    const ang=(i/8)*Math.PI*2+Math.random()*.5,dist=45+Math.random()*55;
-    requestAnimationFrame(()=>{
-      p.style.transform=`translate(calc(${Math.cos(ang)*dist}px - 50%),calc(${Math.sin(ang)*dist}px - 50%)) scale(.2)`;
-      p.style.opacity='0';
-    });
-    setTimeout(()=>p.remove(),550);
-  }
-});
+function hexToRgb(h){h=h.replace('#','');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function shade(hex, amt){
+  const [r,g,b] = hexToRgb(hex);
+  const f = v => Math.max(0, Math.min(255, Math.round(amt < 0 ? v*(1+amt) : v + (255-v)*amt)));
+  return `rgb(${f(r)},${f(g)},${f(b)})`;
+}
 
-/* ============ BG PARTIKEL ============ */
-(function(){
-  const cv=$('#bgCanvas'),ctx=cv.getContext('2d');
-  let w,h,parts=[];
-  function rz(){w=cv.width=innerWidth;h=cv.height=innerHeight}
-  rz();addEventListener('resize',rz);
-  const N=Math.min(60,Math.floor(innerWidth/25));
-  for(let i=0;i<N;i++)parts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.6,c:['#2563eb','#06b6d4','#8b5cf6','#60a5fa'][Math.floor(Math.random()*4)]});
-  function loop(){
-    ctx.clearRect(0,0,w,h);
-    parts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1;
-      if(p.y<0||p.y>h)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);ctx.fillStyle=p.c;ctx.globalAlpha=.45;ctx.fill();
-    });
-    for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++){
-      const a=parts[i],b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-      if(d<130){
-        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle='rgba(37,99,235,'+(.14*(1-d/130))+')';ctx.lineWidth=.7;ctx.stroke();
-      }
-    }
-    ctx.globalAlpha=1;
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
+function toast(msg, type=''){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast on ' + type;
+  clearTimeout(t._t);
+  t._t = setTimeout(()=>t.classList.remove('on'), 1900);
+}
 
-/* ============ CONFETTI ============ */
-function confetti(){
-  const cv=$('#confetti'),ctx=cv.getContext('2d');
-  cv.width=innerWidth;cv.height=innerHeight;
-  const cols=['#2563eb','#06b6d4','#8b5cf6','#f59e0b','#3b82f6','#a78bfa'];
-  const parts=[];
-  for(let i=0;i<200;i++)parts.push({
-    x:innerWidth/2+(Math.random()-.5)*250,y:innerHeight/2-100,
-    vx:(Math.random()-.5)*15,vy:Math.random()*-14-4,
-    r:Math.random()*5.5+3,c:cols[Math.floor(Math.random()*cols.length)],
-    rot:Math.random()*6.28,vr:(Math.random()-.5)*.32,life:1
+function goHome(){
+  $$('.screen').forEach(s=>s.classList.remove('on'));
+  $('hub').classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateHub();
+}
+
+function showModal(emoji, title, text, stats){
+  $('mE').textContent = emoji;
+  $('mT').textContent = title;
+  $('mP').textContent = text;
+  $('mS').innerHTML = (stats||[]).map(s=>`<div class="s"><div class="v">${s.v}</div><div class="l">${s.l}</div></div>`).join('');
+  $('modal').classList.add('on');
+}
+function closeModal(){ $('modal').classList.remove('on'); }
+
+/* ============ PROGRESS ============ */
+const KEY = 'praaksara_quest_v1';
+const TOTAL = 5;
+function loadP(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return{};}}
+function saveP(p){try{localStorage.setItem(KEY,JSON.stringify(p));}catch(e){}}
+function markDone(id, d={}){
+  const p = loadP();
+  if(p[id]&&p[id].done&&!d.force) return;
+  p[id] = {done:true, ...d, date:new Date().toISOString()};
+  saveP(p);
+  updateHub();
+}
+function resetAll(){
+  if(!confirm('Reset semua progress belajar?')) return;
+  try{localStorage.removeItem(KEY);}catch(e){}
+  updateHub();
+  toast('Progress direset!','gold');
+}
+function updateHub(){
+  const p = loadP();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.toggle('done', !!(p[c.dataset.g]&&p[c.dataset.g].done));
   });
-  let raf;
-  function loop(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    let alive=false;
-    parts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;p.vy+=.42;p.vx*=.99;p.rot+=p.vr;p.life-=.008;
-      if(p.life>0&&p.y<innerHeight+50){
-        alive=true;
-        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);
-        ctx.fillStyle=p.c;ctx.globalAlpha=p.life;
-        ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.5);
-        ctx.restore();
-      }
-    });
-    if(alive)raf=requestAnimationFrame(loop);
-    else{ctx.clearRect(0,0,cv.width,cv.height);cancelAnimationFrame(raf)}
-  }
-  loop();
+  const done = Object.keys(p).filter(k=>p[k].done).length;
+  $('progText').textContent = `${done} / ${TOTAL} Game`;
+  $('progFill').style.width = (done/TOTAL*100)+'%';
 }
 
-/* ============ NOTIF ============ */
-function notif(msg,type=''){
-  const n=$('#nf');
-  n.textContent=msg;
-  n.className='nf on '+type;
-  clearTimeout(n._t);
-  n._t=setTimeout(()=>n.classList.remove('on'),1800);
+/* =========================================================
+   DATA: KATEGORI + SOAL
+   ========================================================= */
+const CATS = [
+  {id:'konsep', name:'Konsep Praaksara', short:'Konsep', icon:'📜', color:'#38bdf8'},
+  {id:'manusia', name:'Manusia Purba', short:'Manusia', icon:'🦴', color:'#22d3ee'},
+  {id:'paleo', name:'Paleolitikum & Mesolitikum', short:'Paleo-Meso', icon:'🪨', color:'#60a5fa'},
+  {id:'neo', name:'Neolitikum', short:'Neolitikum', icon:'🌾', color:'#10b981'},
+  {id:'mega', name:'Megalitikum', short:'Megalitikum', icon:'🗿', color:'#06b6d4'},
+  {id:'logam', name:'Zaman Logam', short:'Logam', icon:'⚒️', color:'#f97316'},
+  {id:'situs', name:'Situs & Peninggalan', short:'Situs', icon:'🏛️', color:'#0ea5e9'},
+  {id:'sosial', name:'Kepercayaan & Sosial', short:'Kepercayaan', icon:'🕯️', color:'#3b82f6'},
+  {id:'warisan', name:'Warisan Budaya', short:'Warisan', icon:'🇮🇩', color:'#ef4444'}
+];
+
+const QUESTIONS = [
+  {c:'konsep', q:'Istilah "praaksara" secara etimologis berasal dari kata...', o:['pra (sebelum) + aksara (tulisan)','pra (masa) + aksara (batu)','pra (kuno) + aksara (ilmu)','pra (masyarakat) + aksara (budaya)'], a:0,
+   e:'"Pra" berarti sebelum, "aksara" berarti tulisan. Jadi praaksara = masa sebelum manusia mengenal tulisan.', k:'Praaksara = sebelum mengenal tulisan.'},
+  {c:'konsep', q:'Perbedaan utama antara praaksara dan prasejarah terletak pada...', o:['Fokus kajiannya','Ada tidaknya sumber tertulis','Letak geografisnya','Jumlah penduduknya'], a:0,
+   e:'Praaksara menekankan belum adanya aksara, sedangkan prasejarah menekankan belum ada catatan sejarah tertulis.', k:'Praaksara: belum ada aksara. Prasejarah: belum ada catatan sejarah.'},
+  {c:'konsep', q:'Cara utama merekonstruksi kehidupan praaksara adalah melalui...', o:['Data arkeologis (fosil, artefak, situs, ecofact)','Buku-buku kuno','Lukisan dari zaman Renaissance','Catatan pedagang Arab'], a:0,
+   e:'Karena belum ada tulisan, arkeologi menjadi kunci utama.', k:'Arkeologi = kunci utama rekonstruksi praaksara.'},
+  {c:'konsep', q:'Prasasti Yupa di Kutai (abad ke-4 M) menjadi penanda...', o:['Berakhirnya masa praaksara di Indonesia','Mulainya zaman Neolitikum','Datangnya bangsa Proto Melayu','Penemuan perunggu pertama'], a:0,
+   e:'Prasasti Yupa adalah bukti tertulis tertua di Indonesia.', k:'Yupa = batas awal masa sejarah Indonesia.'},
+  {c:'konsep', q:'Pembabakan zaman praaksara Indonesia didasarkan pada...', o:['Bahan pembuat alat (batu → logam)','Jumlah penduduk','Wilayah geografis','Sistem kepercayaan saja'], a:0,
+   e:'Periodisasi didasarkan pada teknologi alat.', k:'Dasar pembabakan = teknologi alat.'},
+
+  {c:'manusia', q:'Pithecanthropus erectus ditemukan oleh Eugene Dubois di...', o:['Trinil, Ngawi (Jawa Timur)','Sangiran, Sragen','Liang Bua, Flores','Wajak, Tulungagung'], a:0,
+   e:'Eugene Dubois menemukan Pithecanthropus erectus di Trinil tahun 1891-1893.', k:'Trinil = penemuan bersejarah Dubois.'},
+  {c:'manusia', q:'Manusia purba berbadan besar dengan rahang dan gigi kuat dari Sangiran adalah...', o:['Meganthropus paleojavanicus','Pithecanthropus erectus','Homo floresiensis','Homo wajakensis'], a:0,
+   e:'Meganthropus paleojavanicus ditemukan von Koenigswald di Sangiran (1941).', k:'Meganthropus = manusia purba rahang besar.'},
+  {c:'manusia', q:'Homo floresiensis ditemukan di Liang Bua (2003) dijuluki...', o:['Hobbit karena tubuhnya kerdil','Java Man','Manusia Raksasa','Manusia Bijaksana'], a:0,
+   e:'Homo floresiensis berbadan hanya sekitar 1 meter, dijuluki "Hobbit".', k:'Homo floresiensis = "Hobbit" dari Flores.'},
+  {c:'manusia', q:'Homo soloensis ditemukan di Ngandong, Blora, Jawa Tengah oleh...', o:['von Koenigswald, Oppenoorth, dan ter Haar','Eugene Dubois','van Rietschoten','Teuku Jacob'], a:0,
+   e:'Homo soloensis ditemukan tahun 1931-1933 di Ngandong.', k:'Homo soloensis = Ngandong, otak 1000-1300 cc.'},
+  {c:'manusia', q:'Manusia praaksara Indonesia yang dianggap nenek moyang Homo sapiens awal adalah...', o:['Homo wajakensis','Pithecanthropus erectus','Meganthropus','Homo floresiensis'], a:0,
+   e:'Homo wajakensis (Wajak, Tulungagung, 1889) dianggap Homo sapiens awal di Indonesia.', k:'Homo wajakensis = Homo sapiens awal Indonesia.'},
+
+  {c:'paleo', q:'Alat khas kebudayaan Pacitan pada masa Paleolitikum adalah...', o:['Kapak genggam (chopper)','Kapak persegi','Nekara','Menhir'], a:0,
+   e:'Kebudayaan Pacitan menghasilkan kapak genggam (chopper).', k:'Pacitan = kapak genggam (chopper).'},
+  {c:'paleo', q:'Kebudayaan Ngandong menghasilkan alat dari...', o:['Tulang dan tanduk hewan','Batu yang sudah dipoles','Logam perunggu','Kerang laut'], a:0,
+   e:'Kebudayaan Ngandong menghasilkan alat dari tulang dan tanduk.', k:'Ngandong = alat tulang & tanduk.'},
+  {c:'paleo', q:'Pola hidup utama manusia Paleolitikum adalah...', o:['Berburu & meramu (food gathering)','Bercocok tanam','Beternak','Berdagang'], a:0,
+   e:'Food gathering = mengambil langsung dari alam, nomaden.', k:'Paleolitikum = food gathering, nomaden.'},
+  {c:'paleo', q:'Tumpukan kulit kerang sisa makanan manusia Mesolitikum disebut...', o:['Kjokkenmoddinger','Abris sous roche','Sarkofagus','Punden berundak'], a:0,
+   e:'Kjokkenmoddinger = "sampah dapur" tumpukan kulit kerang.', k:'Kjokkenmoddinger = sampah dapur kerang.'},
+  {c:'paleo', q:'Lukisan cap tangan di dinding gua peninggalan Mesolitikum banyak ditemukan di...', o:['Leang-Leang, Sulawesi Selatan','Sangiran, Jawa Tengah','Trinil, Jawa Timur','Gunung Padang, Jawa Barat'], a:0,
+   e:'Leang-Leang di Maros, Sulawesi Selatan, terkenal dengan lukisan cap tangan.', k:'Leang-Leang = lukisan cap tangan tertua.'},
+
+  {c:'neo', q:'Revolusi Neolitikum ditandai dengan perubahan pola hidup dari...', o:['Food gathering → food producing','Batu → logam','Nomaden → berburu','Hutan → gua'], a:0,
+   e:'Manusia mulai menghasilkan makanan sendiri melalui bercocok tanam & beternak.', k:'Neolitikum = food producing.'},
+  {c:'neo', q:'Alat khas zaman Neolitikum yang banyak ditemukan di Indonesia timur adalah...', o:['Kapak lonjong','Kapak genggam','Nekara','Flakes'], a:0,
+   e:'Kapak lonjong banyak ditemukan di Indonesia timur.', k:'Kapak lonjong = Indonesia timur.'},
+  {c:'neo', q:'Manusia pendukung kebudayaan Neolitikum di Indonesia adalah...', o:['Proto Melayu (Melayu Tua)','Papua-Melanesoid','Pithecanthropus','Homo soloensis'], a:0,
+   e:'Proto Melayu datang sekitar 1500 SM membawa kebudayaan Neolitikum.', k:'Proto Melayu = pendukung Neolitikum.'},
+  {c:'neo', q:'Proses penjinakan hewan liar untuk dipelihara disebut...', o:['Domestikasi','Akulturasi','Adaptasi','Asimilasi'], a:0,
+   e:'Domestikasi = penjinakan hewan dan tumbuhan.', k:'Domestikasi = penjinakan hewan/tanaman.'},
+  {c:'neo', q:'Salah satu dampak revolusi Neolitikum pada kehidupan sosial adalah...', o:['Muncul kepala suku & desa permanen','Hidup kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi'], a:0,
+   e:'Kehidupan menetap memunculkan desa, kepemilikan tanah, dan kepala suku.', k:'Neolitikum = muncul desa & kepala suku.'},
+
+  {c:'mega', q:'Tugu batu besar untuk memperingati/memuja arwah leluhur disebut...', o:['Menhir','Dolmen','Sarkofagus','Punden berundak'], a:0,
+   e:'Menhir = tugu batu berdiri tegak.', k:'Menhir = tugu batu pemujaan.'},
+  {c:'mega', q:'Meja batu besar untuk meletakkan sesajen disebut...', o:['Dolmen','Menhir','Sarkofagus','Waruga'], a:0,
+   e:'Dolmen = meja batu untuk meletakkan sesajen.', k:'Dolmen = meja sesajen batu.'},
+  {c:'mega', q:'Peti jenazah dari batu yang banyak ditemukan di Bali disebut...', o:['Sarkofagus','Dolmen','Menhir','Punden'], a:0,
+   e:'Sarkofagus = peti jenazah batu berbentuk lesung dengan tutup.', k:'Sarkofagus = peti jenazah batu (Bali).'},
+  {c:'mega', q:'Bangunan batu bertingkat untuk pemujaan arwah yang menjadi dasar arsitektur candi adalah...', o:['Punden berundak','Menhir','Dolmen','Waruga'], a:0,
+   e:'Punden berundak = bangunan bertingkat dari batu.', k:'Punden berundak = dasar arsitektur candi.'},
+  {c:'mega', q:'Situs megalitikum terbesar di Asia Tenggara yang terletak di Cianjur, Jawa Barat adalah...', o:['Gunung Padang','Lore Lindu','Pasemah','Sangiran'], a:0,
+   e:'Gunung Padang = situs megalitikum terbesar di Asia Tenggara.', k:'Gunung Padang = megalit terbesar Asia Tenggara.'},
+
+  {c:'logam', q:'Indonesia tidak mengalami zaman tembaga karena...', o:['Tidak ditemukan artefak tembaga','Tidak ada tambang tembaga','Tembaga belum dikenal','Terlalu keras'], a:0,
+   e:'Belum ditemukan artefak tembaga di Indonesia.', k:'Indonesia: perunggu → besi (tanpa tembaga).'},
+  {c:'logam', q:'Gendang perunggu besar untuk upacara mendatangkan hujan disebut...', o:['Nekara','Moko','Kapak corong','Bejana'], a:0,
+   e:'Nekara = gendang perunggu besar dari kebudayaan Dong Son.', k:'Nekara = gendang perunggu upacara.'},
+  {c:'logam', q:'Benda perunggu berbentuk gendang kecil yang menjadi pusaka di Alor, NTT adalah...', o:['Moko','Nekara','Kapak corong','Bejana'], a:0,
+   e:'Moko = gendang perunggu kecil dari Alor, NTT.', k:'Moko = gendang kecil Alor.'},
+  {c:'logam', q:'Teknik pembuatan logam dengan model lilin yang dilapisi tanah liat disebut...', o:['A cire perdue','Bivalve','Tempa','Cor langsung'], a:0,
+   e:'A cire perdue (cetak lilin) = model lilin dilapisi tanah liat.', k:'A cire perdue = cetak lilin.'},
+  {c:'logam', q:'Ciri utama kehidupan masa Perundagian adalah...', o:['Spesialisasi kerja (pandai logam, petani, pedagang)','Hidup nomaden','Belum mengenal api','Belum ada kepercayaan'], a:0,
+   e:'Masa Perundagian ditandai spesialisasi kerja.', k:'Perundagian = spesialisasi kerja.'},
+
+  {c:'situs', q:'Situs manusia purba terbesar di Indonesia yang diakui UNESCO tahun 1996 adalah...', o:['Sangiran','Trinil','Liang Bua','Wajak'], a:0,
+   e:'Sangiran menyimpan lebih dari 100 fosil manusia purba. UNESCO 1996.', k:'Sangiran = situs UNESCO.'},
+  {c:'situs', q:'Fosil manusia purba pertama di Indonesia ditemukan di situs...', o:['Trinil','Sangiran','Ngandong','Wajak'], a:0,
+   e:'Trinil = lokasi penemuan Pithecanthropus erectus oleh Eugene Dubois tahun 1891.', k:'Trinil = fosil manusia purba pertama.'},
+  {c:'situs', q:'Situs lukisan gua tertua di Indonesia (usia ± 40.000 tahun) berada di...', o:['Leang-Leang, Sulawesi Selatan','Liang Bua, Flores','Gunung Padang, Cianjur','Pasemah, Sumatera Selatan'], a:0,
+   e:'Leang-Leang di Sulawesi Selatan memiliki lukisan cap tangan berusia ± 40.000 tahun.', k:'Leang-Leang = lukisan gua tertua.'},
+  {c:'situs', q:'Situs megalitikum Pasemah di Sumatera Selatan terkenal dengan...', o:['Patung megalitik manusia & gajah','Kapak persegi','Nekara perunggu','Fosil manusia purba'], a:0,
+   e:'Pasemah = situs megalitikum dengan patung-patung batu naturalistis.', k:'Pasemah = patung megalitik naturalistis.'},
+  {c:'situs', q:'Situs Waruga, kubur batu berbentuk kubus, terletak di...', o:['Minahasa, Sulawesi Utara','Alor, NTT','Bali','Pasemah, Sumatera'], a:0,
+   e:'Waruga = kubur batu berbentuk kubus dengan tutup piramida, khas Minahasa.', k:'Waruga = kubur batu Minahasa.'},
+
+  {c:'sosial', q:'Kepercayaan bahwa benda-benda tertentu memiliki roh disebut...', o:['Animisme','Dinamisme','Totemisme','Politeisme'], a:0,
+   e:'Animisme = kepercayaan bahwa semua benda memiliki roh.', k:'Animisme = benda punya roh.'},
+  {c:'sosial', q:'Kepercayaan bahwa benda memiliki kekuatan gaib disebut...', o:['Dinamisme','Animisme','Fetisisme','Monoteisme'], a:0,
+   e:'Dinamisme = kepercayaan terhadap kekuatan gaib (mana).', k:'Dinamisme = kekuatan gaib benda.'},
+  {c:'sosial', q:'Kepercayaan bahwa suatu kelompok memiliki hubungan khusus dengan hewan/tumbuhan disebut...', o:['Totemisme','Animisme','Dinamisme','Politeisme'], a:0,
+   e:'Totemisme = setiap klan punya hewan/tumbuhan totem.', k:'Totemisme = hubungan khusus dengan hewan.'},
+  {c:'sosial', q:'Bukti kepercayaan praaksara akan kehidupan setelah mati adalah...', o:['Bekal kubur di makam','Lukisan gua','Alat batu','Tembikar'], a:0,
+   e:'Bekal kubur disertakan di makam sebagai bekal si mati.', k:'Bekal kubur = kepercayaan kehidupan setelah mati.'},
+  {c:'sosial', q:'Perdagangan pada masa praaksara dilakukan dengan cara...', o:['Barter (tukar barang)','Uang logam','Kartu kredit','Sistem kredit'], a:0,
+   e:'Sebelum ada uang, perdagangan dilakukan dengan barter.', k:'Praaksara = sistem barter.'},
+
+  {c:'warisan', q:'Nilai praaksara yang masih hidup dalam masyarakat Indonesia adalah...', o:['Gotong royong & musyawarah','Sistem kasta','Feodalisme','Monopoli dagang'], a:0,
+   e:'Gotong royong, musyawarah, dan penghormatan kepada leluhur masih hidup hingga kini.', k:'Gotong royong = warisan praaksara.'},
+  {c:'warisan', q:'Tradisi sedekah laut (seperti di Pantai Selatan) merupakan warisan dari kepercayaan...', o:['Animisme','Monoteisme','Politeisme Yunani','Ateisme'], a:0,
+   e:'Sedekah laut untuk menghormati penguasa laut adalah bentuk animisme.', k:'Sedekah laut = warisan animisme.'},
+  {c:'warisan', q:'Punden berundak menjadi dasar arsitektur...', o:['Candi seperti Borobudur','Rumah adat','Jembatan','Benteng'], a:0,
+   e:'Punden berundak menjadi dasar arsitektur candi Hindu-Buddha.', k:'Punden berundak → arsitektur candi.'},
+  {c:'warisan', q:'Nilai praaksara yang penting untuk kehidupan modern adalah...', o:['Menghargai alam & menjaga lingkungan','Individualisme','Materialisme','Konsumerisme'], a:0,
+   e:'Praaksara mengajarkan penghormatan kepada alam.', k:'Nilai praaksara = harmoni dengan alam.'},
+  {c:'warisan', q:'Belajar praaksara mengajarkan kita tentang pentingnya...', o:['Adaptasi, inovasi, dan keberlanjutan budaya','Perang antar suku','Menguasai bangsa lain','Mengumpulkan kekayaan'], a:0,
+   e:'Manusia bertahan melalui adaptasi, inovasi, dan keberlanjutan.', k:'Adaptasi + inovasi = kunci bertahan.'}
+];
+
+/* =========================================================
+   GAME 1: WHEEL
+   ========================================================= */
+let wRot = 0, wSpinning = false, wRound = 0, wTotal = 12;
+let wScore = 0, wOk = 0, wStreak = 0, wCur = null, wLocked = false;
+
+function initWheel(){
+  wRot = 0; wSpinning = false; wRound = 0; wScore = 0; wOk = 0; wStreak = 0; wCur = null; wLocked = false;
+  $('whPill').textContent = 'Putaran 1 / ' + wTotal;
+  $('whScore').textContent = 0;
+  $('whOk').textContent = 0;
+  $('whStreak').textContent = '0🔥';
+  $('whWheelView').style.display = 'block';
+  $('whQView').style.display = 'none';
+  $('whCatRes').innerHTML = '';
+  drawWheel();
 }
 
-/* ============ PROGRESS (in-memory) ============ */
-let _progress={};
-function loadProgress(){return _progress}
-function saveProgress(p){_progress=p}
-function markDone(id,d={}){
-  const p=loadProgress();
-  if(p[id]&&p[id].done&&!d.force)return;
-  p[id]={done:true,...d,date:new Date().toISOString()};
-  saveProgress(p);
-  updateMenu();
-}
-function resetProgress(){
-  if(!confirm('Reset semua progress belajar?'))return;
-  _progress={};
-  updateMenu();
-  notif('Progress direset!','gold');
-}
-function updateMenu(){
-  const p=loadProgress();
-  document.querySelectorAll('.gc.available').forEach(c=>{
-    const id=c.dataset.game;
-    c.classList.toggle('done',!!(p[id]&&p[id].done));
+function drawWheel(){
+  const cv = $('whCanvas'), ctx = cv.getContext('2d');
+  const cx = 250, cy = 250, r = 230;
+  const n = CATS.length, seg = Math.PI*2/n;
+  ctx.clearRect(0,0,500,500);
+
+  ctx.beginPath(); ctx.arc(cx,cy,r+15,0,6.28);
+  ctx.strokeStyle = 'rgba(2,132,199,.35)'; ctx.lineWidth = 4;
+  ctx.shadowBlur = 18; ctx.shadowColor = 'rgba(2,132,199,.45)'; ctx.stroke(); ctx.shadowBlur = 0;
+
+  CATS.forEach((cat, i)=>{
+    const a0 = wRot + i*seg, a1 = a0 + seg;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,a0,a1); ctx.closePath();
+    const grad = ctx.createRadialGradient(cx,cy,r*0.15,cx,cy,r);
+    grad.addColorStop(0, shade(cat.color,-0.05));
+    grad.addColorStop(1, shade(cat.color,-0.42));
+    ctx.fillStyle = grad; ctx.fill();
+    ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.stroke();
+
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(a0 + seg/2);
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 15px "Space Grotesk",sans-serif';
+    ctx.shadowBlur = 6; ctx.shadowColor = 'rgba(3,8,26,.55)';
+    ctx.fillText(cat.short.toUpperCase(), r-22, 0);
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    const mid = a0 + seg/2;
+    const ix = cx + (r*0.85) * Math.cos(mid);
+    const iy = cy + (r*0.85) * Math.sin(mid);
+    ctx.font = '22px "Apple Color Emoji","Segoe UI Emoji"';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(cat.icon, ix, iy);
   });
-  const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
-  $('#progText').textContent=`${done} / 6 Game`;
-  $('#progFill').style.width=(done/6*100)+'%';
 }
 
-/* ============ GAME MODAL ============ */
-/* 
-   ⚠️ PENTING: Sesuaikan nama file di bawah ini dengan nama file game Anda.
-*/
-const GAME_FILES={
-  wheel:      'wheel-game.html',       // ← Ganti dengan nama file Kuis Roda Berputar
-  interactive:'interactive-quiz.html'  // ← Ganti dengan nama file Kuis Interaktif Sejarah
-};
+function spinWheel(){
+  if(wSpinning) return;
+  if(wRound >= wTotal){ toast('Sudah selesai!','gold'); return; }
+  wSpinning = true;
+  $('whHub').disabled = true;
+  $('whCatRes').innerHTML = '';
 
-function openGame(gameId, title){
-  const file=GAME_FILES[gameId];
-  if(!file){notif('Game belum tersedia','gold');return}
+  const idx = Math.floor(Math.random()*CATS.length);
+  const n = CATS.length, segDeg = 360/n;
+  const targetDeg = -idx*segDeg - segDeg/2 + (Math.random()-.5)*segDeg*0.5;
+  const startRot = wRot;
+  const turns = 6 + Math.random()*3;
+  const totalRad = turns * Math.PI * 2 + (targetDeg*Math.PI/180) - (startRot % (Math.PI*2));
+  const dur = 4200, t0 = performance.now();
 
-  const modal=$('#gameModal');
-  const iframe=$('#gameIframe');
-
-  let loadOk=false;
-  iframe.onload=function(){loadOk=true};
-  iframe.onerror=function(){showFileNotFound(iframe,title)};
-
-  iframe.src=file;
-  modal.classList.add('on');
-  document.body.style.overflow='hidden';
-
-  setTimeout(()=>{
-    if(!loadOk){
-      try{
-        const doc=iframe.contentDocument||iframe.contentWindow.document;
-        if(!doc||!doc.body||doc.body.innerHTML.trim()===''){
-          showFileNotFound(iframe,title);
-        }
-      }catch(e){}
+  (function anim(now){
+    const p = Math.min((now-t0)/dur, 1);
+    const e = 1 - Math.pow(1-p, 4);
+    wRot = startRot + totalRad * e;
+    drawWheel();
+    if(p < 1) requestAnimationFrame(anim);
+    else {
+      wSpinning = false;
+      $('whHub').disabled = false;
+      onWheelLand(CATS[idx]);
     }
-  },2500);
+  })(t0);
 }
 
-function showFileNotFound(iframe,title){
-  iframe.srcdoc=`
-    <div style="display:flex;align-items:center;justify-content:center;height:100%;background:linear-gradient(160deg,#eef4ff,#eaf1ff);color:#0f172a;font-family:'Plus Jakarta Sans',sans-serif;text-align:center;padding:24px">
-      <div style="max-width:420px">
-        <div style="font-size:4rem;margin-bottom:16px">📁</div>
-        <h2 style="color:#1d4ed8;font-size:1.4rem;margin-bottom:12px">File Game Tidak Ditemukan</h2>
-        <p style="color:#5b6b85;font-size:.95rem;line-height:1.7;margin-bottom:16px">
-          Game <b>${title}</b> tidak dapat dimuat.<br>
-          Pastikan file berikut ada di folder yang sama dengan halaman ini.
-        </p>
-      </div>
+function onWheelLand(cat){
+  const c1 = shade(cat.color,-0.18), c2 = shade(cat.color,-0.42);
+  $('whCatRes').innerHTML = `
+    <div class="cat-badge" style="background:linear-gradient(135deg,${c1},${c2});border:2px solid ${shade(cat.color,-0.30)}">
+      <span class="e">${cat.icon}</span>
+      <span>${cat.name}</span>
     </div>`;
+  setTimeout(()=>showWheelQ(cat), 1100);
 }
 
-function closeGame(){
-  const modal=$('#gameModal');
-  const iframe=$('#gameIframe');
-  modal.classList.remove('on');
-  iframe.src='about:blank';
-  document.body.style.overflow='';
+function showWheelQ(cat){
+  const pool = QUESTIONS.filter(q=>q.c===cat.id);
+  const q = pool[Math.floor(Math.random()*pool.length)];
+  const pairs = q.o.map((t,i)=>({t, c:i===q.a}));
+  const sh = shuffle(pairs);
+  const newQ = {q:q.q, o:sh.map(p=>p.t), a:sh.findIndex(p=>p.c), e:q.e, k:q.k, cat:cat};
+
+  wCur = newQ; wLocked = false;
+  $('whWheelView').style.display = 'none';
+  $('whQView').style.display = 'block';
+  $('whQn').textContent = `SOAL ${wRound+1} · Kategori: ${cat.name}`;
+  $('whQt').textContent = newQ.q;
+
+  const c = $('whOpts'); c.innerHTML = '';
+  newQ.o.forEach((opt,i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="ltr">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;
+    b.onclick = ()=>pickWheel(i, b);
+    c.appendChild(b);
+  });
+  $('whFb').className = 'fb';
+  $('whFb').innerHTML = '';
+  $('whActionBox').hidden = true;
 }
 
-$('#gameModal').addEventListener('click',e=>{
-  if(e.target===$('#gameModal'))closeGame();
-});
+function pickWheel(i, btn){
+  if(wLocked) return;
+  wLocked = true;
+  const q = wCur;
+  const all = $$('#whOpts .opt');
+  all.forEach(b=>b.disabled = true);
+  const correct = i === q.a;
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&$('#gameModal').classList.contains('on'))closeGame();
-});
+  if(correct){
+    btn.classList.add('ok');
+    wStreak++; wOk++;
+    const gain = 100 + Math.max(0,(wStreak-1))*25;
+    wScore += gain;
+    $('whFb').className = 'fb on good';
+    $('whFb').innerHTML = `<b>✓ Benar!</b> +${gain} poin ${wStreak>1?`· Streak ${wStreak}🔥`:''}<br>${q.e}<div class="kp">🎯 ${q.k}</div>`;
+    toast('Benar! +'+gain,'ok');
+  } else {
+    btn.classList.add('no');
+    all[q.a].classList.add('ok');
+    wStreak = 0;
+    $('whFb').className = 'fb on bad';
+    $('whFb').innerHTML = `<b>✗ Kurang tepat.</b> Jawaban benar: <b>${String.fromCharCode(65+q.a)}. ${q.o[q.a]}</b><br>${q.e}<div class="kp">🎯 ${q.k}</div>`;
+    toast('Belajar dari kesalahan 💪','bad');
+  }
+  wScore && ($('whScore').textContent = wScore);
+  $('whOk').textContent = wOk;
+  $('whStreak').textContent = wStreak + '🔥';
+  $('whActionBox').hidden = false;
+  $('whNext').innerHTML = (wRound+1 >= wTotal) ? '<i class="fas fa-flag-checkered"></i> LIHAT HASIL' : '<i class="fas fa-dharmachakra"></i> PUTAR LAGI';
+}
 
-/* ============ TILT EFFECT ============ */
-document.querySelectorAll('.gc.available').forEach(el=>{
-  el.addEventListener('mousemove',e=>{
-    const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
-    el.style.transform=`perspective(900px) rotateX(${((y-r.height/2)/(r.height/2))*-5}deg) rotateY(${((x-r.width/2)/(r.width/2))*5}deg) translateY(-6px) scale(1.02)`;
+function whNextRound(){
+  wRound++;
+  if(wRound >= wTotal){ endWheel(); return; }
+  $('whPill').textContent = `Putaran ${wRound+1} / ${wTotal}`;
+  $('whWheelView').style.display = 'block';
+  $('whQView').style.display = 'none';
+  $('whCatRes').innerHTML = '';
+}
+
+function endWheel(){
+  const total = wTotal;
+  const acc = Math.round(wOk/total*100);
+  const emoji = acc>=90?'🏆':acc>=70?'🌟':acc>=50?'👍':'📚';
+  const title = acc>=90?'Luar Biasa!':acc>=70?'Bagus Sekali!':acc>=50?'Cukup Baik!':'Ayo Coba Lagi!';
+  markDone('wheel', {score:wScore, acc});
+  showModal(emoji, title, `Kamu menjawab benar ${wOk} dari ${total} soal.`,
+    [{v:wScore,l:'Skor'},{v:wOk+'/'+total,l:'Benar'},{v:acc+'%',l:'Akurasi'}]);
+}
+
+/* =========================================================
+   GAME 2: DETEKTIF
+   ========================================================= */
+const DET_DATA = [
+  {n:'Fosil Pithecanthropus erectus', c:'fosil', e:'Ditemukan Eugene Dubois di Trinil (1891). Sisa manusia purba yang membatu.'},
+  {n:'Rahang & gigi Meganthropus', c:'fosil', e:'Fosil manusia purba berbadan besar dari Sangiran, ditemukan von Koenigswald (1941).'},
+  {n:'Tengkorak Homo soloensis', c:'fosil', e:'Fosil dari Ngandong, Blora. Volume otak 1000-1300 cc.'},
+  {n:'Fosil Homo wajakensis', c:'fosil', e:'Ditemukan van Rietschoten di Wajak, Tulungagung (1889). Homo sapiens awal.'},
+  {n:'Fosil gajah purba Stegodon', c:'fosil', e:'Fosil hewan purba — bukti lingkungan & makanan manusia praaksara.'},
+  {n:'Fosil Homo floresiensis', c:'fosil', e:'Manusia kerdil dari Liang Bua, Flores. Dijuluki "Hobbit".'},
+  {n:'Kapak genggam (chopper)', c:'artefak', e:'Alat Paleolitikum dari Pacitan. Untuk memotong daging & memecah tulang.'},
+  {n:'Kapak persegi', c:'artefak', e:'Alat Neolitikum yang diasah. Untuk membuka lahan pertanian.'},
+  {n:'Nekara perunggu', c:'artefak', e:'Gendang perunggu masa Perundagian. Untuk upacara & simbol status.'},
+  {n:'Menhir', c:'artefak', e:'Tugu batu Megalitikum untuk pemujaan arwah leluhur.'},
+  {n:'Mata panah batu', c:'artefak', e:'Alat berburu Mesolitikum yang dipasang pada kayu.'},
+  {n:'Sarkofagus', c:'artefak', e:'Peti jenazah batu dari Bali. Berhias ukiran wajah.'},
+  {n:'Sangiran, Jawa Tengah', c:'situs', e:'Situs manusia purba terbesar Indonesia. Warisan Budaya Dunia UNESCO (1996).'},
+  {n:'Trinil, Ngawi', c:'situs', e:'Lokasi penemuan Pithecanthropus erectus oleh Dubois (1891).'},
+  {n:'Liang Bua, Flores', c:'situs', e:'Situs penemuan Homo floresiensis (2003).'},
+  {n:'Gunung Padang, Cianjur', c:'situs', e:'Situs megalitikum terbesar di Asia Tenggara.'},
+  {n:'Leang-Leang, Sulawesi', c:'situs', e:'Situs lukisan gua & cap tangan tertua (± 40.000 tahun).'},
+  {n:'Pasemah, Sumatera Selatan', c:'situs', e:'Situs megalitikum dengan patung manusia & gajah.'},
+  {n:'Serbuk sari purba', c:'ecofact', e:'Sisa tumbuhan dari masa lampau — petunjuk iklim & jenis tanaman.'},
+  {n:'Tumpukan kulit kerang', c:'ecofact', e:'Sisa makanan manusia Mesolitikum (kjokkenmoddinger).'},
+  {n:'Biji-bijian purba', c:'ecofact', e:'Sisa tanaman — bukti pola makan & awal pertanian.'},
+  {n:'Tulang hewan buruan', c:'ecofact', e:'Sisa tulang hewan yang dimakan — menunjukkan jenis buruan.'},
+  {n:'Arang sisa perapian', c:'ecofact', e:'Sisa pembakaran kuno. Berguna untuk penanggalan radiokarbon (C-14).'},
+  {n:'Cangkang moluska purba', c:'ecofact', e:'Sisa cangkang yang menunjukkan lingkungan pesisir masa lalu.'}
+];
+
+let detState = {};
+
+function initDetektif(){
+  const data = shuffle(DET_DATA).slice(0,24);
+  detState = {list:data, idx:0, ok:0, no:0, streak:0, locked:false};
+  $('detOk').textContent = 0;
+  $('detNo').textContent = 0;
+  $('detStk').textContent = '0🔥';
+  $('detPill').textContent = '0 / 24';
+  renderDetCard();
+}
+
+function renderDetCard(){
+  detState.locked = false;
+  if(detState.idx >= detState.list.length){ endDetektif(); return; }
+  const item = detState.list[detState.idx];
+  $('detItem').textContent = item.n;
+  $('detHint').textContent = 'Klik kategori di bawah ⬇';
+  $('detFb').className = 'fb';
+  $('detFb').innerHTML = '';
+  $$('#detCats .dcat').forEach(b=>{
+    b.classList.remove('ok','no');
+    b.disabled = false;
   });
-  el.addEventListener('mouseleave',()=>{el.style.transform=''});
-});
+}
 
-/* Klik kartu available → buka game */
-document.querySelectorAll('.gc.available').forEach(c=>{
-  c.addEventListener('click',()=>openGame(c.dataset.game,c.dataset.title));
-  c.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();openGame(c.dataset.game,c.dataset.title)}
+function pickDetCat(c){
+  if(detState.locked) return;
+  detState.locked = true;
+  const item = detState.list[detState.idx];
+  const isOK = c === item.c;
+  $$('#detCats .dcat').forEach(b=>b.disabled = true);
+  const btn = document.querySelector(`#detCats .dcat[data-c="${c}"]`);
+
+  if(isOK){
+    btn.classList.add('ok');
+    detState.ok++; detState.streak++;
+    $('detFb').className = 'fb on good';
+    $('detFb').innerHTML = `<b>✓ Benar!</b> "${item.n}" adalah <b>${labelCat(item.c)}</b>.<br>${item.e}`;
+    toast('Benar! +1','ok');
+  } else {
+    btn.classList.add('no');
+    const r = document.querySelector(`#detCats .dcat[data-c="${item.c}"]`);
+    if(r) r.classList.add('ok');
+    detState.no++; detState.streak = 0;
+    $('detFb').className = 'fb on bad';
+    $('detFb').innerHTML = `<b>✗ Kurang tepat.</b> "${item.n}" seharusnya <b>${labelCat(item.c)}</b>.<br>${item.e}`;
+    toast('Belajar dari kesalahan 💪','bad');
+  }
+  $('detOk').textContent = detState.ok;
+  $('detNo').textContent = detState.no;
+  $('detStk').textContent = detState.streak + '🔥';
+  $('detPill').textContent = (detState.ok+detState.no) + ' / 24';
+  detState.idx++;
+  setTimeout(()=>{
+    if(detState.idx >= detState.list.length) endDetektif();
+    else renderDetCard();
+  }, 2400);
+}
+
+function labelCat(c){
+  return {fosil:'Fosil 🦴', artefak:'Artefak 🏺', situs:'Situs 🪨', ecofact:'Ecofact 🌿'}[c];
+}
+
+function endDetektif(){
+  const total = detState.ok + detState.no;
+  const acc = total ? Math.round(detState.ok/total*100) : 0;
+  const emoji = acc>=90?'🏆':acc>=70?'🌟':acc>=50?'👍':'📚';
+  const title = acc>=90?'Detektif Ulung!':acc>=70?'Bagus!':acc>=50?'Cukup!':'Ayo Coba Lagi!';
+  markDone('detektif', {score:detState.ok*100});
+  showModal(emoji, title, `Kamu mengklasifikasi 24 penemuan dengan benar ${detState.ok} kali.`,
+    [{v:detState.ok,l:'Benar'},{v:detState.no,l:'Salah'},{v:acc+'%',l:'Akurasi'}]);
+}
+
+/* =========================================================
+   GAME 3: KRONOLOGI
+   ========================================================= */
+const KR_ROUNDS = [
+  {qt:'Urutkan zaman praaksara dari yang paling TUA ke termuda!',
+   items:['Paleolitikum','Mesolitikum','Neolitikum','Megalitikum','Perundagian']},
+  {qt:'Urutkan manusia purba Indonesia dari yang paling tua (arcaik) ke termuda!',
+   items:['Meganthropus paleojavanicus','Pithecanthropus erectus','Homo soloensis','Homo wajakensis']},
+  {qt:'Urutkan alat batu dari yang paling tua ke termuda!',
+   items:['Kapak genggam (chopper)','Mata panah batu','Kapak persegi','Nekara perunggu']},
+  {qt:'Urutkan situs dari yang paling tua (paling awal ditemukan) ke termuda!',
+   items:['Trinil (1891)','Wajak (1889)','Ngandong (1931)','Liang Bua (2003)']},
+  {qt:'Urutkan tahapan kepercayaan praaksara dari yang paling awal ke akhir!',
+   items:['Animisme (roh pada benda)','Dinamisme (kekuatan gaib)','Totemisme (hewan totem)','Bekal kubur (kehidupan setelah mati)']}
+];
+
+let krState = {};
+
+function initKronologi(){
+  krState = {round:0, ok:0, score:0, filled:[], items:[]};
+  $('krOk').textContent = 0;
+  $('krScore').textContent = 0;
+  $('krRound').textContent = 1;
+  renderKr();
+}
+
+function renderKr(){
+  if(krState.round >= KR_ROUNDS.length){ endKronologi(); return; }
+  const r = KR_ROUNDS[krState.round];
+  krState.filled = [];
+  krState.items = shuffle(r.items);
+  $('krQt').textContent = r.qt;
+  $('krPill').textContent = `Babak ${krState.round+1} / ${KR_ROUNDS.length}`;
+  $('krRound').textContent = krState.round+1;
+  renderKrSlots(r.items.length);
+  renderKrItems();
+}
+
+function renderKrSlots(n){
+  const c = $('krSlots'); c.innerHTML = '';
+  for(let i=0;i<n;i++){
+    const s = document.createElement('div');
+    s.className = 'kr-slot';
+    s.innerHTML = `<span class="no">${i+1}</span><span class="txt">(kosong)</span>`;
+    c.appendChild(s);
+  }
+}
+
+function renderKrItems(){
+  const c = $('krItems'); c.innerHTML = '';
+  krState.items.forEach(item=>{
+    const b = document.createElement('button');
+    b.className = 'kr-item';
+    b.textContent = item;
+    b.onclick = ()=>pickKr(item, b);
+    c.appendChild(b);
   });
-  c.setAttribute('tabindex','0');
-  c.setAttribute('role','button');
-  c.setAttribute('aria-label','Mainkan '+c.dataset.title);
-});
+}
 
-/* Notif untuk kartu locked */
-document.querySelectorAll('.gc.locked').forEach(c=>{
-  c.addEventListener('click',()=>notif('Game ini segera hadir! 🚧','gold'));
-});
+function pickKr(item, btn){
+  const r = KR_ROUNDS[krState.round];
+  const expected = r.items[krState.filled.length];
+  if(item === expected){
+    krState.filled.push(item);
+    btn.disabled = true;
+    const slot = $('krSlots').children[krState.filled.length-1];
+    slot.classList.add('filled');
+    slot.querySelector('.txt').textContent = item;
+    slot.querySelector('.txt').style.color = '#0f172a';
+    slot.querySelector('.txt').style.fontStyle = 'normal';
+    slot.querySelector('.txt').style.fontWeight = '700';
+    toast('✓ Benar!','ok');
 
-/* ============ WELCOME ============ */
-window.addEventListener('load',()=>{
+    if(krState.filled.length === r.items.length){
+      krState.ok++; krState.score += 100;
+      $('krOk').textContent = krState.ok;
+      $('krScore').textContent = krState.score;
+      toast('🎉 Babak selesai! +100','gold');
+      setTimeout(()=>{ krState.round++; renderKr(); }, 1300);
+    }
+  } else {
+    toast('✗ Urutan salah! Direset','bad');
+    krState.filled = [];
+    renderKrSlots(r.items.length);
+    renderKrItems();
+  }
+}
+
+function endKronologi(){
+  const acc = Math.round(krState.ok/KR_ROUNDS.length*100);
+  const emoji = acc>=90?'🏆':acc>=70?'🌟':'👍';
+  markDone('kronologi', {score:krState.score});
+  showModal(emoji, 'Kronologi Selesai!', `Berhasil menyelesaikan ${krState.ok} dari ${KR_ROUNDS.length} babak.`,
+    [{v:krState.ok,l:'Babak'},{v:krState.score,l:'Skor'},{v:acc+'%',l:'Akurasi'}]);
+}
+
+/* =========================================================
+   GAME 4: PETUALANGAN
+   ========================================================= */
+const PET_LEVELS = [
+  {e:'🪨', title:'Paleolitikum', sub:'ZAMAN BATU TUA (1,8 juta – 10.000 SM)',
+   text:'<b>Paleolitikum</b> berarti "batu tua". Manusia pendukungnya adalah <b>Pithecanthropus erectus</b> dan <b>Homo wajakensis</b>. Alat batunya masih <b>kasar</b> karena dibuat dengan teknik pangkas sederhana: <b>kapak genggam (chopper)</b> dari Pacitan dan <b>alat serpih</b>. Pola hidupnya <b>nomaden</b> — berpindah-pindah mengikuti hewan buruan & sumber makanan. Mereka <b>berburu</b> hewan dan <b>meramu</b> tumbuhan (food gathering). Mereka hidup dalam kelompok kecil dan berlindung di gua atau tepi sungai.',
+   fact:'💡 Kebudayaan Pacitan (chopper) & Ngandong (tulang) jadi bukti dua wajah Paleolitikum Indonesia.',
+   soal:[
+     {q:'Apa ciri utama alat batu Paleolitikum?', o:['Masih kasar & sederhana','Sudah diasah halus','Terbuat dari logam','Berwarna cerah'], a:0, e:'Paleolitikum = batu tua, alatnya masih kasar karena dibuat dengan teknik pangkas.'},
+     {q:'Pola hidup manusia Paleolitikum adalah...', o:['Nomaden & food gathering','Menetap & bercocok tanam','Berdagang di pelabuhan','Beternak hewan'], a:0, e:'Food gathering (berburu & meramu) membuat mereka berpindah-pindah mengikuti sumber makanan.'},
+     {q:'Manusia purba pendukung Paleolitikum di Indonesia adalah...', o:['Pithecanthropus erectus','Homo sapiens modern','Proto Melayu','Deutero Melayu'], a:0, e:'Pithecanthropus erectus adalah pendukung kebudayaan Paleolitikum.'},
+     {q:'Kebudayaan Ngandong menghasilkan alat dari...', o:['Tulang & tanduk','Perunggu','Besi','Kerang'], a:0, e:'Kebudayaan Ngandong (Homo soloensis & Homo wajakensis) menghasilkan alat dari tulang & tanduk.'}
+   ]},
+  {e:'🏹', title:'Mesolitikum', sub:'ZAMAN BATU TENGAH (10.000 – 4.000 SM)',
+   text:'<b>Mesolitikum</b> adalah masa peralihan. Manusia pendukungnya adalah <b>Papua-Melanesoid</b>. Alat batu mulai <b>lebih halus</b>, seperti <b>mata panah</b> untuk berburu. Kehidupan mulai <b>semi-nomaden</b>: tinggal sementara di tepi pantai & gua. Bukti khas: <b>Kjokkenmoddinger</b> (sampah dapur berupa tumpukan kulit kerang, banyak di pantai Sumatra Timur) dan <b>Abris sous roche</b> (gua ceruk tempat tinggal, banyak di Leang-Leang, Sulawesi). Tradisi <b>lukisan gua</b> berupa cap tangan juga muncul.',
+   fact:'💡 Lukisan cap tangan Leang-Leang berusia ± 40.000 tahun — salah satu yang tertua di dunia!',
+   soal:[
+     {q:'Kjokkenmoddinger adalah...', o:['Tumpukan kulit kerang (sampah dapur)','Alat batu panah','Gua tempat tinggal','Gendang perunggu'], a:0, e:'Kjokkenmoddinger adalah sampah dapur kerang, banyak ditemukan di pantai Sumatra Timur.'},
+     {q:'Abris sous roche adalah...', o:['Gua ceruk tempat tinggal','Meja sesaji batu','Alat pertanian','Perhiasan kuningan'], a:0, e:'Abris sous roche = gua ceruk tempat tinggal manusia Mesolitikum.'},
+     {q:'Situs lukisan gua terkenal di Sulawesi Selatan adalah...', o:['Leang-Leang','Sangiran','Trinil','Gunung Padang'], a:0, e:'Leang-Leang di Maros terkenal dengan lukisan cap tangan & babi rusa.'},
+     {q:'Manusia pendukung Mesolitikum di Indonesia adalah...', o:['Papua-Melanesoid','Proto Melayu','Pithecanthropus','Homo sapiens modern'], a:0, e:'Papua-Melanesoid adalah pendukung kebudayaan Mesolitikum.'}
+   ]},
+  {e:'🌾', title:'Neolitikum', sub:'ZAMAN BATU MUDA (4.000 – 2.000 SM)',
+   text:'<b>Neolitikum</b> adalah masa <b>Revolusi Neolitikum</b>: perubahan besar dari food gathering ke <b>food producing</b> (menghasilkan makanan sendiri). Manusia mulai <b>bercocok tanam</b>, <b>beternak</b> (domestikasi), dan <b>hidup menetap</b> di desa. Alat batu sudah <b>diasah & dipoles</b>: <b>kapak persegi</b> (untuk membuka lahan) dan <b>kapak lonjong</b> (banyak di Indonesia timur). Pendukungnya adalah <b>Proto Melayu</b> (Melayu Tua). Muncul <b>tembikar/gerabah</b> pertama, kepala suku, dan kepemilikan tanah.',
+   fact:'💡 Revolusi Neolitikum = salah satu revolusi terbesar dalam sejarah manusia.',
+   soal:[
+     {q:'Revolusi Neolitikum ditandai dengan...', o:['Bercocok tanam (food producing)','Berburu & meramu','Nomaden','Membuat api'], a:0, e:'Manusia mulai menghasilkan makanan sendiri (bercocok tanam & beternak).'},
+     {q:'Alat khas zaman Neolitikum adalah...', o:['Kapak persegi & lonjong','Kapak genggam','Mata panah','Nekara'], a:0, e:'Kapak persegi & kapak lonjong adalah alat batu yang sudah diasah & dipoles.'},
+     {q:'Manusia pendukung Neolitikum di Indonesia adalah...', o:['Proto Melayu (Melayu Tua)','Papua-Melanesoid','Pithecanthropus','Meganthropus'], a:0, e:'Proto Melayu datang ± 1500 SM membawa kebudayaan Neolitikum.'},
+     {q:'Dampak kehidupan menetap pada masa Neolitikum adalah...', o:['Muncul desa permanen & kepala suku','Kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi'], a:0, e:'Kehidupan menetap memunculkan desa, kepemilikan tanah, dan kepala suku sebagai pemimpin.'}
+   ]},
+  {e:'🗿', title:'Megalitikum', sub:'ZAMAN BATU BESAR',
+   text:'<b>Megalitikum</b> bukan zaman tersendiri, tetapi <b>tradisi</b> yang muncul bersamaan dengan Neolitikum & Perundagian. Ciri utamanya adalah <b>bangunan dari batu besar</b> untuk pemujaan arwah leluhur. Jenis peninggalannya: <b>Menhir</b> (tugu batu untuk pemujaan), <b>Dolmen</b> (meja batu untuk sesajen), <b>Sarkofagus</b> (peti jenazah batu), <b>Punden Berundak</b> (bangunan bertingkat — dasar arsitektur candi), <b>Waruga</b> (kubur batu Minahasa), dan <b>Arca</b> (patung batu). Situs: <b>Gunung Padang</b> (Cianjur), <b>Pasemah</b> (Sumatera Selatan), <b>Lore Lindu</b> (Sulawesi Tengah).',
+   fact:'💡 Punden berundak menjadi dasar arsitektur Borobudur & candi-candi Hindu-Buddha.',
+   soal:[
+     {q:'Menhir berfungsi sebagai...', o:['Tugu pemujaan arwah leluhur','Peti jenazah','Meja sesajen','Alat perang'], a:0, e:'Menhir = tugu batu berdiri tegak untuk pemujaan arwah nenek moyang.'},
+     {q:'Punden berundak menjadi dasar arsitektur...', o:['Candi (seperti Borobudur)','Rumah adat','Jembatan','Kapal'], a:0, e:'Punden berundak adalah dasar arsitektur candi seperti Borobudur.'},
+     {q:'Situs megalitikum terbesar di Asia Tenggara adalah...', o:['Gunung Padang','Sangiran','Trinil','Liang Bua'], a:0, e:'Gunung Padang di Cianjur = situs megalitikum terbesar di Asia Tenggara.'},
+     {q:'Waruga adalah kubur batu dari...', o:['Minahasa, Sulawesi Utara','Alor, NTT','Bali','Pasemah, Sumatera'], a:0, e:'Waruga = kubur batu berbentuk kubus dari Minahasa, Sulawesi Utara.'}
+   ]},
+  {e:'⚒️', title:'Perundagian', sub:'ZAMAN LOGAM (500 SM – 500 M)',
+   text:'<b>Perundagian</b> = puncak kebudayaan praaksara Indonesia. Manusia sudah mampu <b>melebur & mencetak logam</b> — pertama <b>perunggu</b>, lalu <b>besi</b>. Indonesia <b>tidak mengalami zaman tembaga</b>. Teknik: <b>A cire perdue</b> (cetak lilin) dan <b>Bivalve</b> (cetak dua bagian). Peninggalan: <b>Nekara</b> (gendang perunggu), <b>Moko</b> (gendang kecil Alor), <b>Kapak corong</b>, <b>Bejana perunggu</b>, perhiasan. Muncul <b>spesialisasi kerja</b>: pandai logam, petani, pedagang. Perdagangan antar pulau ramai (barter).',
+   fact:'💡 Manik-manik dari India ditemukan di situs Indonesia — bukti jaringan dagang antar benua!',
+   soal:[
+     {q:'Indonesia tidak mengalami zaman tembaga karena...', o:['Tidak ditemukan artefak tembaga','Tembaga belum dikenal','Tidak ada tambang','Terlalu keras'], a:0, e:'Belum ditemukan artefak tembaga di Indonesia, jadi langsung ke perunggu & besi.'},
+     {q:'Teknik cetak lilin pembuatan perunggu disebut...', o:['A cire perdue','Bivalve','Tempa','Tuang'], a:0, e:'A cire perdue = cetak lilin. Bivalve = cetak dua bagian.'},
+     {q:'Nekara adalah...', o:['Gendang perunggu upacara','Kapak besi','Peti kubur','Tugu batu'], a:0, e:'Nekara = gendang perunggu untuk upacara mendatangkan hujan & simbol status.'},
+     {q:'Ciri sosial masa Perundagian adalah...', o:['Spesialisasi kerja','Nomaden','Belum ada kepercayaan','Semua sama rata'], a:0, e:'Masa Perundagian ditandai spesialisasi kerja: pandai logam, petani, pedagang.'}
+   ]}
+];
+
+let petState = {};
+
+function initPetualangan(){
+  petState = {level:0, q:0, ok:0, total:0, score:0};
+  renderPetProgress();
+  renderPetLevel();
+}
+
+function renderPetProgress(){
+  const c = $('petProgress'); c.innerHTML = '';
+  PET_LEVELS.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'pet-dot';
+    if(i < petState.level) d.classList.add('done');
+    else if(i === petState.level) d.classList.add('cur');
+    c.appendChild(d);
+  });
+}
+
+function renderPetLevel(){
+  if(petState.level >= PET_LEVELS.length){ endPetualangan(); return; }
+  const lv = PET_LEVELS[petState.level];
+  petState.q = 0;
+  $('petE').textContent = lv.e;
+  $('petTitle').textContent = lv.title;
+  $('petSub').textContent = lv.sub;
+  $('petText').innerHTML = lv.text + `<div class="fact">${lv.fact}</div>`;
+  $('petPill').textContent = `Level ${petState.level+1} / ${PET_LEVELS.length}`;
+  renderPetProgress();
+  renderPetQ();
+}
+
+function renderPetQ(){
+  const lv = PET_LEVELS[petState.level];
+  const q = lv.soal[petState.q];
+  if(!q){
+    petState.level++;
+    setTimeout(()=>{ renderPetLevel(); window.scrollTo({top:0,behavior:'smooth'}); }, 600);
+    return;
+  }
+  $('petQn').textContent = `SOAL ${petState.q+1} / ${lv.soal.length}`;
+  $('petQt').textContent = q.q;
+  const c = $('petOpts'); c.innerHTML = '';
+  q.o.forEach((opt,i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="ltr">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;
+    b.onclick = ()=>pickPet(i, b);
+    c.appendChild(b);
+  });
+  $('petFb').className = 'fb';
+  $('petFb').innerHTML = '';
+  $('petActBox').hidden = true;
+}
+
+function pickPet(i, btn){
+  const lv = PET_LEVELS[petState.level];
+  const q = lv.soal[petState.q];
+  const all = $$('#petOpts .opt');
+  all.forEach(b=>b.disabled = true);
+  petState.total++;
+
+  const ok = i === q.a;
+  if(ok){
+    btn.classList.add('ok');
+    petState.ok++; petState.score += 100;
+    $('petFb').className = 'fb on good';
+    $('petFb').innerHTML = `<b>✓ Benar!</b> ${q.e}`;
+    toast('Benar! +100','ok');
+  } else {
+    btn.classList.add('no');
+    all[q.a].classList.add('ok');
+    $('petFb').className = 'fb on bad';
+    $('petFb').innerHTML = `<b>✗ Kurang tepat.</b> Jawaban benar: <b>${String.fromCharCode(65+q.a)}. ${q.o[q.a]}</b><br>${q.e}`;
+    toast('Belajar dari kesalahan 💪','bad');
+  }
+  petState.q++;
+  $('petActBox').hidden = false;
+  $('petNext').innerHTML = (petState.q >= lv.soal.length)
+    ? (petState.level+1 >= PET_LEVELS.length ? '<i class="fas fa-flag-checkered"></i> LIHAT HASIL' : '<i class="fas fa-arrow-right"></i> LEVEL BERIKUTNYA')
+    : '<i class="fas fa-arrow-right"></i> SOAL BERIKUTNYA';
+}
+
+function petNextQ(){ renderPetQ(); }
+
+function endPetualangan(){
+  const acc = petState.total ? Math.round(petState.ok/petState.total*100) : 0;
+  const emoji = acc>=90?'🏆':acc>=70?'🌟':acc>=50?'👍':'📚';
+  const title = acc>=90?'Petualang Sejati!':acc>=70?'Hebat!':acc>=50?'Bagus!':'Ayo Coba Lagi!';
+  markDone('petualangan', {score:petState.score});
+  showModal(emoji, title, `Kamu menyelesaikan 5 zaman dengan benar ${petState.ok} dari ${petState.total} soal.`,
+    [{v:petState.ok,l:'Benar'},{v:petState.score,l:'Skor'},{v:acc+'%',l:'Akurasi'}]);
+}
+
+/* =========================================================
+   GAME 5: JUTAWAN
+   ========================================================= */
+const JW_BANK = [
+  {q:'Kata "praaksara" berarti...', o:['Sebelum mengenal tulisan','Setelah mengenal tulisan','Zaman batu','Zaman logam'], a:0},
+  {q:'Berakhirnya praaksara di Indonesia ditandai dengan...', o:['Prasasti Yupa Kutai','Candi Borobudur','Fosil Pithecanthropus','Kapak persegi'], a:0},
+  {q:'Pithecanthropus erectus ditemukan oleh...', o:['Eugene Dubois','von Koenigswald','van Rietschoten','Teuku Jacob'], a:0},
+  {q:'Situs Sangiran diakui UNESCO karena...', o:['Menyimpan fosil & artefak dalam jumlah besar','Keindahan alamnya','Letaknya di gunung','Terdapat candi besar'], a:0},
+  {q:'Meganthropus paleojavanicus ditemukan di...', o:['Sangiran','Trinil','Ngandong','Liang Bua'], a:0},
+  {q:'Homo floresiensis dijuluki...', o:['Hobbit','Java Man','Manusia Raksasa','Manusia Bijaksana'], a:0},
+  {q:'Kjokkenmoddinger adalah...', o:['Tumpukan kulit kerang','Alat batu','Gua','Peti kubur'], a:0},
+  {q:'Abris sous roche adalah...', o:['Gua ceruk tempat tinggal','Meja batu','Tugu batu','Gendang'], a:0},
+  {q:'Kapak genggam (chopper) adalah alat khas kebudayaan...', o:['Pacitan','Ngandong','Bacson-Hoabinh','Dong Son'], a:0},
+  {q:'Kapak persegi & kapak lonjong adalah alat dari zaman...', o:['Neolitikum','Paleolitikum','Mesolitikum','Megalitikum'], a:0},
+  {q:'Kapak lonjong banyak ditemukan di...', o:['Papua & Maluku','Jawa Tengah','Sumatera Selatan','Madura'], a:0},
+  {q:'Menhir adalah...', o:['Tugu batu pemujaan','Meja batu','Peti kubur','Alat perang'], a:0},
+  {q:'Dolmen berfungsi sebagai...', o:['Meja batu tempat sesajen','Tempat tinggal','Alat berburu','Gendang'], a:0},
+  {q:'Sarkofagus adalah...', o:['Peti kubur batu','Tugu batu','Gua','Alat perunggu'], a:0},
+  {q:'Punden berundak adalah dasar arsitektur...', o:['Candi','Rumah adat','Jembatan','Kapal'], a:0},
+  {q:'Nekara adalah...', o:['Gendang perunggu','Kapak besi','Tugu batu','Peti kubur'], a:0},
+  {q:'Moko adalah benda perunggu dari...', o:['Alor, NTT','Jawa','Bali','Sumatera'], a:0},
+  {q:'Teknik cetak lilin untuk membuat perunggu disebut...', o:['A cire perdue','Bivalve','Tempa','Tuang'], a:0},
+  {q:'Indonesia tidak mengalami zaman tembaga karena...', o:['Tidak ditemukan artefak tembaga','Tidak ada tambang','Tembaga belum dikenal','Terlalu keras'], a:0},
+  {q:'Pola hidup berburu & meramu disebut...', o:['Food gathering','Food producing','Food processing','Food trading'], a:0},
+  {q:'Revolusi Neolitikum ditandai dengan...', o:['Bercocok tanam (food producing)','Berburu','Nomaden','Membuat api'], a:0},
+  {q:'Manusia pendukung Neolitikum di Indonesia adalah...', o:['Proto Melayu','Papua-Melanesoid','Pithecanthropus','Homo floresiensis'], a:0},
+  {q:'Kepercayaan bahwa setiap benda memiliki roh disebut...', o:['Animisme','Dinamisme','Totemisme','Monoteisme'], a:0},
+  {q:'Kepercayaan bahwa benda memiliki kekuatan gaib disebut...', o:['Dinamisme','Animisme','Fetisisme','Politeisme'], a:0},
+  {q:'Perdagangan praaksara dilakukan dengan cara...', o:['Barter (tukar barang)','Uang kertas','Kartu kredit','Emas'], a:0},
+  {q:'Situs lukisan gua tertua di Indonesia ada di...', o:['Leang-Leang, Sulawesi','Sangiran','Trinil','Gunung Padang'], a:0},
+  {q:'Situs megalitikum terbesar di Asia Tenggara adalah...', o:['Gunung Padang','Lore Lindu','Pasemah','Sangiran'], a:0},
+  {q:'Waruga adalah kubur batu dari...', o:['Minahasa','Alor','Bali','Pasemah'], a:0},
+  {q:'Bekal kubur pada makam praaksara menjadi bukti kepercayaan terhadap...', o:['Kehidupan setelah mati','Monoteisme','Politeisme Yunani','Ateisme'], a:0},
+  {q:'Nilai praaksara yang masih hidup di Indonesia adalah...', o:['Gotong royong & musyawarah','Individualisme','Feodalisme','Monopoli'], a:0},
+  {q:'Situs Pasemah terkenal dengan...', o:['Patung megalitik manusia & gajah','Kapak persegi','Nekara perunggu','Fosil manusia'], a:0},
+  {q:'Ciri utama masa Perundagian adalah...', o:['Spesialisasi kerja','Nomaden','Belum mengenal api','Semua sama rata'], a:0},
+  {q:'Sedekah laut adalah warisan dari kepercayaan...', o:['Animisme','Monoteisme','Politeisme','Ateisme'], a:0},
+  {q:'Alat khas Mesolitikum berupa mata panah terbuat dari...', o:['Batu & tulang','Besi','Perunggu','Kayu'], a:0},
+  {q:'Manusia purba dari Ngandong adalah...', o:['Homo soloensis','Pithecanthropus','Homo wajakensis','Meganthropus'], a:0},
+  {q:'Zaman Megalitikum artinya zaman batu...', o:['Besar','Kecil','Tua','Muda'], a:0},
+  {q:'Domestikasi berarti...', o:['Penjinakan hewan/tanaman','Perdagangan','Perang','Membangun rumah'], a:0},
+  {q:'Bivalve adalah teknik cetak...', o:['Dua bagian','Satu bagian','Lilin','Tangan'], a:0},
+  {q:'Situs Trinil terletak di...', o:['Ngawi, Jawa Timur','Sragen, Jawa Tengah','Blora','Tulungagung'], a:0},
+  {q:'Ciri kehidupan Neolitikum adalah...', o:['Bercocok tanam & menetap','Berburu & nomaden','Semi-nomaden','Melebur logam'], a:0}
+];
+
+const JW_MONEY = [100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+
+let jwState = {};
+
+function initJutawan(){
+  jwState = {
+    soal: shuffle(JW_BANK).slice(0,15).map(q=>{
+      const pairs = q.o.map((t,i)=>({t, c:i===q.a}));
+      const sh = shuffle(pairs);
+      return {q:q.q, o:sh.map(p=>p.t), a:sh.findIndex(p=>p.c)};
+    }),
+    idx:0, ok:0, no:0, locked:false,
+    ll:{fifty:true, aud:true, tel:true}
+  };
+  ['jw50','jwAud','jwTel'].forEach(id=>{ $(id).disabled = false; $(id).style.opacity = 1; });
+  renderJwTree();
+  renderJw();
+}
+
+function renderJwTree(){
+  const c = $('jwTree'); c.innerHTML = '';
+  JW_MONEY.forEach((m,i)=>{
+    const el = document.createElement('div');
+    el.className = 'mi';
+    if([4,9,14].includes(i)) el.classList.add('mile');
+    if(i === jwState.idx) el.classList.add('cur');
+    else if(i < jwState.idx) el.classList.add('pass');
+    el.innerHTML = `<span>${i+1}</span><span>${m.toLocaleString('id')}</span>`;
+    c.appendChild(el);
+  });
   setTimeout(()=>{
-    notif('Selamat datang! Pilih game untuk mulai belajar 🎮','ok');
-  },800);
-  setTimeout(()=>{
-    try{confetti()}catch(e){}
-  },1200);
+    const cur = c.querySelector('.mi.cur');
+    if(cur) cur.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }, 100);
+}
+
+function renderJw(){
+  if(jwState.idx >= jwState.soal.length){ endJutawan(); return; }
+  jwState.locked = false;
+  const q = jwState.soal[jwState.idx];
+  $('jwPill').textContent = `Soal ${jwState.idx+1} / 15`;
+  $('jwN').textContent = `Pertanyaan ${jwState.idx+1} · ${JW_MONEY[jwState.idx].toLocaleString('id')} poin`;
+  $('jwQ').textContent = q.q;
+  const c = $('jwOpts'); c.innerHTML = '';
+  q.o.forEach((opt,i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="ltr">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;
+    b.onclick = ()=>pickJw(i, b);
+    c.appendChild(b);
+  });
+  renderJwTree();
+}
+
+function pickJw(i, btn){
+  if(jwState.locked) return;
+  jwState.locked = true;
+  const q = jwState.soal[jwState.idx];
+  const all = $$('#jwOpts .opt');
+  all.forEach(b=>b.disabled = true);
+
+  if(i === q.a){
+    btn.classList.add('ok');
+    jwState.ok++;
+    toast('✓ Benar!','ok');
+  } else {
+    btn.classList.add('no');
+    all[q.a].classList.add('ok');
+    jwState.no++;
+    toast('✗ Salah! Lanjut ke soal berikutnya','bad');
+  }
+  jwState.idx++;
+  setTimeout(()=>renderJw(), 1600);
+}
+
+function useLL(type){
+  if(!jwState.ll[type]) return;
+  jwState.ll[type] = false;
+  const q = jwState.soal[jwState.idx];
+  if(!q) return;
+  const all = $$('#jwOpts .opt');
+
+  if(type === 'fifty'){
+    $('jw50').disabled = true; $('jw50').style.opacity = .3;
+    const wrongs = shuffle([0,1,2,3].filter(x=>x!==q.a)).slice(0,2);
+    wrongs.forEach(i=>all[i] && all[i].classList.add('elim'));
+    toast('50:50 — 2 jawaban salah dihapus','gold');
+  } else if(type === 'aud'){
+    $('jwAud').disabled = true; $('jwAud').style.opacity = .3;
+    toast(`📊 Audien memilih jawaban ${String.fromCharCode(65+q.a)}`,'gold');
+  } else if(type === 'tel'){
+    $('jwTel').disabled = true; $('jwTel').style.opacity = .3;
+    const sure = Math.random() > 0.15;
+    const pick = sure ? q.a : [0,1,2,3].filter(x=>x!==q.a)[Math.floor(Math.random()*3)];
+    toast(`📞 Teman menjawab: ${String.fromCharCode(65+pick)}`,'gold');
+  }
+}
+
+function endJutawan(){
+  const total = jwState.ok + jwState.no;
+  const acc = total ? Math.round(jwState.ok/total*100) : 0;
+  const score = jwState.ok * 100;
+  const emoji = acc>=90?'👑':acc>=70?'🏆':acc>=50?'🌟':'📚';
+  const title = acc>=90?'SEMPURNA!':acc>=70?'Luar Biasa!':acc>=50?'Bagus!':'Ayo Coba Lagi!';
+  markDone('jutawan', {score});
+  showModal(emoji, title, `Total poin: ${score.toLocaleString('id')} poin dari 15 soal.`,
+    [{v:jwState.ok,l:'Benar'},{v:jwState.no,l:'Salah'},{v:acc+'%',l:'Akurasi'}]);
+}
+
+/* =========================================================
+   ROUTING & INIT
+   ========================================================= */
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const g = card.dataset.g;
+    $$('.screen').forEach(s=>s.classList.remove('on'));
+    if(g === 'wheel'){ $('g-wheel').classList.add('on'); initWheel(); }
+    if(g === 'detektif'){ $('g-detektif').classList.add('on'); initDetektif(); }
+    if(g === 'kronologi'){ $('g-kronologi').classList.add('on'); initKronologi(); }
+    if(g === 'petualangan'){ $('g-petualangan').classList.add('on'); initPetualangan(); }
+    if(g === 'jutawan'){ $('g-jutawan').classList.add('on'); initJutawan(); }
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
 });
 
-/* ============ INIT ============ */
-updateMenu();
+document.querySelectorAll('#detCats .dcat').forEach(b=>{
+  b.addEventListener('click', ()=>pickDetCat(b.dataset.c));
+});
+
+$('whCanvas').addEventListener('click', ()=>{ if(!wSpinning) spinWheel(); });
+
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape') closeModal();
+});
+
+updateHub();
 </script>
 </body>
 </html>
