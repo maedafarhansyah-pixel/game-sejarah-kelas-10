@@ -30,7 +30,7 @@
     --card:rgba(255,255,255,.78);
     --stroke:rgba(255,255,255,.65);
     --shadow:0 24px 60px -20px rgba(15,42,110,.35);
-    --radius:26px;
+    --radius:24px;
 }
 
 *{box-sizing:border-box;}
@@ -376,7 +376,7 @@ body.loading .bg-decor *{
 .header h1{
     position:relative;
     margin:0 0 14px;
-    font-size:clamp(28px,5vw,46px);
+    font-size:clamp(26px,4.6vw,42px);
     font-weight:800;
     line-height:1.15;
     letter-spacing:.02em;
@@ -449,7 +449,7 @@ body.loading .bg-decor *{
     position:relative;
     margin:0 auto;
     max-width:560px;
-    font-size:clamp(14px,2.1vw,17px);
+    font-size:clamp(13.5px,2vw,16px);
     line-height:1.7;
     color:rgba(226,236,255,.92);
     animation:fadeUp .8s .25s both;
@@ -461,7 +461,7 @@ body.loading .bg-decor *{
     flex-wrap:wrap;
     justify-content:center;
     gap:10px;
-    margin-top:28px;
+    margin-top:24px;
     animation:fadeUp .8s .35s both;
 }
 .header .chips i{
@@ -487,23 +487,32 @@ body.loading .bg-decor *{
     to{opacity:1;transform:translateY(0);}
 }
 
-/* ====== CONTAINER & CARD ====== */
+/* ====== CONTAINER & GRID ====== */
 .container{
     position:relative;
     z-index:2;
-    max-width:960px;
+    max-width:1080px;
     margin:-56px auto 0;
     padding:0 20px 20px;
 }
 
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:20px;
+    align-items:stretch;
+}
+
+/* ====== KARTU BAB (RINGKAS) ====== */
 .card{
     position:relative;
-    display:block;
+    display:flex;
+    flex-direction:column;
+    min-height:238px;
     background:var(--card);
     border:1px solid var(--stroke);
     border-radius:var(--radius);
-    padding:32px 30px;
-    margin-bottom:22px;
+    padding:24px 22px 20px;
     box-shadow:var(--shadow);
     backdrop-filter:blur(18px) saturate(160%);
     -webkit-backdrop-filter:blur(18px) saturate(160%);
@@ -511,12 +520,13 @@ body.loading .bg-decor *{
     transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s, border-color .45s;
     animation:cardIn .9s both;
 }
-.card:nth-child(1){animation-delay:.42s;}
-.card:nth-child(2){animation-delay:.54s;}
-.card:nth-child(3){animation-delay:.66s;}
-.card:nth-child(4){animation-delay:.78s;}
+.grid .card:nth-child(1){animation-delay:.42s;}
+.grid .card:nth-child(2){animation-delay:.54s;}
+.grid .card:nth-child(3){animation-delay:.66s;}
+.grid .card:nth-child(4){animation-delay:.78s;}
+
 @keyframes cardIn{
-    from{opacity:0;transform:translateY(38px) scale(.98);}
+    from{opacity:0;transform:translateY(38px) scale(.97);}
     to{opacity:1;transform:translateY(0) scale(1);}
 }
 
@@ -548,6 +558,7 @@ body.loading .bg-decor *{
 }
 .card-link:active{transform:translateY(-3px) scale(.995);}
 
+/* garis warna atas */
 .card::before{
     content:"";
     position:absolute;
@@ -557,145 +568,133 @@ body.loading .bg-decor *{
     opacity:.9;
 }
 
+/* glow sudut */
 .card::after{
     content:"";
     position:absolute;
-    width:220px;height:220px;
-    right:-90px;top:-90px;
+    width:200px;height:200px;
+    right:-85px;top:-85px;
     border-radius:50%;
     background:radial-gradient(circle,rgba(139,92,246,.22),transparent 70%);
     transition:transform .6s;
     pointer-events:none;
 }
-.card:nth-child(2)::after{
-    background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);
-}
-.card:nth-child(3)::after{
-    background:radial-gradient(circle,rgba(16,185,129,.22),transparent 70%);
-}
-.card:nth-child(4)::after{
-    background:radial-gradient(circle,rgba(245,158,11,.22),transparent 70%);
-}
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 34px 70px -24px rgba(15,42,110,.45);
-}
+.card:nth-child(2)::after{background:radial-gradient(circle,rgba(6,182,212,.22),transparent 70%);}
+.card:nth-child(3)::after{background:radial-gradient(circle,rgba(16,185,129,.22),transparent 70%);}
 .card:hover::after{transform:scale(1.3);}
 
-.card h2{
-    position:relative;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:6px 0 14px;
-    font-size:clamp(19px,2.8vw,24px);
+/* badge bab */
+.badge{
+    position:absolute;
+    top:16px;
+    right:16px;
+    z-index:1;
+    font-size:10.5px;
     font-weight:800;
-    letter-spacing:-.01em;
-    color:var(--blue-900);
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:5px 11px;
+    border-radius:999px;
+    color:var(--blue-700);
+    background:rgba(37,99,235,.10);
+    border:1px solid rgba(37,99,235,.22);
 }
-.card h2 .ico{
+.card:nth-child(1) .badge{color:#6d28d9;background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.28);}
+.card:nth-child(2) .badge{color:#0e7490;background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.28);}
+.card:nth-child(3) .badge{color:#047857;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.28);}
+
+/* ikon */
+.card .ico{
+    position:relative;
     display:grid;
     place-items:center;
-    width:46px;height:46px;
-    flex:0 0 46px;
-    font-size:22px;
-    border-radius:14px;
+    width:54px;
+    height:54px;
+    flex:0 0 54px;
+    font-size:26px;
+    border-radius:16px;
+    margin-bottom:14px;
     background:linear-gradient(135deg,var(--blue-600),var(--cyan));
-    box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
+    box-shadow:0 12px 24px -10px rgba(37,99,235,.75);
     transition:transform .4s;
 }
-.card:nth-child(1) h2 .ico{
+.card:nth-child(1) .ico{
     background:linear-gradient(135deg,var(--purple),var(--blue-500));
-    box-shadow:0 10px 22px -8px rgba(139,92,246,.7);
+    box-shadow:0 12px 24px -10px rgba(139,92,246,.75);
 }
-.card:nth-child(2) h2 .ico{
+.card:nth-child(2) .ico{
     background:linear-gradient(135deg,var(--blue-600),var(--cyan));
-    box-shadow:0 10px 22px -8px rgba(37,99,235,.7);
+    box-shadow:0 12px 24px -10px rgba(37,99,235,.75);
 }
-.card:nth-child(3) h2 .ico{
+.card:nth-child(3) .ico{
     background:linear-gradient(135deg,var(--green),#34d399);
-    box-shadow:0 10px 22px -8px rgba(16,185,129,.7);
+    box-shadow:0 12px 24px -10px rgba(16,185,129,.75);
 }
-.card:nth-child(4) h2 .ico{
-    background:linear-gradient(135deg,var(--amber),#fbbf24);
-    box-shadow:0 10px 22px -8px rgba(245,158,11,.7);
-}
-.card:hover h2 .ico{transform:rotate(-8deg) scale(1.07);}
+.card:hover .ico{transform:rotate(-8deg) scale(1.08);}
 
-.card p{
+/* judul */
+.card h3{
     position:relative;
-    margin:0 0 6px;
-    font-size:15px;
-    line-height:1.75;
+    margin:0 0 8px;
+    font-size:16.5px;
+    font-weight:800;
+    line-height:1.32;
+    letter-spacing:-.01em;
+    color:var(--blue-900);
+    padding-right:8px;
+}
+
+/* deskripsi singkat */
+.card .desc{
+    position:relative;
+    margin:0 0 18px;
+    font-size:13.3px;
+    line-height:1.62;
     color:var(--muted);
 }
+.card .desc b{color:var(--blue-800);font-weight:700;}
+.card .desc .hl-purple{color:var(--purple);font-weight:700;}
+.card .desc .hl-cyan{color:#0891b2;font-weight:700;}
+.card .desc .hl-green{color:#059669;font-weight:700;}
 
-.card p b{
-    color:var(--blue-800);
-    font-weight:700;
-}
-.card p .hl-purple{color:var(--purple);font-weight:700;}
-.card p .hl-cyan{color:#0891b2;font-weight:700;}
-.card p .hl-green{color:#059669;font-weight:700;}
-.card p .hl-amber{color:#b45309;font-weight:700;}
-
-/* ====== BUTTON ====== */
-.btn-wrap{position:relative;margin-top:22px;}
-
-.button{
+/* tombol ringkas */
+.mini-btn{
     position:relative;
+    margin-top:auto;
     display:inline-flex;
     align-items:center;
-    gap:11px;
-    padding:16px 30px;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    padding:12px 16px;
     font-family:inherit;
-    font-size:15.5px;
+    font-size:13.5px;
     font-weight:700;
     letter-spacing:.01em;
     color:#fff;
-    text-decoration:none;
-    border-radius:16px;
-    background:linear-gradient(120deg,var(--blue-700),var(--blue-500) 45%,var(--cyan));
+    border-radius:14px;
+    background:linear-gradient(120deg,var(--blue-700),var(--blue-500) 50%,var(--cyan));
     background-size:200% 100%;
-    box-shadow:0 16px 34px -12px rgba(29,78,216,.75), inset 0 1px 0 rgba(255,255,255,.25);
+    box-shadow:0 14px 28px -14px rgba(29,78,216,.9), inset 0 1px 0 rgba(255,255,255,.25);
     overflow:hidden;
     transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background-position .6s;
-    animation:glow 3.2s ease-in-out infinite;
 }
-@keyframes glow{
-    0%,100%{box-shadow:0 16px 34px -12px rgba(29,78,216,.75), inset 0 1px 0 rgba(255,255,255,.25);}
-    50%{box-shadow:0 20px 44px -10px rgba(6,182,212,.7), inset 0 1px 0 rgba(255,255,255,.3);}
-}
-
-.button.purple{
+.card:nth-child(1) .mini-btn{
     background:linear-gradient(120deg,var(--blue-700),var(--purple) 55%,#a78bfa);
-    background-size:200% 100%;
-    box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);
-    animation:glowPurple 3.2s ease-in-out infinite;
+    box-shadow:0 14px 28px -14px rgba(139,92,246,.9), inset 0 1px 0 rgba(255,255,255,.25);
 }
-@keyframes glowPurple{
-    0%,100%{box-shadow:0 16px 34px -12px rgba(139,92,246,.75), inset 0 1px 0 rgba(255,255,255,.25);}
-    50%{box-shadow:0 20px 44px -10px rgba(167,139,250,.7), inset 0 1px 0 rgba(255,255,255,.3);}
-}
-
-.button.green{
+.card:nth-child(3) .mini-btn{
     background:linear-gradient(120deg,#047857,var(--green) 55%,#34d399);
-    background-size:200% 100%;
-    box-shadow:0 16px 34px -12px rgba(16,185,129,.75), inset 0 1px 0 rgba(255,255,255,.25);
-    animation:glowGreen 3.2s ease-in-out infinite;
-}
-@keyframes glowGreen{
-    0%,100%{box-shadow:0 16px 34px -12px rgba(16,185,129,.75), inset 0 1px 0 rgba(255,255,255,.25);}
-    50%{box-shadow:0 20px 44px -10px rgba(52,211,153,.7), inset 0 1px 0 rgba(255,255,255,.3);}
+    box-shadow:0 14px 28px -14px rgba(16,185,129,.9), inset 0 1px 0 rgba(255,255,255,.25);
 }
 
-.card-link:hover .button{
-    transform:translateY(-4px) scale(1.02);
+.card-link:hover .mini-btn{
+    transform:translateY(-3px);
     background-position:100% 0;
+    box-shadow:0 20px 36px -14px rgba(6,182,212,.85), inset 0 1px 0 rgba(255,255,255,.3);
 }
-.card-link:active .button{transform:translateY(-1px) scale(.99);}
 
-.button::after{
+.mini-btn::after{
     content:"";
     position:absolute;
     top:0;left:-70%;
@@ -704,82 +703,96 @@ body.loading .bg-decor *{
     transform:skewX(-20deg);
     transition:left .7s ease;
 }
-.card-link:hover .button::after{left:130%;}
+.card-link:hover .mini-btn::after{left:130%;}
 
-.button .play{
+.mini-btn .play{
     display:grid;
     place-items:center;
-    width:26px;height:26px;
-    font-size:11px;
+    width:20px;height:20px;
+    font-size:9px;
     border-radius:50%;
-    background:rgba(255,255,255,.22);
-    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.24);
+    border:1px solid rgba(255,255,255,.38);
     transition:transform .35s;
 }
-.card-link:hover .button .play{transform:scale(1.15) rotate(8deg);}
-
-.button .arrow{transition:transform .35s;}
-.card-link:hover .button .arrow{transform:translateX(5px);}
-
-/* Ikon indikator buka tab baru */
-.button .newwin{
-    display:inline-block;
-    margin-left:2px;
-    font-size:13px;
+.card-link:hover .mini-btn .play{transform:scale(1.15) rotate(8deg);}
+.mini-btn .newwin{
+    font-size:12px;
     opacity:.85;
     transition:transform .35s;
 }
-.card-link:hover .button .newwin{
-    transform:translate(3px,-3px);
-}
+.card-link:hover .mini-btn .newwin{transform:translate(3px,-3px);}
 
-/* ====== INFO BOX ====== */
-.info{
-    position:relative;
-    margin-top:20px;
-    padding:18px 20px 18px 22px;
-    font-size:14.5px;
-    line-height:1.7;
-    color:#1e3a8a;
+/* ====== STRIP INFO (FULL WIDTH) ====== */
+.info-strip{
+    grid-column:1 / -1;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:18px 22px;
+    border-radius:20px;
     background:linear-gradient(115deg,rgba(239,246,255,.95),rgba(236,254,255,.85));
     border:1px solid rgba(37,99,235,.18);
-    border-radius:16px;
+    box-shadow:0 22px 50px -26px rgba(15,42,110,.45);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    position:relative;
     overflow:hidden;
-    transition:transform .35s, box-shadow .35s;
+    animation:cardIn .9s .8s both;
 }
-.info::before{
+.info-strip::before{
     content:"";
     position:absolute;
     left:0;top:0;bottom:0;
     width:5px;
     background:linear-gradient(180deg,var(--blue-600),var(--cyan),var(--purple));
 }
-.info::after{
+.info-strip::after{
     content:"";
     position:absolute;
-    width:150px;height:150px;
-    right:-60px;bottom:-70px;
+    width:170px;height:170px;
+    right:-70px;bottom:-90px;
     border-radius:50%;
     background:radial-gradient(circle,rgba(139,92,246,.18),transparent 70%);
+    pointer-events:none;
 }
-.info:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(37,99,235,.55);}
-.info .lbl{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
+.info-strip .ico{
+    display:grid;
+    place-items:center;
+    width:46px;height:46px;
+    flex:0 0 46px;
+    font-size:22px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--amber),#fbbf24);
+    box-shadow:0 12px 24px -10px rgba(245,158,11,.8);
+}
+.info-strip .txt{
+    flex:1 1 240px;
+    min-width:0;
+}
+.info-strip .txt h3{
+    margin:0 0 4px;
+    font-size:15.5px;
     font-weight:800;
-    color:var(--blue-800);
+    color:var(--blue-900);
 }
-.info .tag{
+.info-strip .txt p{
+    margin:0;
+    font-size:13.3px;
+    line-height:1.6;
+    color:var(--muted);
+}
+.info-strip .tag{
     display:inline-block;
-    margin-top:10px;
-    padding:5px 12px;
-    font-size:12px;
+    padding:6px 13px;
+    font-size:11.5px;
     font-weight:700;
     border-radius:999px;
     color:#7c2d12;
     background:rgba(245,158,11,.16);
     border:1px solid rgba(245,158,11,.35);
+    white-space:nowrap;
 }
 
 /* ====== FOOTER ====== */
@@ -813,13 +826,17 @@ body.loading .bg-decor *{
 }
 
 /* ====== RESPONSIVE ====== */
+@media (max-width:900px){
+    .grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+}
+
 @media (max-width:600px){
     .header{padding:60px 18px 84px;border-radius:0 0 32px 32px;}
     .container{margin-top:-46px;padding:0 16px 12px;}
-    .card{padding:24px 20px;border-radius:22px;}
-    .card h2{font-size:18.5px;}
-    .card h2 .ico{width:40px;height:40px;flex:0 0 40px;font-size:19px;}
-    .button{width:100%;justify-content:center;padding:15px 22px;}
+    .grid{grid-template-columns:1fr;gap:16px;}
+    .card{min-height:0;padding:22px 20px 18px;border-radius:22px;}
+    .card h3{font-size:16px;}
+    .card .ico{width:48px;height:48px;flex:0 0 48px;font-size:23px;margin-bottom:12px;}
     .bg-decor .blob{filter:blur(55px);opacity:.4;}
     .header h1 .kelas{letter-spacing:.10em;}
 
@@ -897,101 +914,71 @@ body.loading .bg-decor *{
 </header>
 
 <main class="container">
+    <div class="grid">
 
-    <!-- ===== GAME 1 ===== -->
-    <a class="card card-link" href="gamepengantarilmusejarah.html"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Mulai Game Pengantar Ilmu Sejarah (buka di tab baru)">
-        <h2><span class="ico">🏛️</span> Game Pengantar Ilmu Sejarah</h2>
-        <p>
-            Siap jadi <b class="hl-purple">detektif masa lalu</b>? 🕵️‍♂️
-            Di sini kamu akan menelusuri <b>apa itu sejarah</b>, mengapa
-            <b>waktu dan ruang</b> begitu penting, serta bagaimana
-            <b>sumber sejarah</b> menjadi kunci untuk mengungkap kisah
-            yang telah lama terkubur. Setiap jawaban benar membawamu
-            selangkah lebih dekat menjadi <b class="hl-purple">sejarawan muda</b>!
-        </p>
-
-        <div class="btn-wrap">
-            <span class="button purple">
-                <span class="play">▶</span>
-                Mulai Permainan
-                <span class="arrow">→</span>
+        <!-- ===== BAB 1 ===== -->
+        <a class="card card-link" href="gamepengantarilmusejarah.html"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Mulai Game Pengantar Ilmu Sejarah (buka di tab baru)">
+            <span class="badge">Bab 1</span>
+            <span class="ico">🏛️</span>
+            <h3>Pengantar Ilmu Sejarah</h3>
+            <p class="desc">
+                Jadi <b class="hl-purple">detektif masa lalu</b>: konsep sejarah,
+                waktu &amp; ruang, serta sumber sejarah.
+            </p>
+            <span class="mini-btn">
+                <span class="play">▶</span> Mulai Permainan
                 <span class="newwin">↗</span>
             </span>
-        </div>
-    </a>
+        </a>
 
-    <!-- ===== GAME 2 ===== -->
-    <a class="card card-link" href="gamepenelitiansejarah.html"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Mulai Game Penelitian Sejarah (buka di tab baru)">
-        <h2><span class="ico">📚</span> Game Penelitian Sejarah</h2>
-        <p>
-            Bagaimana cara para sejarawan <b class="hl-cyan">mengungkap
-            kebenaran masa lalu</b>? 🔍 Di game ini kamu akan berlatih
-            langkah demi langkah: <b>memilih topik</b>, <b>mengumpulkan
-            sumber</b>, <b>menilai keaslian</b>, hingga <b>menulis kisah
-            sejarah</b> yang dapat dipercaya. Tantangannya bertingkat —
-            selesaikan semua level dan buktikan bahwa kamu sang
-            <b class="hl-cyan">peneliti sejarah sejati</b>!
-        </p>
-
-        <div class="btn-wrap">
-            <span class="button">
-                <span class="play">▶</span>
-                Mulai Permainan
-                <span class="arrow">→</span>
+        <!-- ===== BAB 2 ===== -->
+        <a class="card card-link" href="gamepenelitiansejarah.html"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Mulai Game Penelitian Sejarah (buka di tab baru)">
+            <span class="badge">Bab 2</span>
+            <span class="ico">📚</span>
+            <h3>Penelitian Sejarah</h3>
+            <p class="desc">
+                Langkah <b class="hl-cyan">sejarawan sejati</b>: memilih topik,
+                mengumpulkan sumber, menilai keaslian, hingga menulis.
+            </p>
+            <span class="mini-btn">
+                <span class="play">▶</span> Mulai Permainan
                 <span class="newwin">↗</span>
             </span>
-        </div>
-    </a>
+        </a>
 
-    <!-- ===== GAME 3 ===== -->
-    <a class="card card-link"
-       href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Mulai Game Kehidupan Praaksara (buka di tab baru)">
-        <h2><span class="ico">🦴</span> Game Kehidupan Praaksara</h2>
-        <p>
-            Jauh sebelum tulisan ditemukan, manusia sudah
-            <b class="hl-green">menulis sejarahnya lewat jejak</b> —
-            alat batu, lukisan gua, dan fosil. 🪨 Di game ini kamu akan
-            menelusuri <b>kehidupan manusia purba</b>: dari masa
-            <b>berburu dan meramu</b>, <b>bercocok tanam</b>, hingga
-            <b>mengenal logam</b>. Kenali jenis-jenis manusia purba di
-            Indonesia dan bukti peninggalannya, lalu buktikan bahwa kamu
-            sang <b class="hl-green">arkeolog muda</b>!
-        </p>
-
-        <div class="btn-wrap">
-            <span class="button green">
-                <span class="play">▶</span>
-                Mulai Permainan
-                <span class="arrow">→</span>
+        <!-- ===== BAB 3 ===== -->
+        <a class="card card-link"
+           href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Mulai Game Kehidupan Praaksara (buka di tab baru)">
+            <span class="badge">Bab 3</span>
+            <span class="ico">🦴</span>
+            <h3>Kehidupan Praaksara</h3>
+            <p class="desc">
+                Menelusuri <b class="hl-green">manusia purba</b>: berburu &amp;
+                meramu, bercocok tanam, hingga mengenal logam.
+            </p>
+            <span class="mini-btn">
+                <span class="play">▶</span> Mulai Permainan
                 <span class="newwin">↗</span>
             </span>
-        </div>
-    </a>
+        </a>
 
-    <!-- ===== INFO TAMBAHAN ===== -->
-    <div class="card">
-        <h2><span class="ico">📖</span> Game Lainnya</h2>
-        <p>
-            Game untuk materi dan bab berikutnya akan ditambahkan
-            secara bertahap, mengikuti perkembangan pembelajaran di kelas.
-        </p>
-
-        <div class="info">
-            <span class="lbl">💡 Untuk Guru</span><br>
-            Media ini dapat digunakan sebagai sarana latihan dan
-            penguatan pembelajaran sejarah, baik di kelas maupun
-            sebagai tugas mandiri siswa.
-            <br>
-            <span class="tag">Siap digunakan di kelas</span>
+        <!-- ===== INFO TAMBAHAN (FULL WIDTH) ===== -->
+        <div class="info-strip">
+            <span class="ico">📖</span>
+            <div class="txt">
+                <h3>Game Lainnya</h3>
+                <p>Game untuk materi dan bab berikutnya akan ditambahkan secara bertahap, mengikuti perkembangan pembelajaran di kelas.</p>
+            </div>
+            <span class="tag">💡 Siap digunakan di kelas</span>
         </div>
+
     </div>
-
 </main>
 
 <footer class="footer">
