@@ -489,13 +489,38 @@ document.addEventListener('click',e=>{for(let i=0;i<8;i++){const p=document.crea
 /* ============ SHAKE ============ */
 function shakeScreen(){document.body.animate([{transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},{transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},{transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}],{duration:400,easing:'ease-out'})}
 
-/* ============ PROGRESS ============ */
-const PROG_KEY='histoexplorer_light_v2';
-function loadProgress(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
-function saveProgress(p){try{localStorage.setItem(PROG_KEY,JSON.stringify(p))}catch(e){}}
-function markDone(id,d={}){const p=loadProgress();if(p[id]&&p[id].done&&!d.force)return;p[id]={done:true,...d,date:new Date().toISOString()};saveProgress(p);updateMenu()}
-function resetProgress(){if(!confirm('Reset semua progress belajar?'))return;try{localStorage.removeItem(PROG_KEY)}catch(e){}updateMenu();notif('Progress direset!','gold')}
-function updateMenu(){const p=loadProgress();document.querySelectorAll('.gc').forEach(c=>{const id=c.dataset.game;c.classList.toggle('done',!!(p[id]&&p[id].done))});const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;$('#progText').textContent=`${done} / 5 Game`;$('#progFill').style.width=(done/5*100)+'%'}
+/* ==================== PROGRESS (HANYA DI MEMORI) ====================
+   Progress belajar (tanda centang di menu utama) TIDAK disimpan
+   di localStorage, sehingga otomatis hilang saat halaman dimuat ulang
+   atau dibuka di perangkat/akun lain. */
+let _progress = {};
+function loadProgress(){ return _progress; }
+function saveProgress(p){ _progress = p; }
+function markDone(id,d={}){
+  const p = loadProgress();
+  if(p[id] && p[id].done && !d.force) return;
+  p[id] = { done:true, ...d, date:new Date().toISOString() };
+  saveProgress(p);
+  updateMenu();
+}
+function resetProgress(){
+  if(!confirm('Reset semua progress belajar?')) return;
+  _progress = {};
+  // bersihkan sisa data lama di localStorage (jika masih ada dari versi sebelumnya)
+  try{ localStorage.removeItem('histoexplorer_light_v2'); }catch(e){}
+  updateMenu();
+  notif('Progress direset!','gold');
+}
+function updateMenu(){
+  const p=loadProgress();
+  document.querySelectorAll('.gc').forEach(c=>{
+    const id=c.dataset.game;
+    c.classList.toggle('done',!!(p[id]&&p[id].done));
+  });
+  const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
+  $('#progText').textContent=`${done} / 5 Game`;
+  $('#progFill').style.width=(done/5*100)+'%';
+}
 
 /* ============ ACHIEVEMENT ============ */
 const achData={
