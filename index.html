@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0b1f4b">
-<meta name="description" content="HistoExplorer — Platform game edukasi sejarah Kelas 10 Fase E Kurikulum Merdeka. 3 modul interaktif, 500+ soal, 15+ jam konten. Belajar sejarah jadi hidup.">
-<meta name="keywords" content="game sejarah, edukasi sejarah, kelas 10, kurikulum merdeka, fase E, sejarah Indonesia, pembelajaran interaktif">
-<meta name="author" content="HistoExplorer Team">
+<meta name="description" content="HistoExplorer — Kumpulan game edukasi sejarah Kelas 10. 3 game utama, 16 mini game. Gratis, bisa dibuka di browser.">
+<meta name="keywords" content="game sejarah, game edukasi, kelas 10, kurikulum terbaru, sejarah Indonesia, latihan sejarah">
+<meta name="author" content="HistoExplorer">
 <meta property="og:title" content="HistoExplorer — Game Edukasi Sejarah Kelas 10">
-<meta property="og:description" content="Platform game edukasi sejarah paling interaktif untuk siswa, guru, dan masyarakat. Belajar sejarah jadi lebih hidup!">
+<meta property="og:description" content="Kumpulan game sejarah untuk dimainkan setelah guru menjelaskan materi. Gratis dan bisa dibuka di browser.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<title>HistoExplorer — Game Edukasi Sejarah Kelas 10 | Platform Pembelajaran Interaktif</title>
+<title>HistoExplorer — Game Edukasi Sejarah Kelas 10</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 <style>
 :root{
     --blue-900:#0b1f4b;
@@ -58,7 +58,6 @@
     --radius-lg:32px;
     --ease:cubic-bezier(.23,1,.32,1);
 
-    /* === Sistem font responsif — semua terlihat di semua device === */
     --fs-xs: clamp(0.72rem, 1.6vw, 0.8rem);
     --fs-sm: clamp(0.82rem, 1.8vw, 0.9rem);
     --fs-md: clamp(0.9rem, 2vw, 1rem);
@@ -95,9 +94,6 @@ body.no-motion *{animation-duration:.001ms!important;transition-duration:.001ms!
 img,svg{max-width:100%;height:auto;}
 button{touch-action:manipulation;font-family:inherit;}
 
-/* ============================================================
-   LOADING — Premium
-   ============================================================ */
 .loader{
     position:fixed;
     inset:0;
@@ -299,7 +295,6 @@ body.loading .bg-decor *{
     animation-play-state:paused !important;
 }
 
-/* ====== BACKGROUND DECOR ====== */
 .bg-decor{
     position:fixed;
     inset:0;
@@ -335,7 +330,6 @@ body.loading .bg-decor *{
     -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 10%,transparent 78%);
 }
 
-/* ====== STICKY NAVBAR ====== */
 .navbar{
     position:fixed;
     top:0;left:0;right:0;
@@ -422,7 +416,6 @@ body.loading .bg-decor *{
     .nav-cta{padding:7px 14px;font-size:var(--fs-xs);}
 }
 
-/* ====== FLOATING CONTROLS ====== */
 .float-controls{
     position:fixed;
     bottom:20px;right:20px;
@@ -454,7 +447,6 @@ body.loading .bg-decor *{
     .float-btn{width:42px;height:42px;font-size:.95rem;}
 }
 
-/* ====== HEADER / HERO ====== */
 .header{
     position:relative;
     z-index:2;
@@ -484,7 +476,6 @@ body.loading .bg-decor *{
     55%,100%{left:130%;}
 }
 
-/* Ornamen bintang dekoratif di hero */
 .header-ornament{
     position:absolute;
     inset:0;
@@ -622,7 +613,6 @@ body.loading .bg-decor *{
     font-weight:800;
 }
 
-/* Hero CTA */
 .hero-cta{
     position:relative;
     display:flex;
@@ -664,7 +654,6 @@ body.loading .bg-decor *{
 .btn-hero.secondary:hover{background:rgba(255,255,255,.22);transform:translateY(-3px);}
 .btn-hero i{font-size:.95em;}
 
-/* Hero chips */
 .header .chips{
     position:relative;
     display:flex;
@@ -765,7 +754,6 @@ body.loading .bg-decor *{
     to{opacity:1;transform:translateY(0) scale(1);}
 }
 
-/* ====== SECTION COMMON ====== */
 .section{
     position:relative;
     z-index:2;
@@ -818,7 +806,6 @@ body.loading .bg-decor *{
 .section-head h2,
 .section-head .section-sub{margin-left:auto;margin-right:auto;}
 
-/* ====== GAME CARDS ====== */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
@@ -890,7 +877,6 @@ body.loading .bg-decor *{
 .card:nth-child(3)::after{background:radial-gradient(circle,rgba(16,185,129,.22),transparent 70%);}
 .card:hover::after{transform:scale(1.3);}
 
-/* Badge chapter */
 .badge{
     position:absolute;
     top:18px;
@@ -910,7 +896,6 @@ body.loading .bg-decor *{
 .card:nth-child(2) .badge{color:#0e7490;background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.28);}
 .card:nth-child(3) .badge{color:#047857;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.28);}
 
-/* Icon */
 .card .ico{
     position:relative;
     display:grid;
@@ -960,7 +945,6 @@ body.loading .bg-decor *{
 .card .desc .hl-cyan{color:#0891b2;font-weight:700;}
 .card .desc .hl-green{color:#059669;font-weight:700;}
 
-/* Card meta info */
 .card-meta{
     position:relative;
     display:flex;
@@ -989,7 +973,6 @@ body.loading .bg-decor *{
 .meta-item.diff-hard{background:rgba(225,29,72,.1);color:#9f1239;}
 .meta-item.diff-hard i{color:var(--rose);}
 
-/* Play button */
 .mini-btn{
     position:relative;
     margin-top:auto;
@@ -1049,7 +1032,6 @@ body.loading .bg-decor *{
 .mini-btn .newwin{font-size:var(--fs-sm);opacity:.85;transition:transform .35s;}
 .card-link:hover .mini-btn .newwin{transform:translate(3px,-3px);}
 
-/* ====== INFO STRIP / COMING SOON ====== */
 .info-strip{
     grid-column:1 / -1;
     display:flex;
@@ -1116,7 +1098,6 @@ body.loading .bg-decor *{
     white-space:nowrap;
 }
 
-/* ====== FEATURES / 3 PILAR ====== */
 .features-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
@@ -1171,14 +1152,13 @@ body.loading .bg-decor *{
     color:var(--muted);
 }
 
-/* ====== TESTIMONIALS ====== */
-.testimonials-grid{
+.steps-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:20px;
     margin-top:20px;
 }
-.testimonial{
+.step-card{
     position:relative;
     padding:28px 26px 24px;
     border-radius:22px;
@@ -1187,64 +1167,53 @@ body.loading .bg-decor *{
     box-shadow:0 18px 40px -22px rgba(15,42,110,.35);
     transition:transform .4s var(--ease), box-shadow .4s;
 }
-.testimonial:hover{transform:translateY(-6px);box-shadow:0 30px 60px -22px rgba(15,42,110,.45);}
-.testimonial .quote-mark{
+.step-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -22px rgba(15,42,110,.45);}
+.step-card .step-num{
     position:absolute;
-    top:14px;right:20px;
+    top:16px;right:22px;
     font-family:'Space Grotesk',sans-serif;
-    font-size:4.5rem;
+    font-size:3.2rem;
+    font-weight:900;
     line-height:1;
     color:rgba(37,99,235,.1);
-    font-weight:900;
     pointer-events:none;
 }
-.testimonial .rating{
-    color:var(--amber);
-    font-size:var(--fs-sm);
-    letter-spacing:2px;
-    margin-bottom:14px;
+.step-card .step-label{
+    font-size:var(--fs-xs);
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--blue-600);
+    margin-bottom:10px;
 }
-.testimonial .quote{
+.step-card h3{
     position:relative;
-    font-size:var(--fs-md);
-    line-height:1.7;
-    color:var(--ink-2);
-    margin:0 0 20px;
-    font-style:italic;
-}
-.testimonial .author{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding-top:16px;
-    border-top:1px solid rgba(37,99,235,.1);
-}
-.testimonial .avatar{
-    width:46px;height:46px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    font-size:1.3rem;
-    background:linear-gradient(135deg,var(--blue-600),var(--cyan));
-    color:#fff;
-    flex-shrink:0;
-    box-shadow:0 6px 16px -6px rgba(37,99,235,.6);
-}
-.testimonial:nth-child(2) .avatar{background:linear-gradient(135deg,var(--purple),var(--blue-500));box-shadow:0 6px 16px -6px rgba(139,92,246,.6);}
-.testimonial:nth-child(3) .avatar{background:linear-gradient(135deg,var(--green),var(--cyan));box-shadow:0 6px 16px -6px rgba(16,185,129,.6);}
-.testimonial .author .name{
-    font-size:var(--fs-sm);
+    margin:0 0 10px;
+    font-size:var(--fs-xl);
     font-weight:800;
     color:var(--blue-900);
     line-height:1.3;
 }
-.testimonial .author .role{
-    font-size:var(--fs-xs);
+.step-card p{
+    margin:0;
+    font-size:var(--fs-sm);
+    line-height:1.7;
     color:var(--muted);
-    margin-top:2px;
 }
+.step-card .step-icon{
+    display:grid;
+    place-items:center;
+    width:52px;height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--blue-600),var(--cyan));
+    color:#fff;
+    font-size:22px;
+    margin-bottom:16px;
+    box-shadow:0 12px 24px -10px rgba(37,99,235,.6);
+}
+.step-card:nth-child(2) .step-icon{background:linear-gradient(135deg,var(--purple),var(--blue-500));box-shadow:0 12px 24px -10px rgba(139,92,246,.6);}
+.step-card:nth-child(3) .step-icon{background:linear-gradient(135deg,var(--green),var(--cyan));box-shadow:0 12px 24px -10px rgba(16,185,129,.6);}
 
-/* ====== FAQ ACCORDION ====== */
 .faq-list{
     max-width:820px;
     margin:20px auto 0;
@@ -1299,7 +1268,6 @@ body.loading .bg-decor *{
 }
 .faq-item .faq-answer b{color:var(--blue-800);font-weight:700;}
 
-/* ====== CTA FINAL ====== */
 .cta-final{
     position:relative;
     z-index:2;
@@ -1375,7 +1343,6 @@ body.loading .bg-decor *{
 }
 .cta-box .hero-cta{position:relative;margin:0;}
 
-/* ====== FOOTER ====== */
 .footer{
     position:relative;
     z-index:2;
@@ -1474,7 +1441,6 @@ body.loading .bg-decor *{
     animation:lineSlide 4s linear infinite;
 }
 
-/* ====== SCROLL REVEAL ====== */
 .reveal{
     opacity:0;
     transform:translateY(36px);
@@ -1485,7 +1451,6 @@ body.loading .bg-decor *{
     transform:translateY(0);
 }
 
-/* ====== RESPONSIVE FINE-TUNING ====== */
 @media(max-width:600px){
     .header{padding:82px 18px 108px;border-radius:0 0 32px 32px;}
     .stats-section{margin-top:-60px;padding:0 14px;}
@@ -1496,8 +1461,6 @@ body.loading .bg-decor *{
     .card .ico{width:52px;height:52px;flex:0 0 52px;font-size:24px;}
     .bg-decor .blob{filter:blur(55px);opacity:.4;}
     .header h1 .kelas{letter-spacing:.1em;}
-    .testimonial{padding:24px 20px 20px;}
-    .testimonial .quote{font-size:var(--fs-sm);}
     .cta-box{padding:40px 22px;}
     .faq-item summary{padding:16px 18px;}
     .faq-item .faq-answer{padding:0 18px 18px;}
@@ -1512,6 +1475,8 @@ body.loading .bg-decor *{
     .stats-grid{grid-template-columns:1fr 1fr;gap:12px;padding:18px 14px;}
     .stat-num{font-size:1.7rem;}
     .stat-item:not(:last-child)::after{display:none;}
+    .step-card{padding:22px 18px 18px;}
+    .step-card .step-num{font-size:2.6rem;}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1534,7 +1499,7 @@ body.loading .bg-decor *{
     <div class="loader-cube-wrapper">
         <div class="loader-ring-glow"></div>
         <div class="loader-cube">
-            <div class="face face-front">📜</div>
+            <div class="face face-front">🎮</div>
             <div class="face face-back">🏛️</div>
             <div class="face face-right">⚔️</div>
             <div class="face face-left">🌍</div>
@@ -1549,12 +1514,12 @@ body.loading .bg-decor *{
     <div class="loader-tagline">
         <div class="tagline-divider"></div>
         <span class="tagline-line">
-            <span class="highlight">Menjelajahi</span> Masa Lalu,
-            <span class="highlight-gold">Memahami</span> Masa Kini,
-            <span class="highlight">Membangun</span> Masa Depan
+            <span class="highlight">Mainkan</span> Setelah Belajar,
+            <span class="highlight-gold">Latih</span> Pemahaman,
+            <span class="highlight">Ingat</span> Lebih Lama
         </span>
         <div class="tagline-ornament">
-            <i>★</i><i>•</i><i>★</i>
+            <i>★</i>•<i>★</i>
         </div>
     </div>
 </div>
@@ -1563,16 +1528,16 @@ body.loading .bg-decor *{
 <nav class="navbar" id="navbar" aria-label="Navigasi utama">
     <div class="nav-inner">
         <a href="#top" class="nav-brand">
-            <span class="logo"><i class="fas fa-landmark"></i></span>
+            <span class="logo"><i class="fas fa-gamepad"></i></span>
             <span>HistoExplorer</span>
         </a>
         <div class="nav-links">
-            <a href="#modul" class="nav-link">Modul</a>
-            <a href="#keunggulan" class="nav-link">Keunggulan</a>
-            <a href="#testimoni" class="nav-link">Testimoni</a>
+            <a href="#game" class="nav-link">Game</a>
+            <a href="#keunggulan" class="nav-link">Fitur</a>
+            <a href="#cara" class="nav-link">Cara Pakai</a>
             <a href="#faq" class="nav-link">FAQ</a>
-            <a href="#modul" class="nav-cta">
-                <i class="fas fa-play"></i> Mulai Belajar
+            <a href="#game" class="nav-cta">
+                <i class="fas fa-play"></i> Pilih Game
             </a>
         </div>
     </div>
@@ -1599,50 +1564,50 @@ body.loading .bg-decor *{
 
     <div class="header-badge">
         <span class="pulse"></span>
-        <i class="fas fa-bolt"></i>
-        <span>Platform Game Edukasi Sejarah · Fase E</span>
+        <i class="fas fa-gamepad"></i>
+        <span>Game Edukasi Sejarah · Kelas 10</span>
     </div>
 
     <h1>
-        <span class="grad">🎓 Game Edukasi Sejarah</span>
-        <span class="kelas">KELAS 10 · KURIKULUM MERDEKA</span>
+        <span class="grad">🎮 Game Edukasi Sejarah</span>
+        <span class="kelas">KELAS 10 · KURIKULUM TERBARU</span>
     </h1>
 
     <p class="hero-sub">
-        <b>Belajar sejarah jadi hidup.</b> Jelajahi masa lalu melalui permainan interaktif — pahami konsep, kumpulkan poin, dan kuasai materi dengan cara yang menyenangkan.
+        <b>Kumpulan game untuk dimainkan setelah guru menjelaskan materi.</b> 3 game utama dengan total 16 mini game di dalamnya.
     </p>
 
     <div class="hero-cta">
-        <a href="#modul" class="btn-hero primary">
-            <i class="fas fa-rocket"></i> Mulai Petualangan
+        <a href="#game" class="btn-hero primary">
+            <i class="fas fa-play"></i> Pilih Game
         </a>
-        <a href="#keunggulan" class="btn-hero secondary">
-            <i class="fas fa-info-circle"></i> Pelajari Lebih Lanjut
+        <a href="#cara" class="btn-hero secondary">
+            <i class="fas fa-circle-info"></i> Cara Pakai
         </a>
     </div>
 
     <div class="chips">
-        <i>🎮 3 Modul Interaktif</i>
-        <i>⭐ Sistem Poin & Pencapaian</i>
-        <i>🧠 Penguatan Materi</i>
-        <i>📚 Sesuai Kurikulum Merdeka</i>
+        <i>🎮 3 Game Utama</i>
+        <i>🕹️ 16 Mini Game</i>
+        <i>⭐ Skor & Pembahasan</i>
+        <i>📚 Topik Kelas 10</i>
     </div>
 </header>
 
 <!-- ==================== STATS COUNTER ==================== -->
-<section class="stats-section" aria-label="Statistik platform">
+<section class="stats-section" aria-label="Ringkasan konten">
     <div class="stats-grid">
         <div class="stat-item">
-            <div class="stat-num" data-count="500" data-suffix="+">0</div>
-            <div class="stat-lbl">Soal Interaktif</div>
+            <div class="stat-num" data-count="3" data-suffix="">0</div>
+            <div class="stat-lbl">Game Utama</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" data-count="16" data-suffix="">0</div>
+            <div class="stat-lbl">Mini Game</div>
         </div>
         <div class="stat-item">
             <div class="stat-num" data-count="3" data-suffix="">0</div>
-            <div class="stat-lbl">Modul Lengkap</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num" data-count="15" data-suffix="+">0</div>
-            <div class="stat-lbl">Jam Konten</div>
+            <div class="stat-lbl">Topik Sejarah</div>
         </div>
         <div class="stat-item">
             <div class="stat-num" data-count="100" data-suffix="%">0</div>
@@ -1651,75 +1616,75 @@ body.loading .bg-decor *{
     </div>
 </section>
 
-<!-- ==================== MODUL / GAME CARDS ==================== -->
-<section class="section" id="modul">
+<!-- ==================== GAME CARDS ==================== -->
+<section class="section" id="game">
     <div class="section-head reveal">
-        <span class="section-eyebrow"><i class="fas fa-gamepad"></i> Modul Pembelajaran</span>
-        <h2>Tiga <span class="hl">Petualangan Sejarah</span> Menanti Kamu</h2>
-        <p class="section-sub">Setiap modul dirancang selaras dengan Capaian Pembelajaran Fase E — mulai dari konsep dasar hingga penelitian sejarah yang mendalam.</p>
+        <span class="section-eyebrow"><i class="fas fa-gamepad"></i> Daftar Game</span>
+        <h2>Tiga <span class="hl">Game Sejarah</span> untuk Kelas 10</h2>
+        <p class="section-sub">Pilih game sesuai topik yang sudah dijelaskan guru di kelas.</p>
     </div>
 
     <div class="grid">
-        <!-- ===== BAB 1 ===== -->
+        <!-- ===== GAME 1 ===== -->
         <a class="card card-link reveal" href="gamepengantarilmusejarah.html"
            target="_blank" rel="noopener noreferrer"
-           aria-label="Mulai Game Pengantar Ilmu Sejarah (buka di tab baru)">
+           aria-label="Buka game Pengantar Ilmu Sejarah (tab baru)">
             <span class="badge">Bab 1</span>
             <span class="ico">🏛️</span>
             <h3>Pengantar Ilmu Sejarah</h3>
             <p class="desc">
-                Jadi <b class="hl-purple">detektif masa lalu</b>: pahami konsep sejarah, dimensi waktu &amp; ruang, serta jenis-jenis sumber sejarah.
+                Latihan soal untuk topik <b class="hl-purple">dasar ilmu sejarah</b>: konsep sejarah, dimensi waktu &amp; ruang, serta jenis sumber sejarah.
             </p>
             <div class="card-meta">
                 <span class="meta-item diff-easy"><i class="fas fa-circle"></i> Mudah</span>
                 <span class="meta-item"><i class="fas fa-clock"></i> ± 45 menit</span>
-                <span class="meta-item"><i class="fas fa-list-check"></i> 5 Game</span>
+                <span class="meta-item"><i class="fas fa-list-check"></i> 5 Mini Game</span>
             </div>
             <span class="mini-btn">
-                <span class="play"><i class="fas fa-play"></i></span> Mulai Permainan
+                <span class="play"><i class="fas fa-play"></i></span> Buka Game
                 <span class="newwin"><i class="fas fa-arrow-up-right-from-square"></i></span>
             </span>
         </a>
 
-        <!-- ===== BAB 2 ===== -->
+        <!-- ===== GAME 2 ===== -->
         <a class="card card-link reveal" href="gamepenelitiansejarah.html"
            target="_blank" rel="noopener noreferrer"
-           aria-label="Mulai Game Penelitian Sejarah (buka di tab baru)">
+           aria-label="Buka game Penelitian Sejarah (tab baru)">
             <span class="badge">Bab 2</span>
             <span class="ico">📚</span>
             <h3>Penelitian Sejarah</h3>
             <p class="desc">
-                Langkah <b class="hl-cyan">sejarawan sejati</b>: memilih topik, mengumpulkan sumber, menilai keaslian, hingga menulis historiografi.
+                Latihan soal untuk topik <b class="hl-cyan">metode penelitian</b>: memilih topik, mengumpulkan sumber, menilai keaslian, hingga menulis historiografi.
             </p>
             <div class="card-meta">
                 <span class="meta-item diff-med"><i class="fas fa-circle"></i> Sedang</span>
                 <span class="meta-item"><i class="fas fa-clock"></i> ± 60 menit</span>
-                <span class="meta-item"><i class="fas fa-list-check"></i> 6 Game</span>
+                <span class="meta-item"><i class="fas fa-list-check"></i> 6 Mini Game</span>
             </div>
             <span class="mini-btn">
-                <span class="play"><i class="fas fa-play"></i></span> Mulai Permainan
+                <span class="play"><i class="fas fa-play"></i></span> Buka Game
                 <span class="newwin"><i class="fas fa-arrow-up-right-from-square"></i></span>
             </span>
         </a>
 
-        <!-- ===== BAB 3 ===== -->
+        <!-- ===== GAME 3 ===== -->
         <a class="card card-link reveal"
            href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html"
            target="_blank" rel="noopener noreferrer"
-           aria-label="Mulai Game Kehidupan Praaksara (buka di tab baru)">
+           aria-label="Buka game Kehidupan Praaksara (tab baru)">
             <span class="badge">Bab 3</span>
             <span class="ico">🦴</span>
             <h3>Kehidupan Praaksara</h3>
             <p class="desc">
-                Menelusuri <b class="hl-green">manusia purba</b>: berburu &amp; meramu, bercocok tanam, hingga mengenal logam dan warisannya.
+                Latihan soal untuk topik <b class="hl-green">masa praaksara</b>: berburu &amp; meramu, bercocok tanam, hingga masa logam dan warisannya.
             </p>
             <div class="card-meta">
                 <span class="meta-item diff-med"><i class="fas fa-circle"></i> Sedang</span>
                 <span class="meta-item"><i class="fas fa-clock"></i> ± 60 menit</span>
-                <span class="meta-item"><i class="fas fa-list-check"></i> 5 Game</span>
+                <span class="meta-item"><i class="fas fa-list-check"></i> 5 Mini Game</span>
             </div>
             <span class="mini-btn">
-                <span class="play"><i class="fas fa-play"></i></span> Mulai Permainan
+                <span class="play"><i class="fas fa-play"></i></span> Buka Game
                 <span class="newwin"><i class="fas fa-arrow-up-right-from-square"></i></span>
             </span>
         </a>
@@ -1728,100 +1693,85 @@ body.loading .bg-decor *{
         <div class="info-strip reveal">
             <span class="ico">📖</span>
             <div class="txt">
-                <h3>Game Lainnya Sedang Disiapkan</h3>
-                <p>Modul untuk bab berikutnya akan ditambahkan secara bertahap, mengikuti perkembangan pembelajaran di kelas.</p>
+                <h3>Game Lain Menyusul</h3>
+                <p>Game untuk topik berikutnya akan ditambahkan secara bertahap, mengikuti materi yang dibahas di kelas.</p>
             </div>
-            <span class="tag">💡 Siap digunakan di kelas</span>
+            <span class="tag">💡 Untuk latihan mandiri</span>
         </div>
     </div>
 </section>
 
-<!-- ==================== KEUNGGULAN ==================== -->
+<!-- ==================== FITUR ==================== -->
 <section class="section" id="keunggulan">
     <div class="section-head reveal">
-        <span class="section-eyebrow"><i class="fas fa-star"></i> Mengapa HistoExplorer?</span>
-        <h2>Dirancang oleh <span class="hl">Guru &amp; Tim Profesional</span></h2>
-        <p class="section-sub">Bukan sekadar game — ini pengalaman belajar yang menyeluruh, selaras kurikulum, dan menyenangkan.</p>
+        <span class="section-eyebrow"><i class="fas fa-star"></i> Fitur</span>
+        <h2>Yang Ada di <span class="hl">HistoExplorer</span></h2>
+        <p class="section-sub">Fitur yang tersedia saat ini.</p>
     </div>
 
     <div class="features-grid">
         <div class="feature reveal">
-            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h3>Selaras Kurikulum Merdeka</h3>
-            <p>Setiap soal dan materi dirancang sesuai Capaian Pembelajaran Fase E — memudahkan siswa, guru, dan sekolah mengintegrasikannya ke kelas.</p>
+            <div class="feature-icon"><i class="fas fa-book-open-reader"></i></div>
+            <h3>Topik Kelas 10</h3>
+            <p>Soal disusun mengacu pada topik Sejarah kelas 10, menyesuaikan materi yang umumnya dibahas di sekolah.</p>
         </div>
         <div class="feature reveal">
             <div class="feature-icon"><i class="fas fa-brain"></i></div>
-            <h3>Belajar Aktif &amp; Bermakna</h3>
-            <p>Bukan hafalan — siswa diajak berpikir kritis, menganalisis sumber, dan membangun pemahaman melalui permainan yang bermakna.</p>
+            <h3>Latihan Pemahaman</h3>
+            <p>Soal dirancang untuk melatih pemahaman konsep, bukan sekadar menghafal tanggal dan nama.</p>
         </div>
         <div class="feature reveal">
             <div class="feature-icon"><i class="fas fa-mobile-screen"></i></div>
-            <h3>Akses di Semua Perangkat</h3>
-            <p>Bisa dimainkan di HP, tablet, laptop, maupun PC — tanpa instalasi. Cukup buka browser dan mulai belajar.</p>
+            <h3>Bisa Dibuka di HP</h3>
+            <p>Game dapat dimainkan di HP, tablet, laptop, maupun PC. Tidak perlu instalasi — cukup buka browser.</p>
         </div>
         <div class="feature reveal">
-            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-            <h3>Sistem Pencapaian &amp; Progress</h3>
-            <p>Progress belajar tersimpan otomatis. Siswa dapat mengumpulkan lencana, melacak skor, dan mereview jawaban untuk perbaikan.</p>
+            <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
+            <h3>Skor & Pembahasan</h3>
+            <p>Setiap permainan menampilkan skor, akurasi, dan pembahasan jawaban agar bisa dipelajari kembali.</p>
         </div>
         <div class="feature reveal">
-            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-            <h3>Glosarium &amp; Sumber Akademik</h3>
-            <p>Setiap pembahasan dilengkapi rujukan akademik (Kuntowijoyo, Gottschalk, Sartono Kartodirdjo, dll) untuk memperkuat pemahaman.</p>
+            <div class="feature-icon"><i class="fas fa-floppy-disk"></i></div>
+            <h3>Progress Tersimpan</h3>
+            <p>Skor dan riwayat tersimpan otomatis di browser (localStorage) pada perangkat yang sama.</p>
         </div>
         <div class="feature reveal">
-            <div class="feature-icon"><i class="fas fa-users"></i></div>
-            <h3>Untuk Siswa, Guru &amp; Masyarakat</h3>
-            <p>Tidak hanya untuk siswa — guru bisa memakainya sebagai media ajar, dan siapa pun yang tertarik sejarah dapat menikmatinya.</p>
+            <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Untuk Guru & Siswa</h3>
+            <p>Guru dapat menjadikannya latihan tambahan setelah mengajar, siswa dapat memakainya untuk belajar mandiri.</p>
         </div>
     </div>
 </section>
 
-<!-- ==================== TESTIMONI ==================== -->
-<section class="section" id="testimoni">
+<!-- ==================== CARA PAKAI ==================== -->
+<section class="section" id="cara">
     <div class="section-head reveal">
-        <span class="section-eyebrow"><i class="fas fa-comments"></i> Testimoni</span>
-        <h2>Kata <span class="hl">Mereka</span> yang Sudah Mencoba</h2>
-        <p class="section-sub">Cerita dari guru, siswa, dan pemerhati sejarah yang merasakan manfaat HistoExplorer.</p>
+        <span class="section-eyebrow"><i class="fas fa-compass"></i> Cara Pakai</span>
+        <h2>Alur <span class="hl">Penggunaan</span></h2>
+        <p class="section-sub">Tiga langkah sederhana — dari penjelasan guru sampai latihan mandiri.</p>
     </div>
 
-    <div class="testimonials-grid">
-        <div class="testimonial reveal">
-            <span class="quote-mark">"</span>
-            <div class="rating">★★★★★</div>
-            <p class="quote">Game ini membuat anak-anak saya benar-benar terlibat di kelas. Konsep sejarah yang tadinya abstrak jadi terasa nyata dan menyenangkan!</p>
-            <div class="author">
-                <div class="avatar">👩‍🏫</div>
-                <div>
-                    <div class="name">Ibu Syahrani, S.Pd.</div>
-                    <div class="role">Guru Sejarah · SMA</div>
-                </div>
-            </div>
+    <div class="steps-grid">
+        <div class="step-card reveal">
+            <span class="step-num">1</span>
+            <div class="step-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <span class="step-label">Langkah Pertama</span>
+            <h3>Guru Menjelaskan Materi</h3>
+            <p>Guru menyampaikan materi di kelas seperti biasa. Game ini sebagai pelengkap latihan.</p>
         </div>
-        <div class="testimonial reveal">
-            <span class="quote-mark">"</span>
-            <div class="rating">★★★★★</div>
-            <p class="quote">Belajar sejarah biasanya bikin ngantuk. Tapi di sini seru — ada poin, ada pencapaian, ada cerita. Rasanya kayak main game beneran!</p>
-            <div class="author">
-                <div class="avatar">🧑‍🎓</div>
-                <div>
-                    <div class="name">Rafi, Kelas X</div>
-                    <div class="role">Siswa SMA · Pengguna Aktif</div>
-                </div>
-            </div>
+        <div class="step-card reveal">
+            <span class="step-num">2</span>
+            <div class="step-icon"><i class="fas fa-hand-pointer"></i></div>
+            <span class="step-label">Langkah Kedua</span>
+            <h3>Pilih Game Sesuai Topik</h3>
+            <p>Siswa membuka game yang sesuai dengan topik yang baru dijelaskan — Bab 1, 2, atau 3.</p>
         </div>
-        <div class="testimonial reveal">
-            <span class="quote-mark">"</span>
-            <div class="rating">★★★★★</div>
-            <p class="quote">Sebagai mahasiswa sejarah, saya apresiasi pendekatan akademik yang kuat. Sumber rujukannya jelas, tidak sekadar permainan kosong.</p>
-            <div class="author">
-                <div class="avatar">📚</div>
-                <div>
-                    <div class="name">Aulia</div>
-                    <div class="role">Mahasiswa Sejarah · Universitas</div>
-                </div>
-            </div>
+        <div class="step-card reveal">
+            <span class="step-num">3</span>
+            <div class="step-icon"><i class="fas fa-gamepad"></i></div>
+            <span class="step-label">Langkah Ketiga</span>
+            <h3>Mainkan & Lihat Hasil</h3>
+            <p>Mainkan mini game di dalamnya. Di akhir, lihat skor dan pembahasan untuk memeriksa pemahaman.</p>
         </div>
     </div>
 </section>
@@ -1830,68 +1780,78 @@ body.loading .bg-decor *{
 <section class="section" id="faq">
     <div class="section-head reveal">
         <span class="section-eyebrow"><i class="fas fa-circle-question"></i> Pertanyaan Umum</span>
-        <h2>Ada <span class="hl">Pertanyaan?</span> Kami Jawab</h2>
-        <p class="section-sub">Beberapa hal yang sering ditanyakan oleh siswa, guru, dan orang tua.</p>
+        <h2>Hal yang <span class="hl">Sering Ditanyakan</span></h2>
+        <p class="section-sub">Beberapa pertanyaan dari siswa, guru, dan orang tua.</p>
     </div>
 
     <div class="faq-list">
         <details class="faq-item reveal">
             <summary>
-                <span>Apakah game ini gratis dan bisa dimainkan siapa saja?</span>
+                <span>Ada berapa game di halaman ini?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                <b>Ya, 100% gratis.</b> HistoExplorer dapat dimainkan oleh siapa saja — siswa, guru, mahasiswa, maupun masyarakat umum — langsung melalui browser tanpa perlu instalasi atau pendaftaran.
+                Ada <b>3 game utama</b> (Bab 1, Bab 2, Bab 3) dengan total <b>16 mini game</b> di dalamnya.
             </div>
         </details>
 
         <details class="faq-item reveal">
             <summary>
-                <span>Apakah bisa dimainkan di HP dan tablet?</span>
+                <span>Apakah game ini gratis?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                <b>Tentu.</b> Semua modul dirancang responsif dan dioptimalkan untuk HP, tablet, laptop, maupun PC. Ukuran teks, tombol, dan tata letak otomatis menyesuaikan perangkat yang kamu gunakan.
+                <b>Ya, gratis.</b> Semua game dapat dimainkan tanpa biaya, tanpa iklan, dan tanpa perlu mendaftar akun.
             </div>
         </details>
 
         <details class="faq-item reveal">
             <summary>
-                <span>Apakah game ini sesuai Kurikulum Merdeka?</span>
+                <span>Apakah bisa dimainkan di HP?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                <b>Ya, sangat sesuai.</b> Setiap modul dirancang mengacu pada <b>Capaian Pembelajaran Fase E</b> mata pelajaran Sejarah. Materi, soal, dan pembahasan telah disesuaikan oleh guru sejarah profesional.
+                <b>Bisa.</b> Tampilan menyesuaikan ukuran layar HP, tablet, laptop, maupun PC. Disarankan memakai browser modern seperti Chrome, Safari, atau Firefox versi terbaru.
             </div>
         </details>
 
         <details class="faq-item reveal">
             <summary>
-                <span>Bagaimana cara guru menggunakan ini di kelas?</span>
+                <span>Apakah materinya sesuai kurikulum?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                Guru dapat menggunakan HistoExplorer sebagai <b>media pembelajaran pendukung</b>: sebagai pengantar materi, latihan mandiri siswa, kuis kelas, atau tugas rumah. Cukup bagikan tautan ke siswa — tidak ada setup rumit.
+                Soal disusun mengacu pada <b>topik Sejarah kelas 10</b> untuk kurikulum terbaru. Tetap disarankan menyesuaikan dengan buku dan silabus yang dipakai di sekolah masing-masing.
             </div>
         </details>
 
         <details class="faq-item reveal">
             <summary>
-                <span>Apakah progress belajar tersimpan?</span>
+                <span>Bagaimana cara guru memakainya di kelas?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                <b>Ya.</b> Progress belajar (skor, pencapaian, dan riwayat) tersimpan otomatis di perangkat kamu melalui <i>localStorage</i> browser. Kamu bisa melanjutkan belajar kapan saja dari perangkat yang sama.
+                Bisa dipakai sebagai <b>latihan tambahan</b>, <b>kuis kelas</b>, atau <b>tugas rumah</b> setelah materi dijelaskan. Cukup bagikan tautan ke siswa — tidak perlu instalasi.
             </div>
         </details>
 
         <details class="faq-item reveal">
             <summary>
-                <span>Apakah ada ujian atau sertifikat di akhir?</span>
+                <span>Apakah skor tersimpan?</span>
                 <span class="chev"><i class="fas fa-chevron-down"></i></span>
             </summary>
             <div class="faq-answer">
-                Setiap modul memiliki <b>sistem penilaian mandiri</b> dengan skor, akurasi, dan lencana pencapaian. Ini dapat digunakan sebagai indikator pemahaman siswa. Sertifikat resmi akan ditambahkan pada versi mendatang.
+                <b>Ya.</b> Skor dan riwayat tersimpan di <i>localStorage</i> browser pada perangkat yang sama. Kalau cache browser dibersihkan, data ikut terhapus.
+            </div>
+        </details>
+
+        <details class="faq-item reveal">
+            <summary>
+                <span>Apakah ada sertifikat?</span>
+                <span class="chev"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-answer">
+                <b>Belum ada.</b> Saat ini hanya tersedia skor dan pembahasan sebagai indikator pemahaman.
             </div>
         </details>
     </div>
@@ -1900,15 +1860,15 @@ body.loading .bg-decor *{
 <!-- ==================== CTA FINAL ==================== -->
 <section class="cta-final">
     <div class="cta-box reveal">
-        <span class="cta-eyebrow">🚀 Siap Memulai?</span>
-        <h2>Petualangan Sejarah <span>Dimulai dari Sini</span></h2>
-        <p>Belajar sejarah bukan lagi tentang menghafal tanggal. Ini tentang memahami manusia, waktu, dan makna — dengan cara yang menyenangkan.</p>
+        <span class="cta-eyebrow">🎮 Sudah Siap Main?</span>
+        <h2>Pilih Game, <span>Mulai Latihan</span></h2>
+        <p>Kalau materinya sudah dijelaskan di kelas, sekarang saatnya menguji pemahaman lewat permainan.</p>
         <div class="hero-cta">
-            <a href="#modul" class="btn-hero primary">
-                <i class="fas fa-rocket"></i> Mulai Sekarang
+            <a href="#game" class="btn-hero primary">
+                <i class="fas fa-play"></i> Pilih Game
             </a>
             <a href="#faq" class="btn-hero secondary">
-                <i class="fas fa-circle-question"></i> Pelajari Lebih Lanjut
+                <i class="fas fa-circle-question"></i> Baca FAQ
             </a>
         </div>
     </div>
@@ -1919,29 +1879,29 @@ body.loading .bg-decor *{
     <div class="footer-inner">
         <div class="footer-col">
             <a href="#top" class="footer-brand">
-                <span class="logo"><i class="fas fa-landmark"></i></span>
+                <span class="logo"><i class="fas fa-gamepad"></i></span>
                 <span>HistoExplorer</span>
             </a>
             <p class="footer-desc">
-                Platform game edukasi sejarah untuk siswa, guru, dan masyarakat yang percaya bahwa belajar sejarah bisa jadi pengalaman yang hidup dan bermakna.
+                Kumpulan game edukasi sejarah untuk Kelas 10. 3 game utama, 16 mini game. Dimainkan setelah guru menjelaskan materi, sebagai latihan.
             </p>
         </div>
 
         <div class="footer-col">
-            <h4>Modul</h4>
+            <h4>Game</h4>
             <ul>
-                <li><a href="gamepengantarilmusejarah.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Bab 1 · Pengantar Ilmu Sejarah</a></li>
-                <li><a href="gamepenelitiansejarah.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Bab 2 · Penelitian Sejarah</a></li>
-                <li><a href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Bab 3 · Kehidupan Praaksara</a></li>
+                <li><a href="gamepengantarilmusejarah.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-gamepad"></i> Bab 1 · Pengantar Ilmu Sejarah</a></li>
+                <li><a href="gamepenelitiansejarah.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-gamepad"></i> Bab 2 · Penelitian Sejarah</a></li>
+                <li><a href="https://maedafarhansyah-pixel.github.io/game-sejarah-kelas-10/kehidupanpraaksara.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-gamepad"></i> Bab 3 · Kehidupan Praaksara</a></li>
             </ul>
         </div>
 
         <div class="footer-col">
             <h4>Navigasi</h4>
             <ul>
-                <li><a href="#modul"><i class="fas fa-arrow-right"></i> Modul</a></li>
-                <li><a href="#keunggulan"><i class="fas fa-arrow-right"></i> Keunggulan</a></li>
-                <li><a href="#testimoni"><i class="fas fa-arrow-right"></i> Testimoni</a></li>
+                <li><a href="#game"><i class="fas fa-arrow-right"></i> Daftar Game</a></li>
+                <li><a href="#keunggulan"><i class="fas fa-arrow-right"></i> Fitur</a></li>
+                <li><a href="#cara"><i class="fas fa-arrow-right"></i> Cara Pakai</a></li>
                 <li><a href="#faq"><i class="fas fa-arrow-right"></i> FAQ</a></li>
             </ul>
         </div>
@@ -1949,19 +1909,17 @@ body.loading .bg-decor *{
         <div class="footer-col">
             <h4>Informasi</h4>
             <ul>
-                <li><a href="#" onclick="return false;"><i class="fas fa-graduation-cap"></i> Kurikulum Merdeka Fase E</a></li>
-                <li><a href="#" onclick="return false;"><i class="fas fa-gem"></i> 100% Gratis untuk semua</a></li>
-                <li><a href="#" onclick="return false;"><i class="fas fa-shield-halved"></i> Aman &amp; tanpa iklan</a></li>
-                <li><a href="#" onclick="return false;"><i class="fas fa-mobile-screen"></i> Responsif di semua perangkat</a></li>
+                <li><a href="#" onclick="return false;"><i class="fas fa-graduation-cap"></i> Kurikulum Terbaru</a></li>
+                <li><a href="#" onclick="return false;"><i class="fas fa-gem"></i> Gratis, tanpa iklan</a></li>
+                <li><a href="#" onclick="return false;"><i class="fas fa-mobile-screen"></i> Responsif semua perangkat</a></li>
             </ul>
         </div>
     </div>
 
     <div class="footer-credit">
         <div class="line"></div>
-        <span>Dikembangkan dengan ❤️ oleh Tim <b>HistoExplorer</b> · Guru Sejarah &amp; Pengembang Profesional</span>
-        <span>© <span id="year"></span> HistoExplorer · Seluruh hak cipta dilindungi</span>
-        <span style="font-style:italic;opacity:.8">"Bangsa yang besar adalah bangsa yang menghargai warisan sejarahnya."</span>
+        <span>Dibuat oleh <b>Tim HistoExplorer</b></span>
+        <span>© <span id="year"></span> HistoExplorer</span>
     </div>
 </footer>
 
@@ -1980,14 +1938,13 @@ body.loading .bg-decor *{
 
 <script>
 /* ============================================================
-   LOADER — Premium
+   LOADER
    ============================================================ */
 (function () {
     var loader = document.getElementById('loader');
     var pctEl = document.getElementById('loaderPct');
     var DURATION = 2000;
 
-    /* Bintang latar */
     var starsBox = document.getElementById('loaderStars');
     if (starsBox) {
         for (var i = 0; i < 42; i++) {
@@ -2002,7 +1959,6 @@ body.loading .bg-decor *{
         }
     }
 
-    /* Partikel kilau */
     var sparkBox = document.getElementById('loaderSparkles');
     if (sparkBox) {
         for (var j = 0; j < 24; j++) {
@@ -2117,7 +2073,7 @@ function initScrollReveal(){
 }
 
 /* ============================================================
-   STATS COUNTER ANIMATION
+   STATS COUNTER
    ============================================================ */
 function initStatsCounter(){
     var nums = document.querySelectorAll('.stat-num[data-count]');
@@ -2156,7 +2112,7 @@ function initStatsCounter(){
 }
 
 /* ============================================================
-   SOUND TOGGLE (Web Audio)
+   SOUND TOGGLE
    ============================================================ */
 var muted = false;
 var audioCtx = null;
@@ -2228,7 +2184,7 @@ function toggleMotion(){
 })();
 
 /* ============================================================
-   SMOOTH SCROLL UNTUK LINK INTERNAL
+   SMOOTH SCROLL
    ============================================================ */
 document.querySelectorAll('a[href^="#"]').forEach(function(link){
     link.addEventListener('click', function(e){
@@ -2242,7 +2198,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link){
 });
 
 /* ============================================================
-   SOUND PADA HOVER GAME CARD (subtle)
+   SOUND PADA HOVER CARD
    ============================================================ */
 document.querySelectorAll('.card-link').forEach(function(card){
     card.addEventListener('mouseenter', function(){ beep(1200, 0.04, 'sine', 0.02); });
@@ -2253,7 +2209,6 @@ document.querySelectorAll('.card-link').forEach(function(card){
    ============================================================ */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Jika loader tidak ada (misalnya), tetap init */
 window.addEventListener('load', function(){
     setTimeout(function(){
         if(document.querySelector('.loader.hide') || !document.getElementById('loader')){
