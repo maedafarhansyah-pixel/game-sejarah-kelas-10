@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bagian 3 : Kehidupan Pra Aksara di Indonesia — Hub Kuis Interaktif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#2563eb;--blue2:#3b82f6;--blue3:#60a5fa;--blue4:#93c5fd;--blue5:#dbeafe;--blue6:#eff6ff;
+  --cyan:#06b6d4;--cyan2:#22d3ee;--cyan3:#a5f3fc;
+  --purple:#8b5cf6;--purple2:#a78bfa;--purple3:#ddd6fe;
+  --amber:#f59e0b;--amber2:#fbbf24;
+  --green:#10b981;--red:#ef4444;
+  --ink:#0f172a;--ink2:#1e3a8a;--muted:#5b6b85;--muted2:#94a3b8;
+  --card:rgba(255,255,255,.78);--stroke:rgba(255,255,255,.85);
+  --radius:18px;--ease:cubic-bezier(0.23,1,0.32,1);
+  --shadow:0 20px 45px -18px rgba(15,42,110,.28);
+  --shadow-lg:0 30px 70px -22px rgba(15,42,110,.38);
+}
+html,body{height:100%;overflow-x:hidden}
+body{
+  font-family:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+  color:var(--ink);min-height:100vh;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 600px at 8% -5%, rgba(6,182,212,.28), transparent 60%),
+    radial-gradient(800px 600px at 95% 0%, rgba(139,92,246,.24), transparent 55%),
+    radial-gradient(900px 700px at 50% 110%, rgba(37,99,235,.30), transparent 60%),
+    linear-gradient(160deg,#eef4ff 0%,#f7f9ff 45%,#eaf1ff 100%);
+  background-attachment:fixed;
+}
+
+/* ============ BG ORNAMENTS ============ */
+.aurora{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
+.aurora::before,.aurora::after{content:'';position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.aurora::before{background:radial-gradient(circle,rgba(6,182,212,.55),transparent 60%);top:-15vmax;left:-15vmax;animation:aur1 18s ease-in-out infinite}
+.aurora::after{background:radial-gradient(circle,rgba(139,92,246,.5),transparent 60%);bottom:-15vmax;right:-15vmax;animation:aur2 22s ease-in-out infinite}
+@keyframes aur1{0%,100%{transform:translate(0,0)}50%{transform:translate(10vw,7vh) scale(1.12)}}
+@keyframes aur2{0%,100%{transform:translate(0,0)}50%{transform:translate(-10vw,-7vh) scale(1.18)}}
+.orb{position:fixed;border-radius:50%;filter:blur(50px);pointer-events:none;z-index:-2;opacity:.4;animation:orbFloat 20s ease-in-out infinite}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.2)}}
+#bgCanvas{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:2500}
+
+/* ============ SCREEN ============ */
+.screen{display:none;min-height:100vh;padding:24px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.screen.active{display:block;animation:screenIn .7s var(--ease)}
+@keyframes screenIn{0%{opacity:0;transform:translateY(24px) scale(.98)}100%{opacity:1;transform:none}}
+
+/* ============ HERO ============ */
+.hero{text-align:center;padding:20px 0 30px;position:relative}
+
+.hero-title{font-size:clamp(1.4rem,4.8vw,3rem);font-weight:800;line-height:1.2;letter-spacing:-.8px;background:linear-gradient(120deg,#1d4ed8,#06b6d4,#8b5cf6,#2563eb,#1d4ed8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:blueTextShift 6s linear infinite;filter:drop-shadow(0 6px 20px rgba(37,99,235,.25));position:relative;word-break:keep-all;padding:0 8px}
+@keyframes blueTextShift{to{background-position:300% 0}}
+
+.hero-sub{margin-top:26px;color:var(--muted);font-size:clamp(1rem,2.4vw,1.35rem);max-width:720px;margin-left:auto;margin-right:auto;font-weight:600;line-height:1.5}
+.hero-sub .line-2{display:block;margin-top:10px;font-size:.82em;font-weight:500;color:var(--blue);font-style:italic;letter-spacing:.3px}
+.hero-sub b{color:var(--blue);font-weight:800}
+
+.hero-stats{display:flex;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.25))}
+.stat-lbl{font-size:.78rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-top:2px}
+
+/* ============ PROGRESS ============ */
+.progress-wrap{max-width:520px;margin:30px auto 0;padding:16px 22px;background:var(--card);border:1px solid var(--stroke);border-radius:16px;position:relative;overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.9rem;font-weight:700;position:relative}
+.progress-info .lbl{color:var(--muted);display:flex;align-items:center;gap:8px}
+.progress-info .val{color:var(--blue)}
+.progress-bar{height:10px;border-radius:10px;background:rgba(37,99,235,.1);overflow:hidden}
+.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);background-size:200% 100%;transition:width .6s var(--ease);box-shadow:0 0 14px rgba(37,99,235,.45);animation:barGradShift 3s linear infinite}
+@keyframes barGradShift{to{background-position:200% 0}}
+.reset-progress{margin-top:12px;text-align:center}
+.reset-progress button{background:transparent;border:1.5px dashed rgba(37,99,235,.4);color:var(--blue);padding:6px 16px;border-radius:20px;font-size:.75rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit}
+.reset-progress button:hover{background:var(--blue);color:#fff;border-style:solid;border-color:var(--blue)}
+
+/* ============ SECTION TITLE ============ */
+.section-title{display:flex;align-items:center;gap:12px;margin:38px 0 20px;padding:0 4px}
+.section-title h2{font-size:1.15rem;font-weight:800;color:var(--ink2);letter-spacing:-.3px}
+.section-title .line{flex:1;height:2px;background:linear-gradient(90deg,rgba(37,99,235,.3),transparent);border-radius:2px}
+.section-title .badge{font-size:.62rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:99px;background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.2)}
+.section-title .badge.soon{background:rgba(245,158,11,.1);color:var(--amber);border-color:rgba(245,158,11,.3)}
+
+/* ============ GAME GRID ============ */
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+@media(max-width:620px){.game-grid{grid-template-columns:1fr 1fr;gap:14px}}
+.gc{position:relative;border-radius:var(--radius);padding:26px 22px;background:var(--card);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--stroke);cursor:pointer;overflow:hidden;transition:transform .3s var(--ease),box-shadow .4s,border-color .3s;box-shadow:var(--shadow);animation:cardIn .7s var(--ease) backwards;display:flex;flex-direction:column}
+.gc:nth-child(1){animation-delay:.1s}.gc:nth-child(2){animation-delay:.2s}.gc:nth-child(3){animation-delay:.3s}
+.gc:nth-child(4){animation-delay:.4s}.gc:nth-child(5){animation-delay:.5s}.gc:nth-child(6){animation-delay:.6s}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.gc::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cyan),var(--blue) 40%,var(--purple) 75%,var(--amber));opacity:.9;transition:opacity .3s}
+.gc:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.gc:nth-child(3)::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.gc:nth-child(4)::before{background:linear-gradient(90deg,var(--purple),var(--purple2))}
+.gc:nth-child(5)::before{background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple))}
+.gc:nth-child(6)::before{background:linear-gradient(90deg,var(--cyan),var(--purple),var(--amber))}
+
+.gc.available:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg);border-color:rgba(37,99,235,.3)}
+.gc.available:hover .gc-icon{transform:translateY(-3px) scale(1.15) rotate(-6deg)}
+.gc.available:hover .gc-num{transform:scale(1.15) rotate(-8deg);color:rgba(37,99,235,.2)}
+
+.gc.locked{cursor:not-allowed;opacity:.72}
+.gc.locked:hover{transform:translateY(-2px)}
+
+.gc-num{position:absolute;top:16px;right:20px;font-size:3rem;font-weight:800;color:rgba(37,99,235,.1);line-height:1;transition:transform .4s;letter-spacing:-2px}
+.gc.locked .gc-num{color:rgba(245,158,11,.15)}
+
+.gc-icon{font-size:2.4rem;margin-bottom:16px;display:inline-block;background:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 6px 14px rgba(37,99,235,.3));transition:transform .4s var(--ease);width:fit-content}
+.gc:nth-child(3) .gc-icon{background:linear-gradient(135deg,#f59e0b,#fbbf24);filter:drop-shadow(0 6px 14px rgba(245,158,11,.3))}
+.gc:nth-child(4) .gc-icon{background:linear-gradient(135deg,#8b5cf6,#a78bfa);filter:drop-shadow(0 6px 14px rgba(139,92,246,.3))}
+
+.gc h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:var(--ink2);letter-spacing:-.3px}
+.gc p{font-size:.85rem;color:var(--muted);line-height:1.5;flex:1}
+.gc-tag{display:inline-block;margin-top:14px;padding:5px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.2px;border-radius:20px;text-transform:uppercase;background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.2);width:fit-content}
+.gc.locked .gc-tag{background:rgba(245,158,11,.1);color:var(--amber);border-color:rgba(245,158,11,.3)}
+
+.gc-badge-available{position:absolute;top:14px;left:16px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.08));border:1.5px solid rgba(16,185,129,.5);color:var(--green);border-radius:99px;font-size:.6rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.gc-badge-available::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:dotPulse 1.6s infinite}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.gc-badge-soon{position:absolute;top:14px;left:16px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.08));border:1.5px solid rgba(245,158,11,.5);color:#b45309;border-radius:99px;font-size:.6rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+
+.play-btn{margin-top:16px;padding:11px 22px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;box-shadow:0 8px 20px rgba(37,99,235,.35);transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%}
+.play-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.5);filter:brightness(1.08)}
+.play-btn-locked{margin-top:16px;padding:11px 22px;border-radius:12px;background:rgba(245,158,11,.1);color:var(--amber);font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid rgba(245,158,11,.35);cursor:not-allowed;font-family:inherit;display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%}
+
+/* ============ TEACHER INFO ============ */
+.teacher-card{margin-top:40px;padding:26px 24px;background:var(--card);backdrop-filter:blur(18px);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden;animation:cardIn .8s var(--ease) .7s backwards}
+.teacher-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:3px;background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--purple),transparent);border-radius:3px}
+.teacher-lbl{font-size:.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px}
+.teacher-lbl i{font-size:1rem;color:var(--cyan)}
+.teacher-name{font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,#1d4ed8,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.5px}
+.teacher-nip{margin-top:4px;font-size:.78rem;font-weight:700;color:var(--muted);font-family:ui-monospace,monospace;letter-spacing:.5px}
+
+/* ============ FOOTER ============ */
+.footer{margin-top:40px;padding:20px 16px;text-align:center;font-size:.72rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.12)}
+.footer .sch{font-weight:800;color:var(--ink2);letter-spacing:1.5px;font-size:.78rem}
+.footer .cp{margin-top:6px;opacity:.7}
+
+/* ============ MODAL IFRAME ============ */
+#gameModal{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:12px;background:rgba(15,42,110,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+#gameModal.on{display:flex;animation:fadeIn .3s var(--ease)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-frame{position:relative;width:100%;height:100%;max-width:1200px;max-height:95vh;background:#fff;border-radius:20px;box-shadow:0 30px 80px rgba(15,42,110,.5),0 0 0 4px rgba(255,255,255,.15);overflow:hidden;animation:modalIn .5s var(--ease)}
+@keyframes modalIn{0%{opacity:0;transform:scale(.94) translateY(20px)}100%{opacity:1;transform:none}}
+.modal-frame iframe{width:100%;height:100%;border:none;display:block;background:#fff}
+.modal-close{position:absolute;top:10px;right:10px;z-index:10;width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:linear-gradient(135deg,var(--red),#dc2626);color:#fff;font-size:1.1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 6px 20px rgba(239,68,68,.5);transition:all .3s var(--ease);display:flex;align-items:center;justify-content:center}
+.modal-close:hover{transform:scale(1.1) rotate(90deg);box-shadow:0 8px 28px rgba(239,68,68,.7)}
+
+/* ============ NOTIF ============ */
+.nf{position:fixed;top:26px;left:50%;transform:translateX(-50%) translateY(-130px);padding:14px 28px;border-radius:40px;z-index:3000;font-weight:800;font-size:.9rem;background:#fff;border:2px solid var(--blue);color:var(--blue);box-shadow:0 14px 40px rgba(15,42,110,.25);opacity:0;transition:all .4s var(--ease);pointer-events:none;letter-spacing:.3px;max-width:90vw;text-align:center}
+.nf.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.nf.ok{border-color:var(--green);color:var(--green)}
+.nf.gold{border-color:var(--amber);color:#b45309}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple));border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--blue2),var(--cyan2),var(--purple2))}
+
+/* ============ RESPONSIF ============ */
+@media(max-width:620px){
+  .screen{padding:16px 12px 50px}
+  .hero{padding:10px 0 20px}
+  .hero-title{letter-spacing:-.4px}
+  .hero-sub{font-size:.95rem;margin-top:18px}
+  .hero-stats{gap:22px;margin-top:24px}
+  .stat-num{font-size:1.6rem}
+  .gc{padding:22px 18px}
+  .gc-num{font-size:2.4rem;top:12px;right:14px}
+  .gc-icon{font-size:2rem;margin-bottom:12px}
+  .gc h3{font-size:.92rem}
+  .gc p{font-size:.76rem}
+  .gc-tag{font-size:.62rem;padding:4px 10px}
+  .play-btn,.play-btn-locked{font-size:.7rem;padding:9px 14px;letter-spacing:1px}
+  .gc-badge-available,.gc-badge-soon{font-size:.54rem;padding:3px 8px;top:10px;left:10px}
+  .modal-frame{max-height:98vh;border-radius:14px}
+  .modal-close{width:36px;height:36px;font-size:.95rem;top:6px;right:6px}
+}
+</style>
+</head>
+<body>
+
+<!-- BG -->
+<div class="aurora"></div>
+<canvas id="bgCanvas"></canvas>
+<canvas id="confetti"></canvas>
+
+<!-- ============ MAIN MENU ============ -->
+<div id="mainMenu" class="screen active">
+  <div class="hero">
+    <h1 class="hero-title">Bagian 3 : KEHIDUPAN PRA AKSARA DI INDONESIA</h1>
+    <p class="hero-sub">
+      Belajar Memahami Kehidupan Pra Aksara di Indonesia
+      <span class="line-2">Melalui permainan yang seru dan interaktif! 🎮</span>
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" id="statGames">2</div><div class="stat-lbl">Games</div></div>
+      <div class="stat"><div class="stat-num">75+</div><div class="stat-lbl">Soal</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Segera</div></div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span class="lbl"><i class="fas fa-trophy" style="color:var(--amber)"></i> Progress Belajar</span>
+        <span class="val" id="progText">0 / 6 Game</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+      <div class="reset-progress"><button onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Reset Progress</button></div>
+    </div>
+  </div>
+
+  <!-- ===== GAME TERSEDIA ===== -->
+  <div class="section-title">
+    <h2><i class="fas fa-gamepad" style="color:var(--blue);margin-right:6px"></i>Game Tersedia</h2>
+    <span class="line"></span>
+    <span class="badge">2 Game</span>
+  </div>
+
+  <div class="game-grid">
+    <!-- GAME 1: RODA BERPUTAR -->
+    <div class="gc available" data-game="wheel" data-title="Kuis Roda Berputar">
+      <span class="gc-badge-available">Tersedia</span>
+      <span class="gc-num">01</span>
+      <i class="fas fa-dharmachakra gc-icon"></i>
+      <h3>Kuis Roda Berputar</h3>
+      <p>Putar roda untuk memilih kategori soal! 12 putaran, 9 kategori, dan 45+ soal tentang kehidupan praaksara.</p>
+      <span class="gc-tag">🎡 Putar & Jawab</span>
+      <button class="play-btn" onclick="event.stopPropagation();openGame('wheel','Kuis Roda Berputar')"><i class="fas fa-play"></i> MAINKAN</button>
+    </div>
+
+    <!-- GAME 2: KUIS INTERAKTIF -->
+    <div class="gc available" data-game="interactive" data-title="Kuis Interaktif Sejarah">
+      <span class="gc-badge-available">Tersedia</span>
+      <span class="gc-num">02</span>
+      <i class="fas fa-scroll gc-icon"></i>
+      <h3>Kuis Interaktif Sejarah</h3>
+      <p>Jawab 15 soal acak dari bank 30 soal. Gunakan bantuan 50:50, Petunjuk, dan Lewati. Ada sistem streak & level!</p>
+      <span class="gc-tag">🏺 3 Bantuan</span>
+      <button class="play-btn" onclick="event.stopPropagation();openGame('interactive','Kuis Interaktif Sejarah')"><i class="fas fa-play"></i> MAINKAN</button>
+    </div>
+  </div>
+
+  <!-- ===== GAME SEGERA HADIR ===== -->
+  <div class="section-title">
+    <h2><i class="fas fa-hourglass-half" style="color:var(--amber);margin-right:6px"></i>Segera Hadir</h2>
+    <span class="line"></span>
+    <span class="badge soon">4 Slot</span>
+  </div>
+
+  <div class="game-grid">
+    <!-- SLOT 3 -->
+    <div class="gc locked" data-slot="3">
+      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
+      <span class="gc-num">03</span>
+      <i class="fas fa-search gc-icon"></i>
+      <h3>Detektif Sumber Sejarah</h3>
+      <p>Klasifikasikan sumber sejarah ke kategori tepat: tertulis, lisan, atau benda. Ada 27 kartu sumber sejarah!</p>
+      <span class="gc-tag">🔍 Investigasi</span>
+      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    </div>
+
+    <!-- SLOT 4 -->
+    <div class="gc locked" data-slot="4">
+      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
+      <span class="gc-num">04</span>
+      <i class="fas fa-hourglass-half gc-icon"></i>
+      <h3>Penjelajah Waktu Sejarah</h3>
+      <p>Pelajari konsep waktu: Diakronik, Sinkronik, Periodik, dan Kronologis. Klasifikasikan 20 kartu ciri-ciri waktu!</p>
+      <span class="gc-tag">⏳ Konsep Waktu</span>
+      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    </div>
+
+    <!-- SLOT 5 -->
+    <div class="gc locked" data-slot="5">
+      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
+      <span class="gc-num">05</span>
+      <i class="fas fa-map-location-dot gc-icon"></i>
+      <h3>Misi Ilmu Sejarah</h3>
+      <p>Petualangan 5 level dengan penjelasan lengkap. Selesaikan misi untuk memahami prinsip-prinsip ilmu sejarah!</p>
+      <span class="gc-tag">🗺️ Adventure</span>
+      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    </div>
+
+    <!-- SLOT 6 -->
+    <div class="gc locked" data-slot="6">
+      <span class="gc-badge-soon"><i class="fas fa-lock"></i> Segera</span>
+      <span class="gc-num">06</span>
+      <i class="fas fa-crown gc-icon"></i>
+      <h3>Jutawan Sejarah</h3>
+      <p>Jawab 15 soal dari bank 40 soal acak. Salah tetap bisa lanjut. 3 bantuan tersedia untuk membantumu!</p>
+      <span class="gc-tag">👑 Quiz Show</span>
+      <button class="play-btn-locked" disabled><i class="fas fa-lock"></i> SEGERA HADIR</button>
+    </div>
+  </div>
+
+  <!-- TEACHER INFO -->
+  <div class="teacher-card">
+    <div class="teacher-lbl"><i class="fas fa-chalkboard-user"></i> Guru Pengampu</div>
+    <div class="teacher-name">SYAHRANI, S.Pd.</div>
+    <div class="teacher-nip">NIP. 19751217200501 1 016</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="sch">🏺 BAGIAN 3 · KEHIDUPAN PRA AKSARA DI INDONESIA</div>
+    <div>Media Pembelajaran Interaktif · Sejarah Kelas X / Fase E</div>
+    <div class="cp">© 2024 · Dibuat dengan ❤️ untuk pembelajaran sejarah</div>
+  </div>
+</div>
+
+<!-- ============ MODAL IFRAME ============ -->
+<div id="gameModal">
+  <div class="modal-frame">
+    <button class="modal-close" onclick="closeGame()" title="Tutup"><i class="fas fa-times"></i></button>
+    <iframe id="gameIframe" title="Game Kuis Sejarah" allow="autoplay; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-downloads"></iframe>
+  </div>
+</div>
+
+<!-- NOTIF -->
+<div class="nf" id="nf"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+
+/* ============ FLOATING ORBS ============ */
+(function(){
+  const cols=['#3b82f6','#06b6d4','#8b5cf6','#60a5fa','#a78bfa','#22d3ee'];
+  for(let i=0;i<6;i++){
+    const o=document.createElement('div');o.className='orb';
+    const sz=80+Math.random()*130;
+    o.style.width=sz+'px';o.style.height=sz+'px';
+    o.style.background=cols[i%cols.length];
+    o.style.left=(Math.random()*100)+'%';
+    o.style.top=(Math.random()*100)+'%';
+    o.style.animationDelay=(Math.random()*10)+'s';
+    o.style.animationDuration=(15+Math.random()*10)+'s';
+    document.body.appendChild(o);
+  }
+})();
+
+/* ============ CLICK BURST ============ */
+document.addEventListener('click',e=>{
+  for(let i=0;i<8;i++){
+    const p=document.createElement('div');
+    p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:5px;height:5px;border-radius:50%;background:${['#2563eb','#06b6d4','#8b5cf6','#f59e0b'][i%4]};pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px currentColor;transition:all .5s cubic-bezier(.2,.8,.2,1)`;
+    document.body.appendChild(p);
+    const ang=(i/8)*Math.PI*2+Math.random()*.5,dist=45+Math.random()*55;
+    requestAnimationFrame(()=>{
+      p.style.transform=`translate(calc(${Math.cos(ang)*dist}px - 50%),calc(${Math.sin(ang)*dist}px - 50%)) scale(.2)`;
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(),550);
+  }
+});
+
+/* ============ BG PARTIKEL ============ */
+(function(){
+  const cv=$('#bgCanvas'),ctx=cv.getContext('2d');
+  let w,h,parts=[];
+  function rz(){w=cv.width=innerWidth;h=cv.height=innerHeight}
+  rz();addEventListener('resize',rz);
+  const N=Math.min(60,Math.floor(innerWidth/25));
+  for(let i=0;i<N;i++)parts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.6,c:['#2563eb','#06b6d4','#8b5cf6','#60a5fa'][Math.floor(Math.random()*4)]});
+  function loop(){
+    ctx.clearRect(0,0,w,h);
+    parts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);ctx.fillStyle=p.c;ctx.globalAlpha=.45;ctx.fill();
+    });
+    for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++){
+      const a=parts[i],b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<130){
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle='rgba(37,99,235,'+(.14*(1-d/130))+')';ctx.lineWidth=.7;ctx.stroke();
+      }
+    }
+    ctx.globalAlpha=1;
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ============ CONFETTI ============ */
+function confetti(){
+  const cv=$('#confetti'),ctx=cv.getContext('2d');
+  cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#2563eb','#06b6d4','#8b5cf6','#f59e0b','#3b82f6','#a78bfa'];
+  const parts=[];
+  for(let i=0;i<200;i++)parts.push({
+    x:innerWidth/2+(Math.random()-.5)*250,y:innerHeight/2-100,
+    vx:(Math.random()-.5)*15,vy:Math.random()*-14-4,
+    r:Math.random()*5.5+3,c:cols[Math.floor(Math.random()*cols.length)],
+    rot:Math.random()*6.28,vr:(Math.random()-.5)*.32,life:1
+  });
+  let raf;
+  function loop(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    let alive=false;
+    parts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.42;p.vx*=.99;p.rot+=p.vr;p.life-=.008;
+      if(p.life>0&&p.y<innerHeight+50){
+        alive=true;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+        ctx.fillStyle=p.c;ctx.globalAlpha=p.life;
+        ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.5);
+        ctx.restore();
+      }
+    });
+    if(alive)raf=requestAnimationFrame(loop);
+    else{ctx.clearRect(0,0,cv.width,cv.height);cancelAnimationFrame(raf)}
+  }
+  loop();
+}
+
+/* ============ NOTIF ============ */
+function notif(msg,type=''){
+  const n=$('#nf');
+  n.textContent=msg;
+  n.className='nf on '+type;
+  clearTimeout(n._t);
+  n._t=setTimeout(()=>n.classList.remove('on'),1800);
+}
+
+/* ============ PROGRESS (in-memory) ============ */
+let _progress={};
+function loadProgress(){return _progress}
+function saveProgress(p){_progress=p}
+function markDone(id,d={}){
+  const p=loadProgress();
+  if(p[id]&&p[id].done&&!d.force)return;
+  p[id]={done:true,...d,date:new Date().toISOString()};
+  saveProgress(p);
+  updateMenu();
+}
+function resetProgress(){
+  if(!confirm('Reset semua progress belajar?'))return;
+  _progress={};
+  updateMenu();
+  notif('Progress direset!','gold');
+}
+function updateMenu(){
+  const p=loadProgress();
+  document.querySelectorAll('.gc.available').forEach(c=>{
+    const id=c.dataset.game;
+    c.classList.toggle('done',!!(p[id]&&p[id].done));
+  });
+  const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
+  $('#progText').textContent=`${done} / 6 Game`;
+  $('#progFill').style.width=(done/6*100)+'%';
+}
+
+/* ============ GAME MODAL ============ */
+/* 
+   ⚠️ PENTING: Sesuaikan nama file di bawah ini dengan nama file game Anda.
+*/
+const GAME_FILES={
+  wheel:      'wheel-game.html',       // ← Ganti dengan nama file Kuis Roda Berputar
+  interactive:'interactive-quiz.html'  // ← Ganti dengan nama file Kuis Interaktif Sejarah
+};
+
+function openGame(gameId, title){
+  const file=GAME_FILES[gameId];
+  if(!file){notif('Game belum tersedia','gold');return}
+
+  const modal=$('#gameModal');
+  const iframe=$('#gameIframe');
+
+  let loadOk=false;
+  iframe.onload=function(){loadOk=true};
+  iframe.onerror=function(){showFileNotFound(iframe,title)};
+
+  iframe.src=file;
+  modal.classList.add('on');
+  document.body.style.overflow='hidden';
+
+  setTimeout(()=>{
+    if(!loadOk){
+      try{
+        const doc=iframe.contentDocument||iframe.contentWindow.document;
+        if(!doc||!doc.body||doc.body.innerHTML.trim()===''){
+          showFileNotFound(iframe,title);
+        }
+      }catch(e){}
+    }
+  },2500);
+}
+
+function showFileNotFound(iframe,title){
+  iframe.srcdoc=`
+    <div style="display:flex;align-items:center;justify-content:center;height:100%;background:linear-gradient(160deg,#eef4ff,#eaf1ff);color:#0f172a;font-family:'Plus Jakarta Sans',sans-serif;text-align:center;padding:24px">
+      <div style="max-width:420px">
+        <div style="font-size:4rem;margin-bottom:16px">📁</div>
+        <h2 style="color:#1d4ed8;font-size:1.4rem;margin-bottom:12px">File Game Tidak Ditemukan</h2>
+        <p style="color:#5b6b85;font-size:.95rem;line-height:1.7;margin-bottom:16px">
+          Game <b>${title}</b> tidak dapat dimuat.<br>
+          Pastikan file berikut ada di folder yang sama dengan halaman ini.
+        </p>
+      </div>
+    </div>`;
+}
+
+function closeGame(){
+  const modal=$('#gameModal');
+  const iframe=$('#gameIframe');
+  modal.classList.remove('on');
+  iframe.src='about:blank';
+  document.body.style.overflow='';
+}
+
+$('#gameModal').addEventListener('click',e=>{
+  if(e.target===$('#gameModal'))closeGame();
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&$('#gameModal').classList.contains('on'))closeGame();
+});
+
+/* ============ TILT EFFECT ============ */
+document.querySelectorAll('.gc.available').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    el.style.transform=`perspective(900px) rotateX(${((y-r.height/2)/(r.height/2))*-5}deg) rotateY(${((x-r.width/2)/(r.width/2))*5}deg) translateY(-6px) scale(1.02)`;
+  });
+  el.addEventListener('mouseleave',()=>{el.style.transform=''});
+});
+
+/* Klik kartu available → buka game */
+document.querySelectorAll('.gc.available').forEach(c=>{
+  c.addEventListener('click',()=>openGame(c.dataset.game,c.dataset.title));
+  c.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();openGame(c.dataset.game,c.dataset.title)}
+  });
+  c.setAttribute('tabindex','0');
+  c.setAttribute('role','button');
+  c.setAttribute('aria-label','Mainkan '+c.dataset.title);
+});
+
+/* Notif untuk kartu locked */
+document.querySelectorAll('.gc.locked').forEach(c=>{
+  c.addEventListener('click',()=>notif('Game ini segera hadir! 🚧','gold'));
+});
+
+/* ============ WELCOME ============ */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    notif('Selamat datang! Pilih game untuk mulai belajar 🎮','ok');
+  },800);
+  setTimeout(()=>{
+    try{confetti()}catch(e){}
+  },1200);
+});
+
+/* ============ INIT ============ */
+updateMenu();
+</script>
+</body>
+</html>
