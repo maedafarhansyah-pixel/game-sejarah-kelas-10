@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<title>HistoExplorer — 6 Game Penelitian Sejarah</title>
+<title>Bagian 2 : Penelitian Sejarah</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -40,7 +40,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .audio-toggle:active{transform:scale(.94)}
 
 /* ==================== FULLSCREEN STYLES ==================== */
-/* Ketika native fullscreen aktif */
 :fullscreen, :-webkit-full-screen, :-moz-full-screen, :-ms-fullscreen { background: var(--cream); }
 :fullscreen .screen, :-webkit-full-screen .screen { max-width:1400px; padding-top:34px; }
 :fullscreen .hero, :-webkit-full-screen .hero { padding:48px 24px 56px; }
@@ -51,7 +50,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 :fullscreen .audio-toggle, :-webkit-full-screen .audio-toggle { width:52px; height:52px; font-size:1.15rem; }
 :fullscreen .hunt-tile .em, :-webkit-full-screen .hunt-tile .em { font-size:2.6rem; }
 
-/* Fallback pseudo-fullscreen (untuk browser/perangkat yang tidak support API native) */
 body.fake-fs{
   overflow:hidden;
   width:100vw;
@@ -67,60 +65,6 @@ body.fake-fs .hero-title{font-size:clamp(2.4rem,6vw,4.6rem)}
 body.fake-fs .game-grid{gap:24px}
 body.fake-fs .gc{min-height:220px}
 
-/* ==================== LOADER ==================== */
-#loader{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center, #ffffff 0%, #eff6ff 40%, #dbeafe 100%);overflow:hidden;transition:opacity .8s var(--ease),visibility .8s}
-#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-
-.ldr-orb-wrap{position:relative;width:170px;height:170px;display:flex;align-items:center;justify-content:center;margin-bottom:38px;animation:ldrFloat 4s ease-in-out infinite}
-@keyframes ldrFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-
-.ldr-ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg, transparent 0%, var(--maroon2) 30%, var(--blue2) 65%, transparent 100%);-webkit-mask:radial-gradient(circle, transparent 62%, #000 63%, #000 100%);mask:radial-gradient(circle, transparent 62%, #000 63%, #000 100%);animation:ldrSpin 1.6s linear infinite;filter:drop-shadow(0 0 16px rgba(37,99,235,.35))}
-.ldr-ring.r2{inset:16px;background:conic-gradient(from 180deg, transparent 0%, var(--gold2) 45%, transparent 85%);-webkit-mask:radial-gradient(circle, transparent 58%, #000 59%, #000 100%);mask:radial-gradient(circle, transparent 58%, #000 59%, #000 100%);animation:ldrSpin 2.4s linear infinite reverse;filter:drop-shadow(0 0 12px rgba(251,191,36,.4))}
-@keyframes ldrSpin{to{transform:rotate(360deg)}}
-
-.ldr-orb{position:relative;width:96px;height:96px;border-radius:50%;
-  background:
-    radial-gradient(circle at 32% 28%, rgba(255,255,255,.85) 0%, rgba(255,255,255,.15) 18%, transparent 32%),
-    radial-gradient(circle at 65% 75%, rgba(6,182,212,.7) 0%, transparent 45%),
-    linear-gradient(135deg,#2563eb 0%,#3b82f6 45%,#06b6d4 100%);
-  box-shadow:
-    0 20px 50px rgba(37,99,235,.35),
-    0 0 40px rgba(6,182,212,.35),
-    inset 0 3px 14px rgba(255,255,255,.45),
-    inset 0 -8px 22px rgba(12,30,61,.28);
-  animation:ldrOrbPulse 2s ease-in-out infinite;z-index:3}
-.ldr-orb::after{
-  content:'';position:absolute;inset:18px;border-radius:50%;
-  background:radial-gradient(circle at 40% 35%, rgba(255,255,255,.35), transparent 60%);
-  animation:ldrInnerShine 3s ease-in-out infinite;
-}
-@keyframes ldrInnerShine{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-@keyframes ldrOrbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-
-.ldr-pct{display:flex;align-items:baseline;justify-content:center;gap:2px;font-size:3.8rem;font-weight:900;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums;position:relative;z-index:5}
-.ldr-pct .num{background:linear-gradient(135deg,var(--maroon) 0%,var(--maroon3) 40%,var(--blue2) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.2))}
-.ldr-pct .sym{font-size:1.5rem;font-weight:800;color:var(--maroon2);-webkit-text-fill-color:var(--maroon2);opacity:.75}
-.ldr-title{margin-top:16px;position:relative;z-index:5;font-size:clamp(1.3rem,3.6vw,1.8rem);font-weight:900;letter-spacing:.42em;padding-left:.42em;display:flex;justify-content:center}
-.ldr-title span{display:inline-block;opacity:0;transform:translateY(14px);animation:ldrLetter .5s cubic-bezier(.23,1,.32,1) forwards;background:linear-gradient(135deg,var(--maroon) 0%,var(--maroon2) 50%,var(--blue2) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@keyframes ldrLetter{to{opacity:1;transform:translateY(0)}}
-.ldr-sub{margin-top:10px;position:relative;z-index:5;font-size:.65rem;letter-spacing:5px;color:var(--text3);text-transform:uppercase;font-weight:700;opacity:0;animation:ldrSubIn 1s ease .9s forwards}
-@keyframes ldrSubIn{to{opacity:.9}}
-.ldr-bar-wrap{margin-top:30px;position:relative;z-index:5;width:min(280px,70vw)}
-.ldr-bar{width:100%;height:4px;border-radius:4px;background:rgba(30,77,140,.12);overflow:hidden;position:relative}
-.ldr-bar-fill{height:100%;width:0%;border-radius:4px;background:linear-gradient(90deg,var(--maroon2) 0%,var(--blue2) 60%,var(--gold2) 100%);background-size:200% 100%;animation:ldrBarGrad 2s linear infinite;transition:width .15s linear;box-shadow:0 0 12px rgba(37,99,235,.5);position:relative}
-.ldr-bar-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);animation:ldrBarShimmer 1.5s linear infinite}
-@keyframes ldrBarGrad{to{background-position:200% 0}}
-@keyframes ldrBarShimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.ldr-flash{position:absolute;inset:0;pointer-events:none;z-index:50;opacity:0;background:radial-gradient(circle at center,rgba(255,255,255,.95) 0%,rgba(147,197,253,.6) 25%,transparent 65%)}
-.ldr-flash.fire{animation:ldrFlash .8s ease-out forwards}
-@keyframes ldrFlash{0%{opacity:0;transform:scale(.4)}30%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.5)}}
-@media(max-width:600px){
-  .ldr-orb-wrap{width:140px;height:140px;margin-bottom:30px}
-  .ldr-orb{width:78px;height:78px}
-  .ldr-pct{font-size:2.9rem}.ldr-pct .sym{font-size:1.2rem}
-  .ldr-title{letter-spacing:.3em;padding-left:.3em}
-}
-
 /* SCREENS */
 .screen{display:none;min-height:100vh;padding:24px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .screen.active{display:block;animation:screenIn .7s var(--ease)}
@@ -135,9 +79,8 @@ body.fake-fs .gc{min-height:220px}
 @keyframes heroBadgeRotate{to{transform:rotate(360deg)}}
 .hero-badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--good);box-shadow:0 0 10px var(--good);animation:pulseDot 1.4s ease-in-out infinite}
 @keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.5}}
-.hero-title{position:relative;z-index:2;font-size:clamp(2rem,7vw,4.2rem);font-weight:900;line-height:.95;letter-spacing:-.02em;background:linear-gradient(120deg,#0c1e3d 0%,#1e4d8c 25%,#3b82f6 50%,#06b6d4 70%,#0c1e3d 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:heroTitleMove 7s ease-in-out infinite;filter:drop-shadow(0 4px 14px rgba(37,99,235,.15))}
+.hero-title{position:relative;z-index:2;font-size:clamp(1.8rem,5.5vw,3.6rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;background:linear-gradient(120deg,#0c1e3d 0%,#1e4d8c 25%,#3b82f6 50%,#06b6d4 70%,#0c1e3d 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:heroTitleMove 7s ease-in-out infinite;filter:drop-shadow(0 4px 14px rgba(37,99,235,.15))}
 @keyframes heroTitleMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero-title span{display:block;font-size:.24em;letter-spacing:.5em;font-weight:700;margin-top:18px;padding-left:.5em;-webkit-text-fill-color:var(--maroon2);background:none;filter:none}
 .hero-sub{position:relative;z-index:2;margin-top:22px;color:var(--text2);font-size:1rem;max-width:600px;margin-left:auto;margin-right:auto;font-weight:500}
 .hero-stats{position:relative;z-index:2;display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;padding:0 10px}
 .stat{flex:1;min-width:110px;max-width:150px;padding:14px 10px;border-radius:16px;background:rgba(255,255,255,.75);border:1.5px solid rgba(30,77,140,.15);backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(30,77,140,.06);transition:transform .3s var(--ease)}
@@ -151,6 +94,7 @@ body.fake-fs .gc{min-height:220px}
 .progress-info .val{color:var(--maroon2)}
 .progress-bar{height:10px;border-radius:10px;background:rgba(30,77,140,.1);overflow:hidden;position:relative}
 .progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--maroon2),var(--blue2) 55%,var(--gold) 100%);background-size:200% 100%;transition:width .6s var(--ease);box-shadow:0 0 12px rgba(37,99,235,.4);animation:ldrBarGrad 3s linear infinite}
+@keyframes ldrBarGrad{to{background-position:200% 0}}
 .reset-progress{margin-top:12px;text-align:center}
 .reset-progress button{background:transparent;border:1px dashed rgba(30,77,140,.4);color:var(--maroon2);padding:6px 14px;border-radius:20px;font-size:.7rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit}
 .reset-progress button:hover{background:var(--maroon2);border-style:solid;color:#fff;border-color:var(--maroon2)}
@@ -268,7 +212,6 @@ body.fake-fs .gc{min-height:220px}
 .btn-mini{margin-left:auto;padding:9px 18px;font-size:.8rem;background:rgba(37,99,235,.1);border:2px solid var(--maroon3);color:var(--maroon);border-radius:30px;cursor:pointer;font-weight:700;transition:all .3s;font-family:inherit;min-height:38px}
 .btn-mini:hover{background:var(--maroon2);color:#fff}
 
-/* Instruksi khusus Game 2 — teks lebih besar */
 #gameG2 .inst{
   font-size:1.02rem;
   line-height:1.75;
@@ -319,7 +262,6 @@ body.fake-fs .gc{min-height:220px}
 .choice:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.3)}
 .choice:disabled{opacity:.5;cursor:not-allowed}
 
-/* ===== G2 Hunt Grid: teks lebih besar ===== */
 .hunt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px}
 @media(min-width:520px){.hunt-grid{gap:12px}}
 @media(max-width:520px){.hunt-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
@@ -483,25 +425,6 @@ body.fake-fs .gc{min-height:220px}
 <canvas id="bgCanvas"></canvas>
 <canvas id="confetti"></canvas>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="ldr-orb-wrap">
-    <div class="ldr-ring"></div>
-    <div class="ldr-ring r2"></div>
-    <div class="ldr-orb"></div>
-  </div>
-  <div class="ldr-pct">
-    <span class="num" id="lpctNum">0</span>
-    <span class="sym">%</span>
-  </div>
-  <div class="ldr-title" id="ldrTitle"></div>
-  <div class="ldr-sub">GAME PEMBELAJARAN INTERAKTIF</div>
-  <div class="ldr-bar-wrap">
-    <div class="ldr-bar"><div class="ldr-bar-fill" id="lpctBar"></div></div>
-  </div>
-  <div class="ldr-flash" id="ldrFlash"></div>
-</div>
-
 <!-- MAIN MENU -->
 <div id="mainMenu" class="screen active">
   <div class="hero">
@@ -510,7 +433,7 @@ body.fake-fs .gc{min-height:220px}
       <i class="fas fa-bolt"></i>
       Penelitian Sejarah · Kelas X
     </div>
-    <h1 class="hero-title">HISTOEXPLORER<span>6 GAME PENELITIAN SEJARAH</span></h1>
+    <h1 class="hero-title">Bagian 2 : PENELITIAN SEJARAH</h1>
     <p class="hero-sub">Belajar metode penelitian sejarah dengan 6 mini-game interaktif — dari heuristik hingga historiografi.</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Games</div></div>
@@ -781,7 +704,7 @@ const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const rnd=n=>Math.random()*n|0;
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
 
-/* ============ RANDOMIZATION: soal selalu berbeda tiap sesi ============ */
+/* ============ RANDOMIZATION ============ */
 const SEEN_KEY='histoexplorer_seen_v2';
 function loadSeen(){try{return JSON.parse(localStorage.getItem(SEEN_KEY))||{};}catch(e){return{};}}
 function saveSeen(s){try{localStorage.setItem(SEEN_KEY,JSON.stringify(s));}catch(e){}}
@@ -813,13 +736,11 @@ function shuffleOpts(q){
   return {...q,o:newO,a:newO.indexOf(correctText)};
 }
 
-/* APRESIASI & SEMANGAT */
 const PRAISE=['🎯 Tepat sekali!','⭐ Hebat!','🔥 Luar biasa!','✨ Cerdas!','💎 Brilian!','🏆 Sempurna!','👏 Mantap!','🌟 Keren!','💡 Jenius!','🎉 Excellent!','🚀 Spektakuler!','🎖️ Mengagumkan!'];
 const ENCOURAGE=['💪 Hampir! Coba lagi ya.','🌱 Belajar dari kesalahan itu hebat!','📚 Tetap semangat, kamu bisa!','🎓 Setiap kesalahan = pelajaran baru.','🧠 Pikirkan sekali lagi, kamu pasti bisa!','🌟 Jangan menyerah, terus coba!','🚀 Kesalahan adalah tangga menuju sukses!','📖 Cek lagi konsepnya ya, kamu hebat!','🌈 Tetap tenang, kamu sedang berkembang!','🎯 Fokus lagi, kamu hampir tepat!'];
 const praise=()=>PRAISE[rnd(PRAISE.length)];
 const encourage=()=>ENCOURAGE[rnd(ENCOURAGE.length)];
 
-/* AUDIO */
 let audioCtx=null,muted=false;
 function initAudio(){try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();}catch(e){}}
 function toggleMute(){muted=!muted;$('#audioToggle').innerHTML=muted?'<i class="fas fa-volume-xmark"></i>':'<i class="fas fa-volume-high"></i>';$('#audioToggle').classList.toggle('muted',muted);notif(muted?'🔇 Suara dimatikan':'🔊 Suara diaktifkan');}
@@ -830,7 +751,7 @@ function sfxWrong(){beep(280,.12,'sine',.03);setTimeout(()=>beep(220,.15,'sine',
 function sfxVictory(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.18,'triangle',.06),i*110));}
 function sfxGold(){[1200,1600,2000].forEach((f,i)=>setTimeout(()=>beep(f,.1,'sine',.05),i*70));}
 
-/* ==================== FULLSCREEN MODE ==================== */
+/* FULLSCREEN */
 function fsElement(){
   const d = document;
   return d.fullscreenElement ||
@@ -839,34 +760,20 @@ function fsElement(){
          d.mozFullScreenElement ||
          d.msFullscreenElement || null;
 }
-
 let fakeFsActive = false;
-
 function toggleFullscreen(e){
   if(e && e.preventDefault) e.preventDefault();
   if(e && e.stopPropagation) e.stopPropagation();
-
   const d = document;
   const el = d.documentElement;
   const isFs = !!fsElement();
-
-  /* ---------- EXIT NATIVE ---------- */
   if(isFs){
-    const exit = d.exitFullscreen ||
-                 d.webkitExitFullscreen ||
-                 d.webkitCancelFullScreen ||
-                 d.mozCancelFullScreen ||
-                 d.msExitFullscreen;
+    const exit = d.exitFullscreen || d.webkitExitFullscreen || d.webkitCancelFullScreen || d.mozCancelFullScreen || d.msExitFullscreen;
     if(exit){
-      try{
-        const p = exit.call(d);
-        if(p && p.catch) p.catch(err => console.warn('[FS] exit failed:', err));
-      }catch(err){ console.warn('[FS] exit exception:', err); }
+      try{const p = exit.call(d);if(p && p.catch) p.catch(err => console.warn('[FS] exit failed:', err));}catch(err){ console.warn('[FS] exit exception:', err); }
     }
     return;
   }
-
-  /* ---------- EXIT FAKE ---------- */
   if(fakeFsActive){
     document.body.classList.remove('fake-fs');
     fakeFsActive = false;
@@ -874,77 +781,40 @@ function toggleFullscreen(e){
     notif('🖥️ Keluar dari mode layar penuh', 'gold', 1500);
     return;
   }
-
-  /* ---------- ENTER NATIVE ---------- */
-  const req = el.requestFullscreen ||
-              el.webkitRequestFullscreen ||
-              el.webkitRequestFullScreen ||
-              el.mozRequestFullScreen ||
-              el.msRequestFullscreen;
-
-  if(!req){
-    console.warn('[FS] No fullscreen API — using fallback');
-    enterFakeFullscreen();
-    return;
-  }
-
+  const req = el.requestFullscreen || el.webkitRequestFullscreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+  if(!req){ enterFakeFullscreen(); return; }
   try{
     const p = req.call(el);
     if(p && typeof p.then === 'function'){
-      p.then(() => {
-        console.log('[FS] ✓ entered native fullscreen');
-        updateFsIcon();
-      }).catch(err => {
-        console.warn('[FS] ✗ native fullscreen rejected:', err && err.name, err && err.message);
-        enterFakeFullscreen();
-      });
+      p.then(() => { updateFsIcon(); })
+       .catch(err => { console.warn('[FS] rejected:', err); enterFakeFullscreen(); });
     } else {
-      setTimeout(() => {
-        if(fsElement()) updateFsIcon();
-        else enterFakeFullscreen();
-      }, 250);
+      setTimeout(() => { if(fsElement()) updateFsIcon(); else enterFakeFullscreen(); }, 250);
     }
   }catch(err){
-    console.warn('[FS] exception on request:', err);
+    console.warn('[FS] exception:', err);
     enterFakeFullscreen();
   }
 }
-
 function enterFakeFullscreen(){
   fakeFsActive = true;
   document.body.classList.add('fake-fs');
   updateFsIcon();
   notif('🖥️ Mode layar penuh aktif. Tekan Esc / F untuk keluar.', 'ok', 2600);
 }
-
 function updateFsIcon(){
   const btn = document.getElementById('fsToggle');
   if(!btn) return;
   const isFs = !!fsElement() || fakeFsActive;
-  btn.innerHTML = isFs
-    ? '<i class="fas fa-compress"></i>'
-    : '<i class="fas fa-expand"></i>';
+  btn.innerHTML = isFs ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
   btn.title = isFs ? 'Keluar Layar Penuh (Esc / F)' : 'Layar Penuh (F)';
   btn.classList.toggle('active', isFs);
   btn.setAttribute('aria-pressed', isFs ? 'true' : 'false');
 }
-
-/* Listener perubahan fullscreen dari semua browser */
 ['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange','webkitbeginfullscreen','webkitendfullscreen']
-  .forEach(ev => document.addEventListener(ev, () => {
-    console.log('[FS] change event:', ev, '| active:', !!fsElement());
-    updateFsIcon();
-  }));
-
-/* Init ikon setelah DOM siap */
-if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', updateFsIcon);
-} else {
-  updateFsIcon();
-}
+  .forEach(ev => document.addEventListener(ev, () => { updateFsIcon(); }));
+if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', updateFsIcon); } else { updateFsIcon(); }
 window.addEventListener('load', updateFsIcon);
-
-/* Shortcut keyboard: F = toggle, Esc = tutup modal + keluar fake-fs */
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape'){
     closeModal();
@@ -980,7 +850,6 @@ document.addEventListener('keydown', e => {
   loop();
 })();
 
-/* Sound feedback on click */
 document.addEventListener('click',()=>{sfxClick();});
 
 function shakeScreen(){document.body.animate([{transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},{transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},{transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}],{duration:400,easing:'ease-out'});}
@@ -1033,68 +902,13 @@ document.querySelectorAll('.gc').forEach(c=>c.addEventListener('click',()=>goGam
 document.querySelectorAll('.gc').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.setProperty('--mx',(x/r.width*100)+'%');el.style.setProperty('--my',(y/r.height*100)+'%');});});
 function stopAll(){if(g1.timer)clearInterval(g1.timer);if(g2.timer)clearInterval(g2.timer);if(g4.timer)clearInterval(g4.timer);if(g6.iv)clearInterval(g6.iv);}
 
-/* LOADER */
-(function(){
-  const loader=document.getElementById('loader');
-  const numEl=document.getElementById('lpctNum');
-  const barEl=document.getElementById('lpctBar');
-  const flash=document.getElementById('ldrFlash');
-  const titleEl=document.getElementById('ldrTitle');
-  const title='HISTOEXPLORER';
-  [...title].forEach((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?'\u00A0':ch;s.style.animationDelay=(0.5+i*0.055)+'s';titleEl.appendChild(s);});
-  const LT=3200;const start=performance.now();
-  function tick(now){
-    const p=Math.min((now-start)/LT,1);
-    const pct=Math.round(p*100);
-    numEl.textContent=pct;barEl.style.width=pct+'%';
-    if(p<1)requestAnimationFrame(tick);
-    else{numEl.textContent='100';barEl.style.width='100%';flash.classList.add('fire');setTimeout(()=>{loader.classList.add('hide');setTimeout(()=>{loader.style.display='none';updateMenu();},900);},600);}
-  }
-  requestAnimationFrame(tick);
-})();
+/* Init menu ketika halaman siap */
+updateMenu();
 
-/* ============ G1 — DETEKTIF SUMBER (40 ITEM) ============ */
+/* ============ G1 ============ */
 const G1_DATA=[
-  {e:'📜',n:'Naskah Proklamasi Asli',t:'p'},
-  {e:'🪪',n:'Foto KTP Kamu Sendiri',t:'p'},
-  {e:'🎓',n:'Ijazah Asli Milikmu',t:'p'},
-  {e:'🎙️',n:'Wawancara dengan Veteran',t:'p'},
-  {e:'🪨',n:'Prasasti Batu Kuno',t:'p'},
-  {e:'📔',n:'Buku Harian Pahlawan',t:'p'},
-  {e:'📻',n:'Rekaman Pidato Tahun 1945',t:'p'},
-  {e:'🏛️',n:'Candi Borobudur',t:'p'},
-  {e:'✉️',n:'Surat Pribadi Soekarno',t:'p'},
-  {e:'📷',n:'Foto Pernikahan Orang Tuamu',t:'p'},
-  {e:'🏺',n:'Artefak di Museum',t:'p'},
-  {e:'🗞️',n:'Koran Terbitan Tahun 1945',t:'p'},
-  {e:'🗿',n:'Prasasti Kedukan Bukit',t:'p'},
-  {e:'💰',n:'Uang Koin Kuno Majapahit',t:'p'},
-  {e:'🗡️',n:'Keris Pusaka Keluarga',t:'p'},
-  {e:'📜',n:'Babad Tanah Jawi Asli',t:'p'},
-  {e:'📁',n:'Arsip VOC Tahun 1700-an',t:'p'},
-  {e:'🎞️',n:'Rekaman Audio Mbah Kakung',t:'p'},
-  {e:'⚱️',n:'Guci Temuan Situs',t:'p'},
-  {e:'📝',n:'Surat Perjanjian Asli',t:'p'},
-  {e:'📖',n:'Buku Teks Sejarah',t:'s'},
-  {e:'📚',n:'Biografi Pahlawan',t:'s'},
-  {e:'🌐',n:'Artikel Wikipedia',t:'s'},
-  {e:'📊',n:'Jurnal Ilmiah Sejarah',t:'s'},
-  {e:'🎬',n:'Film Dokumenter Modern',t:'s'},
-  {e:'📕',n:'Ensiklopedia Sejarah',t:'s'},
-  {e:'📗',n:'Buku Silsilah Terbitan',t:'s'},
-  {e:'🎥',n:'Video Edukasi YouTube',t:'s'},
-  {e:'📰',n:'Majalah Sejarah Bulan Ini',t:'s'},
-  {e:'🗂️',n:'Artikel Koran tentang Masa Lalu',t:'s'},
-  {e:'💻',n:'Blog Sejarah Online',t:'s'},
-  {e:'🎙️',n:'Podcast Sejarah',t:'s'},
-  {e:'📘',n:'Buku Pelajaran Kelas X',t:'s'},
-  {e:'🖼️',n:'Rekonstruksi di Museum',t:'s'},
-  {e:'📔',n:'Ringkasan Sejarah Indonesia',t:'s'},
-  {e:'🎓',n:'Skripsi Mahasiswa Sejarah',t:'s'},
-  {e:'🎨',n:'Komik Sejarah Anak',t:'s'},
-  {e:'📺',n:'Animasi Sejarah TV',t:'s'},
-  {e:'📄',n:'Artikel Jurnal Scopus',t:'s'},
-  {e:'🔍',n:'Karya Tulis Sejarah Umum',t:'s'}
+  {e:'📜',n:'Naskah Proklamasi Asli',t:'p'},{e:'🪪',n:'Foto KTP Kamu Sendiri',t:'p'},{e:'🎓',n:'Ijazah Asli Milikmu',t:'p'},{e:'🎙️',n:'Wawancara dengan Veteran',t:'p'},{e:'🪨',n:'Prasasti Batu Kuno',t:'p'},{e:'📔',n:'Buku Harian Pahlawan',t:'p'},{e:'📻',n:'Rekaman Pidato Tahun 1945',t:'p'},{e:'🏛️',n:'Candi Borobudur',t:'p'},{e:'✉️',n:'Surat Pribadi Soekarno',t:'p'},{e:'📷',n:'Foto Pernikahan Orang Tuamu',t:'p'},{e:'🏺',n:'Artefak di Museum',t:'p'},{e:'🗞️',n:'Koran Terbitan Tahun 1945',t:'p'},{e:'🗿',n:'Prasasti Kedukan Bukit',t:'p'},{e:'💰',n:'Uang Koin Kuno Majapahit',t:'p'},{e:'🗡️',n:'Keris Pusaka Keluarga',t:'p'},{e:'📜',n:'Babad Tanah Jawi Asli',t:'p'},{e:'📁',n:'Arsip VOC Tahun 1700-an',t:'p'},{e:'🎞️',n:'Rekaman Audio Mbah Kakung',t:'p'},{e:'⚱️',n:'Guci Temuan Situs',t:'p'},{e:'📝',n:'Surat Perjanjian Asli',t:'p'},
+  {e:'📖',n:'Buku Teks Sejarah',t:'s'},{e:'📚',n:'Biografi Pahlawan',t:'s'},{e:'🌐',n:'Artikel Wikipedia',t:'s'},{e:'📊',n:'Jurnal Ilmiah Sejarah',t:'s'},{e:'🎬',n:'Film Dokumenter Modern',t:'s'},{e:'📕',n:'Ensiklopedia Sejarah',t:'s'},{e:'📗',n:'Buku Silsilah Terbitan',t:'s'},{e:'🎥',n:'Video Edukasi YouTube',t:'s'},{e:'📰',n:'Majalah Sejarah Bulan Ini',t:'s'},{e:'🗂️',n:'Artikel Koran tentang Masa Lalu',t:'s'},{e:'💻',n:'Blog Sejarah Online',t:'s'},{e:'🎙️',n:'Podcast Sejarah',t:'s'},{e:'📘',n:'Buku Pelajaran Kelas X',t:'s'},{e:'🖼️',n:'Rekonstruksi di Museum',t:'s'},{e:'📔',n:'Ringkasan Sejarah Indonesia',t:'s'},{e:'🎓',n:'Skripsi Mahasiswa Sejarah',t:'s'},{e:'🎨',n:'Komik Sejarah Anak',t:'s'},{e:'📺',n:'Animasi Sejarah TV',t:'s'},{e:'📄',n:'Artikel Jurnal Scopus',t:'s'},{e:'🔍',n:'Karya Tulis Sejarah Umum',t:'s'}
 ];
 const g1={deck:[],idx:0,score:0,combo:0,streak:0,time:60,timer:null,golden:false,right:0,playing:false};
 function g1Start(){
@@ -1140,7 +954,7 @@ function g2End(win){g2.playing=false;clearInterval(g2.timer);const h1=win?'🎉 
   if(win){markDone('g2');showAchievement('g2');}
   modal(win?'🏆':'⏰',h1,`${msg}<br><br>Skor: <b style="color:#f59e0b;font-size:1.4rem">${g2.score}</b> · Ditemukan: <b style="color:#10b981">${g2.found}/${g2.total}</b>`,win?'Heuristik Hunter 🕵️':null);}
 
-/* ============ G3 — KRITIK SUMBER (24 SOAL) ============ */
+/* ============ G3 ============ */
 const G3_QS=[
   {q:'Memeriksa keaslian kertas, tinta, tanda tangan termasuk kritik…',o:['Intern','Ekstern','Heuristik','Historiografi'],a:1,h:'Fisik/keaslian luar → kritik ekstern.'},
   {q:'Menilai apakah ISI sumber dapat dipercaya termasuk kritik…',o:['Ekstern','Intern','Interpretasi','Sintesis'],a:1,h:'Isi/kredibilitas = kritik intern.'},
@@ -1192,7 +1006,7 @@ function g3End(){let rank='📚 Calon Sejarawan',msg='Terus asah ketelitianmu, k
   markDone('g3');showAchievement('g3');
   modal('🔐',rank,`${msg}<br><br>Skor: <b style="color:#f59e0b;font-size:1.4rem">${g3.score}</b> · Benar: <b style="color:#10b981">${g3.right}/${g3.deck.length}</b>`,'Ahli Verifikasi 🔐');}
 
-/* ============ G4 — DETEKTIF FAKTA (30 PERNYATAAN) ============ */
+/* ============ G4 ============ */
 const G4_DATA=[
   {s:'Proklamasi Kemerdekaan dibacakan pada 17 Agustus 1945.',t:'f',h:'Tanggal pasti yang bisa diverifikasi.'},
   {s:'Perang Diponegoro berlangsung tahun 1825–1830.',t:'f',h:'Peristiwa terdokumentasi dalam arsip Belanda.'},
@@ -1281,7 +1095,7 @@ function g5End(win){const h1=win?'🏆 HISTORIOGRAFI SEMPURNA!':'💔 NYAWA HABI
   if(win){markDone('g5');showAchievement('g5');}
   modal(win?'📝':'💔',h1,`${msg}<br><br>Skor: <b style="color:#f59e0b;font-size:1.4rem">${g5.score}</b> · Ronde: <b style="color:#10b981">${Math.min(g5.round,G5_ROUNDS.length)}/3</b>`,win?'Penulis Sejarah 📝':null);}
 
-/* ============ G6 — PETUALANGAN (18 SOAL) ============ */
+/* ============ G6 ============ */
 const G6_TILES=[
   {t:'start',ic:'🏠',lb:'Mulai'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'bonus',ic:'💎',lb:'Bonus'},{t:'trap',ic:'⚠️',lb:'Jebakan'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'boost',ic:'⭐',lb:'Maju 2'},{t:'surprise',ic:'🎁',lb:'Kejutan'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'bonus',ic:'💎',lb:'Bonus'},{t:'trap',ic:'⚠️',lb:'Jebakan'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'boost',ic:'⭐',lb:'Maju 2'},{t:'surprise',ic:'🎁',lb:'Kejutan'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'bonus',ic:'💎',lb:'Bonus'},{t:'trap',ic:'⚠️',lb:'Jebakan'},{t:'q',ic:'❓',lb:'Tantangan'},{t:'boost',ic:'⭐',lb:'Maju 2'},{t:'bonus',ic:'💎',lb:'Bonus'},{t:'finish',ic:'🏆',lb:'Selesai'}
 ];
