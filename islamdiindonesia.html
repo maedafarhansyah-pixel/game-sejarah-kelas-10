@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="7 Game Pembelajaran Interaktif — Kerajaan Islam di Indonesia · Kelas X Fase E."/>
+<meta name="description" content="7 Game Pembelajaran Interaktif — Kerajaan Islam di Indonesia · Kelas X Fase E. Edisi Revisi Profesional v2.0"/>
 <meta name="theme-color" content="#0a1930"/>
 <title>Misi 5 — Kerajaan Islam di Indonesia | SMAN 3 Kasongan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,7 @@ body{
 body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001s!important}
 :focus-visible{outline:3px solid var(--em);outline-offset:3px;border-radius:10px}
 
+/* Aurora background */
 .aurora{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
 .aurora::before,.aurora::after{content:'';position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
 .aurora::before{background:radial-gradient(circle,rgba(59,130,246,.55),transparent 60%);top:-15vmax;left:-15vmax;animation:aur1 18s ease-in-out infinite}
@@ -51,18 +52,27 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 #bgCanvas{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.45}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:2500}
 
+/* NEW: radial burst overlay */
+.burst{position:fixed;pointer-events:none;z-index:2600;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(59,130,246,.7) 0%,transparent 60%);animation:burstAnim .7s var(--ease) forwards}
+@keyframes burstAnim{0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(28);opacity:0}}
+
 .screen{display:none;min-height:100vh;padding:24px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .screen.active{display:block;animation:screenIn .7s var(--ease)}
-@keyframes screenIn{0%{opacity:0;transform:translateY(24px) scale(.98)}100%{opacity:1;transform:none}}
+@keyframes screenIn{0%{opacity:0;transform:translateY(24px) scale(.98);filter:blur(6px)}100%{opacity:1;transform:none;filter:blur(0)}}
 
 .topbar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .tb-btn{padding:8px 16px;border-radius:99px;background:rgba(255,255,255,.85);border:1.5px solid rgba(37,99,235,.22);
   color:var(--em-dk);font-family:inherit;font-size:.74rem;font-weight:800;cursor:pointer;
-  letter-spacing:.4px;transition:all .25s;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px)}
+  letter-spacing:.4px;transition:all .25s;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
 .tb-btn:hover{background:var(--em);color:#fff;border-color:var(--em);transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,99,235,.3)}
 .tb-btn .count{background:rgba(37,99,235,.14);color:var(--em-dk);padding:1px 8px;border-radius:10px;font-size:.68rem}
+.tb-btn:hover .count{background:rgba(255,255,255,.25);color:#fff}
 
-.hero{text-align:center;padding:20px 0 30px;position:relative}
+/* NEW: sound wave animation */
+.tb-btn.sound-on .fa-volume-high{animation:wave 1.2s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
+.hero{text-align:center;padding:20px 0 30px;position:relative;transition:transform .3s var(--ease)}
 .hero-title{font-size:clamp(1.35rem,4.5vw,2.9rem);font-weight:800;line-height:1.15;letter-spacing:-.8px;
   background:linear-gradient(120deg,#0a1930,#1d4ed8,#3b82f6,#93c5fd,#0a1930);background-size:300% 100%;
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
@@ -77,7 +87,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .cp-badge i{color:var(--em);font-size:1rem;flex-shrink:0}
 .hero-stats{display:flex;justify-content:center;gap:36px;margin-top:28px;flex-wrap:wrap}
 .stat{text-align:center}
-.stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#0a1930,#2563eb,#60a5fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.25))}
+.stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#0a1930,#2563eb,#60a5fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.25));font-variant-numeric:tabular-nums}
 .stat-lbl{font-size:.78rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-top:2px}
 
 .daily-fact{max-width:720px;margin:24px auto 0;padding:16px 22px;border-radius:18px;
@@ -94,7 +104,9 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .progress-info .lbl{color:var(--muted);display:flex;align-items:center;gap:8px}
 .progress-info .val{color:var(--em)}
 .progress-bar{height:10px;border-radius:10px;background:rgba(37,99,235,.1);overflow:hidden}
-.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#0a1930,#2563eb,#93c5fd);background-size:200% 100%;transition:width .6s var(--ease);box-shadow:0 0 14px rgba(37,99,235,.45);animation:barGradShift 3s linear infinite}
+.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#0a1930,#2563eb,#93c5fd);background-size:200% 100%;transition:width .6s var(--ease);box-shadow:0 0 14px rgba(37,99,235,.45);animation:barGradShift 3s linear infinite;position:relative}
+.progress-fill::after{content:'';position:absolute;right:0;top:-4px;bottom:-4px;width:24px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6));border-radius:10px;animation:shimmerSlide 1.5s linear infinite}
+@keyframes shimmerSlide{0%{opacity:0;transform:translateX(-20px)}50%{opacity:1}100%{opacity:0;transform:translateX(20px)}}
 @keyframes barGradShift{to{background-position:200% 0}}
 .reset-progress{margin-top:12px;text-align:center}
 .reset-progress button{background:transparent;border:1.5px dashed rgba(37,99,235,.4);color:var(--em);padding:6px 16px;border-radius:20px;font-size:.75rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit}
@@ -106,6 +118,8 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .gc:nth-child(1){animation-delay:.05s}.gc:nth-child(2){animation-delay:.1s}.gc:nth-child(3){animation-delay:.15s}.gc:nth-child(4){animation-delay:.2s}.gc:nth-child(5){animation-delay:.25s}.gc:nth-child(6){animation-delay:.3s}.gc:nth-child(7){animation-delay:.35s}
 @keyframes cardIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .gc::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--em),var(--em2) 40%,var(--em3) 75%,var(--em4));opacity:.9;transition:opacity .3s}
+.gc::after{content:'';position:absolute;inset:0;border-radius:var(--radius);background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(59,130,246,.12),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none}
+.gc:hover::after{opacity:1}
 .gc:nth-child(2)::before{background:linear-gradient(90deg,var(--em2),var(--em3))}
 .gc:nth-child(3)::before{background:linear-gradient(90deg,var(--em),var(--em3),var(--em4))}
 .gc:nth-child(4)::before{background:linear-gradient(90deg,var(--cyan),var(--em),var(--em2))}
@@ -115,7 +129,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .gc:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg);border-color:rgba(37,99,235,.3)}
 .gc.done{border-color:var(--em2)}
 .gc.done::before{background:linear-gradient(90deg,var(--em2),var(--em3))}
-.gc.done::after{content:'✓';position:absolute;top:14px;left:18px;width:34px;height:34px;background:linear-gradient(135deg,#3b82f6,#60a5fa);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;box-shadow:0 6px 16px rgba(59,130,246,.4);animation:popCheck .6s var(--ease)}
+.gc.done::after{content:'✓';position:absolute;top:14px;left:18px;width:34px;height:34px;background:linear-gradient(135deg,#3b82f6,#60a5fa);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;box-shadow:0 6px 16px rgba(59,130,246,.4);animation:popCheck .6s var(--ease);z-index:2}
 @keyframes popCheck{0%{transform:scale(0) rotate(-180deg)}70%{transform:scale(1.2) rotate(10deg)}100%{transform:scale(1) rotate(0)}}
 .gc-num{position:absolute;top:16px;right:20px;font-size:3rem;font-weight:800;color:rgba(37,99,235,.1);line-height:1;transition:transform .4s;letter-spacing:-2px}
 .gc:hover .gc-num{transform:scale(1.15) rotate(-8deg);color:rgba(37,99,235,.2)}
@@ -149,7 +163,8 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .pill.pulse{animation:pillPulse .6s var(--ease)}
 @keyframes pillPulse{50%{transform:scale(1.15)}}
 .pill.gold{background:linear-gradient(135deg,var(--em),var(--em-dk));color:#fff}
-.pill.timer{background:linear-gradient(135deg,#7c3aed,#6d28d9);font-variant-numeric:tabular-nums}
+.pill.timer{background:linear-gradient(135deg,#7c3aed,#6d28d9);font-variant-numeric:tabular-nums;position:relative;overflow:hidden}
+.pill.timer::after{content:'';position:absolute;left:0;top:0;bottom:0;width:var(--tp,0%);background:rgba(255,255,255,.18);transition:width .9s linear;pointer-events:none}
 
 .inst{padding:20px 26px;margin-bottom:24px;background:linear-gradient(115deg,rgba(239,246,255,.98),rgba(219,234,254,.95));border:2px solid rgba(37,99,235,.22);border-left:6px solid var(--em);border-radius:16px;font-size:1.05rem;color:var(--ink);display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;animation:fadeUp .6s var(--ease) .1s backwards;line-height:1.85;position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(37,99,235,.1)}
 .inst i{color:var(--em);font-size:1.7rem;flex-shrink:0;margin-top:3px;filter:drop-shadow(0 4px 10px rgba(37,99,235,.3))}
@@ -268,39 +283,20 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .ll:hover:not(:disabled){background:var(--em);color:#fff;transform:scale(1.12) rotate(-6deg);box-shadow:0 10px 28px rgba(37,99,235,.4)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-/* GAME 6: MEMORY */
 .mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}
 @media(max-width:640px){.mem-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
 .mem-card{position:relative;aspect-ratio:1;cursor:pointer;perspective:1000px}
 .mem-card-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s var(--ease)}
 .mem-card.flip .mem-card-in{transform:rotateY(180deg)}
 .mem-face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;overflow:hidden;font-weight:700}
-.mem-front{background:linear-gradient(140deg,#0a1930,#1d4ed8,#3b82f6);color:#fff;font-size:1.8rem;border:2px solid rgba(255,255,255,.6);box-shadow:0 8px 22px rgba(37,99,235,.25);text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.mem-front{background:linear-gradient(140deg,#0a1930,#1d4ed8,#3b82f6);color:#fff;font-size:1.8rem;border:2px solid rgba(255,255,255,.6);box-shadow:0 8px 22px rgba(37,99,235,.25);text-shadow:0 2px 8px rgba(0,0,0,.2);position:relative}
+.mem-front::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);background-size:200% 100%;animation:shimmerSlide 3s linear infinite;pointer-events:none}
 .mem-card:hover .mem-front{transform:scale(1.03);box-shadow:0 12px 30px rgba(37,99,235,.4)}
 .mem-back{transform:rotateY(180deg);background:linear-gradient(140deg,#eff6ff,#dbeafe);border:2px solid var(--em);color:var(--em-dk);font-size:.82rem;font-weight:800;line-height:1.3;padding:8px}
 .mem-card.matched .mem-back{background:linear-gradient(140deg,#dbeafe,#bfdbfe);border-color:var(--em2);color:var(--em-dk)}
 .mem-card.matched{cursor:default;opacity:.85}
 .mem-card.matched .mem-card-in{transform:rotateY(180deg) scale(.96)}
 
-/* GAME 7: SCRAMBLE */
-.scramble-box{padding:26px 22px;background:linear-gradient(160deg,#eff6ff,#dbeafe);border:2px solid rgba(37,99,235,.2);border-radius:20px;text-align:center;margin-bottom:18px;box-shadow:0 10px 26px rgba(37,99,235,.08);position:relative;overflow:hidden}
-.scramble-box::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--em-dk),var(--em),var(--em-dk))}
-.scramble-hint{font-size:.9rem;color:var(--muted);margin-bottom:14px;line-height:1.6;font-weight:500;padding:0 10px}
-.scramble-hint b{color:var(--em);font-weight:800}
-.scramble-letters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0;padding:0 10px}
-.scr-tile{width:48px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;background:linear-gradient(160deg,#2563eb,#0a1930);box-shadow:0 6px 16px rgba(37,99,235,.35),inset 0 -3px 0 rgba(0,0,0,.18);transition:transform .3s var(--ease);animation:tileIn .5s var(--ease) backwards;font-family:inherit;letter-spacing:0}
-@keyframes tileIn{0%{opacity:0;transform:translateY(20px) scale(.4) rotate(-15deg)}100%{opacity:1;transform:none}}
-.scr-tile:hover{transform:translateY(-4px) rotate(-4deg) scale(1.05)}
-.scramble-input{width:100%;max-width:400px;margin:6px auto 0;display:block;padding:16px 22px;border-radius:40px;background:#fff;border:3px solid rgba(37,99,235,.3);color:var(--em-dk);font-family:inherit;font-size:1.25rem;font-weight:900;letter-spacing:6px;text-align:center;text-transform:uppercase;outline:none;transition:all .3s var(--ease);box-shadow:inset 0 3px 8px rgba(37,99,235,.08)}
-.scramble-input:focus{border-color:var(--em);box-shadow:0 0 0 5px rgba(37,99,235,.15),inset 0 3px 8px rgba(37,99,235,.08)}
-.scramble-input::placeholder{color:var(--muted2);letter-spacing:2px;font-weight:600;font-size:.9rem}
-.scramble-progress{display:flex;justify-content:center;gap:6px;margin-top:14px;flex-wrap:wrap}
-.scramble-dot{width:12px;height:12px;border-radius:50%;background:rgba(37,99,235,.15);transition:all .3s}
-.scramble-dot.ok{background:var(--em2);box-shadow:0 0 10px rgba(59,130,246,.5)}
-.scramble-dot.no{background:var(--red)}
-.scramble-dot.cur{background:var(--em);transform:scale(1.4);box-shadow:0 0 14px rgba(37,99,235,.6)}
-
-/* GAME 3: FORTUNE (Roda Takdir) */
 .fortune-wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
 .fortune-wheel{position:relative;width:min(440px,92vw);height:min(440px,92vw)}
 .fortune-canvas{width:100%;height:100%;border-radius:50%;filter:drop-shadow(0 24px 48px rgba(10,25,48,.25))}
@@ -329,23 +325,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .fortune-quiz .wo{grid-template-columns:1fr 1fr}
 @media(max-width:520px){.fortune-quiz .wo{grid-template-columns:1fr}}
 
-/* GAME 4: TEBAK EMOJI */
-.emoji-puzzle{padding:32px 24px;background:linear-gradient(160deg,#eff6ff,#dbeafe);border:2px solid rgba(37,99,235,.35);border-radius:22px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:0 14px 36px rgba(37,99,235,.15)}
-.emoji-puzzle::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--em-dk),var(--em),var(--em-dk))}
-.emoji-big{font-size:clamp(3rem,8vw,4.5rem);line-height:1.1;letter-spacing:8px;margin:12px 0 18px;filter:drop-shadow(0 8px 18px rgba(29,78,216,.3));animation:emojiBob 2.5s ease-in-out infinite;user-select:none}
-@keyframes emojiBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(2deg)}}
-.emoji-hint{padding:14px 20px;background:rgba(255,255,255,.7);border-radius:14px;font-size:.95rem;color:var(--em-dk);font-weight:600;line-height:1.6;margin-top:10px;border:1px dashed rgba(37,99,235,.4)}
-.emoji-hint b{color:var(--em-dk);font-weight:800}
-.emoji-timer{position:absolute;top:12px;right:16px;padding:6px 14px;background:linear-gradient(135deg,var(--em-dk),var(--em));color:#fff;border-radius:20px;font-size:.8rem;font-weight:900;box-shadow:0 6px 16px rgba(37,99,235,.4);font-variant-numeric:tabular-nums}
-.emoji-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-@media(max-width:560px){.emoji-opts{grid-template-columns:1fr}}
-.emoji-opt{padding:16px 20px;border-radius:14px;background:#fff;border:2px solid rgba(37,99,235,.15);color:var(--em-dk);font-size:.95rem;font-weight:800;cursor:pointer;transition:all .3s var(--ease);text-align:left;display:flex;align-items:center;gap:12px;font-family:inherit;box-shadow:0 4px 12px rgba(10,25,48,.06)}
-.emoji-opt .l{color:var(--em);font-weight:900;font-size:1.05rem;flex-shrink:0}
-.emoji-opt:hover:not(:disabled){border-color:var(--em);transform:translateY(-3px);box-shadow:0 10px 22px rgba(37,99,235,.2);background:rgba(239,246,255,.6)}
-.emoji-opt.ok{background:rgba(59,130,246,.14);border-color:var(--em2);color:var(--em-dk)}
-.emoji-opt.no{background:rgba(239,68,68,.12);border-color:var(--red)}
-
-/* MODAL */
 .modal{position:fixed;inset:0;background:rgba(10,25,48,.55);display:none;justify-content:center;align-items:center;z-index:2000;backdrop-filter:blur(14px);padding:20px}
 .modal.on{display:flex;animation:fadeIn .3s var(--ease)}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -406,7 +385,9 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .nf.no{border-color:var(--red);color:var(--red);box-shadow:0 14px 40px rgba(239,68,68,.28)}
 .nf.gold{border-color:var(--em-dk);color:var(--em-dk);box-shadow:0 14px 40px rgba(29,78,216,.3)}
 
-.ach-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);z-index:3500;padding:26px 36px;background:rgba(255,255,255,.97);border:3px solid var(--em2);border-radius:22px;backdrop-filter:blur(30px);box-shadow:0 30px 80px rgba(10,25,48,.3),0 0 0 8px rgba(59,130,246,.12);text-align:center;opacity:0;transition:all .6s var(--ease);pointer-events:none;max-width:90vw}
+.ach-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);z-index:3500;padding:26px 36px;background:rgba(255,255,255,.97);border:3px solid var(--em2);border-radius:22px;backdrop-filter:blur(30px);box-shadow:0 30px 80px rgba(10,25,48,.3),0 0 0 8px rgba(59,130,246,.12);text-align:center;opacity:0;transition:all .6s var(--ease);pointer-events:none;max-width:90vw;overflow:hidden}
+.ach-toast::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent 30%,rgba(59,130,246,.18) 50%,transparent 70%);animation:achShine 2s ease-in-out infinite}
+@keyframes achShine{0%{left:-100%}100%{left:100%}}
 .ach-toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .ach-toast .icn{font-size:3.5rem;margin-bottom:10px;animation:bounceIn .8s var(--ease) .2s backwards}
 .ach-toast .ttl{font-size:1.3rem;font-weight:800;color:var(--em-dk);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
@@ -421,6 +402,15 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .footer .sch{font-weight:900;color:var(--em-dk);letter-spacing:2px;font-size:.85rem;margin-bottom:6px}
 .footer .credo{margin-top:12px;font-size:.74rem;font-style:italic;color:var(--muted);opacity:.85}
 .footer b{color:var(--em-dk)}
+
+/* NEW: ripple */
+.ripple{position:absolute;border-radius:50%;transform:scale(0);animation:rippleAnim .7s var(--ease) forwards;background:radial-gradient(circle,rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* NEW: floating keyboard hint */
+.kbd-hint{position:fixed;bottom:20px;left:20px;padding:8px 14px;border-radius:30px;background:rgba(255,255,255,.92);border:1.5px solid rgba(37,99,235,.3);color:var(--em-dk);font-weight:800;font-size:.74rem;box-shadow:0 10px 26px rgba(10,25,48,.15);display:flex;align-items:center;gap:8px;z-index:100;opacity:0;transform:translateY(20px);transition:all .4s var(--ease);pointer-events:none;backdrop-filter:blur(10px)}
+.kbd-hint.show{opacity:1;transform:translateY(0)}
+.kbd-hint kbd{background:var(--em);color:#fff;padding:2px 7px;border-radius:5px;font-size:.7rem;font-weight:900;font-family:inherit}
 
 @media(max-width:600px){
   .screen{padding:16px 12px 50px}
@@ -448,6 +438,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .detail-panel .txt{font-size:.86rem;line-height:1.6}
   .detail-panel .hd{padding-right:80px}
   .detail-panel .hd .hint{display:none}
+  .kbd-hint{display:none}
 }
 </style>
 </head>
@@ -460,18 +451,18 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 <!-- MAIN MENU -->
 <div id="mainMenu" class="screen active">
   <div class="topbar">
-    <button class="tb-btn" onclick="toggleSound()" id="soundBtn"><i class="fas fa-volume-high"></i> Suara</button>
+    <button class="tb-btn sound-on" onclick="toggleSound()" id="soundBtn"><i class="fas fa-volume-high"></i> Suara</button>
     <button class="tb-btn" onclick="openAch()"><i class="fas fa-trophy"></i> Pencapaian <span class="count" id="achCount">0/10</span></button>
     <button class="tb-btn" onclick="openGloss()"><i class="fas fa-book"></i> Glosarium</button>
     <button class="tb-btn" onclick="openReview()"><i class="fas fa-list-check"></i> Review</button>
     <button class="tb-btn" onclick="toggleMotion()" id="motionBtn"><i class="fas fa-wand-magic-sparkles"></i> Animasi</button>
   </div>
-  <div class="hero">
+  <div class="hero" id="hero">
     <h1 class="hero-title">Misi 5 : KERAJAAN ISLAM DI INDONESIA<span>Game Pembelajaran Interaktif · Fase E</span></h1>
     <p class="hero-sub">Jelajahi jejak peradaban Islam Nusantara lewat 7 game interaktif yang seru, bermakna, dan mendalam.</p>
     <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian Pembelajaran:</b> Peserta didik mampu menganalisis proses masuknya Islam, perkembangan kerajaan-kerajaan Islam di Nusantara, peran Walisongo, serta warisan budaya dan akulturasi Islam Nusantara.</span></div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Games</div></div>
+      <div class="stat"><div class="stat-num" data-count="7">0</div><div class="stat-lbl">Games</div></div>
       <div class="stat"><div class="stat-num">150+</div><div class="stat-lbl">Soal & Materi</div></div>
       <div class="stat"><div class="stat-num" id="hsAch">0</div><div class="stat-lbl">Pencapaian</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">Fun</div></div>
@@ -495,7 +486,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <div class="gc" data-game="detektif" data-tilt tabindex="0" role="button">
       <span class="gc-num">01</span><span class="gc-dif easy">MUDAH</span>
       <i class="fas fa-mosque gc-icon"></i>
-      <h3>Detektif Peninggalan Islam</h3><p>Klasifikasi 27 peninggalan ke Masjid, Keraton, atau Naskah.</p>
+      <h3>Detektif Peninggalan Islam</h3><p>Klasifikasi 26 peninggalan ke Masjid, Istana/Benteng, atau Naskah.</p>
       <span class="gc-tag">🔍 Investigasi</span>
     </div>
     <div class="gc" data-game="timeline" data-tilt tabindex="0" role="button">
@@ -548,14 +539,14 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
     <h2>Detektif Peninggalan Islam<small><i class="fas fa-mosque"></i> Game 01 · Klasifikasi Peninggalan</small></h2>
-    <span class="pill" id="detScore">0 / 27</span>
+    <span class="pill" id="detScore">0 / 26</span>
     <span class="pill timer" id="detTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu peninggalan di bawah, lalu klik salah satu dari <strong>3 kategori</strong> (Masjid / Keraton / Naskah). Ada <strong>27 peninggalan</strong>. Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori dengan cepat.
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu peninggalan di bawah, lalu klik salah satu dari <strong>3 kategori</strong> (Masjid / Istana-Benteng / Naskah). Ada <strong>26 peninggalan</strong>. Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori dengan cepat.
     <button class="btn-mini" onclick="resetDet()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
   <div class="det-board" style="grid-template-columns:repeat(3,1fr)">
     <div class="det-col" data-cat="masjid"><h4><span class="emoji">🕌</span>Masjid</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="keraton"><h4><span class="emoji">🏛️</span>Keraton</h4><div class="col-inner"></div></div>
+    <div class="det-col" data-cat="bangunan"><h4><span class="emoji">🏛️</span>Istana/Benteng</h4><div class="col-inner"></div></div>
     <div class="det-col" data-cat="naskah"><h4><span class="emoji">📜</span>Naskah</h4><div class="col-inner"></div></div>
   </div>
   <div class="det-pool" id="detPool"></div>
@@ -766,19 +757,34 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 </div>
 
 <div class="nf" id="nf"></div>
+<div class="kbd-hint" id="kbdHint"><i class="fas fa-keyboard"></i> Gunakan <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> untuk jawab cepat</div>
 
 <script>
 'use strict';
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
+/* ============ SOUND (FIXED: added tick, guard against ctx failure) ============ */
 const Sound={ctx:null,enabled:true,
   init(){if(!this.ctx){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.enabled=false}}},
-  beep(f,d=.1,t='sine',v=.12,delay=0){if(!this.enabled)return;this.init();const t0=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,t0);g.gain.exponentialRampToValueAtTime(.0001,t0+d);o.connect(g);g.connect(this.ctx.destination);o.start(t0);o.stop(t0+d+.02)},
+  beep(f,d=.1,t='sine',v=.12,delay=0){
+    if(!this.enabled)return;
+    this.init();
+    if(!this.enabled||!this.ctx)return;
+    try{
+      const t0=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+      o.type=t;o.frequency.value=f;
+      g.gain.setValueAtTime(v,t0);
+      g.gain.exponentialRampToValueAtTime(.0001,t0+d);
+      o.connect(g);g.connect(this.ctx.destination);
+      o.start(t0);o.stop(t0+d+.02);
+    }catch(e){}
+  },
   click(){this.beep(600,.05,'square',.04)},
   correct(){this.beep(660,.1,'sine',.14);this.beep(880,.15,'sine',.14,.08);this.beep(1100,.18,'sine',.10,.16)},
   wrong(){this.beep(220,.18,'sawtooth',.10);this.beep(165,.28,'sawtooth',.10,.12)},
   spin(){for(let i=0;i<8;i++)this.beep(400+i*60,.05,'square',.05,i*.06)},
   land(){this.beep(523,.1,'sine',.14);this.beep(784,.16,'sine',.12,.08)},
+  tick(){this.beep(320,.06,'square',.05)},
   win(){[523,659,784,1047,1319].forEach((f,i)=>this.beep(f,.22,'sine',.14,i*.09))},
   lose(){[400,320,240].forEach((f,i)=>this.beep(f,.28,'sawtooth',.09,i*.14))},
   ach(){[880,1047,1319].forEach((f,i)=>this.beep(f,.18,'triangle',.13,i*.08))}
@@ -788,23 +794,50 @@ function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.fl
 function fmtTime(s){const m=Math.floor(s/60),r=s%60;return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0')}
 
 let timerInt=null,timerSec=0,timerId=null;
-function startTimer(el){stopTimer();timerSec=0;timerId=el;if(el&&$(el))$(el).textContent='00:00';timerInt=setInterval(()=>{timerSec++;if(timerId&&$(timerId))$(timerId).textContent=fmtTime(timerSec)},1000)}
+function startTimer(el){
+  stopTimer();timerSec=0;timerId=el;
+  if(el&&$(el)){$(el).textContent='00:00';$(el).style.setProperty('--tp','0%')}
+  timerInt=setInterval(()=>{
+    timerSec++;
+    if(timerId&&$(timerId)){
+      $(timerId).textContent=fmtTime(timerSec);
+      // rotating subtle indicator (cycles 0-100% every 60s)
+      const tp=((timerSec%60)/60*100)+'%';
+      $(timerId).style.setProperty('--tp',tp);
+    }
+  },1000);
+}
 function stopTimer(){if(timerInt){clearInterval(timerInt);timerInt=null}}
 
-const KEY='misi_islam_blue_v1',ACH_KEY='misi_islam_blue_ach_v1',TOTAL=7;
+/* ============ PROGRESS ============ */
+const KEY='misi_islam_blue_v2',ACH_KEY='misi_islam_blue_ach_v2',TOTAL=7;
 function loadProgress(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
 function saveProgress(p){try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}}
-function markDone(id,d={}){const p=loadProgress();p[id]={done:true,...d,date:new Date().toISOString(),time:timerSec};saveProgress(p);updateMenu();checkAchievements(id,d)}
-function resetProgress(){if(!confirm('Reset semua progress belajar dan pencapaian?'))return;try{localStorage.removeItem(KEY);localStorage.removeItem(ACH_KEY)}catch(e){}updateMenu();renderAch();notif('Progress direset!','gold')}
-function updateMenu(){const p=loadProgress();document.querySelectorAll('.gc').forEach(c=>c.classList.toggle('done',!!(p[c.dataset.game]&&p[c.dataset.game].done)));const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;$('#progText').textContent=`${done} / ${TOTAL} Game`;$('#progFill').style.width=(done/TOTAL*100)+'%'}
+function markDone(id,d={}){
+  const p=loadProgress();p[id]={done:true,...d,date:new Date().toISOString(),time:timerSec};
+  saveProgress(p);updateMenu();checkAchievements(id,d)
+}
+function resetProgress(){
+  if(!confirm('Reset semua progress belajar dan pencapaian?'))return;
+  try{localStorage.removeItem(KEY);localStorage.removeItem(ACH_KEY)}catch(e){}
+  updateMenu();renderAch();animateCounters();notif('Progress direset!','gold')
+}
+function updateMenu(){
+  const p=loadProgress();
+  document.querySelectorAll('.gc').forEach(c=>c.classList.toggle('done',!!(p[c.dataset.game]&&p[c.dataset.game].done)));
+  const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
+  $('#progText').textContent=`${done} / ${TOTAL} Game`;
+  $('#progFill').style.width=(done/TOTAL*100)+'%';
+}
 
+/* ============ ACHIEVEMENTS ============ */
 const ACHS=[
   {id:'first_step',icon:'🎯',name:'Langkah Pertama',desc:'Selesaikan 1 game'},
   {id:'perfect',icon:'💯',name:'Sempurna',desc:'Akurasi 100% dalam 1 game'},
   {id:'explorer',icon:'🧭',name:'Penjelajah',desc:'Selesaikan semua 7 game'},
   {id:'scholar',icon:'📚',name:'Cendekiawan',desc:'Rata-rata akurasi ≥ 80%'},
   {id:'speedrun',icon:'⚡',name:'Kilat',desc:'Selesaikan game < 2 menit'},
-  {id:'detective_master',icon:'🕌',name:'Detektif Ulung',desc:'27/27 benar di Detektif'},
+  {id:'detective_master',icon:'🕌',name:'Detektif Ulung',desc:'26/26 benar di Detektif'},
   {id:'millionaire',icon:'👑',name:'Jutawan Sejati',desc:'Skor ≥ 10 di Jutawan'},
   {id:'historian',icon:'🕋',name:'Sejarawan Muda',desc:'Selesaikan 5 level Misi Kerajaan'},
   {id:'memorizer',icon:'🃏',name:'Ingatan Emas',desc:'Selesaikan Kartu Memori ≤ 15 percobaan'},
@@ -812,13 +845,19 @@ const ACHS=[
 ];
 function loadAch(){try{return JSON.parse(localStorage.getItem(ACH_KEY))||{}}catch(e){return{}}}
 function saveAch(a){try{localStorage.setItem(ACH_KEY,JSON.stringify(a))}catch(e){}}
-function unlockAch(id){const a=loadAch();if(a[id])return false;a[id]=Date.now();saveAch(a);const ach=ACHS.find(x=>x.id===id);if(ach)setTimeout(()=>{notif(`🏆 Pencapaian: ${ach.name}`,'gold');Sound.ach()},600);renderAch();return true}
+function unlockAch(id){
+  const a=loadAch();if(a[id])return false;
+  a[id]=Date.now();saveAch(a);
+  const ach=ACHS.find(x=>x.id===id);
+  if(ach)setTimeout(()=>{notif(`🏆 Pencapaian: ${ach.name}`,'gold');Sound.ach()},600);
+  renderAch();return true;
+}
 function checkAchievements(gameId,d={}){
   const p=loadProgress();
   const doneCount=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
   if(doneCount>=1)unlockAch('first_step');
   if(doneCount>=7)unlockAch('explorer');
-  if(gameId==='detektif'&&d.score===27)unlockAch('detective_master');
+  if(gameId==='detektif'&&d.score===26)unlockAch('detective_master');
   if(gameId==='millionaire'&&d.score>=10)unlockAch('millionaire');
   if(gameId==='histo'&&d.score>=1)unlockAch('historian');
   if(gameId==='memory'&&d.tries<=15)unlockAch('memorizer');
@@ -828,42 +867,61 @@ function checkAchievements(gameId,d={}){
   const accs=Object.values(p).filter(x=>x.done&&x.acc!==undefined).map(x=>x.acc);
   if(accs.length>=3){const avg=accs.reduce((a,b)=>a+b,0)/accs.length;if(avg>=80)unlockAch('scholar')}
 }
-function renderAch(){const a=loadAch();const grid=$('#achGrid');if(!grid)return;grid.innerHTML=ACHS.map(ac=>{const u=!!a[ac.id];return `<div class="ach ${u?'unlocked':''}"><div class="ic">${ac.icon}</div><div><div class="nm">${ac.name}</div><div class="ds">${ac.desc}</div></div></div>`}).join('');const c=ACHS.filter(x=>a[x.id]).length;if($('#achCount'))$('#achCount').textContent=`${c}/${ACHS.length}`;if($('#hsAch'))$('#hsAch').textContent=c}
+function renderAch(){
+  const a=loadAch();const grid=$('#achGrid');if(!grid)return;
+  grid.innerHTML=ACHS.map(ac=>{const u=!!a[ac.id];return `<div class="ach ${u?'unlocked':''}"><div class="ic">${ac.icon}</div><div><div class="nm">${ac.name}</div><div class="ds">${ac.desc}</div></div></div>`}).join('');
+  const c=ACHS.filter(x=>a[x.id]).length;
+  if($('#achCount'))$('#achCount').textContent=`${c}/${ACHS.length}`;
+  if($('#hsAch'))$('#hsAch').textContent=c;
+}
 function openAch(){Sound.click();renderAch();$('#achModal').classList.add('on')}
 function closeAch(){$('#achModal').classList.remove('on')}
 
+/* ============ GLOSSARY (FIXED: no duplicates) ============ */
 const GLOSSARY=[
   {t:'Islamisasi',d:'Proses penyebaran dan penerimaan agama Islam oleh masyarakat Nusantara.'},
   {t:'Walisongo',d:'Sembilan wali penyebar Islam di Jawa: Sunan Gresik, Ampel, Bonang, Drajat, Kudus, Giri, Kalijaga, Muria, Gunung Jati.'},
   {t:'Pesantren',d:'Lembaga pendidikan Islam tradisional tempat santri belajar agama dan kitab kuning.'},
-  {t:'Mazhab Syafi\'i',d:'Aliran fikih Islam yang paling dominan di Nusantara, dibawa pedagang & ulama dari Arab.'},
+  {t:"Mazhab Syafi'i",d:'Aliran fikih Islam yang paling dominan di Nusantara, dibawa pedagang & ulama dari Arab.'},
   {t:'Akulturasi',d:'Percampuran dua budaya yang menghasilkan bentuk budaya baru tanpa menghilangkan ciri khas masing-masing.'},
   {t:'Sultan',d:'Gelar penguasa kerajaan Islam: Aceh, Demak, Banten, Mataram, Gowa-Tallo, Ternate, Tidore.'},
   {t:'Jalur Rempah',d:'Jaringan perdagangan rempah yang menghubungkan Nusantara dengan India, Arab, Tiongkok, Eropa.'},
   {t:'Hikayat',d:'Karya sastra Melayu berbentuk prosa berisi cerita sejarah, legenda, atau kepahlawanan.'},
   {t:'Babad',d:'Karya sastra Jawa berisi kisah sejarah, sering digunakan mencatat peristiwa penting kerajaan.'},
-  {t:'Lontara\'',d:'Aksara tradisional Bugis-Makassar untuk menulis naskah sejarah dan sastra.'},
+  {t:"Lontara'",d:'Aksara tradisional Bugis-Makassar untuk menulis naskah sejarah dan sastra.'},
   {t:'Pegon',d:'Aksara Arab yang dimodifikasi untuk menuliskan bahasa Jawa, Sunda, dan Melayu.'},
   {t:'Sekaten',d:'Tradisi perayaan Maulid Nabi di Yogyakarta & Surakarta dengan gamelan sekaten.'},
   {t:'Kalender Jawa',d:'Sistem penanggalan Sultan Agung dengan memadukan kalender Hijriah dan Saka.'},
   {t:'Sinkretisme',d:'Percampuran unsur budaya/kepercayaan berbeda menjadi satu kesatuan.'},
   {t:'Tarekat',d:'Jalur spiritual dalam Islam; beberapa tarekat berperan dalam penyebaran Islam Nusantara.'},
   {t:'Dirham',d:'Mata uang emas atau perak yang digunakan pada masa kerajaan Islam, termasuk Samudera Pasai.'},
-  {t:'Keraton',d:'Istana tempat tinggal raja dan pusat pemerintahan kerajaan Islam.'},
-  {t:'Wali Songo',d:'Julukan kolektif 9 ulama penyebar Islam di Jawa abad ke-15-16 M.'},
-  {t:'Pesantren',d:'Lembaga pendidikan Islam tradisional berbasis asrama.'},
-  {t:'Silsilah',d:'Garis keturunan; banyak raja Islam Nusantara menyusun silsilah untuk melegitimasi kekuasaan.'}
+  {t:'Silsilah',d:'Garis keturunan; banyak raja Islam Nusantara menyusun silsilah untuk melegitimasi kekuasaan.'},
+  {t:'Samudera Pasai',d:'Kerajaan Islam pertama Nusantara menurut buku teks nasional (1267 M), didirikan Sultan Malik as-Saleh. Sebagian sejarawan menyebut Kesultanan Perlak (840 M) sebagai yang lebih awal berdasarkan naskah Idharul Haq.'}
 ];
-function openGloss(){Sound.click();$('#glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term"><i class="fas fa-bookmark"></i>${g.t}</div><div class="def">${g.d}</div></div>`).join('');$('#glModal').classList.add('on')}
+function openGloss(){
+  Sound.click();
+  $('#glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term"><i class="fas fa-bookmark"></i>${g.t}</div><div class="def">${g.d}</div></div>`).join('');
+  $('#glModal').classList.add('on');
+}
 function closeGloss(){$('#glModal').classList.remove('on')}
 
 let reviewData=[];
 function pushReview(q,opts,correctIdx,chosenIdx,explanation,source){reviewData.push({q,opts,correctIdx,chosenIdx,explanation,source})}
-function openReview(){closeModal();if(!reviewData.length){notif('Belum ada jawaban untuk direview','gold');return}$('#rvList').innerHTML=reviewData.map((r,i)=>{const ok=r.chosenIdx===r.correctIdx;const chosen=r.chosenIdx>=0?r.opts[r.chosenIdx]:'(tidak dijawab)';return `<div class="rv-item ${ok?'ok':'no'}"><div class="rq">${i+1}. ${r.q}</div><div class="ra">Jawabanmu: <b class="${ok?'':'wrong'}">${chosen}</b>${ok?' ✓':' ✗'}</div>${!ok?`<div class="ra">Jawaban benar: <b>${r.opts[r.correctIdx]}</b></div>`:''}<div class="re"><b>💡 Pembahasan:</b> ${r.explanation||''}</div>${r.source?`<div class="src">📖 ${r.source}</div>`:''}</div>`}).join('');$('#rvModal').classList.add('on')}
+function openReview(){
+  closeModal();
+  if(!reviewData.length){notif('Belum ada jawaban untuk direview','gold');return}
+  $('#rvList').innerHTML=reviewData.map((r,i)=>{
+    const ok=r.chosenIdx===r.correctIdx;
+    const chosen=r.chosenIdx>=0?r.opts[r.chosenIdx]:'(tidak dijawab)';
+    return `<div class="rv-item ${ok?'ok':'no'}"><div class="rq">${i+1}. ${r.q}</div><div class="ra">Jawabanmu: <b class="${ok?'':'wrong'}">${chosen}</b>${ok?' ✓':' ✗'}</div>${!ok?`<div class="ra">Jawaban benar: <b>${r.opts[r.correctIdx]}</b></div>`:''}<div class="re"><b>💡 Pembahasan:</b> ${r.explanation||''}</div>${r.source?`<div class="src">📖 ${r.source}</div>`:''}</div>`
+  }).join('');
+  $('#rvModal').classList.add('on');
+}
 function closeReview(){$('#rvModal').classList.remove('on')}
 
+/* ============ FACTS ============ */
 const FACTS=[
-  '<b>Samudera Pasai</b> (1267 M) adalah kerajaan Islam pertama di Nusantara, didirikan Sultan Malik as-Saleh.',
+  '<b>Samudera Pasai</b> (1267 M) adalah kerajaan Islam pertama di Nusantara menurut buku teks nasional, didirikan Sultan Malik as-Saleh.',
   'Biksu Tiongkok <b>I-Tsing</b> mencatat komunitas Muslim di Nusantara sejak abad ke-7 M.',
   '<b>Walisongo</b> berdakwah dengan pendekatan damai, adaptif, dan menghargai budaya lokal.',
   '<b>Sunan Kalijaga</b> menggunakan wayang kulit sebagai media dakwah Islam — contoh akulturasi.',
@@ -874,36 +932,275 @@ const FACTS=[
   '<b>Perang Bubat</b> (1357 M) adalah tragedi diplomatik antara Majapahit dan Kerajaan Sunda.',
   '<b>Masjid Baiturrahman</b> di Banda Aceh menjadi simbol ketangguhan rakyat Aceh melawan penjajah.'
 ];
-function updateDailyFact(){const d=new Date();const idx=(d.getFullYear()*365+d.getMonth()*31+d.getDate())%FACTS.length;$('#dailyText').innerHTML=FACTS[idx]}
+function updateDailyFact(){
+  const d=new Date();
+  const idx=(d.getFullYear()*365+d.getMonth()*31+d.getDate())%FACTS.length;
+  $('#dailyText').innerHTML=FACTS[idx];
+}
 
-function toggleSound(){Sound.enabled=!Sound.enabled;const btn=$('#soundBtn');btn.innerHTML=Sound.enabled?'<i class="fas fa-volume-high"></i> Suara':'<i class="fas fa-volume-xmark"></i> Bisu';try{localStorage.setItem('mis_sound',Sound.enabled?'1':'0')}catch(e){}if(Sound.enabled)Sound.click();notif(Sound.enabled?'🔊 Suara aktif':'🔇 Suara dibisukan','gold')}
-function toggleMotion(){document.body.classList.toggle('reduce-motion');const on=!document.body.classList.contains('reduce-motion');try{localStorage.setItem('mis_motion',on?'1':'0')}catch(e){}notif(on?'✨ Animasi aktif':'🕊️ Mode tenang','gold')}
+/* ============ CONTROLS ============ */
+function toggleSound(){
+  Sound.enabled=!Sound.enabled;
+  const btn=$('#soundBtn');
+  btn.innerHTML=Sound.enabled?'<i class="fas fa-volume-high"></i> Suara':'<i class="fas fa-volume-xmark"></i> Bisu';
+  btn.classList.toggle('sound-on',Sound.enabled);
+  try{localStorage.setItem('mis_sound',Sound.enabled?'1':'0')}catch(e){}
+  if(Sound.enabled)Sound.click();
+  notif(Sound.enabled?'🔊 Suara aktif':'🔇 Suara dibisukan','gold');
+}
+function toggleMotion(){
+  document.body.classList.toggle('reduce-motion');
+  const on=!document.body.classList.contains('reduce-motion');
+  try{localStorage.setItem('mis_motion',on?'1':'0')}catch(e){}
+  notif(on?'✨ Animasi aktif':'🕊️ Mode tenang','gold');
+}
 
-(function(){const cv=$('#bgCanvas'),ctx=cv.getContext('2d');let w,h,parts=[];function rz(){w=cv.width=innerWidth;h=cv.height=innerHeight}rz();addEventListener('resize',rz);const N=Math.min(60,Math.floor(innerWidth/25));for(let i=0;i<N;i++)parts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.6,c:['#2563eb','#3b82f6','#60a5fa','#93c5fd','#1d4ed8'][Math.floor(Math.random()*5)]});function loop(){ctx.clearRect(0,0,w,h);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);ctx.fillStyle=p.c;ctx.globalAlpha=.45;ctx.fill()});for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++){const a=parts[i],b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle='rgba(37,99,235,'+(.14*(1-d/130))+')';ctx.lineWidth=.7;ctx.stroke()}}ctx.globalAlpha=1;requestAnimationFrame(loop)}loop()})();
+/* ============ PARTICLE SYSTEM (perf-optimized) ============ */
+(function(){
+  const cv=$('#bgCanvas'),ctx=cv.getContext('2d');
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const isMobile=innerWidth<768;
+  let w,h,parts=[];
+  function rz(){
+    w=innerWidth;h=innerHeight;
+    cv.width=w*dpr;cv.height=h*dpr;
+    cv.style.width=w+'px';cv.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  rz();addEventListener('resize',rz);
+  const N=isMobile?Math.min(25,Math.floor(innerWidth/40)):Math.min(55,Math.floor(innerWidth/28));
+  for(let i=0;i<N;i++)parts.push({
+    x:Math.random()*w,y:Math.random()*h,
+    vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.6+.6,
+    c:['#2563eb','#3b82f6','#60a5fa','#93c5fd','#1d4ed8'][Math.floor(Math.random()*5)]
+  });
+  function loop(){
+    ctx.clearRect(0,0,w,h);
+    parts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);
+      ctx.fillStyle=p.c;ctx.globalAlpha=.45;ctx.fill();
+    });
+    // connections
+    for(let i=0;i<parts.length;i++){
+      for(let j=i+1;j<parts.length;j++){
+        const a=parts[i],b=parts[j];
+        const dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<16900){ // 130^2
+          const d=Math.sqrt(d2);
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle='rgba(37,99,235,'+(.14*(1-d/130))+')';
+          ctx.lineWidth=.7;ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha=1;
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
 
-document.addEventListener('click',e=>{if(document.body.classList.contains('reduce-motion'))return;for(let i=0;i<8;i++){const p=document.createElement('div');p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:5px;height:5px;border-radius:50%;background:${['#2563eb','#3b82f6','#60a5fa','#93c5fd'][i%4]};pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .5s cubic-bezier(.2,.8,.2,1)`;document.body.appendChild(p);const ang=(i/8)*Math.PI*2+Math.random()*.5,dist=45+Math.random()*55;requestAnimationFrame(()=>{p.style.transform=`translate(calc(${Math.cos(ang)*dist}px - 50%),calc(${Math.sin(ang)*dist}px - 50%)) scale(.2)`;p.style.opacity='0'});setTimeout(()=>p.remove(),550)}});
-function shakeScreen(){if(document.body.classList.contains('reduce-motion'))return;document.body.animate([{transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},{transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},{transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}],{duration:400,easing:'ease-out'})}
+/* ============ RIPPLE + SPARKLE (unified click handler) ============ */
+document.addEventListener('click',e=>{
+  const target=e.target.closest('button,.tb-btn,.btn,.gc,.icon-btn,.src,.mi,.wo button,.mo button,.ll,.lv-tab');
+  if(target && !document.body.classList.contains('reduce-motion')){
+    // Ripple
+    const r=target.getBoundingClientRect();
+    const size=Math.max(r.width,r.height);
+    const rip=document.createElement('span');
+    rip.className='ripple';
+    rip.style.width=rip.style.height=size+'px';
+    rip.style.left=(e.clientX-r.left-size/2)+'px';
+    rip.style.top=(e.clientY-r.top-size/2)+'px';
+    target.appendChild(rip);
+    setTimeout(()=>rip.remove(),700);
+  }
+  // Small sparkle (reduce on mobile)
+  if(document.body.classList.contains('reduce-motion'))return;
+  const isMobile=innerWidth<768;
+  const count=isMobile?4:6;
+  for(let i=0;i<count;i++){
+    const p=document.createElement('div');
+    p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:5px;height:5px;border-radius:50%;background:${['#2563eb','#3b82f6','#60a5fa','#93c5fd'][i%4]};pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .5s cubic-bezier(.2,.8,.2,1)`;
+    document.body.appendChild(p);
+    const ang=(i/count)*Math.PI*2+Math.random()*.5,dist=45+Math.random()*55;
+    requestAnimationFrame(()=>{
+      p.style.transform=`translate(calc(${Math.cos(ang)*dist}px - 50%),calc(${Math.sin(ang)*dist}px - 50%)) scale(.2)`;
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(),550);
+  }
+});
 
-function notif(msg,type=''){const n=$('#nf');n.textContent=msg;n.className='nf on '+type;clearTimeout(n._t);n._t=setTimeout(()=>n.classList.remove('on'),1700)}
-function modal(emoji,title,text,badge,list){const next=$('#mNextBtn');if(next)next.hidden=true;$('#mEmoji').textContent=emoji;$('#mTitle').textContent=title;$('#mText').innerHTML=text?`<p>${text}</p>`:'';if(badge){$('#mBadge').style.display='inline-flex';$('#mBadgeText').textContent=badge}else{$('#mBadge').style.display='none'}if(list&&list.length){$('#mList').style.display='block';$('#mList').innerHTML=list.map(it=>`<div class="item"><div class="ttl">${it.t}</div><div class="dsc">${it.d}</div></div>`).join('')}else{$('#mList').style.display='none'}$('#modal').classList.add('on');if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎'].includes(emoji))confetti()}
+function radialBurst(x,y){
+  if(document.body.classList.contains('reduce-motion'))return;
+  const b=document.createElement('div');
+  b.className='burst';
+  b.style.left=x+'px';b.style.top=y+'px';
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),700);
+}
+function shakeScreen(){
+  if(document.body.classList.contains('reduce-motion'))return;
+  document.body.animate([
+    {transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},
+    {transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},
+    {transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}
+  ],{duration:400,easing:'ease-out'});
+}
+
+function notif(msg,type=''){
+  const n=$('#nf');n.textContent=msg;n.className='nf on '+type;
+  clearTimeout(n._t);n._t=setTimeout(()=>n.classList.remove('on'),1700);
+}
+function modal(emoji,title,text,badge,list){
+  const next=$('#mNextBtn');if(next)next.hidden=true;
+  $('#mEmoji').textContent=emoji;
+  $('#mTitle').textContent=title;
+  $('#mText').innerHTML=text?`<p>${text}</p>`:'';
+  if(badge){$('#mBadge').style.display='inline-flex';$('#mBadgeText').textContent=badge}else{$('#mBadge').style.display='none'}
+  if(list&&list.length){
+    $('#mList').style.display='block';
+    $('#mList').innerHTML=list.map(it=>`<div class="item"><div class="ttl">${it.t}</div><div class="dsc">${it.d}</div></div>`).join('');
+  }else{$('#mList').style.display='none'}
+  $('#modal').classList.add('on');
+  if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎','🕌','🕋','🎲','🃏','🎡','⏳'].includes(emoji))confetti();
+}
 function closeModal(){$('#modal').classList.remove('on')}
-function backMenu(){stopTimer();hideDetail();$('.screen.active')?.classList.remove('active');$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu()}
-function goHome(){stopTimer();hideDetail();$$('.screen').forEach(s=>s.classList.remove('active'));$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu();updateDailyFact()}
-function goGame(id){Sound.click();stopTimer();hideDetail();$$('.screen').forEach(s=>s.classList.remove('active'));const map={detektif:'#gameDetektif',timeline:'#gameTimeline',histo:'#gameHisto',wheel:'#gameWheel',millionaire:'#gameMillionaire',memory:'#gameMemory',fortune:'#gameFortune'};$(map[id]).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});reviewData=[];if(id==='detektif')resetDet();if(id==='timeline')resetTL();if(id==='histo')initHx();if(id==='wheel')initWheel();if(id==='millionaire')initMl();if(id==='memory')resetMem();if(id==='fortune')resetFortune()}
+function backMenu(){
+  stopTimer();hideDetail();
+  $('.screen.active')?.classList.remove('active');
+  $('#mainMenu').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateMenu();
+}
+function goHome(){
+  stopTimer();hideDetail();
+  $$('.screen').forEach(s=>s.classList.remove('active'));
+  $('#mainMenu').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateMenu();updateDailyFact();animateCounters();
+}
+function goGame(id){
+  Sound.click();stopTimer();hideDetail();
+  $$('.screen').forEach(s=>s.classList.remove('active'));
+  const map={detektif:'#gameDetektif',timeline:'#gameTimeline',histo:'#gameHisto',wheel:'#gameWheel',millionaire:'#gameMillionaire',memory:'#gameMemory',fortune:'#gameFortune'};
+  $(map[id]).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  reviewData=[];
+  if(id==='detektif')resetDet();
+  if(id==='timeline')resetTL();
+  if(id==='histo')initHx();
+  if(id==='wheel')initWheel();
+  if(id==='millionaire')initMl();
+  if(id==='memory')resetMem();
+  if(id==='fortune')resetFortune();
+}
 
 let detailTimer=null;
-function showDetail(left,right,text,src,autoCloseMs){if(detailTimer){clearTimeout(detailTimer);detailTimer=null}const panel=$('#detailPanel');const hint=$('#dpHint');panel.classList.remove('auto');$('#dpPair').innerHTML=`<span class="chip">${left}</span><span class="arrow"><i class="fas fa-arrow-right"></i></span><span class="chip r">${right}</span>`;$('#dpText').textContent=text;$('#dpSrc').innerHTML=src?`📖 Sumber: ${src}`:'';panel.classList.add('show');if(autoCloseMs&&autoCloseMs>0){const secs=Math.max(1,Math.round(autoCloseMs/1000));hint.innerHTML=`<i class="fas fa-hourglass-half"></i> Tertutup otomatis dalam ${secs} detik`;const fill=$('#dpCountdown');fill.style.animation='none';void fill.offsetWidth;fill.style.animation='';panel.classList.add('auto');detailTimer=setTimeout(()=>hideDetail(),autoCloseMs)}else{hint.innerHTML='<i class="fas fa-lock"></i> Tahan terbuka · klik ✕ untuk tutup'}}
-function hideDetail(){if(detailTimer){clearTimeout(detailTimer);detailTimer=null}const panel=$('#detailPanel');panel.classList.remove('show');panel.classList.remove('auto')}
+function showDetail(left,right,text,src,autoCloseMs){
+  if(detailTimer){clearTimeout(detailTimer);detailTimer=null}
+  const panel=$('#detailPanel');
+  const hint=$('#dpHint');
+  panel.classList.remove('auto');
+  $('#dpPair').innerHTML=`<span class="chip">${left}</span><span class="arrow"><i class="fas fa-arrow-right"></i></span><span class="chip r">${right}</span>`;
+  $('#dpText').textContent=text;
+  $('#dpSrc').innerHTML=src?`📖 Sumber: ${src}`:'';
+  panel.classList.add('show');
+  if(autoCloseMs&&autoCloseMs>0){
+    const secs=Math.max(1,Math.round(autoCloseMs/1000));
+    hint.innerHTML=`<i class="fas fa-hourglass-half"></i> Tertutup otomatis dalam ${secs} detik`;
+    const fill=$('#dpCountdown');
+    fill.style.animation='none';void fill.offsetWidth;fill.style.animation='';
+    panel.classList.add('auto');
+    detailTimer=setTimeout(()=>hideDetail(),autoCloseMs);
+  }else{
+    hint.innerHTML='<i class="fas fa-lock"></i> Tahan terbuka · klik ✕ untuk tutup';
+  }
+}
+function hideDetail(){
+  if(detailTimer){clearTimeout(detailTimer);detailTimer=null}
+  const panel=$('#detailPanel');panel.classList.remove('show');panel.classList.remove('auto');
+}
 
-document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('mousemove',e=>{if(document.body.classList.contains('reduce-motion'))return;const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.transform=`perspective(900px) rotateX(${((y-r.height/2)/(r.height/2))*-5}deg) rotateY(${((x-r.width/2)/(r.width/2))*5}deg) translateY(-6px) scale(1.02)`});el.addEventListener('mouseleave',()=>el.style.transform='')});
-document.querySelectorAll('.gc').forEach(c=>{c.addEventListener('click',()=>goGame(c.dataset.game));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click()}})});
+/* Tilt + spotlight cards */
+document.querySelectorAll('[data-tilt]').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    const x=e.clientX-r.left,y=e.clientY-r.top;
+    el.style.setProperty('--mx',(x/r.width*100)+'%');
+    el.style.setProperty('--my',(y/r.height*100)+'%');
+    if(document.body.classList.contains('reduce-motion'))return;
+    el.style.transform=`perspective(900px) rotateX(${((y-r.height/2)/(r.height/2))*-5}deg) rotateY(${((x-r.width/2)/(r.width/2))*5}deg) translateY(-6px) scale(1.02)`;
+  });
+  el.addEventListener('mouseleave',()=>el.style.transform='');
+});
+document.querySelectorAll('.gc').forEach(c=>{
+  c.addEventListener('click',()=>goGame(c.dataset.game));
+  c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click()}});
+});
 
-function confetti(){if(document.body.classList.contains('reduce-motion'))return;const cv=$('#confetti'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;const cols=['#2563eb','#3b82f6','#60a5fa','#93c5fd','#1d4ed8','#dbeafe'];const parts=[];for(let i=0;i<200;i++)parts.push({x:innerWidth/2+(Math.random()-.5)*250,y:innerHeight/2-100,vx:(Math.random()-.5)*15,vy:Math.random()*-14-4,r:Math.random()*5.5+3,c:cols[Math.floor(Math.random()*cols.length)],rot:Math.random()*6.28,vr:(Math.random()-.5)*.32,life:1});let raf;function loop(){ctx.clearRect(0,0,cv.width,cv.height);let alive=false;parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.42;p.vx*=.99;p.rot+=p.vr;p.life-=.008;if(p.life>0&&p.y<innerHeight+50){alive=true;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.globalAlpha=p.life;ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.5);ctx.restore()}});if(alive)raf=requestAnimationFrame(loop);else{ctx.clearRect(0,0,cv.width,cv.height);cancelAnimationFrame(raf)}}loop()}
+/* Confetti */
+function confetti(){
+  if(document.body.classList.contains('reduce-motion'))return;
+  const cv=$('#confetti'),ctx=cv.getContext('2d');
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;
+  cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const cols=['#2563eb','#3b82f6','#60a5fa','#93c5fd','#1d4ed8','#dbeafe','#fbbf24'];
+  const parts=[];
+  for(let i=0;i<180;i++)parts.push({
+    x:innerWidth/2+(Math.random()-.5)*250,y:innerHeight/2-100,
+    vx:(Math.random()-.5)*15,vy:Math.random()*-14-4,
+    r:Math.random()*5.5+3,c:cols[Math.floor(Math.random()*cols.length)],
+    rot:Math.random()*6.28,vr:(Math.random()-.5)*.32,life:1,
+    shape:Math.random()<.3?'circle':'rect'
+  });
+  let raf;
+  function loop(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    let alive=false;
+    parts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.42;p.vx*=.99;p.rot+=p.vr;p.life-=.008;
+      if(p.life>0&&p.y<innerHeight+50){
+        alive=true;ctx.save();
+        ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+        ctx.fillStyle=p.c;ctx.globalAlpha=p.life;
+        if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.r,0,6.28);ctx.fill()}
+        else{ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.5)}
+        ctx.restore();
+      }
+    });
+    if(alive)raf=requestAnimationFrame(loop);
+    else{ctx.clearRect(0,0,innerWidth,innerHeight);cancelAnimationFrame(raf)}
+  }
+  loop();
+}
 
-const achToasts={detektif:{icn:'🕌',ttl:'DETEKTIF ULUNG',sub:'Kamu menuntaskan Detektif Peninggalan Islam!'},timeline:{icn:'⏳',ttl:'PENJELAJAH WAKTU',sub:'Kamu memahami 4 konsep waktu sejarah!'},histo:{icn:'🕋',ttl:'PETUALANG SEJATI',sub:'Kamu menuntaskan 5 level Misi Kerajaan Islam!'},wheel:{icn:'🎡',ttl:'PEMUTAR HEBAT',sub:'Kamu menyelesaikan 15 soal Roda Warisan!'},millionaire:{icn:'👑',ttl:'JUTAWAN SEJARAH',sub:'Kamu menyelesaikan 15 soal Jutawan Sejarah!'},memory:{icn:'🃏',ttl:'INGATAN EMAS',sub:'Kamu menemukan semua pasangan kartu memori!'},fortune:{icn:'🎲',ttl:'PEMBURU FORTUNE',sub:'Kamu menyelesaikan Roda Tantangan Islam!'}};
-function showAchievement(id){const a=achToasts[id];if(!a)return;const t=$('#achToast');$('#achIcn').textContent=a.icn;$('#achTtl').textContent='ACHIEVEMENT: '+a.ttl;$('#achSub').textContent=a.sub;t.classList.add('show');confetti();Sound.ach();setTimeout(()=>t.classList.remove('show'),3000)}
+const achToasts={
+  detektif:{icn:'🕌',ttl:'DETEKTIF ULUNG',sub:'Kamu menuntaskan Detektif Peninggalan Islam!'},
+  timeline:{icn:'⏳',ttl:'PENJELAJAH WAKTU',sub:'Kamu memahami 4 konsep waktu sejarah!'},
+  histo:{icn:'🕋',ttl:'PETUALANG SEJATI',sub:'Kamu menuntaskan 5 level Misi Kerajaan Islam!'},
+  wheel:{icn:'🎡',ttl:'PEMUTAR HEBAT',sub:'Kamu menyelesaikan 15 soal Roda Warisan!'},
+  millionaire:{icn:'👑',ttl:'JUTAWAN SEJARAH',sub:'Kamu menyelesaikan 15 soal Jutawan Sejarah!'},
+  memory:{icn:'🃏',ttl:'INGATAN EMAS',sub:'Kamu menemukan semua pasangan kartu memori!'},
+  fortune:{icn:'🎲',ttl:'PEMBURU FORTUNE',sub:'Kamu menyelesaikan Roda Tantangan Islam!'}
+};
+function showAchievement(id){
+  const a=achToasts[id];if(!a)return;
+  const t=$('#achToast');
+  $('#achIcn').textContent=a.icn;
+  $('#achTtl').textContent='ACHIEVEMENT: '+a.ttl;
+  $('#achSub').textContent=a.sub;
+  t.classList.add('show');confetti();Sound.ach();
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
 
-/* ============ GAME 1: DETEKTIF ============ */
+/* ============ GAME 1: DETEKTIF (26 items, Istana/Benteng) ============ */
 const detData=[
   {t:'Masjid Demak',c:'masjid',e:'Masjid Agung Demak (1479 M) — masjid tertua di Jawa, atap tumpang bertingkat 3, akulturasi Hindu-Jawa-Islam.',s:'Demak, Jawa Tengah'},
   {t:'Masjid Kudus',c:'masjid',e:'Masjid Menara Kudus — menara bergaya candi Hindu-Buddha, dibangun Sunan Kudus.',s:'Kudus, Jawa Tengah'},
@@ -914,29 +1211,77 @@ const detData=[
   {t:'Masjid Sunan Ampel',c:'masjid',e:'Masjid Sunan Ampel — bagian kompleks pesantren Ampel Denta, Surabaya.',s:'Surabaya, Jawa Timur'},
   {t:'Masjid Abdurrahman',c:'masjid',e:'Masjid Sultan Abdurrahman — peninggalan Kesultanan Pontianak.',s:'Pontianak, Kalimantan Barat'},
   {t:'Masjid Sang Cipta Rasa',c:'masjid',e:'Masjid Sang Cipta Rasa — peninggalan Kesultanan Cirebon, dibangun Sunan Gunung Jati.',s:'Cirebon, Jawa Barat'},
-  {t:'Keraton Kasepuhan',c:'keraton',e:'Keraton Kasepuhan Cirebon — istana Kesultanan Cirebon dengan arsitektur perpaduan Hindu-Islam-Tiongkok.',s:'Cirebon, Jawa Barat'},
-  {t:'Keraton Surosowan',c:'keraton',e:'Keraton Surosowan — istana Kesultanan Banten, sekarang berupa reruntuhan bersejarah.',s:'Banten Lama'},
-  {t:'Keraton Kadriah',c:'keraton',e:'Keraton Kadriah — istana Kesultanan Pontianak yang masih berdiri hingga kini.',s:'Pontianak, Kalimantan Barat'},
-  {t:'Keraton Yogyakarta',c:'keraton',e:'Keraton Ngayogyakarta Hadiningrat — istana Kesultanan Yogyakarta, penerus Mataram Islam.',s:'Yogyakarta'},
-  {t:'Keraton Surakarta',c:'keraton',e:'Keraton Surakarta Hadiningrat — istana Kasunanan Surakarta, hasil Perjanjian Giyanti (1755).',s:'Surakarta, Jawa Tengah'},
-  {t:'Benteng Somba Opu',c:'keraton',e:'Benteng Somba Opu — benteng pertahanan Kesultanan Gowa-Tallo di Makassar.',s:'Makassar, Sulawesi Selatan'},
-  {t:'Benteng Tolukko',c:'keraton',e:'Benteng Tolukko — benteng peninggalan Kesultanan Ternate di Maluku Utara.',s:'Ternate'},
-  {t:'Istana Asi Mbojo',c:'keraton',e:'Istana Asi Mbojo — istana Kesultanan Bima, sekarang menjadi museum.',s:'Bima, NTB'},
-  {t:'Benteng Keraton Wolio',c:'keraton',e:'Benteng Keraton Wolio — benteng terbesar di dunia peninggalan Kesultanan Buton.',s:'Baubau, Sulawesi Tenggara'},
+  {t:'Keraton Kasepuhan',c:'bangunan',e:'Keraton Kasepuhan Cirebon — istana Kesultanan Cirebon dengan arsitektur perpaduan Hindu-Islam-Tiongkok.',s:'Cirebon, Jawa Barat'},
+  {t:'Keraton Surosowan',c:'bangunan',e:'Keraton Surosowan — istana Kesultanan Banten, sekarang berupa reruntuhan bersejarah.',s:'Banten Lama'},
+  {t:'Keraton Kadriah',c:'bangunan',e:'Keraton Kadriah — istana Kesultanan Pontianak yang masih berdiri hingga kini.',s:'Pontianak, Kalimantan Barat'},
+  {t:'Keraton Yogyakarta',c:'bangunan',e:'Keraton Ngayogyakarta Hadiningrat — istana Kesultanan Yogyakarta, penerus Mataram Islam.',s:'Yogyakarta'},
+  {t:'Keraton Surakarta',c:'bangunan',e:'Keraton Surakarta Hadiningrat — istana Kasunanan Surakarta, hasil Perjanjian Giyanti (1755).',s:'Surakarta, Jawa Tengah'},
+  {t:'Benteng Somba Opu',c:'bangunan',e:'Benteng Somba Opu — benteng pertahanan Kesultanan Gowa-Tallo di Makassar.',s:'Makassar, Sulawesi Selatan'},
+  {t:'Benteng Tolukko',c:'bangunan',e:'Benteng Tolukko — benteng peninggalan Kesultanan Ternate di Maluku Utara.',s:'Ternate'},
+  {t:'Istana Asi Mbojo',c:'bangunan',e:'Istana Asi Mbojo — istana Kesultanan Bima, sekarang menjadi museum.',s:'Bima, NTB'},
+  {t:'Benteng Keraton Wolio',c:'bangunan',e:'Benteng Keraton Wolio — benteng terbesar di dunia peninggalan Kesultanan Buton.',s:'Baubau, Sulawesi Tenggara'},
   {t:'Hikayat Raja-raja Pasai',c:'naskah',e:'Hikayat Raja-raja Pasai — naskah Melayu klasik yang menceritakan sejarah Samudera Pasai.',s:'Sastra Melayu Klasik'},
   {t:'Babad Tanah Jawi',c:'naskah',e:'Babad Tanah Jawi — naskah Jawa yang mencatat sejarah raja-raja Jawa hingga Mataram Islam.',s:'Sastra Jawa'},
   {t:'Bustan as-Salatin',c:'naskah',e:'Bustan as-Salatin — karya Nuruddin ar-Raniri dari Aceh, ensiklopedia Islam Melayu.',s:'Sastra Melayu Aceh'},
-  {t:'Lontara\' Bugis',c:'naskah',e:'Lontara\' — naskah Bugis-Makassar yang mencatat silsilah, hukum, dan sejarah lokal.',s:'Sulawesi Selatan'},
+  {t:"Lontara' Bugis",c:'naskah',e:"Lontara' — naskah Bugis-Makassar yang mencatat silsilah, hukum, dan sejarah lokal.",s:'Sulawesi Selatan'},
   {t:'Hikayat Banjar',c:'naskah',e:'Hikayat Banjar — naskah yang menceritakan sejarah Kesultanan Banjar.',s:'Kalimantan Selatan'},
   {t:'Sejarah Melayu',c:'naskah',e:'Sejarah Melayu — naskah klasik Melayu yang menceritakan Kesultanan Malaka & Johor.',s:'Sastra Melayu Klasik'},
   {t:'Taj as-Salatin',c:'naskah',e:'Taj as-Salatin — karya Bukhari al-Jauhari dari Aceh, naskah etika pemerintahan Islam.',s:'Aceh'},
-  {t:'Silsilah Raja-raja Brunei',c:'naskah',e:'Silsilah Raja-raja Brunei — naskah yang mencatat garis keturunan Sultan Brunei.',s:'Brunei/Serawak'},
-  {t:'Naskah Amoghapasa',c:'naskah',e:'Prasasti/Naskah Amoghapasa — dari Singasari, tanda persahabatan dengan Dharmasraya, masa transisi Hindu-Islam.',s:'Sumatera Barat'}
+  {t:'Silsilah Raja-raja Brunei',c:'naskah',e:'Silsilah Raja-raja Brunei — naskah yang mencatat garis keturunan Sultan Brunei.',s:'Brunei/Serawak'}
 ];
+const DET_TOTAL=26;
 let detSel=null,detOk=0;
-function resetDet(){detSel=null;detOk=0;reviewData=[];hideDetail();$('#detScore').textContent='0 / 27';const pool=$('#detPool');pool.innerHTML='';shuffle(detData).forEach(d=>{const el=document.createElement('div');el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.t=d.t;el.onclick=()=>selDet(el);pool.appendChild(el)});$$('#gameDetektif .det-col .col-inner').forEach(c=>c.innerHTML='');$$('#gameDetektif .det-col').forEach(c=>{c.onclick=()=>dropDet(c)});startTimer('detTimer')}
-function selDet(el){if(el.classList.contains('ok'))return;Sound.click();if(detSel===el){el.classList.remove('sel');detSel=null;return}if(detSel)detSel.classList.remove('sel');detSel=el;el.classList.add('sel')}
-function dropDet(col){if(!detSel){notif('Pilih kartu dulu!','no');return}const c=detSel,cat=col.dataset.cat,want=c.dataset.cat;const data=detData.find(x=>x.t===c.dataset.t);if(cat===want){c.classList.remove('sel');c.classList.add('ok');c.onclick=null;col.querySelector('.col-inner').appendChild(c);detSel=null;detOk++;$('#detScore').textContent=detOk+' / 27';$('#detScore').classList.add('pulse');setTimeout(()=>$('#detScore').classList.remove('pulse'),600);notif('✓ Benar!','ok');Sound.correct();pushReview(`"${c.textContent}" termasuk kategori...`,['Masjid','Keraton','Naskah'],['masjid','keraton','naskah'].indexOf(want),['masjid','keraton','naskah'].indexOf(cat),data.e,data.s);showDetail(c.textContent,cat.toUpperCase(),data.e,data.s);if(detOk===detData.length){setTimeout(()=>{markDone('detektif',{score:detOk,acc:100});showAchievement('detektif');Sound.win();confetti();setTimeout(()=>modal('🕌','Detektif Hebat!',`Kamu mengklasifikasikan 27 peninggalan Islam Nusantara dengan tepat dalam ${fmtTime(timerSec)}!`,'Detektif Ulung 🕌'),400)},700)}}else{c.classList.remove('sel');c.classList.add('no');detSel=null;notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();setTimeout(()=>c.classList.remove('no'),500)}}
+function resetDet(){
+  detSel=null;detOk=0;reviewData=[];hideDetail();
+  $('#detScore').textContent='0 / '+DET_TOTAL;
+  const pool=$('#detPool');pool.innerHTML='';
+  shuffle(detData).forEach(d=>{
+    const el=document.createElement('div');
+    el.className='src';el.textContent=d.t;
+    el.dataset.cat=d.c;el.dataset.t=d.t;
+    el.onclick=()=>selDet(el);
+    pool.appendChild(el);
+  });
+  $$('#gameDetektif .det-col .col-inner').forEach(c=>c.innerHTML='');
+  $$('#gameDetektif .det-col').forEach(c=>{c.onclick=()=>dropDet(c)});
+  startTimer('detTimer');
+}
+function selDet(el){
+  if(el.classList.contains('ok'))return;
+  Sound.click();
+  if(detSel===el){el.classList.remove('sel');detSel=null;return}
+  if(detSel)detSel.classList.remove('sel');
+  detSel=el;el.classList.add('sel');
+}
+function dropDet(col){
+  if(!detSel){notif('Pilih kartu dulu!','no');return}
+  const c=detSel,cat=col.dataset.cat,want=c.dataset.cat;
+  const data=detData.find(x=>x.t===c.dataset.t);
+  if(cat===want){
+    c.classList.remove('sel');c.classList.add('ok');c.onclick=null;
+    col.querySelector('.col-inner').appendChild(c);
+    detSel=null;detOk++;
+    $('#detScore').textContent=detOk+' / '+DET_TOTAL;
+    $('#detScore').classList.add('pulse');
+    setTimeout(()=>$('#detScore').classList.remove('pulse'),600);
+    notif('✓ Benar!','ok');Sound.correct();
+    pushReview(`"${c.textContent}" termasuk kategori...`,['Masjid','Istana/Benteng','Naskah'],['masjid','bangunan','naskah'].indexOf(want),['masjid','bangunan','naskah'].indexOf(cat),data.e,data.s);
+    showDetail(c.textContent,cat.toUpperCase(),data.e,data.s);
+    radialBurst(innerWidth/2,innerHeight/2);
+    if(detOk===detData.length){
+      setTimeout(()=>{
+        markDone('detektif',{score:detOk,acc:100});
+        showAchievement('detektif');Sound.win();confetti();
+        setTimeout(()=>modal('🕌','Detektif Hebat!',`Kamu mengklasifikasikan ${DET_TOTAL} peninggalan Islam Nusantara dengan tepat dalam ${fmtTime(timerSec)}!`,'Detektif Ulung 🕌'),400);
+      },700);
+    }
+  }else{
+    c.classList.remove('sel');c.classList.add('no');
+    detSel=null;
+    notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();
+    setTimeout(()=>c.classList.remove('no'),500);
+  }
+}
 
 /* ============ GAME 2: TIMELINE ============ */
 const tlData=[
@@ -962,23 +1307,71 @@ const tlData=[
   {t:'Gowa 1605 → Ternate 1257 → Banjar 1526',c:'kronologis',e:'KRONOLOGIS = urutan berdirinya kerajaan Islam di luar Jawa.'}
 ];
 let tlSel=null,tlOk=0;
-function resetTL(){tlSel=null;tlOk=0;reviewData=[];hideDetail();$('#tlScore').textContent='0 / 20';const pool=$('#tlPool');pool.innerHTML='';shuffle(tlData).forEach(d=>{const el=document.createElement('div');el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.t=d.t;el.onclick=()=>selTL(el);pool.appendChild(el)});$$('#gameTimeline .det-col .col-inner').forEach(c=>c.innerHTML='');$$('#gameTimeline .det-col').forEach(c=>{c.onclick=()=>dropTL(c)});startTimer('tlTimer')}
-function selTL(el){if(el.classList.contains('ok'))return;Sound.click();if(tlSel===el){el.classList.remove('sel');tlSel=null;return}if(tlSel)tlSel.classList.remove('sel');tlSel=el;el.classList.add('sel')}
-function dropTL(col){if(!tlSel){notif('Pilih kartu dulu!','no');return}const c=tlSel,cat=col.dataset.cat,want=c.dataset.cat;const data=tlData.find(x=>x.t===c.dataset.t);if(cat===want){c.classList.remove('sel');c.classList.add('ok');c.onclick=null;col.querySelector('.col-inner').appendChild(c);tlSel=null;tlOk++;$('#tlScore').textContent=tlOk+' / 20';$('#tlScore').classList.add('pulse');setTimeout(()=>$('#tlScore').classList.remove('pulse'),600);notif('✓ Benar!','ok');Sound.correct();pushReview(`"${c.textContent}" termasuk konsep...`,['Diakronik','Sinkronik','Periodik','Kronologis'],['diakronik','sinkronik','periodik','kronologis'].indexOf(want),['diakronik','sinkronik','periodik','kronologis'].indexOf(cat),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)');showDetail(c.textContent,cat.toUpperCase(),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)',3000);if(tlOk===tlData.length){setTimeout(()=>{markDone('timeline',{score:tlOk,acc:100});showAchievement('timeline');Sound.win();confetti();setTimeout(()=>modal('⏳','Penjelajah Waktu!',`Kamu memahami 4 konsep waktu sejarah Islam dalam ${fmtTime(timerSec)}!`,'Penjelajah Waktu ⏳'),400)},700)}}else{c.classList.remove('sel');c.classList.add('no');tlSel=null;notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();setTimeout(()=>c.classList.remove('no'),500)}}
+function resetTL(){
+  tlSel=null;tlOk=0;reviewData=[];hideDetail();
+  $('#tlScore').textContent='0 / 20';
+  const pool=$('#tlPool');pool.innerHTML='';
+  shuffle(tlData).forEach(d=>{
+    const el=document.createElement('div');
+    el.className='src';el.textContent=d.t;
+    el.dataset.cat=d.c;el.dataset.t=d.t;
+    el.onclick=()=>selTL(el);
+    pool.appendChild(el);
+  });
+  $$('#gameTimeline .det-col .col-inner').forEach(c=>c.innerHTML='');
+  $$('#gameTimeline .det-col').forEach(c=>{c.onclick=()=>dropTL(c)});
+  startTimer('tlTimer');
+}
+function selTL(el){
+  if(el.classList.contains('ok'))return;
+  Sound.click();
+  if(tlSel===el){el.classList.remove('sel');tlSel=null;return}
+  if(tlSel)tlSel.classList.remove('sel');
+  tlSel=el;el.classList.add('sel');
+}
+function dropTL(col){
+  if(!tlSel){notif('Pilih kartu dulu!','no');return}
+  const c=tlSel,cat=col.dataset.cat,want=c.dataset.cat;
+  const data=tlData.find(x=>x.t===c.dataset.t);
+  if(cat===want){
+    c.classList.remove('sel');c.classList.add('ok');c.onclick=null;
+    col.querySelector('.col-inner').appendChild(c);
+    tlSel=null;tlOk++;
+    $('#tlScore').textContent=tlOk+' / 20';
+    $('#tlScore').classList.add('pulse');
+    setTimeout(()=>$('#tlScore').classList.remove('pulse'),600);
+    notif('✓ Benar!','ok');Sound.correct();
+    pushReview(`"${c.textContent}" termasuk konsep...`,['Diakronik','Sinkronik','Periodik','Kronologis'],['diakronik','sinkronik','periodik','kronologis'].indexOf(want),['diakronik','sinkronik','periodik','kronologis'].indexOf(cat),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)');
+    showDetail(c.textContent,cat.toUpperCase(),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)',3000);
+    radialBurst(innerWidth/2,innerHeight/2);
+    if(tlOk===tlData.length){
+      setTimeout(()=>{
+        markDone('timeline',{score:tlOk,acc:100});
+        showAchievement('timeline');Sound.win();confetti();
+        setTimeout(()=>modal('⏳','Penjelajah Waktu!',`Kamu memahami 4 konsep waktu sejarah Islam dalam ${fmtTime(timerSec)}!`,'Penjelajah Waktu ⏳'),400);
+      },700);
+    }
+  }else{
+    c.classList.remove('sel');c.classList.add('no');
+    tlSel=null;
+    notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();
+    setTimeout(()=>c.classList.remove('no'),500);
+  }
+}
 
 /* ============ GAME 3: MISI ============ */
 const hxLvData=[
   {n:'Teori Masuk Islam',i:'Cocokkan <strong>teori</strong> dengan <strong>pendukung/buktinya</strong>!',
    p:[
     {l:'Teori Gujarat',r:'Pedagang India (Snouck Hurgronje)',info:'TEORI GUJARAT (Snouck Hurgronje, Moquette, Krom): Islam dibawa pedagang Gujarat, India pada abad ke-13 M. Bukti: nisan Malik as-Saleh mirip nisan Gujarat.',src:'Snouck Hurgronje'},
-    {l:'Teori Mekkah',r:'Pedagang Arab (Buya Hamka)',info:'TEORI MEKKAH (Buya Hamka, T.W. Arnold): Islam dibawa pedagang Arab langsung sejak abad ke-7 M. Bukti: mazhab Syafi\'i dominan.',src:'Buya Hamka'},
+    {l:'Teori Mekkah',r:'Pedagang Arab (Buya Hamka)',info:"TEORI MEKKAH (Buya Hamka, T.W. Arnold): Islam dibawa pedagang Arab langsung sejak abad ke-7 M. Bukti: mazhab Syafi'i dominan.",src:'Buya Hamka'},
     {l:'Teori Persia',r:'Pedagang Persia (Hoesein Djajadiningrat)',info:'TEORI PERSIA (Hoesein Djajadiningrat): Islam dibawa pedagang Persia. Bukti: tradisi Tabot di Bengkulu, wayang, gamelan.',src:'Hoesein Djajadiningrat'},
-    {l:'Teori Tiongkok',r:'Perantau Muslim Tiongkok',info:'TEORI TIONGKOK: Islam dibawa perantau Muslim Tionghoa (Cina Selatan) yang menetap di Nusantara. Bukti: Masjid Cheng Hoo, catatan Cheng Ho.',src:'Sumanto Al Qurtuby'},
+    {l:'Teori Tiongkok (alternatif)',r:'Perantau Muslim Tiongkok',info:'TEORI TIONGKOK (alternatif): Islam juga dibawa perantau Muslim Tionghoa (Cina Selatan) yang menetap di Nusantara. Bukti: Masjid Cheng Hoo, catatan Cheng Ho.',src:'Sumanto Al Qurtuby'},
     {l:'Jalur Rempah',r:'Media penyebaran Islam damai',info:'JALUR REMPAH adalah urat nadi penyebaran Islam melalui perdagangan, perkawinan, dan pendidikan — berlangsung damai dan bertahap.',src:'Sejarah Maritim Nusantara'}
    ]},
   {n:'Sumatera & Aceh',i:'Cocokkan <strong>kerajaan/tokoh</strong> dengan <strong>peran/peninggalannya</strong>!',
    p:[
-    {l:'Samudera Pasai',r:'Kerajaan Islam pertama Nusantara',info:'Samudera Pasai (1267 M) — kerajaan Islam PERTAMA di Nusantara. Didirikan Sultan Malik as-Saleh. Pusat perdagangan & pendidikan.',src:'Hikayat Raja-raja Pasai'},
+    {l:'Samudera Pasai',r:'Kerajaan Islam pertama Nusantara',info:'Samudera Pasai (1267 M) — kerajaan Islam PERTAMA di Nusantara menurut buku teks nasional. Didirikan Sultan Malik as-Saleh. Pusat perdagangan & pendidikan.',src:'Hikayat Raja-raja Pasai'},
     {l:'Malik as-Saleh',r:'Pendiri Samudera Pasai',info:'Sultan Malik as-Saleh (meninggal 1297 M) — pendiri Samudera Pasai. Nisannya bergaya Gujarat.',src:'Nisan Malik as-Saleh'},
     {l:'Iskandar Muda',r:'Puncak Kejayaan Aceh',info:'Sultan Iskandar Muda (1607-1636) — puncak kejayaan Aceh. Mengusir Portugis, memperluas wilayah, hubungan dengan Turki Usmani.',src:'Bustan as-Salatin'},
     {l:'Masjid Baiturrahman',r:'Simbol ketangguhan Aceh',info:'Masjid Raya Baiturrahman Banda Aceh — simbol ketangguhan rakyat Aceh melawan penjajah.',src:'Cagar Budaya Nasional'},
@@ -988,7 +1381,7 @@ const hxLvData=[
    p:[
     {l:'Sunan Kalijaga',r:'Wayang kulit sebagai media dakwah',info:'Sunan Kalijaga (Raden Said) — menggunakan WAYANG KULIT untuk dakwah Islam. Wali paling lama hidup.',src:'Babad Tanah Jawi'},
     {l:'Sunan Ampel',r:'Pendiri Pesantren Ampel Denta',info:'Sunan Ampel (Raden Rahmat) — mendirikan Pesantren Ampel Denta, mengajarkan "Moh Limo".',src:'Sejarah Walisongo'},
-    {l:'Sunan Kudus',r:'Menara Kudus bergaya candi',info:'Sunan Kudus (Ja\'far Shadiq) — membangun Menara Kudus bergaya Hindu-Buddha sebagai akulturasi.',src:'Sejarah Masjid Kudus'},
+    {l:'Sunan Kudus',r:'Menara Kudus bergaya candi',info:"Sunan Kudus (Ja'far Shadiq) — membangun Menara Kudus bergaya Hindu-Buddha sebagai akulturasi.",src:'Sejarah Masjid Kudus'},
     {l:'Sunan Giri',r:'Pendidikan Islam melalui pesantren',info:'Sunan Giri (Raden Paku) — pendidikan Islam melalui pesantren, menciptakan permainan tradisional.',src:'Sejarah Walisongo'},
     {l:'Demak',r:'Kerajaan Islam pertama di Jawa',info:'Kerajaan Demak (1478 M) didirikan Raden Patah — kerajaan Islam PERTAMA di Jawa. Pusat dakwah Walisongo.',src:'Babad Tanah Jawi'},
     {l:'Perjanjian Giyanti',r:'Pemecahan Mataram 1755',info:'Perjanjian Giyanti (1755) — memecah Mataram Islam menjadi Surakarta dan Yogyakarta akibat intervensi VOC.',src:'Sejarah Mataram Islam'}
@@ -1000,12 +1393,12 @@ const hxLvData=[
     {l:'Tidore',r:'Sultan Nuku & aliansi',info:'Kesultanan Tidore — saingan Ternate. Sultan Nuku (1780-1805) menjalin aliansi dengan Tiongkok dan Arab.',src:'Sejarah Maluku'},
     {l:'Banjar',r:'Kesultanan Kalimantan Selatan',info:'Kesultanan Banjar (1526 M) didirikan Sultan Suriansyah. Perang Banjar (1859-1905) melawan VOC.',src:'Hikayat Banjar'},
     {l:'Palembang',r:'Penerus Sriwijaya versi Islam',info:'Kesultanan Palembang (1659 M) — penerus Sriwijaya versi Islam. Pusat perdagangan Sumatera Selatan.',src:'Sejarah Palembang'},
-    {l:'Bima',r:'Pintu masuk Islam Nusa Tenggara',info:'Kesultanan Bima (1640 M) — pintu masuk Islam di Nusa Tenggara. Sultan Abdul Kahir. Peninggalan: Istana Asi Mbojo.',src:'Sejarah Bima'}
+    {l:'Bima',r:'Pintu masuk Islam Nusa Tenggara',info:'Kesultanan Bima (1640 M) — salah satu kerajaan Islam penting di Nusa Tenggara, bersama Kesultanan Sumbawa dan Buton. Sultan Abdul Kahir. Peninggalan: Istana Asi Mbojo.',src:'Sejarah Bima'}
    ]},
   {n:'Warisan & Akulturasi',i:'Cocokkan <strong>aspek</strong> dengan <strong>contoh akulturasinya</strong>!',
    p:[
     {l:'Arsitektur',r:'Masjid Demak & Menara Kudus',info:'Akulturasi ARSITEKTUR: atap tumpang masjid Demak meniru bentuk Hindu-Buddha. Menara Kudus bergaya candi.',src:'Cagar Budaya Nasional'},
-    {l:'Sastra',r:'Babad Tanah Jawi & Pegon',info:'Akulturasi SASTRA: penggunaan aksara Pegon (Arab-Jawa), Babad Tanah Jawi, Lontara\'.',src:'Sastra Jawa'},
+    {l:'Sastra',r:'Babad Tanah Jawi & Pegon',info:"Akulturasi SASTRA: penggunaan aksara Pegon (Arab-Jawa), Babad Tanah Jawi, Lontara'.",src:'Sastra Jawa'},
     {l:'Seni Pertunjukan',r:'Wayang & Tari Saman',info:'Akulturasi SENI: wayang kulit untuk dakwah, tari Saman (Aceh), tari Zapin (Melayu).',src:'Seni Tradisional Nusantara'},
     {l:'Sistem Sosial',r:'Pesantren & gotong royong',info:'Akulturasi SISTEM SOSIAL: pesantren, tradisi selamatan, gotong royong berbasis ajaran Islam.',src:'Kearifan Lokal'},
     {l:'Transisi Islam-Hindu',r:'Masjid Demak & Kudus',info:'Transisi dari Hindu-Buddha ke Islam — arsitektur masjid mengadopsi unsur Hindu (atap tumpang, menara candi).',src:'Sejarah Akulturasi Nusantara'},
@@ -1014,16 +1407,89 @@ const hxLvData=[
 ];
 let hxLv=0,hxSel={l:null,r:null},hxOk=0,hxUnlock=1;
 function initHx(){hxLv=0;hxUnlock=1;hideDetail();reviewData=[];renderHxTabs();loadHx(0);startTimer('hxTimer')}
-function renderHxTabs(){const t=$('#hxTabs');t.innerHTML='';hxLvData.forEach((lv,i)=>{const b=document.createElement('div');b.className='lv-tab';if(i===hxLv)b.classList.add('on');if(i>=hxUnlock)b.classList.add('lock');if(i<hxUnlock-1&&i!==hxLv)b.classList.add('done');b.textContent=lv.n;b.onclick=()=>{if(i>=hxUnlock)return;hideDetail();hxLv=i;renderHxTabs();loadHx(i)};t.appendChild(b)})}
-function loadHx(i){const lv=hxLvData[i];$('#hxLv').textContent=`Level ${i+1} / 5`;$('#hxInst').innerHTML=`<i class="fas fa-circle-info"></i><div>${lv.i}</div>`;hxSel={l:null,r:null};hxOk=0;const L=$('#hxL'),R=$('#hxR');L.innerHTML='';R.innerHTML='';shuffle(lv.p).forEach(p=>{const el=document.createElement('div');el.className='mi';el.textContent=p.l;el.dataset.k=p.l;el.dataset.s='l';el.onclick=()=>selHx(el);L.appendChild(el)});shuffle(lv.p).forEach(p=>{const el=document.createElement('div');el.className='mi';el.textContent=p.r;el.dataset.k=p.l;el.dataset.s='r';el.onclick=()=>selHx(el);R.appendChild(el)})}
-function selHx(el){if(el.classList.contains('done'))return;Sound.click();const s=el.dataset.s;if(hxSel[s])hxSel[s].classList.remove('sel');el.classList.add('sel');hxSel[s]=el;if(hxSel.l&&hxSel.r){const a=hxSel.l,b=hxSel.r;if(a.dataset.k===b.dataset.k){const pair=hxLvData[hxLv].p.find(p=>p.l===a.dataset.k);a.classList.remove('sel');b.classList.remove('sel');a.classList.add('done');b.classList.add('done');hxOk++;notif('✓ Cocok!','ok');Sound.correct();if(pair&&pair.info)showDetail(a.textContent,b.textContent,pair.info,pair.src);pushReview(`Pasangan: "${a.textContent}" dengan "${b.textContent}"`,[`${a.textContent} → ${pair.r}`],0,0,pair.info,pair.src);if(hxOk===hxLvData[hxLv].p.length)setTimeout(lvDone,1500)}else{a.classList.add('err');b.classList.add('err');shakeScreen();Sound.wrong();setTimeout(()=>{a.classList.remove('err','sel');b.classList.remove('err','sel')},500);notif('✗ Belum cocok!','no')}hxSel={l:null,r:null}}}
-function lvDone(){hideDetail();const lv=hxLvData[hxLv];if(hxLv<hxLvData.length-1){hxUnlock=hxLv+2;renderHxTabs();const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));Sound.correct();modal('⭐',`Level ${hxLv+1} Selesai!`,`Kamu membuka <strong>Level ${hxLv+2}: ${hxLvData[hxLv+1].n}</strong>!`,null,list);const next=$('#mNextBtn');next.hidden=false;next.innerHTML=`<i class="fas fa-arrow-right"></i> Lanjut ke Level ${hxLv+2}: ${hxLvData[hxLv+1].n}`}else{markDone('histo',{score:hxOk});showAchievement('histo');Sound.win();confetti();const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));setTimeout(()=>modal('🕋','Misi Selesai!',`Selamat! Kamu menuntaskan 5 level Misi Kerajaan Islam!`,'Petualang Sejati 🕋',list),1500)}}
+function renderHxTabs(){
+  const t=$('#hxTabs');t.innerHTML='';
+  hxLvData.forEach((lv,i)=>{
+    const b=document.createElement('div');
+    b.className='lv-tab';
+    if(i===hxLv)b.classList.add('on');
+    if(i>=hxUnlock)b.classList.add('lock');
+    if(i<hxUnlock-1&&i!==hxLv)b.classList.add('done');
+    b.textContent=lv.n;
+    b.onclick=()=>{if(i>=hxUnlock)return;hideDetail();hxLv=i;renderHxTabs();loadHx(i)};
+    t.appendChild(b);
+  });
+}
+function loadHx(i){
+  const lv=hxLvData[i];
+  $('#hxLv').textContent=`Level ${i+1} / 5`;
+  $('#hxInst').innerHTML=`<i class="fas fa-circle-info"></i><div>${lv.i}</div>`;
+  hxSel={l:null,r:null};hxOk=0;
+  const L=$('#hxL'),R=$('#hxR');L.innerHTML='';R.innerHTML='';
+  shuffle(lv.p).forEach(p=>{
+    const el=document.createElement('div');
+    el.className='mi';el.textContent=p.l;
+    el.dataset.k=p.l;el.dataset.s='l';
+    el.onclick=()=>selHx(el);
+    L.appendChild(el);
+  });
+  shuffle(lv.p).forEach(p=>{
+    const el=document.createElement('div');
+    el.className='mi';el.textContent=p.r;
+    el.dataset.k=p.l;el.dataset.s='r';
+    el.onclick=()=>selHx(el);
+    R.appendChild(el);
+  });
+}
+function selHx(el){
+  if(el.classList.contains('done'))return;
+  Sound.click();
+  const s=el.dataset.s;
+  if(hxSel[s])hxSel[s].classList.remove('sel');
+  el.classList.add('sel');hxSel[s]=el;
+  if(hxSel.l&&hxSel.r){
+    const a=hxSel.l,b=hxSel.r;
+    if(a.dataset.k===b.dataset.k){
+      const pair=hxLvData[hxLv].p.find(p=>p.l===a.dataset.k);
+      a.classList.remove('sel');b.classList.remove('sel');
+      a.classList.add('done');b.classList.add('done');
+      hxOk++;notif('✓ Cocok!','ok');Sound.correct();
+      if(pair&&pair.info)showDetail(a.textContent,b.textContent,pair.info,pair.src);
+      pushReview(`Pasangan: "${a.textContent}" dengan "${b.textContent}"`,[`${a.textContent} → ${pair.r}`],0,0,pair.info,pair.src);
+      if(hxOk===hxLvData[hxLv].p.length)setTimeout(lvDone,1500);
+    }else{
+      a.classList.add('err');b.classList.add('err');
+      shakeScreen();Sound.wrong();
+      setTimeout(()=>{a.classList.remove('err','sel');b.classList.remove('err','sel')},500);
+      notif('✗ Belum cocok!','no');
+    }
+    hxSel={l:null,r:null};
+  }
+}
+function lvDone(){
+  hideDetail();
+  const lv=hxLvData[hxLv];
+  if(hxLv<hxLvData.length-1){
+    hxUnlock=hxLv+2;renderHxTabs();
+    const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
+    Sound.correct();
+    modal('⭐',`Level ${hxLv+1} Selesai!`,`Kamu membuka <strong>Level ${hxLv+2}: ${hxLvData[hxLv+1].n}</strong>!`,null,list);
+    const next=$('#mNextBtn');
+    next.hidden=false;
+    next.innerHTML=`<i class="fas fa-arrow-right"></i> Lanjut ke Level ${hxLv+2}: ${hxLvData[hxLv+1].n}`;
+  }else{
+    markDone('histo',{score:hxOk});
+    showAchievement('histo');Sound.win();confetti();
+    const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
+    setTimeout(()=>modal('🕋','Misi Selesai!','Selamat! Kamu menuntaskan 5 level Misi Kerajaan Islam!','Petualang Sejati 🕋',list),1500);
+  }
+}
 function hxNextLevel(){closeModal();hxLv++;renderHxTabs();loadHx(hxLv)}
 
-/* ============ BANK SOAL ISLAM ============ */
+/* ============ BANK SOAL (41 items, kurikulum-aligned) ============ */
 const BANK=[
   {q:'Teori yang menyatakan Islam dibawa oleh pedagang dari Gujarat, India adalah teori...',o:['Mekkah','Gujarat','Persia','Tiongkok'],a:1,e:'TEORI GUJARAT (Snouck Hurgronje): Islam dibawa pedagang Gujarat, India pada abad ke-13 M.',cat:'Teori Masuk',s:'Snouck Hurgronje'},
-  {q:'Kerajaan Islam pertama di Nusantara adalah...',o:['Demak','Samudera Pasai','Aceh','Banten'],a:1,e:'SAMUDERA PASAI (1267 M) — kerajaan Islam pertama di Nusantara.',cat:'Kerajaan Awal',s:'Hikayat Raja-raja Pasai'},
+  {q:'Kerajaan Islam pertama di Nusantara menurut buku teks nasional adalah...',o:['Demak','Samudera Pasai','Aceh','Banten'],a:1,e:'SAMUDERA PASAI (1267 M) — kerajaan Islam pertama di Nusantara menurut buku teks nasional. Sebagian sejarawan menyebut Perlak sebagai lebih awal.',cat:'Kerajaan Awal',s:'Hikayat Raja-raja Pasai'},
   {q:'Pendiri Kerajaan Samudera Pasai adalah...',o:['Sultan Iskandar Muda','Sultan Malik as-Saleh','Raden Patah','Sunan Gunung Jati'],a:1,e:'SULTAN MALIK AS-SALEH (meninggal 1297 M) — pendiri Samudera Pasai.',cat:'Kerajaan Awal',s:'Nisan Malik as-Saleh'},
   {q:'Teori yang menyatakan Islam dibawa pedagang Arab langsung sejak abad ke-7 M...',o:['Gujarat','Mekkah','Persia','Tiongkok'],a:1,e:'TEORI MEKKAH (Buya Hamka): Islam dibawa pedagang Arab langsung sejak abad ke-7 M.',cat:'Teori Masuk',s:'Buya Hamka'},
   {q:'Tokoh yang mengusulkan Teori Persia adalah...',o:['Snouck Hurgronje','Buya Hamka','Hoesein Djajadiningrat','Sumanto Al Qurtuby'],a:2,e:'HOESEIN DJAJADININGRAT — pendukung Teori Persia (Iran).',cat:'Teori Masuk',s:'Hoesein Djajadiningrat'},
@@ -1031,30 +1497,29 @@ const BANK=[
   {q:'Kerajaan Islam pertama di Jawa adalah...',o:['Banten','Cirebon','Demak','Mataram'],a:2,e:'DEMAK (1478 M) didirikan Raden Patah — kerajaan Islam pertama di Jawa.',cat:'Jawa',s:'Babad Tanah Jawi'},
   {q:'Pendiri Kerajaan Demak adalah...',o:['Sunan Kalijaga','Raden Patah','Sunan Gunung Jati','Sultan Trenggono'],a:1,e:'RADEN PATAH — pendiri Kerajaan Demak (1478 M).',cat:'Jawa',s:'Babad Tanah Jawi'},
   {q:'Wali yang berdakwah menggunakan wayang kulit adalah...',o:['Sunan Giri','Sunan Kalijaga','Sunan Kudus','Sunan Ampel'],a:1,e:'SUNAN KALIJAGA (Raden Said) — menggunakan wayang kulit untuk dakwah.',cat:'Walisongo',s:'Babad Tanah Jawi'},
-  {q:'Wali yang membangun Menara Kudus bergaya candi adalah...',o:['Sunan Kalijaga','Sunan Kudus','Sunan Giri','Sunan Bonang'],a:1,e:'SUNAN KUDUS (Ja\'far Shadiq) — membangun Menara Kudus bergaya Hindu-Buddha.',cat:'Walisongo',s:'Sejarah Masjid Kudus'},
+  {q:'Wali yang membangun Menara Kudus bergaya candi adalah...',o:['Sunan Kalijaga','Sunan Kudus','Sunan Giri','Sunan Bonang'],a:1,e:"SUNAN KUDUS (Ja'far Shadiq) — membangun Menara Kudus bergaya Hindu-Buddha.",cat:'Walisongo',s:'Sejarah Masjid Kudus'},
   {q:'Sunan Ampel mengajarkan ajaran...',o:['Moh Limo','Catur Piwulang','Wiwitan','Suluk'],a:0,e:'AJARAN MOH LIMO — 5 hal buruk yang harus dijauhi. Diajarkan Sunan Ampel.',cat:'Walisongo',s:'Sejarah Walisongo'},
   {q:'Kerajaan Gowa-Tallo dijuluki...',o:['Serambi Mekkah','Ayam Jantan dari Timur','Kota Seribu Masjid','Bumi Lancang Kuning'],a:1,e:'GOWA-TALLO — "Ayam Jantan dari Timur" karena keberanian melawan VOC.',cat:'Luar Jawa',s:'Sejarah Makassar'},
   {q:'Sultan Hasanuddin dari Gowa-Tallo memimpin perlawanan melawan...',o:['Portugis','VOC Belanda','Spanyol','Inggris'],a:1,e:'SULTAN HASANUDDIN memimpin perlawanan melawan VOC Belanda (1666-1669).',cat:'Luar Jawa',s:'Sejarah Makassar'},
   {q:'Sultan Ternate yang berhasil mengusir Portugis dari Maluku adalah...',o:['Sultan Nuku','Sultan Baabullah','Sultan Hasanuddin','Sultan Agung'],a:1,e:'SULTAN BAABULLAH (1570-1583) — berhasil mengusir Portugis dari Maluku.',cat:'Luar Jawa',s:'Sejarah Maluku'},
-  {q:'Kesultanan Banjar didirikan oleh...',o:['Sultan Suriansyah','Sultan Nuku','Sultan Hasanuddin','Sultan Baabullah'],a:0,e:'SULTAN SURIANSSYAH — pendiri Kesultanan Banjar (1526 M).',cat:'Luar Jawa',s:'Hikayat Banjar'},
+  {q:'Kesultanan Banjar didirikan oleh...',o:['Sultan Suriansyah','Sultan Nuku','Sultan Hasanuddin','Sultan Baabullah'],a:0,e:'SULTAN SURIANSYAH — pendiri Kesultanan Banjar (1526 M).',cat:'Luar Jawa',s:'Hikayat Banjar'},
   {q:'Kerajaan Mataram Islam mencapai puncak pada masa...',o:['Raden Patah','Sultan Agung','Sultan Trenggono','Sunan Kalijaga'],a:1,e:'SULTAN AGUNG (1613-1645) — puncak kejayaan Mataram Islam.',cat:'Mataram',s:'Babad Tanah Jawi'},
   {q:'Sultan Agung menyerang Batavia pada tahun...',o:['1602 & 1603','1628 & 1629','1650 & 1651','1700 & 1701'],a:1,e:'Sultan Agung menyerang Batavia pada 1628 & 1629 M untuk mengusir VOC.',cat:'Mataram',s:'Babad Tanah Jawi'},
   {q:'Perjanjian yang memecah Mataram Islam menjadi 2 kerajaan adalah...',o:['Perjanjian Bongaya','Perjanjian Giyanti','Perjanjian Linggarjati','Perjanjian Renville'],a:1,e:'PERJANJIAN GIYANTI (1755) — memecah Mataram menjadi Surakarta dan Yogyakarta.',cat:'Mataram',s:'Sejarah Mataram Islam'},
   {q:'Masjid Demak memiliki atap tumpang yang meniru gaya...',o:['Arab','Hindu-Buddha','Tiongkok','Persia'],a:1,e:'Atap TUMPANG masjid Demak meniru gaya bangunan HINDU-BUDDHA — contoh akulturasi.',cat:'Warisan',s:'Cagar Budaya Nasional'},
-  {q:'Aksara Arab yang dimodifikasi untuk menulis bahasa Jawa disebut...',o:['Pallawa','Pegon','Lontara\'','Hanacaraka'],a:1,e:'AKSARA PEGON — aksara Arab yang dimodifikasi untuk bahasa Jawa, Sunda, Melayu.',cat:'Warisan',s:'Sastra Jawa'},
+  {q:'Aksara Arab yang dimodifikasi untuk menulis bahasa Jawa disebut...',o:['Pallawa','Pegon',"Lontara'",'Hanacaraka'],a:1,e:'AKSARA PEGON — aksara Arab yang dimodifikasi untuk bahasa Jawa, Sunda, Melayu.',cat:'Warisan',s:'Sastra Jawa'},
   {q:'Masjid Baiturrahman terletak di...',o:['Demak','Banda Aceh','Banten','Yogyakarta'],a:1,e:'Masjid Baiturrahman terletak di BANDA ACEH — simbol ketangguhan rakyat Aceh.',cat:'Aceh',s:'Cagar Budaya Nasional'},
   {q:'Sunan Giri mendirikan pesantren di daerah...',o:['Ampel Denta','Giri Kedaton','Kudus','Bonang'],a:1,e:'Sunan Giri mendirikan pesantren di GIRI KEDATON, Gresik.',cat:'Walisongo',s:'Sejarah Walisongo'},
-  {q:'Kerajaan Cirebon didirikan oleh...',o:['Sunan Kalijaga','Sunan Gunung Jati','Sunan Kudus','Raden Patah'],a:1,e:'SUNAN GUNUNG JATI (Syarif Hidayatullah) — pendiri Kerajaan Cirebon.',cat:'Jawa',s:'Sejarah Cirebon'},
+  {q:'Sultan pertama Kesultanan Cirebon adalah...',o:['Sunan Kalijaga','Sunan Gunung Jati','Sunan Kudus','Raden Patah'],a:1,e:'SUNAN GUNUNG JATI (Syarif Hidayatullah) — Sultan pertama Kesultanan Cirebon, melanjutkan rintisan Pangeran Cakrabuana (Walangsungsang).',cat:'Jawa',s:'Sejarah Cirebon'},
   {q:'Kesultanan Banten mencapai puncak pada masa...',o:['Sultan Ageng Tirtayasa','Sultan Hasanuddin','Sultan Baabullah','Sultan Nuku'],a:0,e:'SULTAN AGENG TIRTAYASA (1651-1683) — puncak Kesultanan Banten.',cat:'Jawa',s:'Sejarah Banten'},
   {q:'Kitab yang menceritakan sejarah Samudera Pasai adalah...',o:['Babad Tanah Jawi','Hikayat Raja-raja Pasai','Negarakertagama','Sutasoma'],a:1,e:'HIKAYAT RAJA-RAJA PASAI — naskah Melayu klasik tentang Samudera Pasai.',cat:'Sastra',s:'Sastra Melayu Klasik'},
   {q:'Naskah Bustan as-Salatin ditulis oleh...',o:['Mpu Prapanca','Nuruddin ar-Raniri','Hamzah Fansuri','Bukhari al-Jauhari'],a:1,e:'NURUDDIN AR-RANIRI — penulis Bustan as-Salatin dari Aceh.',cat:'Sastra',s:'Sastra Melayu Aceh'},
   {q:'Sistem penanggalan Jawa diciptakan oleh...',o:['Sultan Agung','Sultan Iskandar Muda','Raden Patah','Sunan Kalijaga'],a:0,e:'SULTAN AGUNG menciptakan Kalender Jawa dengan memadukan Hijriah & Saka.',cat:'Mataram',s:'Babad Tanah Jawi'},
-  {q:'Prasasti/Naskah yang menjadi tanda persahabatan Singasari-Dharmasraya adalah...',o:['Amoghapasa','Padang Roco','Canggal','Talang Tuo'],a:0,e:'Naskah/Prasasti AMOGHAPASA — tanda persahabatan Singasari dengan Dharmasraya.',cat:'Transisi',s:'Sumatera Barat'},
   {q:'Tradisi perayaan Maulid Nabi di Yogyakarta disebut...',o:['Sekaten','Grebeg','Ruwahan','Selamatan'],a:0,e:'SEKATEN — tradisi perayaan Maulid Nabi di Yogyakarta & Surakarta.',cat:'Warisan',s:'Tradisi Jawa'},
   {q:'Kerajaan Islam di Kalimantan Selatan adalah...',o:['Banjar','Pontianak','Kutai','Palembang'],a:0,e:'Kesultanan BANJAR (1526 M) — kerajaan Islam di Kalimantan Selatan.',cat:'Luar Jawa',s:'Hikayat Banjar'},
   {q:'Kesultanan Pontianak didirikan oleh...',o:['Sultan Suriansyah','Sultan Syarif Abdurrahman','Sultan Nuku','Sultan Baabullah'],a:1,e:'SULTAN SYARIF ABDURRAHMAN — pendiri Kesultanan Pontianak (1771 M).',cat:'Luar Jawa',s:'Sejarah Pontianak'},
-  {q:'Kerajaan Islam di Nusa Tenggara adalah...',o:['Bima','Buton','Gowa','Banjar'],a:0,e:'Kesultanan BIMA (1640 M) — pintu masuk Islam di Nusa Tenggara.',cat:'Luar Jawa',s:'Sejarah Bima'},
-  {q:'Kesultanan Buton memiliki undang-undang tertulis bernama...',o:['Martabat Tujuh','Kitab Undang-undang','Adat Se Atorang','Lontara\''],a:0,e:'MARTABAT TUJUH — konstitusi tertulis Kesultanan Buton.',cat:'Luar Jawa',s:'Sejarah Buton'},
+  {q:'Kerajaan Islam penting di Nusa Tenggara adalah...',o:['Bima','Buton','Gowa','Banjar'],a:0,e:'Kesultanan BIMA (1640 M) — salah satu kerajaan Islam penting di Nusa Tenggara, bersama Kesultanan Sumbawa dan Buton.',cat:'Luar Jawa',s:'Sejarah Bima'},
+  {q:'Kesultanan Buton memiliki undang-undang tertulis bernama...',o:['Martabat Tujuh','Kitab Undang-undang','Adat Se Atorang',"Lontara'"],a:0,e:'MARTABAT TUJUH — konstitusi tertulis Kesultanan Buton.',cat:'Luar Jawa',s:'Sejarah Buton'},
   {q:'Sunan Drajat dikenal dengan kepeduliannya kepada...',o:['Petani','Fakir miskin','Pedagang','Bangsawan'],a:1,e:'SUNAN DRAJAT — peduli kepada fakir miskin, mengajarkan gotong royong.',cat:'Walisongo',s:'Sejarah Walisongo'},
   {q:'Sunan Bonang berdakwah melalui...',o:['Wayang','Gamelan & Tembang','Menara','Pesantren'],a:1,e:'SUNAN BONANG — berdakwah melalui GAMELAN & TEMBANG.',cat:'Walisongo',s:'Sejarah Walisongo'},
   {q:'Semboyan yang menjadi dasar toleransi beragama di Indonesia adalah...',o:['Bhinneka Tunggal Ika','Sumpah Pemuda','Pancasila','Gotong Royong'],a:0,e:'BHINNEKA TUNGGAL IKA — semboyan bangsa Indonesia dari Kitab Sutasoma masa Majapahit.',cat:'Transisi',s:'Kakawin Jawa Kuno'},
@@ -1062,31 +1527,204 @@ const BANK=[
   {q:'Ajaran Sunan Ampel "Moh Limo" berarti...',o:['Lima ajaran','Lima hal buruk yang dijauhi','Lima waktu salat','Lima rukun Islam'],a:1,e:'MOH LIMO = 5 hal buruk yang harus dijauhi: mabuk, madat, main, madon, maling.',cat:'Walisongo',s:'Sejarah Walisongo'},
   {q:'Sunan Gresik adalah wali pertama di Jawa yang berdakwah di...',o:['Demak','Gresik','Kudus','Cirebon'],a:1,e:'SUNAN GRESIK (Maulana Malik Ibrahim) — wali pertama di Jawa, berdakwah di GRESIK.',cat:'Walisongo',s:'Sejarah Walisongo'},
   {q:'Perang Bubat terjadi antara Majapahit dengan...',o:['Sriwijaya','Kerajaan Sunda','Dharmasraya','Singasari'],a:1,e:'PERANG BUBAT (1357) — konflik Majapahit dengan KERAJAAN SUNDA.',cat:'Transisi',s:'Kitab Pararaton'},
-  {q:'Kerajaan Bali mempertahankan budaya Hindu hingga kini. Hal ini menunjukkan...',o:['Kehancuran budaya','Keberlanjutan & akulturasi','Isolasi budaya','Konflik agama'],a:1,e:'KEBERLANJUTAN & akulturasi budaya Hindu di Bali — tetap hidup berdampingan dengan Islam.',cat:'Transisi',s:'Cagar Budaya Bali'}
+  {q:'Kerajaan Bali mempertahankan budaya Hindu hingga kini. Hal ini menunjukkan...',o:['Kehancuran budaya','Keberlanjutan & akulturasi','Isolasi budaya','Konflik agama'],a:1,e:'KEBERLANJUTAN & akulturasi budaya Hindu di Bali — tetap hidup berdampingan dengan Islam.',cat:'Transisi',s:'Cagar Budaya Bali'},
+  {q:'Jalur utama penyebaran Islam di Nusantara pada awalnya adalah...',o:['Jalur peperangan','Jalur rempah & perdagangan','Jalur pendidikan militer','Jalur diplomasi kerajaan'],a:1,e:'JALUR REMPAH & PERDAGANGAN — urat nadi penyebaran Islam damai di Nusantara.',cat:'Karakteristik',s:'Sejarah Maritim Nusantara'}
 ];
-function pickQuestions(n){const picked=shuffle(BANK).slice(0,Math.min(n,BANK.length));return picked.map(item=>{const correctText=item.o[item.a];const shuffledOpts=shuffle(item.o);const newA=shuffledOpts.indexOf(correctText);return{...item,o:shuffledOpts,a:newA}})}
+function pickQuestions(n){
+  const picked=shuffle(BANK).slice(0,Math.min(n,BANK.length));
+  return picked.map(item=>{
+    const correctText=item.o[item.a];
+    const shuffledOpts=shuffle(item.o);
+    const newA=shuffledOpts.indexOf(correctText);
+    return{...item,o:shuffledOpts,a:newA};
+  });
+}
 
 /* ============ GAME 4: WHEEL ============ */
 const WHEEL_TOTAL=15;
 let wRot=0,wSpin=false,wCtx,wCanvas,wAnswered=0,wCorrect=0,wSession=[];
-function initWheel(){wCanvas=$('#wCanvas');wCtx=wCanvas.getContext('2d');drawWheel();wAnswered=0;wCorrect=0;wSession=pickQuestions(WHEEL_TOTAL);reviewData=[];hideDetail();updateWheelScore();hideQ();const c=$('#wCenter');c.textContent='PUTAR';c.onclick=spin;startTimer('whTimer')}
+function initWheel(){
+  wCanvas=$('#wCanvas');wCtx=wCanvas.getContext('2d');
+  drawWheel();
+  wAnswered=0;wCorrect=0;wSession=pickQuestions(WHEEL_TOTAL);
+  reviewData=[];hideDetail();updateWheelScore();hideQ();
+  const c=$('#wCenter');c.textContent='PUTAR';c.onclick=spin;
+  startTimer('whTimer');
+}
 function updateWheelScore(){$('#whScore').textContent=`Soal ${wAnswered} / ${WHEEL_TOTAL}`}
-function drawWheel(){const ctx=wCtx,cv=wCanvas,cx=cv.width/2,cy=cv.height/2;const r=Math.min(cx,cy)-16,n=8,sa=(Math.PI*2)/n;const cats=['Teori','Awal','Aceh','Jawa','Walisongo','Luar Jawa','Warisan','Transisi'];const colors=['#2563eb','#3b82f6','#1d4ed8','#0a1930','#60a5fa','#93c5fd','#112a5c','#06b6d4'];ctx.clearRect(0,0,cv.width,cv.height);ctx.beginPath();ctx.arc(cx,cy,r+12,0,6.28);ctx.strokeStyle='rgba(37,99,235,.3)';ctx.lineWidth=4;ctx.stroke();cats.forEach((name,i)=>{const s=i*sa+wRot,e=(i+1)*sa+wRot;const grad=ctx.createRadialGradient(cx,cy,r*.2,cx,cy,r);grad.addColorStop(0,colors[i]+'ee');grad.addColorStop(1,colors[i]+'88');ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,s,e);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.9)';ctx.stroke();ctx.save();ctx.translate(cx,cy);ctx.rotate(s+sa/2);ctx.textAlign='right';ctx.textBaseline='middle';ctx.shadowColor='rgba(10,25,48,.45)';ctx.shadowBlur=6;ctx.shadowOffsetY=2;ctx.fillStyle='#fff';ctx.font='800 20px "Plus Jakarta Sans","Segoe UI",sans-serif';ctx.fillText(name,r-30,0);ctx.restore()});ctx.beginPath();ctx.arc(cx,cy,50,0,6.28);ctx.fillStyle='#2563eb';ctx.fill();ctx.lineWidth=5;ctx.strokeStyle='#fff';ctx.stroke()}
-function spin(){if(wSpin)return;if(wAnswered>=WHEEL_TOTAL){notif('Selesai! Lihat hasilmu.','gold');return}wSpin=true;hideQ();Sound.spin();const start=wRot,total=Math.PI*2*(6+Math.random()*3),dur=4200,t=performance.now();$('#wCenter').textContent='...';(function anim(now){const p=Math.min((now-t)/dur,1),e=1-Math.pow(1-p,3);wRot=start+total*e;drawWheel();if(p<1)requestAnimationFrame(anim);else{wSpin=false;$('#wCenter').textContent='PUTAR';Sound.land();showQ()}})(t)}
+function drawWheel(){
+  const ctx=wCtx,cv=wCanvas,cx=cv.width/2,cy=cv.height/2;
+  const r=Math.min(cx,cy)-16,n=8,sa=(Math.PI*2)/n;
+  const cats=['Teori','Awal','Aceh','Jawa','Walisongo','Luar Jawa','Warisan','Transisi'];
+  const colors=['#2563eb','#3b82f6','#1d4ed8','#0a1930','#60a5fa','#93c5fd','#112a5c','#06b6d4'];
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.beginPath();ctx.arc(cx,cy,r+12,0,6.28);ctx.strokeStyle='rgba(37,99,235,.3)';ctx.lineWidth=4;ctx.stroke();
+  cats.forEach((name,i)=>{
+    const s=i*sa+wRot,e=(i+1)*sa+wRot;
+    const grad=ctx.createRadialGradient(cx,cy,r*.2,cx,cy,r);
+    grad.addColorStop(0,colors[i]+'ee');grad.addColorStop(1,colors[i]+'88');
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,s,e);ctx.closePath();
+    ctx.fillStyle=grad;ctx.fill();
+    ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.9)';ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(s+sa/2);ctx.textAlign='right';ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(10,25,48,.45)';ctx.shadowBlur=6;ctx.shadowOffsetY=2;
+    ctx.fillStyle='#fff';ctx.font='800 20px "Plus Jakarta Sans","Segoe UI",sans-serif';
+    ctx.fillText(name,r-30,0);ctx.restore();
+  });
+  ctx.beginPath();ctx.arc(cx,cy,50,0,6.28);ctx.fillStyle='#2563eb';ctx.fill();
+  ctx.lineWidth=5;ctx.strokeStyle='#fff';ctx.stroke();
+}
+function spin(){
+  if(wSpin)return;
+  if(wAnswered>=WHEEL_TOTAL){notif('Selesai! Lihat hasilmu.','gold');return}
+  wSpin=true;hideQ();Sound.spin();
+  const start=wRot,total=Math.PI*2*(6+Math.random()*3),dur=4200,t=performance.now();
+  $('#wCenter').textContent='...';
+  (function anim(now){
+    const p=Math.min((now-t)/dur,1),e=1-Math.pow(1-p,3);
+    wRot=start+total*e;drawWheel();
+    if(p<1)requestAnimationFrame(anim);
+    else{wSpin=false;$('#wCenter').textContent='PUTAR';Sound.land();showQ()}
+  })(t);
+}
 let wCur=null,wAns=false;
-function showQ(){if(wAnswered>=WHEEL_TOTAL)return;const q=wSession[wAnswered];wCur=q;wAns=false;$('#wCat').textContent=`Kategori: ${q.cat} · Soal ${wAnswered+1} dari ${WHEEL_TOTAL}`;$('#wText').textContent=q.q;const b=$('#wOpts');b.innerHTML='';q.o.forEach((o,i)=>{const btn=document.createElement('button');btn.innerHTML=`<strong style="color:var(--em)">${String.fromCharCode(65+i)}.</strong> ${o}`;btn.onclick=()=>ansW(i,btn);b.appendChild(btn)});$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show');$('#wQ').classList.add('show');setTimeout(()=>$('#wQ').scrollIntoView({behavior:'smooth',block:'center'}),200)}
-function ansW(i,btn){if(wAns)return;wAns=true;const ok=wCur.a,opts=$$('#wOpts button');opts.forEach((b,j)=>{b.disabled=true;if(j===ok)b.classList.add('ok')});if(i===ok){wCorrect++;notif('✓ Benar!','ok');Sound.correct()}else{btn.classList.add('no');notif('✗ Salah! Lihat penjelasan.','no');Sound.wrong();shakeScreen()}pushReview(wCur.q,wCur.o,wCur.a,i,wCur.e,wCur.s);wAnswered++;updateWheelScore();$('#whScore').classList.add('pulse');setTimeout(()=>$('#whScore').classList.remove('pulse'),600);$('#wExplainTxt').textContent=wCur.e;$('#wExplainSrc').innerHTML=wCur.s?`📖 Sumber: ${wCur.s}`:'';showDetail(`Soal ${wAnswered}`,i===ok?'Benar ✓':'Salah ✗',wCur.e,wCur.s,3000);setTimeout(()=>{$('#wExplain').classList.add('show');setTimeout(()=>$('#wActions').classList.add('show'),300);$('#wQ').scrollIntoView({behavior:'smooth',block:'center'})},600);if(wAnswered>=WHEEL_TOTAL){setTimeout(()=>{hideQ();const pct=Math.round((wCorrect/WHEEL_TOTAL)*100);let emoji='🎯',title='Selesai!';if(pct===100){emoji='🏆';title='SEMPURNA!'}else if(pct>=80){emoji='🌟';title='Hebat Sekali!'}else if(pct>=60){emoji='👍';title='Bagus!'}else if(pct>=40){emoji='💪';title='Cukup Baik!'}else{emoji='📚';title='Ayo Belajar Lagi!'}markDone('wheel',{score:wCorrect,total:WHEEL_TOTAL,acc:pct});showAchievement('wheel');if(pct>=70){Sound.win();confetti()}else Sound.lose();setTimeout(()=>{modal(emoji,title,`Kamu menjawab benar ${wCorrect} dari ${WHEEL_TOTAL} soal (${pct}%)!`,'Pemutar Hebat 🎡');const c=$('#wCenter');c.textContent='ULANGI';c.onclick=initWheel},400)},4200)}}
+function showQ(){
+  if(wAnswered>=WHEEL_TOTAL)return;
+  const q=wSession[wAnswered];wCur=q;wAns=false;
+  $('#wCat').textContent=`Kategori: ${q.cat} · Soal ${wAnswered+1} dari ${WHEEL_TOTAL}`;
+  $('#wText').textContent=q.q;
+  const b=$('#wOpts');b.innerHTML='';
+  q.o.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.innerHTML=`<strong style="color:var(--em)">${String.fromCharCode(65+i)}.</strong> ${o}`;
+    btn.onclick=()=>ansW(i,btn);
+    b.appendChild(btn);
+  });
+  $('#wExplain').classList.remove('show');
+  $('#wActions').classList.remove('show');
+  $('#wQ').classList.add('show');
+  setTimeout(()=>$('#wQ').scrollIntoView({behavior:'smooth',block:'center'}),200);
+}
+function ansW(i,btn){
+  if(wAns)return;wAns=true;
+  const ok=wCur.a,opts=$$('#wOpts button');
+  opts.forEach((b,j)=>{b.disabled=true;if(j===ok)b.classList.add('ok')});
+  if(i===ok){wCorrect++;notif('✓ Benar!','ok');Sound.correct();radialBurst(window.innerWidth/2,window.innerHeight/2)}
+  else{btn.classList.add('no');notif('✗ Salah! Lihat penjelasan.','no');Sound.wrong();shakeScreen()}
+  pushReview(wCur.q,wCur.o,wCur.a,i,wCur.e,wCur.s);
+  wAnswered++;updateWheelScore();
+  $('#whScore').classList.add('pulse');setTimeout(()=>$('#whScore').classList.remove('pulse'),600);
+  $('#wExplainTxt').textContent=wCur.e;
+  $('#wExplainSrc').innerHTML=wCur.s?`📖 Sumber: ${wCur.s}`:'';
+  showDetail(`Soal ${wAnswered}`,i===ok?'Benar ✓':'Salah ✗',wCur.e,wCur.s,3000);
+  setTimeout(()=>{
+    $('#wExplain').classList.add('show');
+    setTimeout(()=>$('#wActions').classList.add('show'),300);
+    $('#wQ').scrollIntoView({behavior:'smooth',block:'center'});
+  },600);
+  if(wAnswered>=WHEEL_TOTAL){
+    setTimeout(()=>{
+      hideQ();
+      const pct=Math.round((wCorrect/WHEEL_TOTAL)*100);
+      let emoji='🎯',title='Selesai!';
+      if(pct===100){emoji='🏆';title='SEMPURNA!'}
+      else if(pct>=80){emoji='🌟';title='Hebat Sekali!'}
+      else if(pct>=60){emoji='👍';title='Bagus!'}
+      else if(pct>=40){emoji='💪';title='Cukup Baik!'}
+      else{emoji='📚';title='Ayo Belajar Lagi!'}
+      markDone('wheel',{score:wCorrect,total:WHEEL_TOTAL,acc:pct});
+      showAchievement('wheel');
+      if(pct>=70){Sound.win();confetti()}else Sound.lose();
+      setTimeout(()=>{
+        modal(emoji,title,`Kamu menjawab benar ${wCorrect} dari ${WHEEL_TOTAL} soal (${pct}%)!`,'Pemutar Hebat 🎡');
+        const c=$('#wCenter');c.textContent='ULANGI';c.onclick=initWheel;
+      },400);
+    },4200);
+  }
+}
 function hideQ(){$('#wQ').classList.remove('show');$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show')}
 
 /* ============ GAME 5: JUTAWAN ============ */
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
 let mlCur=0,mlLL={fifty:true,ask:true,phone:true},mlCorrectCount=0,mlSession=[];
-function initMl(){mlCur=0;mlLL={fifty:true,ask:true,phone:true};mlCorrectCount=0;mlSession=pickQuestions(MIL_TOTAL);reviewData=[];hideDetail();['ll1','ll2','ll3'].forEach(id=>{$(`#${id}`).disabled=false;$(`#${id}`).style.opacity=1});renderTree();loadMl();startTimer('mlTimer')}
-function renderTree(){const t=$('#mtree');t.innerHTML='';mlMoney.forEach((m,i)=>{const el=document.createElement('div');el.className='mi2';if([4,9,14].includes(i))el.classList.add('mile');if(i===mlCur)el.classList.add('cur');else if(i<mlCur)el.classList.add('pass');el.innerHTML=`<span>${i+1}</span><span>${m.toLocaleString('id')}</span>`;t.appendChild(el)})}
-function loadMl(){if(mlCur>=MIL_TOTAL){const pct=Math.round((mlCorrectCount/MIL_TOTAL)*100);let emoji='🎯',title='Selesai!';if(pct===100){emoji='👑';title='SEMPURNA!'}else if(pct>=80){emoji='🏆';title='Luar Biasa!'}else if(pct>=60){emoji='🌟';title='Hebat!'}else if(pct>=40){emoji='👍';title='Bagus!'}else{emoji='📚';title='Ayo Coba Lagi!'}markDone('millionaire',{score:mlCorrectCount,total:MIL_TOTAL,acc:pct});showAchievement('millionaire');if(pct>=70){Sound.win();confetti()}else Sound.lose();setTimeout(()=>modal(emoji,title,`Kamu menjawab benar ${mlCorrectCount} dari ${MIL_TOTAL} soal (${pct}%)!`,'Jutawan Sejarah 👑'),500);return}const q=mlSession[mlCur];$('#mlScore').textContent=`${mlCur+1} / ${MIL_TOTAL}`;$('#mlN').textContent=`Pertanyaan ${mlCur+1} · ${mlMoney[mlCur].toLocaleString('id')} poin`;$('#mlQ').textContent=q.q;const o=$('#mlOpts');o.innerHTML='';q.o.forEach((t,i)=>{const b=document.createElement('button');b.innerHTML=`<span class="l">${String.fromCharCode(65+i)}.</span> ${t}`;b.onclick=()=>ansMl(i,b);o.appendChild(b)});renderTree()}
-function ansMl(i,btn){const q=mlSession[mlCur],ok=q.a,all=$$('#mlOpts button');all.forEach(b=>b.disabled=true);if(i===ok){btn.classList.add('ok');notif('✓ Benar!','ok');mlCorrectCount++;Sound.correct()}else{btn.classList.add('no');all[ok].classList.add('ok');notif('✗ Salah! Tetap lanjut.','no');Sound.wrong();shakeScreen()}pushReview(q.q,q.o,q.a,i,q.e,q.s);if(q.e)showDetail(`Soal ${mlCur+1}`,i===ok?'Benar ✓':'Salah ✗',q.e,q.s,3000);setTimeout(()=>{mlCur++;loadMl()},1500)}
-function useLL(t){if(!mlLL[t])return;mlLL[t]=false;Sound.click();if(t==='fifty')$('#ll1').disabled=true;if(t==='ask')$('#ll2').disabled=true;if(t==='phone')$('#ll3').disabled=true;const ok=mlSession[mlCur].a,opts=$$('#mlOpts button');if(t==='fifty'){[0,1,2,3].filter(i=>i!==ok).sort(()=>Math.random()-.5).slice(0,2).forEach(i=>opts[i].classList.add('elim'));notif('50:50 digunakan!','gold')}else if(t==='ask'){notif(`Audien memilih jawaban ${String.fromCharCode(65+ok)}`,'gold')}else{const sure=Math.random()>0.15;const pick=sure?ok:[0,1,2,3].filter(i=>i!==ok)[Math.floor(Math.random()*3)];notif(`Temanmu menjawab: ${String.fromCharCode(65+pick)}`,'gold')}}
+function initMl(){
+  mlCur=0;mlLL={fifty:true,ask:true,phone:true};mlCorrectCount=0;
+  mlSession=pickQuestions(MIL_TOTAL);
+  reviewData=[];hideDetail();
+  ['ll1','ll2','ll3'].forEach(id=>{$(`#${id}`).disabled=false;$(`#${id}`).style.opacity=1});
+  renderTree();loadMl();startTimer('mlTimer');
+}
+function renderTree(){
+  const t=$('#mtree');t.innerHTML='';
+  mlMoney.forEach((m,i)=>{
+    const el=document.createElement('div');
+    el.className='mi2';
+    if([4,9,14].includes(i))el.classList.add('mile');
+    if(i===mlCur)el.classList.add('cur');
+    else if(i<mlCur)el.classList.add('pass');
+    el.innerHTML=`<span>${i+1}</span><span>${m.toLocaleString('id')}</span>`;
+    t.appendChild(el);
+  });
+}
+function loadMl(){
+  if(mlCur>=MIL_TOTAL){
+    const pct=Math.round((mlCorrectCount/MIL_TOTAL)*100);
+    let emoji='🎯',title='Selesai!';
+    if(pct===100){emoji='👑';title='SEMPURNA!'}
+    else if(pct>=80){emoji='🏆';title='Luar Biasa!'}
+    else if(pct>=60){emoji='🌟';title='Hebat!'}
+    else if(pct>=40){emoji='👍';title='Bagus!'}
+    else{emoji='📚';title='Ayo Coba Lagi!'}
+    markDone('millionaire',{score:mlCorrectCount,total:MIL_TOTAL,acc:pct});
+    showAchievement('millionaire');
+    if(pct>=70){Sound.win();confetti()}else Sound.lose();
+    setTimeout(()=>{
+      modal(emoji,title,`Kamu menjawab benar ${mlCorrectCount} dari ${MIL_TOTAL} soal (${pct}%)!`,'Jutawan Sejarah 👑');
+      const c=$('#wCenter');
+    },500);
+    return;
+  }
+  const q=mlSession[mlCur];
+  $('#mlScore').textContent=`${mlCur+1} / ${MIL_TOTAL}`;
+  $('#mlN').textContent=`Pertanyaan ${mlCur+1} · ${mlMoney[mlCur].toLocaleString('id')} poin`;
+  $('#mlQ').textContent=q.q;
+  const o=$('#mlOpts');o.innerHTML='';
+  q.o.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.innerHTML=`<span class="l">${String.fromCharCode(65+i)}.</span> ${t}`;
+    b.onclick=()=>ansMl(i,b);
+    o.appendChild(b);
+  });
+  renderTree();
+}
+function ansMl(i,btn){
+  const q=mlSession[mlCur],ok=q.a,all=$$('#mlOpts button');
+  all.forEach(b=>b.disabled=true);
+  if(i===ok){btn.classList.add('ok');notif('✓ Benar!','ok');mlCorrectCount++;Sound.correct();radialBurst(innerWidth/2,innerHeight/2)}
+  else{btn.classList.add('no');all[ok].classList.add('ok');notif('✗ Salah! Tetap lanjut.','no');Sound.wrong();shakeScreen()}
+  pushReview(q.q,q.o,q.a,i,q.e,q.s);
+  if(q.e)showDetail(`Soal ${mlCur+1}`,i===ok?'Benar ✓':'Salah ✗',q.e,q.s,3000);
+  setTimeout(()=>{mlCur++;loadMl()},1500);
+}
+function useLL(t){
+  if(!mlLL[t])return;
+  mlLL[t]=false;Sound.click();
+  if(t==='fifty')$('#ll1').disabled=true;
+  if(t==='ask')$('#ll2').disabled=true;
+  if(t==='phone')$('#ll3').disabled=true;
+  const ok=mlSession[mlCur].a,opts=$$('#mlOpts button');
+  if(t==='fifty'){
+    [0,1,2,3].filter(i=>i!==ok).sort(()=>Math.random()-.5).slice(0,2).forEach(i=>opts[i].classList.add('elim'));
+    notif('50:50 digunakan!','gold');
+  }else if(t==='ask'){
+    notif(`Audien memilih jawaban ${String.fromCharCode(65+ok)}`,'gold');
+  }else{
+    const sure=Math.random()>0.15;
+    const pick=sure?ok:[0,1,2,3].filter(i=>i!==ok)[Math.floor(Math.random()*3)];
+    notif(`Temanmu menjawab: ${String.fromCharCode(65+pick)}`,'gold');
+  }
+}
 
 /* ============ GAME 6: MEMORY ============ */
 const MEM_PAIRS=[
@@ -1099,12 +1737,60 @@ const MEM_PAIRS=[
   ['Pegon','Aksara Arab untuk bahasa Jawa'],
   ['Hikayat Raja Pasai','Naskah sejarah Samudera Pasai']
 ];
-let memFirst=null,memSecond=null,memLock=false,memTries=0,memMatched=0,memBest=0;
-function resetMem(){memFirst=null;memSecond=null;memLock=false;memTries=0;memMatched=0;reviewData=[];$('#memScore').textContent='Percobaan: 0';const fb=$('#memFb');fb.style.display='none';fb.textContent='';const grid=$('#memGrid');grid.innerHTML='';const cards=[];MEM_PAIRS.forEach((p,i)=>{cards.push({id:i,txt:p[0],type:'term'});cards.push({id:i,txt:p[1],type:'def'})});shuffle(cards).forEach(c=>{const el=document.createElement('div');el.className='mem-card';el.dataset.id=c.id;el.innerHTML=`<div class="mem-card-in"><div class="mem-face mem-front">🕌</div><div class="mem-face mem-back">${c.txt}</div></div>`;el.onclick=()=>flipMem(el);grid.appendChild(el)});startTimer('memTimer')}
-function flipMem(el){if(memLock||el.classList.contains('flip')||el.classList.contains('matched'))return;Sound.click();el.classList.add('flip');if(!memFirst){memFirst=el;return}memSecond=el;memLock=true;memTries++;$('#memScore').textContent='Percobaan: '+memTries;const idA=memFirst.dataset.id,idB=memSecond.dataset.id;if(idA===idB){setTimeout(()=>{memFirst.classList.add('matched');memSecond.classList.add('matched');memMatched++;Sound.correct();const fb=$('#memFb');fb.style.display='block';fb.style.background='rgba(59,130,246,.14)';fb.style.color='#1e3a8a';fb.textContent=`✓ Cocok! (${memMatched}/8)`;memFirst=null;memSecond=null;memLock=false;if(memMatched===8){finishMem()}},420)}else{setTimeout(()=>{memFirst.classList.remove('flip');memSecond.classList.remove('flip');Sound.wrong();const fb=$('#memFb');fb.style.display='block';fb.style.background='rgba(239,68,68,.12)';fb.style.color='#991b1b';fb.textContent='✗ Belum cocok. Coba lagi!';memFirst=null;memSecond=null;memLock=false},850)}}
-function finishMem(){const pts=Math.max(100,1000-(memTries-8)*40);const acc=Math.max(30,Math.round(8/memTries*100));markDone('memory',{score:pts,tries:memTries,acc:acc});showAchievement('memory');Sound.win();confetti();setTimeout(()=>modal('🃏','Ingatan Emas!',`Kamu menemukan semua 8 pasangan dalam ${memTries} percobaan (${fmtTime(timerSec)})!`,'Ingatan Emas 🃏'),500)}
+let memFirst=null,memSecond=null,memLock=false,memTries=0,memMatched=0;
+function resetMem(){
+  memFirst=null;memSecond=null;memLock=false;memTries=0;memMatched=0;reviewData=[];
+  $('#memScore').textContent='Percobaan: 0';
+  const fb=$('#memFb');fb.style.display='none';fb.textContent='';
+  const grid=$('#memGrid');grid.innerHTML='';
+  const cards=[];
+  MEM_PAIRS.forEach((p,i)=>{cards.push({id:i,txt:p[0],type:'term'});cards.push({id:i,txt:p[1],type:'def'})});
+  shuffle(cards).forEach(c=>{
+    const el=document.createElement('div');
+    el.className='mem-card';el.dataset.id=c.id;
+    el.innerHTML=`<div class="mem-card-in"><div class="mem-face mem-front">🕌</div><div class="mem-face mem-back">${c.txt}</div></div>`;
+    el.onclick=()=>flipMem(el);
+    grid.appendChild(el);
+  });
+  startTimer('memTimer');
+}
+function flipMem(el){
+  if(memLock||el.classList.contains('flip')||el.classList.contains('matched'))return;
+  Sound.click();el.classList.add('flip');
+  if(!memFirst){memFirst=el;return}
+  memSecond=el;memLock=true;memTries++;
+  $('#memScore').textContent='Percobaan: '+memTries;
+  const idA=memFirst.dataset.id,idB=memSecond.dataset.id;
+  if(idA===idB){
+    setTimeout(()=>{
+      memFirst.classList.add('matched');memSecond.classList.add('matched');
+      memMatched++;Sound.correct();
+      const fb=$('#memFb');
+      fb.style.display='block';fb.style.background='rgba(59,130,246,.14)';fb.style.color='#1e3a8a';
+      fb.textContent=`✓ Cocok! (${memMatched}/8)`;
+      memFirst=null;memSecond=null;memLock=false;
+      if(memMatched===8)finishMem();
+    },420);
+  }else{
+    setTimeout(()=>{
+      memFirst.classList.remove('flip');memSecond.classList.remove('flip');
+      Sound.wrong();
+      const fb=$('#memFb');
+      fb.style.display='block';fb.style.background='rgba(239,68,68,.12)';fb.style.color='#991b1b';
+      fb.textContent='✗ Belum cocok. Coba lagi!';
+      memFirst=null;memSecond=null;memLock=false;
+    },850);
+  }
+}
+function finishMem(){
+  const pts=Math.max(100,1000-(memTries-8)*40);
+  const acc=Math.max(30,Math.round(8/memTries*100));
+  markDone('memory',{score:pts,tries:memTries,acc:acc});
+  showAchievement('memory');Sound.win();confetti();
+  setTimeout(()=>modal('🃏','Ingatan Emas!',`Kamu menemukan semua 8 pasangan dalam ${memTries} percobaan (${fmtTime(timerSec)})!`,'Ingatan Emas 🃏'),500);
+}
 
-/* ============ GAME 7: FORTUNE ============ */
+/* ============ GAME 7: FORTUNE (FIXED wheel math + restart button) ============ */
 const FORTUNE_SECTORS=[
   {label:'Soal ×1',type:'quiz',mult:1,color:'#2563eb',emoji:'🎯'},
   {label:'Bonus +200',type:'bonus',pts:200,color:'#3b82f6',emoji:'🎁'},
@@ -1117,21 +1803,240 @@ const FORTUNE_SECTORS=[
 ];
 const FT_TOTAL=12;
 let ftRot=0,ftSpin=false,ftSpins=0,ftPoints=0,ftCorrect=0,ftSession=[],ftCurQ=null,ftCurMult=1,ftCtx,ftCanvas,ftAnswered=false;
-function resetFortune(){ftSpins=0;ftPoints=0;ftCorrect=0;ftSession=pickQuestions(20);reviewData=[];hideDetail();ftCanvas=$('#ftCanvas');ftCtx=ftCanvas.getContext('2d');drawFortune();updateFortuneStats();$('#ftStatus').classList.remove('show');$('#ftQuiz').classList.remove('show');$('#ftCenter').innerHTML='<i class="fas fa-dice"></i>PUTAR';$('#ftCenter').onclick=spinFortune;startTimer('ftTimer')}
-function updateFortuneStats(){$('#ftPts').textContent=ftPoints+' poin';$('#ftTotalPts').textContent=ftPoints;$('#ftSpins').textContent=ftSpins+'/'+FT_TOTAL;$('#ftCorrect').textContent=ftCorrect}
-function drawFortune(){const ctx=ftCtx,cv=ftCanvas,cx=cv.width/2,cy=cv.height/2;const r=Math.min(cx,cy)-14,n=FORTUNE_SECTORS.length,sa=(Math.PI*2)/n;ctx.clearRect(0,0,cv.width,cv.height);ctx.beginPath();ctx.arc(cx,cy,r+14,0,6.28);ctx.strokeStyle='rgba(29,78,216,.4)';ctx.lineWidth=5;ctx.stroke();FORTUNE_SECTORS.forEach((sec,i)=>{const s=i*sa+ftRot,e=(i+1)*sa+ftRot;const grad=ctx.createRadialGradient(cx,cy,r*.2,cx,cy,r);grad.addColorStop(0,sec.color+'ff');grad.addColorStop(1,sec.color+'88');ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,s,e);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.9)';ctx.stroke();ctx.save();ctx.translate(cx,cy);ctx.rotate(s+sa/2);ctx.textAlign='right';ctx.textBaseline='middle';ctx.shadowColor='rgba(0,0,0,.4)';ctx.shadowBlur=6;ctx.shadowOffsetY=2;ctx.fillStyle='#fff';ctx.font='900 19px "Plus Jakarta Sans","Segoe UI",sans-serif';ctx.fillText(sec.emoji+' '+sec.label,r-24,0);ctx.restore()});ctx.beginPath();ctx.arc(cx,cy,52,0,6.28);ctx.fillStyle='#1d4ed8';ctx.fill();ctx.lineWidth=5;ctx.strokeStyle='#fff';ctx.stroke()}
-function spinFortune(){if(ftSpin)return;if(ftSpins>=FT_TOTAL){finishFortune();return}ftSpin=true;$('#ftStatus').classList.remove('show');$('#ftQuiz').classList.remove('show');Sound.spin();const start=ftRot,total=Math.PI*2*(5+Math.random()*3),dur=3800,t=performance.now();$('#ftCenter').innerHTML='...';(function anim(now){const p=Math.min((now-t)/dur,1),e=1-Math.pow(1-p,3);ftRot=start+total*e;drawFortune();if(p<1)requestAnimationFrame(anim);else{ftSpin=false;$('#ftCenter').innerHTML='<i class="fas fa-dice"></i>PUTAR';Sound.land();landFortune()}})(t)}
-function landFortune(){const n=FORTUNE_SECTORS.length,sa=(Math.PI*2)/n;let rel=(-ftRot)%(Math.PI*2);if(rel<0)rel+=Math.PI*2;const pointerAngle=(Math.PI*1.5);let idx=Math.floor(((pointerAngle-rel)%(Math.PI*2))/sa);if(idx<0)idx+=n;idx=(n-idx-1)%n;const sec=FORTUNE_SECTORS[idx];ftSpins++;updateFortuneStats();const st=$('#ftStatus');st.classList.add('show');$('#ftEmoji').textContent=sec.emoji;$('#ftTitle').textContent=sec.label;const pts=$('#ftPoints');pts.classList.remove('neg');if(sec.type==='bonus'){ftPoints+=sec.pts;$('#ftDesc').textContent='Kamu mendapat bonus poin!';pts.textContent='+'+sec.pts+' poin';Sound.win();confetti()}else if(sec.type==='penalty'){ftPoints+=sec.pts;if(ftPoints<0)ftPoints=0;$('#ftDesc').textContent='Yah, kena penalti!';pts.textContent=sec.pts+' poin';pts.classList.add('neg');Sound.wrong();shakeScreen()}else if(sec.type==='skip'){$('#ftDesc').textContent='Putaran ini dilewati.';pts.textContent='Tidak ada soal';Sound.tick()}else{$('#ftDesc').textContent='Jawab soal dengan benar untuk poin ×'+sec.mult+'!';pts.textContent='Poin ×'+sec.mult;setTimeout(()=>showFortuneQuiz(sec.mult),900)}updateFortuneStats();if(ftSpins>=FT_TOTAL&&(sec.type!=='quiz')){setTimeout(finishFortune,2200)}}
-function showFortuneQuiz(mult){if(ftSession.length===0)ftSession=pickQuestions(20);const q=ftSession.shift();ftCurQ=q;ftCurMult=mult;ftAnswered=false;$('#ftQuizCat').textContent=`${q.cat} · Poin ×${mult}`;$('#ftQuizText').textContent=q.q;const box=$('#ftQuizOpts');box.innerHTML='';const keys=['A','B','C','D'];q.o.forEach((t,i)=>{const b=document.createElement('button');b.innerHTML=`<span class="l">${keys[i]}.</span> ${t}`;b.onclick=()=>ansFortune(i,b);box.appendChild(b)});$('#ftQuiz').classList.add('show');$('#ftQuiz').scrollIntoView({behavior:'smooth',block:'center'})}
-function ansFortune(i,btn){if(ftAnswered)return;ftAnswered=true;const q=ftCurQ,ok=q.a;$$('#ftQuizOpts button').forEach(b=>b.disabled=true);const basePts=100;let gained=0;if(i===ok){btn.style.background='rgba(59,130,246,.14)';btn.style.borderColor='var(--em2)';btn.style.color='#1e3a8a';gained=basePts*ftCurMult;ftPoints+=gained;ftCorrect++;Sound.correct();pushReview(q.q,q.o,q.a,i,`+${gained} poin ×${ftCurMult}`,'Bank Soal Kerajaan Islam');notif(`✓ Benar! +${gained} poin`,'ok')}else{btn.style.background='rgba(239,68,68,.12)';btn.style.borderColor='var(--red)';$$('#ftQuizOpts button')[ok].style.background='rgba(59,130,246,.14)';$$('#ftQuizOpts button')[ok].style.borderColor='var(--em2)';Sound.wrong();shakeScreen();pushReview(q.q,q.o,q.a,i,`Jawaban benar: ${q.o[ok]}`,'Bank Soal Kerajaan Islam');notif('✗ Salah. Tidak dapat poin.','no')}updateFortuneStats();const st=$('#ftStatus');st.classList.add('show');$('#ftEmoji').textContent=i===ok?'🎉':'😢';$('#ftTitle').textContent=i===ok?'BENAR!':'SALAH';$('#ftDesc').textContent=q.e;$('#ftPoints').textContent=gained>0?'+'+gained+' poin':'Tidak dapat poin';if(gained===0)$('#ftPoints').classList.add('neg');setTimeout(()=>{if(ftSpins>=FT_TOTAL)finishFortune()},2200)}
-function finishFortune(){const maxPts=12*300;const pct=Math.min(100,Math.round(ftPoints/maxPts*100));let emoji='🎲',title='Selesai!';if(ftPoints>=1200){emoji='🏆';title='JUTAWAN FORTUNE!'}else if(ftPoints>=800){emoji='👑';title='Luar Biasa!'}else if(ftPoints>=500){emoji='🌟';title='Hebat!'}else if(ftPoints>=300){emoji='👍';title='Bagus!'}else{emoji='📚';title='Coba Lagi!'}markDone('fortune',{score:ftPoints,acc:pct});showAchievement('fortune');if(ftPoints>=500){Sound.win();confetti()}else Sound.lose();setTimeout(()=>modal(emoji,title,`Total poinmu: ${ftPoints} (${ftCorrect} soal benar dari 12 putaran)!`,'Pemburu Fortune 🎲'),500)}
+function resetFortune(){
+  ftSpins=0;ftPoints=0;ftCorrect=0;
+  ftSession=pickQuestions(20);reviewData=[];hideDetail();
+  ftCanvas=$('#ftCanvas');ftCtx=ftCanvas.getContext('2d');
+  drawFortune();updateFortuneStats();
+  $('#ftStatus').classList.remove('show');
+  $('#ftQuiz').classList.remove('show');
+  const c=$('#ftCenter');
+  c.innerHTML='<i class="fas fa-dice"></i>PUTAR';
+  c.onclick=spinFortune;
+  startTimer('ftTimer');
+}
+function updateFortuneStats(){
+  $('#ftPts').textContent=ftPoints+' poin';
+  $('#ftTotalPts').textContent=ftPoints;
+  $('#ftSpins').textContent=ftSpins+'/'+FT_TOTAL;
+  $('#ftCorrect').textContent=ftCorrect;
+}
+function drawFortune(){
+  const ctx=ftCtx,cv=ftCanvas,cx=cv.width/2,cy=cv.height/2;
+  const r=Math.min(cx,cy)-14,n=FORTUNE_SECTORS.length,sa=(Math.PI*2)/n;
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.beginPath();ctx.arc(cx,cy,r+14,0,6.28);
+  ctx.strokeStyle='rgba(29,78,216,.4)';ctx.lineWidth=5;ctx.stroke();
+  FORTUNE_SECTORS.forEach((sec,i)=>{
+    const s=i*sa+ftRot,e=(i+1)*sa+ftRot;
+    const grad=ctx.createRadialGradient(cx,cy,r*.2,cx,cy,r);
+    grad.addColorStop(0,sec.color+'ff');grad.addColorStop(1,sec.color+'88');
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,s,e);ctx.closePath();
+    ctx.fillStyle=grad;ctx.fill();
+    ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.9)';ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(s+sa/2);ctx.textAlign='right';ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(0,0,0,.4)';ctx.shadowBlur=6;ctx.shadowOffsetY=2;
+    ctx.fillStyle='#fff';ctx.font='900 19px "Plus Jakarta Sans","Segoe UI",sans-serif';
+    ctx.fillText(sec.emoji+' '+sec.label,r-24,0);ctx.restore();
+  });
+  ctx.beginPath();ctx.arc(cx,cy,52,0,6.28);ctx.fillStyle='#1d4ed8';ctx.fill();
+  ctx.lineWidth=5;ctx.strokeStyle='#fff';ctx.stroke();
+}
+function spinFortune(){
+  if(ftSpin)return;
+  if(ftSpins>=FT_TOTAL){finishFortune();return}
+  ftSpin=true;
+  $('#ftStatus').classList.remove('show');
+  $('#ftQuiz').classList.remove('show');
+  Sound.spin();
+  const start=ftRot,total=Math.PI*2*(5+Math.random()*3),dur=3800,t=performance.now();
+  $('#ftCenter').innerHTML='...';
+  (function anim(now){
+    const p=Math.min((now-t)/dur,1),e=1-Math.pow(1-p,3);
+    ftRot=start+total*e;drawFortune();
+    if(p<1)requestAnimationFrame(anim);
+    else{
+      ftSpin=false;
+      $('#ftCenter').innerHTML='<i class="fas fa-dice"></i>PUTAR';
+      Sound.land();landFortune();
+    }
+  })(t);
+}
+/* FIXED: correct landing math */
+function landFortune(){
+  const n=FORTUNE_SECTORS.length,sa=(Math.PI*2)/n;
+  const pointerAngle=3*Math.PI/2; // top of canvas = 270°
+  let rel=(pointerAngle-ftRot)%(Math.PI*2);
+  if(rel<0)rel+=Math.PI*2;
+  const idx=Math.floor(rel/sa)%n;
+  const sec=FORTUNE_SECTORS[idx];
+  ftSpins++;updateFortuneStats();
+  const st=$('#ftStatus');
+  st.classList.add('show');
+  $('#ftEmoji').textContent=sec.emoji;
+  $('#ftTitle').textContent=sec.label;
+  const pts=$('#ftPoints');pts.classList.remove('neg');
+  if(sec.type==='bonus'){
+    ftPoints+=sec.pts;
+    $('#ftDesc').textContent='Kamu mendapat bonus poin!';
+    pts.textContent='+'+sec.pts+' poin';
+    Sound.win();confetti();
+  }else if(sec.type==='penalty'){
+    ftPoints+=sec.pts;if(ftPoints<0)ftPoints=0;
+    $('#ftDesc').textContent='Yah, kena penalti!';
+    pts.textContent=sec.pts+' poin';pts.classList.add('neg');
+    Sound.wrong();shakeScreen();
+  }else if(sec.type==='skip'){
+    $('#ftDesc').textContent='Putaran ini dilewati.';
+    pts.textContent='Tidak ada soal';Sound.tick();
+  }else{
+    $('#ftDesc').textContent='Jawab soal dengan benar untuk poin ×'+sec.mult+'!';
+    pts.textContent='Poin ×'+sec.mult;
+    setTimeout(()=>showFortuneQuiz(sec.mult),900);
+  }
+  updateFortuneStats();
+  if(ftSpins>=FT_TOTAL&&(sec.type!=='quiz'))setTimeout(finishFortune,2200);
+}
+function showFortuneQuiz(mult){
+  if(ftSession.length===0)ftSession=pickQuestions(20);
+  const q=ftSession.shift();ftCurQ=q;ftCurMult=mult;ftAnswered=false;
+  $('#ftQuizCat').textContent=`${q.cat} · Poin ×${mult}`;
+  $('#ftQuizText').textContent=q.q;
+  const box=$('#ftQuizOpts');box.innerHTML='';
+  const keys=['A','B','C','D'];
+  q.o.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.innerHTML=`<span class="l">${keys[i]}.</span> ${t}`;
+    b.onclick=()=>ansFortune(i,b);
+    box.appendChild(b);
+  });
+  $('#ftQuiz').classList.add('show');
+  $('#ftQuiz').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function ansFortune(i,btn){
+  if(ftAnswered)return;ftAnswered=true;
+  const q=ftCurQ,ok=q.a;
+  $$('#ftQuizOpts button').forEach(b=>b.disabled=true);
+  const basePts=100;let gained=0;
+  if(i===ok){
+    btn.style.background='rgba(59,130,246,.14)';btn.style.borderColor='var(--em2)';btn.style.color='#1e3a8a';
+    gained=basePts*ftCurMult;ftPoints+=gained;ftCorrect++;
+    Sound.correct();radialBurst(innerWidth/2,innerHeight/2);
+    pushReview(q.q,q.o,q.a,i,`+${gained} poin ×${ftCurMult}`,'Bank Soal Kerajaan Islam');
+    notif(`✓ Benar! +${gained} poin`,'ok');
+  }else{
+    btn.style.background='rgba(239,68,68,.12)';btn.style.borderColor='var(--red)';
+    $$('#ftQuizOpts button')[ok].style.background='rgba(59,130,246,.14)';
+    $$('#ftQuizOpts button')[ok].style.borderColor='var(--em2)';
+    Sound.wrong();shakeScreen();
+    pushReview(q.q,q.o,q.a,i,`Jawaban benar: ${q.o[ok]}`,'Bank Soal Kerajaan Islam');
+    notif('✗ Salah. Tidak dapat poin.','no');
+  }
+  updateFortuneStats();
+  const st=$('#ftStatus');st.classList.add('show');
+  $('#ftEmoji').textContent=i===ok?'🎉':'😢';
+  $('#ftTitle').textContent=i===ok?'BENAR!':'SALAH';
+  $('#ftDesc').textContent=q.e;
+  $('#ftPoints').textContent=gained>0?'+'+gained+' poin':'Tidak dapat poin';
+  if(gained===0)$('#ftPoints').classList.add('neg');
+  setTimeout(()=>{if(ftSpins>=FT_TOTAL)finishFortune()},2200);
+}
+function finishFortune(){
+  const maxPts=12*300;
+  const pct=Math.min(100,Math.round(ftPoints/maxPts*100));
+  let emoji='🎲',title='Selesai!';
+  if(ftPoints>=1200){emoji='🏆';title='JUTAWAN FORTUNE!'}
+  else if(ftPoints>=800){emoji='👑';title='Luar Biasa!'}
+  else if(ftPoints>=500){emoji='🌟';title='Hebat!'}
+  else if(ftPoints>=300){emoji='👍';title='Bagus!'}
+  else{emoji='📚';title='Coba Lagi!'}
+  markDone('fortune',{score:ftPoints,acc:pct});
+  showAchievement('fortune');
+  if(ftPoints>=500){Sound.win();confetti()}else Sound.lose();
+  setTimeout(()=>{
+    modal(emoji,title,`Total poinmu: ${ftPoints} (${ftCorrect} soal benar dari 12 putaran)!`,'Pemburu Fortune 🎲');
+    // NEW: restart button in center
+    const c=$('#ftCenter');
+    c.innerHTML='<i class="fas fa-dice"></i>ULANGI';
+    c.onclick=resetFortune;
+  },500);
+}
 
-/* KEYBOARD */
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();hideDetail();closeAch();closeGloss();closeReview()}const activeGame=document.querySelector('.screen.active');if(!activeGame||activeGame.id==='mainMenu')return;if(['1','2','3','4'].includes(e.key)){const idx=parseInt(e.key)-1;const woOpts=activeGame.querySelectorAll('#wOpts button:not(:disabled), #ftQuizOpts button:not(:disabled)');const moOpts=activeGame.querySelectorAll('#mlOpts button:not(:disabled)');const detCols=activeGame.querySelectorAll('.det-col');if(woOpts[idx]){woOpts[idx].click();e.preventDefault()}else if(moOpts[idx]){moOpts[idx].click();e.preventDefault()}else if(detCols[idx]&&detSel){detCols[idx].click();e.preventDefault()}}if((e.key==='Enter'||e.key===' ')){const wc=$('#wCenter');const fc=$('#ftCenter');if(activeGame.id==='gameWheel'&&wc&&!wSpin&&wAnswered<WHEEL_TOTAL){wc.click();e.preventDefault()}if(activeGame.id==='gameFortune'&&fc&&!ftSpin&&ftSpins<FT_TOTAL){if(!ftAnswered||$('#ftQuiz').classList.contains('show')===false)fc.click();e.preventDefault()}}});
+/* ============ KEYBOARD (FIXED: timeline support) ============ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeModal();hideDetail();closeAch();closeGloss();closeReview()}
+  const activeGame=document.querySelector('.screen.active');
+  if(!activeGame||activeGame.id==='mainMenu')return;
+  if(['1','2','3','4'].includes(e.key)){
+    const idx=parseInt(e.key)-1;
+    const woOpts=activeGame.querySelectorAll('#wOpts button:not(:disabled), #ftQuizOpts button:not(:disabled)');
+    const moOpts=activeGame.querySelectorAll('#mlOpts button:not(:disabled)');
+    const detCols=activeGame.querySelectorAll('.det-col');
+    // FIXED: check both detSel (Game 1) and tlSel (Game 2)
+    if(woOpts[idx]){woOpts[idx].click();e.preventDefault()}
+    else if(moOpts[idx]){moOpts[idx].click();e.preventDefault()}
+    else if(detCols[idx]&&(typeof detSel!=='undefined'&&detSel||typeof tlSel!=='undefined'&&tlSel)){detCols[idx].click();e.preventDefault()}
+  }
+  if(e.key==='Enter'||e.key===' '){
+    const wc=$('#wCenter'),fc=$('#ftCenter');
+    if(activeGame.id==='gameWheel'&&wc&&!wSpin&&wAnswered<WHEEL_TOTAL){wc.click();e.preventDefault()}
+    if(activeGame.id==='gameFortune'&&fc&&!ftSpin&&ftSpins<FT_TOTAL){fc.click();e.preventDefault()}
+  }
+});
 
-try{if(localStorage.getItem('mis_sound')==='0'){Sound.enabled=false;$('#soundBtn').innerHTML='<i class="fas fa-volume-xmark"></i> Bisu'}if(localStorage.getItem('mis_motion')==='0'){document.body.classList.add('reduce-motion')}}catch(e){}
+/* ============ NEW: keyboard hint visibility ============ */
+function updateKbdHint(){
+  const active=document.querySelector('.screen.active');
+  const hint=$('#kbdHint');
+  if(!hint)return;
+  const hasChoices=active&&active.querySelector('.wo,.mo');
+  hint.classList.toggle('show',!!hasChoices);
+}
+document.addEventListener('click',()=>setTimeout(updateKbdHint,80));
+document.addEventListener('keydown',updateKbdHint);
+setInterval(updateKbdHint,1500);
+
+/* ============ NEW: counter animation for stats ============ */
+function animateCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target=parseInt(el.dataset.count);
+    let cur=0;
+    const step=Math.max(1,Math.ceil(target/24));
+    const iv=setInterval(()=>{
+      cur+=step;
+      if(cur>=target){cur=target;clearInterval(iv)}
+      el.textContent=cur;
+    },30);
+  });
+}
+
+/* ============ NEW: subtle hero parallax ============ */
+(function(){
+  const hero=$('#hero');
+  if(!hero)return;
+  window.addEventListener('mousemove',e=>{
+    if(document.body.classList.contains('reduce-motion'))return;
+    const x=(e.clientX/innerWidth-.5)*6;
+    const y=(e.clientY/innerHeight-.5)*6;
+    hero.style.transform=`translate(${x}px,${y}px)`;
+  });
+  window.addEventListener('mouseleave',()=>{hero.style.transform=''});
+})();
+
+/* ============ INIT ============ */
+try{
+  if(localStorage.getItem('mis_sound')==='0'){
+    Sound.enabled=false;
+    $('#soundBtn').innerHTML='<i class="fas fa-volume-xmark"></i> Bisu';
+    $('#soundBtn').classList.remove('sound-on');
+  }
+  if(localStorage.getItem('mis_motion')==='0'){
+    document.body.classList.add('reduce-motion');
+  }
+}catch(e){}
 
 updateMenu();updateDailyFact();renderAch();
+setTimeout(animateCounters,300);
 </script>
 </body>
 </html>
