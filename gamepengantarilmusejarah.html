@@ -151,22 +151,28 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .pill.cyan{background:linear-gradient(135deg,var(--cyan),var(--purple))}
 .pill.timer{background:linear-gradient(135deg,#7c3aed,#6d28d9);font-variant-numeric:tabular-nums}
 
-/* ============ INSTRUCTION ============ */
-.inst{padding:16px 20px;margin-bottom:22px;background:linear-gradient(115deg,rgba(239,246,255,.95),rgba(236,254,255,.9));border:1px solid rgba(37,99,235,.15);border-left:5px solid var(--blue);border-radius:14px;font-size:.92rem;color:var(--ink2);display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;animation:fadeUp .6s var(--ease) .1s backwards;line-height:1.7;position:relative;overflow:hidden}
-.inst::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple))}
-.inst i{color:var(--blue);font-size:1.3rem;flex-shrink:0;margin-top:2px}
-.inst strong{color:var(--ink);font-weight:700}
-.inst kbd{background:#fff;border:1px solid rgba(37,99,235,.3);border-bottom-width:2px;padding:1px 7px;border-radius:5px;font-size:.74rem;font-weight:800;color:var(--blue);font-family:inherit}
-.btn-mini{margin-left:auto;padding:8px 16px;font-size:.82rem;background:rgba(37,99,235,.1);border:2px solid rgba(37,99,235,.25);color:var(--blue);border-radius:30px;cursor:pointer;font-weight:700;transition:all .3s;font-family:inherit}
-.btn-mini:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+/* ============ INSTRUCTION (diperjelas) ============ */
+.inst{padding:20px 26px;margin-bottom:24px;
+  background:linear-gradient(115deg,rgba(239,246,255,.98),rgba(236,254,255,.95));
+  border:2px solid rgba(37,99,235,.22);border-left:6px solid var(--blue);
+  border-radius:16px;font-size:1.05rem;color:var(--ink);
+  display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;
+  animation:fadeUp .6s var(--ease) .1s backwards;line-height:1.85;
+  position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(37,99,235,.1)}
+.inst::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple))}
+.inst i{color:var(--blue);font-size:1.7rem;flex-shrink:0;margin-top:3px;filter:drop-shadow(0 4px 10px rgba(37,99,235,.3))}
+.inst strong{color:var(--blue);font-weight:800;background:rgba(37,99,235,.1);padding:1px 8px;border-radius:6px}
+.inst kbd{background:#fff;border:1.5px solid rgba(37,99,235,.45);border-bottom-width:3px;padding:3px 11px;border-radius:7px;font-size:.85rem;font-weight:800;color:var(--blue);font-family:inherit;display:inline-block;margin:0 3px;box-shadow:0 2px 0 rgba(37,99,235,.15)}
+.btn-mini{margin-left:auto;padding:10px 20px;font-size:.9rem;background:rgba(37,99,235,.12);border:2px solid rgba(37,99,235,.3);color:var(--blue);border-radius:30px;cursor:pointer;font-weight:800;transition:all .3s;font-family:inherit;letter-spacing:.3px}
+.btn-mini:hover{background:var(--blue);color:#fff;border-color:var(--blue);transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,99,235,.3)}
 
-/* ============ DETEKTIF / MISI WAKTU ============ */
-.det-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:22px}
-.det-col{padding:16px 14px;min-height:200px;background:rgba(255,255,255,.6);backdrop-filter:blur(10px);border:2px dashed rgba(37,99,235,.28);border-radius:var(--radius);transition:all .35s var(--ease);position:relative;overflow:hidden}
-.det-col.hover{border-color:var(--blue);background:rgba(37,99,235,.06);transform:scale(1.02)}
-.det-col h4{text-align:center;color:var(--blue);font-size:.9rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:800}
-.det-col h4 .emoji{font-size:1.8rem;filter:drop-shadow(0 6px 10px rgba(37,99,235,.25));animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+/* ============ DETEKTIF / MISI WAKTU (emoji + judul diperbesar) ============ */
+.det-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:22px}
+.det-col{padding:20px 16px;min-height:240px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);border:2.5px dashed rgba(37,99,235,.32);border-radius:var(--radius);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.det-col.hover{border-color:var(--blue);background:rgba(37,99,235,.08);transform:scale(1.02)}
+.det-col h4{text-align:center;color:var(--blue);font-size:1.15rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:900;line-height:1.15}
+.det-col h4 .emoji{font-size:3.4rem;line-height:1;filter:drop-shadow(0 8px 18px rgba(37,99,235,.32));animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .det-pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:18px;border-radius:var(--radius);background:var(--card);border:1px solid var(--stroke);min-height:100px;backdrop-filter:blur(18px);box-shadow:var(--shadow)}
 .src{padding:14px 16px;border-radius:12px;font-size:.9rem;font-weight:600;background:#fff;border:2px solid rgba(37,99,235,.13);cursor:pointer;transition:all .3s var(--ease);color:var(--ink);text-align:center;line-height:1.4;position:relative;overflow:hidden;font-family:inherit}
 .src:hover{border-color:var(--blue);transform:translateY(-3px) scale(1.02);box-shadow:0 10px 24px rgba(37,99,235,.18)}
@@ -367,6 +373,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .gc-tag{font-size:.65rem;padding:4px 12px}
   .topbar{justify-content:center}
   .ach-grid{grid-template-columns:1fr 1fr}
+  /* Instruksi & emoji tetap besar di HP */
+  .inst{font-size:.98rem;padding:16px 18px;line-height:1.75}
+  .inst i{font-size:1.4rem}
+  .det-col h4{font-size:1.02rem;letter-spacing:1.5px}
+  .det-col h4 .emoji{font-size:2.8rem}
+  .det-col{min-height:200px;padding:16px 12px}
 }
 </style>
 </head>
@@ -459,8 +471,8 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <span class="pill" id="detScore">0 / 27</span>
     <span class="pill timer" id="detTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu sumber di bawah, lalu klik salah satu dari <strong>3 kategori</strong>. Ada <strong>27 sumber sejarah</strong>. Tekan <kbd>1</kbd>-<kbd>3</kbd> untuk pilih jawaban.
-    <button class="btn-mini" onclick="resetDet()" style="margin-left:14px"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu sumber di bawah, lalu klik salah satu dari <strong>3 kategori</strong> (Tertulis / Lisan / Benda). Ada <strong>27 sumber sejarah</strong>. Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori dengan cepat.
+    <button class="btn-mini" onclick="resetDet()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
   <div class="det-board" style="grid-template-columns:repeat(3,1fr)">
     <div class="det-col" data-cat="tertulis"><h4><span class="emoji">📄</span>Tertulis</h4><div class="col-inner"></div></div>
     <div class="det-col" data-cat="lisan"><h4><span class="emoji">🗣️</span>Lisan</h4><div class="col-inner"></div></div>
@@ -478,9 +490,9 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <span class="pill" id="tlScore">0 / 20</span>
     <span class="pill timer" id="tlTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu ciri-ciri, lalu pilih kategori: <strong>Diakronik, Sinkronik, Periodik, atau Kronologis</strong>. Ada <strong>20 kartu</strong>. Tekan <kbd>1</kbd>-<kbd>4</kbd> untuk pilih kategori.
-    <button class="btn-mini" onclick="resetTL()" style="margin-left:14px"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
-  <div class="det-board" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu ciri-ciri, lalu pilih kategori: <strong>Diakronik, Sinkronik, Periodik, atau Kronologis</strong>. Ada <strong>20 kartu</strong>. Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih kategori dengan cepat.
+    <button class="btn-mini" onclick="resetTL()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
+  <div class="det-board" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
     <div class="det-col" data-cat="diakronik"><h4><span class="emoji">📜</span>Diakronik</h4><div class="col-inner"></div></div>
     <div class="det-col" data-cat="sinkronik"><h4><span class="emoji">🔍</span>Sinkronik</h4><div class="col-inner"></div></div>
     <div class="det-col" data-cat="periodik"><h4><span class="emoji">🗓️</span>Periodik</h4><div class="col-inner"></div></div>
@@ -512,7 +524,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <span class="pill" id="whScore">Soal 0 / 15</span>
     <span class="pill timer" id="whTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik <strong>PUTAR</strong> di tengah roda. Jawab pertanyaan, baca penjelasan akademik + sumber referensi, lalu tekan <strong>PUTAR</strong> lagi. Bank <strong>40 soal</strong>, diambil 15 acak! Tekan <kbd>1</kbd>-<kbd>4</kbd> untuk pilih jawaban.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik tombol <strong>PUTAR</strong> di tengah roda. Jawab pertanyaan, baca penjelasan akademik + sumber referensi, lalu tekan <strong>PUTAR</strong> lagi. Bank <strong>40 soal</strong>, diambil 15 acak! Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih jawaban, dan <kbd>Enter</kbd> untuk memutar roda.</div></div>
   <div class="ww">
     <div class="wh">
       <div class="wpointer"><i class="fas fa-caret-down"></i></div>
@@ -538,7 +550,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <span class="pill" id="mlScore">1 / 15</span>
     <span class="pill timer" id="mlTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Jawab 15 soal dari <strong>bank 40 soal acak</strong>. Jika salah, kamu <strong>tetap lanjut</strong>. 3 bantuan tersedia: 50:50, Tanya Audien, Telepon. Tekan <kbd>1</kbd>-<kbd>4</kbd> untuk pilih jawaban.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Jawab 15 soal dari <strong>bank 40 soal acak</strong>. Jika salah, kamu <strong>tetap lanjut</strong>. 3 bantuan tersedia: <strong>50:50</strong>, <strong>Tanya Audien</strong>, dan <strong>Telepon</strong>. Tekan tombol <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih jawaban.</div></div>
   <div class="ml">
     <div>
       <div class="mq"><div class="n" id="mlN">Pertanyaan 1 · 100 poin</div><div class="q" id="mlQ">Memuat...</div></div>
