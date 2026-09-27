@@ -202,20 +202,35 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .mi.done::after{content:'✓';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:800;font-size:1.1rem;animation:popCheck .4s var(--ease)}
 .mi.err{animation:shake .4s;border-color:var(--red);background:rgba(239,68,68,.1)}
 
-.detail-panel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120%);max-width:680px;width:calc(100% - 40px);padding:20px 24px;background:rgba(255,255,255,.96);backdrop-filter:blur(30px);border:2px solid var(--blue);border-radius:20px;box-shadow:0 20px 50px rgba(15,42,110,.3),0 0 0 4px rgba(37,99,235,.08);z-index:5000;transition:transform .6s var(--ease);pointer-events:none}
+/* ===== DETAIL PANEL ===== */
+.detail-panel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120%);
+  max-width:680px;width:calc(100% - 40px);padding:20px 24px 22px;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(30px);
+  border:2px solid var(--blue);border-radius:20px;
+  box-shadow:0 20px 50px rgba(15,42,110,.3),0 0 0 4px rgba(37,99,235,.08);
+  z-index:5000;transition:transform .6s var(--ease);pointer-events:none}
 .detail-panel.show{transform:translateX(-50%) translateY(0);pointer-events:auto}
-.detail-panel .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.detail-panel .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-right:96px}
 .detail-panel .hd i{color:var(--blue);font-size:1.3rem;animation:pulseIco 2s infinite}
 @keyframes pulseIco{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.1)}}
 .detail-panel .hd .t{font-weight:800;color:var(--ink2);font-size:1rem;letter-spacing:1px;text-transform:uppercase}
+.detail-panel .hd .hint{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--muted);
+  background:rgba(37,99,235,.08);padding:4px 10px;border-radius:20px;
+  display:inline-flex;align-items:center;gap:5px;letter-spacing:.3px;white-space:nowrap}
+.detail-panel .hd .hint i{font-size:.7rem;animation:none;opacity:.85}
 .detail-panel .pair{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .detail-panel .pair .chip{padding:5px 14px;background:rgba(37,99,235,.1);border-radius:20px;font-weight:700;font-size:.85rem;color:var(--ink2);border:1px solid rgba(37,99,235,.2)}
 .detail-panel .pair .arrow{color:var(--blue);font-size:1rem}
 .detail-panel .pair .chip.r{border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.1);color:var(--purple)}
 .detail-panel .txt{color:var(--ink);font-size:.92rem;line-height:1.7;font-weight:500;padding-top:8px;border-top:1px solid rgba(37,99,235,.1)}
 .detail-panel .src-line{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(37,99,235,.2);font-size:.74rem;color:var(--muted);font-style:italic}
-.detail-panel .close-btn{position:absolute;top:10px;right:14px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);color:var(--blue);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.9rem;transition:all .3s;pointer-events:auto;font-family:inherit}
-.detail-panel .close-btn:hover{background:var(--red);color:#fff;transform:rotate(90deg);border-color:var(--red)}
+.detail-panel .close-btn{position:absolute;top:12px;right:14px;background:rgba(37,99,235,.1);border:2px solid rgba(37,99,235,.3);color:var(--blue);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.05rem;font-weight:800;transition:all .3s;pointer-events:auto;font-family:inherit;display:flex;align-items:center;justify-content:center;line-height:1}
+.detail-panel .close-btn:hover{background:var(--red);color:#fff;transform:rotate(90deg);border-color:var(--red);box-shadow:0 6px 18px rgba(239,68,68,.4)}
+/* progress bar countdown 3 detik */
+.detail-panel .countdown{position:absolute;bottom:0;left:0;right:0;height:4px;border-radius:0 0 20px 20px;overflow:hidden;background:transparent;pointer-events:none}
+.detail-panel .countdown .fill{height:100%;width:100%;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));transform-origin:left;transform:scaleX(0);display:none}
+.detail-panel.auto .countdown .fill{display:block;animation:countdownShrink 3s linear forwards}
+@keyframes countdownShrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
 /* ============ WHEEL ============ */
 .ww{display:flex;flex-direction:column;align-items:center;gap:26px}
@@ -274,7 +289,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .ll:hover:not(:disabled){background:var(--blue);color:#fff;transform:scale(1.12) rotate(-6deg);box-shadow:0 10px 28px rgba(37,99,235,.4)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-/* ============ MODAL (flex layout — tombol selalu terlihat) ============ */
+/* ============ MODAL ============ */
 .modal{position:fixed;inset:0;background:rgba(15,42,110,.55);display:none;justify-content:center;align-items:center;z-index:2000;backdrop-filter:blur(14px);padding:20px}
 .modal.on{display:flex;animation:fadeIn .3s var(--ease)}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -359,7 +374,46 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .footer{margin-top:48px;padding:24px 16px;text-align:center;font-size:.78rem;
   color:var(--muted);border-top:1px solid rgba(37,99,235,.15);position:relative;z-index:1}
 .footer .sch{font-weight:900;color:var(--blue);letter-spacing:2px;font-size:.85rem;margin-bottom:6px}
-.footer .info{margin-top:6px;line-height:1.7}
+
+/* ====== KREDIT PEMBUAT — sporty elegan ====== */
+.credit-wrap{margin-top:14px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  padding:14px 26px;border-radius:18px;position:relative;
+  background:
+    linear-gradient(135deg,rgba(15,42,110,.06),rgba(6,182,212,.06) 45%,rgba(245,158,11,.08)),
+    linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.3));
+  border:1.5px solid transparent;
+  background-clip:padding-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    0 10px 30px -10px rgba(15,42,110,.25),
+    0 0 0 1.5px rgba(37,99,235,.18);
+  overflow:hidden;
+  animation:creditGlow 5s ease-in-out infinite}
+.credit-wrap::before{content:'';position:absolute;inset:0;border-radius:18px;
+  background:linear-gradient(120deg,transparent 20%,rgba(245,158,11,.25) 45%,rgba(37,99,235,.28) 55%,transparent 80%);
+  background-size:250% 100%;animation:creditShine 4.5s linear infinite;pointer-events:none;mix-blend-mode:screen}
+@keyframes creditShine{0%{background-position:200% 0}100%{background-position:-100% 0}}
+@keyframes creditGlow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 30px -10px rgba(15,42,110,.25),0 0 0 1.5px rgba(37,99,235,.18)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 14px 38px -10px rgba(245,158,11,.35),0 0 0 1.5px rgba(245,158,11,.4)}}
+.credit-wrap .lbl{font-size:.62rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+.credit-wrap .lbl i{color:var(--amber);filter:drop-shadow(0 2px 6px rgba(245,158,11,.5))}
+.credit-wrap .name{font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:900;letter-spacing:1.5px;line-height:1.15;
+  background:linear-gradient(100deg,#8a5a12 0%,#d4a017 20%,#ffe98a 42%,#f5c542 55%,#b8860b 72%,#8a5a12 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 2px 4px rgba(138,90,18,.35)) drop-shadow(0 0 12px rgba(245,197,66,.35));
+  animation:nameShine 5s linear infinite;
+  position:relative;z-index:1;padding:0 4px}
+@keyframes nameShine{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.credit-wrap .school{font-size:.78rem;font-weight:700;font-style:italic;letter-spacing:2px;
+  color:transparent;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);
+  -webkit-background-clip:text;background-clip:text;
+  display:inline-flex;align-items:center;gap:6px;position:relative;z-index:1}
+.credit-wrap .school i{font-style:normal;font-size:.72rem;color:var(--cyan);-webkit-text-fill-color:var(--cyan)}
+.credit-wrap .school::before,.credit-wrap .school::after{content:'';display:inline-block;width:26px;height:1.5px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan));vertical-align:middle}
+.credit-wrap .school::after{background:linear-gradient(90deg,var(--purple),transparent)}
+
 .footer .credo{margin-top:12px;font-size:.74rem;font-style:italic;color:var(--muted);opacity:.85}
 .footer b{color:var(--ink2)}
 
@@ -385,6 +439,14 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .det-col{min-height:200px;padding:16px 12px}
   .modal-box{padding:26px 20px 22px}
   #mNextBtn{width:100%;justify-content:center}
+  .detail-panel{width:calc(100% - 20px);bottom:10px;padding:16px 16px 18px}
+  .detail-panel .txt{font-size:.86rem;line-height:1.6}
+  .detail-panel .hd{padding-right:80px}
+  .detail-panel .hd .hint{display:none}
+  .credit-wrap{padding:12px 18px}
+  .credit-wrap .lbl{letter-spacing:3px}
+  .credit-wrap .school{font-size:.7rem;letter-spacing:1.2px}
+  .credit-wrap .school::before,.credit-wrap .school::after{width:14px}
 }
 </style>
 </head>
@@ -463,7 +525,11 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 
   <div class="footer">
     <div class="sch">📜 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
-    <div class="info">Guru Pengampu: <b>SYAHRANI, S.Pd.</b> · NIP. 19751217200501 1 016</div>
+    <div class="credit-wrap">
+      <div class="lbl"><i class="fas fa-medal"></i> Dibuat oleh <i class="fas fa-medal"></i></div>
+      <div class="name">SYAHRANI, S.Pd</div>
+      <div class="school">SMAN 3 KASONGAN</div>
+    </div>
     <div class="credo">"Sejarah adalah guru kehidupan — belajar dari masa lalu untuk membangun masa depan."</div>
   </div>
 </div>
@@ -574,10 +640,14 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 <!-- DETAIL PANEL -->
 <div class="detail-panel" id="detailPanel">
   <button class="close-btn" onclick="hideDetail()" aria-label="Tutup">✕</button>
-  <div class="hd"><i class="fas fa-lightbulb"></i><span class="t">Penjelasan Detail</span></div>
+  <div class="hd">
+    <i class="fas fa-lightbulb"></i><span class="t">Penjelasan Detail</span>
+    <span class="hint" id="dpHint"><i class="fas fa-lock"></i> Tahan terbuka</span>
+  </div>
   <div class="pair" id="dpPair"></div>
   <div class="txt" id="dpText"></div>
   <div class="src-line" id="dpSrc"></div>
+  <div class="countdown"><div class="fill" id="dpCountdown"></div></div>
 </div>
 
 <!-- MODAL UTAMA -->
@@ -645,7 +715,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
 /* =========================================================
-   SOUND ENGINE (Web Audio API — tanpa file eksternal)
+   SOUND ENGINE
    ========================================================= */
 const Sound = {
   ctx:null, enabled:true,
@@ -918,11 +988,12 @@ function modal(emoji,title,text,badge,list){
   if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎'].includes(emoji))confetti();
 }
 function closeModal(){$('#modal').classList.remove('on')}
-function backMenu(){stopTimer();$('.screen.active')?.classList.remove('active');$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu()}
-function goHome(){stopTimer();$$('.screen').forEach(s=>s.classList.remove('active'));$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu();updateDailyFact()}
+function backMenu(){stopTimer();hideDetail();$('.screen.active')?.classList.remove('active');$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu()}
+function goHome(){stopTimer();hideDetail();$$('.screen').forEach(s=>s.classList.remove('active'));$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu();updateDailyFact()}
 function goGame(id){
   Sound.click();
   stopTimer();
+  hideDetail();
   $$('.screen').forEach(s=>s.classList.remove('active'));
   const map={detektif:'#gameDetektif',timeline:'#gameTimeline',histo:'#gameHisto',wheel:'#gameWheel',millionaire:'#gameMillionaire'};
   $(map[id]).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});
@@ -934,17 +1005,47 @@ function goGame(id){
   if(id==='millionaire')initMl();
 }
 
-/* DETAIL PANEL */
-let detailTimeout=null;
-function showDetail(left,right,text,src){
-  clearTimeout(detailTimeout);
+/* =========================================================
+   DETAIL PANEL
+   - Game 1 & 3  : panggil showDetail(l,r,txt,src)          → tahan terbuka (tutup manual)
+   - Game 2,4,5  : panggil showDetail(l,r,txt,src,3000)     → auto-tutup 3 detik
+   ========================================================= */
+let detailTimer = null;
+function showDetail(left, right, text, src, autoCloseMs){
+  // Bersihkan timer & state sebelumnya
+  if(detailTimer){ clearTimeout(detailTimer); detailTimer = null; }
+  const panel = $('#detailPanel');
+  const hint = $('#dpHint');
+  panel.classList.remove('auto');
+
+  // Isi konten
   $('#dpPair').innerHTML=`<span class="chip">${left}</span><span class="arrow"><i class="fas fa-arrow-right"></i></span><span class="chip r">${right}</span>`;
   $('#dpText').textContent=text;
   $('#dpSrc').innerHTML=src?`📖 Sumber: ${src}`:'';
-  $('#detailPanel').classList.add('show');
-  detailTimeout=setTimeout(hideDetail,8000);
+  panel.classList.add('show');
+
+  // Mode otomatis (Game 2, 4, 5)
+  if(autoCloseMs && autoCloseMs > 0){
+    const secs = Math.max(1, Math.round(autoCloseMs/1000));
+    hint.innerHTML = `<i class="fas fa-hourglass-half"></i> Tertutup otomatis dalam ${secs} detik`;
+    // Restart animasi countdown bar
+    const fill = $('#dpCountdown');
+    fill.style.animation='none';
+    void fill.offsetWidth;
+    fill.style.animation='';
+    panel.classList.add('auto');
+    detailTimer = setTimeout(()=>{ hideDetail(); }, autoCloseMs);
+  } else {
+    // Mode tahan terbuka (Game 1 & 3)
+    hint.innerHTML = `<i class="fas fa-lock"></i> Tahan terbuka · klik ✕ untuk tutup`;
+  }
 }
-function hideDetail(){$('#detailPanel').classList.remove('show')}
+function hideDetail(){
+  if(detailTimer){ clearTimeout(detailTimer); detailTimer = null; }
+  const panel = $('#detailPanel');
+  panel.classList.remove('show');
+  panel.classList.remove('auto');
+}
 
 /* BG PARTICLES */
 (function(){
@@ -1016,7 +1117,7 @@ function showAchievement(id){
 }
 
 /* =========================================================
-   GAME 1: DETEKTIF
+   GAME 1: DETEKTIF — detail TAHAN TERBUKA (tanpa autoClose)
    ========================================================= */
 const detData=[
   {id:1,t:'Teks Proklamasi',c:'tertulis',e:'Naskah Proklamasi Kemerdekaan 17 Agustus 1945 — dokumen tertulis paling penting dalam sejarah Indonesia modern.',s:'Arsip Nasional RI'},
@@ -1049,7 +1150,7 @@ const detData=[
 ];
 let detSel=null,detOk=0;
 function resetDet(){
-  detSel=null;detOk=0;reviewData=[];
+  detSel=null;detOk=0;reviewData=[];hideDetail();
   $('#detScore').textContent='0 / 27';
   const pool=$('#detPool');pool.innerHTML='';
   shuffle(detData).forEach(d=>{
@@ -1085,6 +1186,7 @@ function dropDet(col){
     Sound.correct();
     pushReview(`"${c.textContent}" termasuk sumber...`,[['Tertulis','Lisan','Benda'][0],'Lisan','Benda'],
       ['tertulis','lisan','benda'].indexOf(want),['tertulis','lisan','benda'].indexOf(cat),data.e,data.s);
+    // Game 1: TANPA autoClose → tahan terbuka
     showDetail(c.textContent,cat.toUpperCase(),data.e,data.s);
     if(detOk===detData.length){
       setTimeout(()=>{
@@ -1103,7 +1205,7 @@ function dropDet(col){
 }
 
 /* =========================================================
-   GAME 2: PENJELAJAH WAKTU
+   GAME 2: PENJELAJAH WAKTU — detail AUTO-CLOSE 3 DETIK
    ========================================================= */
 const tlData=[
   {id:1,t:'Memanjang dalam waktu',c:'diakronik',e:'DIAKRONIK = memanjang dalam waktu. Melihat perubahan & evolusi.'},
@@ -1129,7 +1231,7 @@ const tlData=[
 ];
 let tlSel=null,tlOk=0;
 function resetTL(){
-  tlSel=null;tlOk=0;reviewData=[];
+  tlSel=null;tlOk=0;reviewData=[];hideDetail();
   $('#tlScore').textContent='0 / 20';
   const pool=$('#tlPool');pool.innerHTML='';
   shuffle(tlData).forEach(d=>{
@@ -1164,6 +1266,8 @@ function dropTL(col){
     Sound.correct();
     pushReview(`"${c.textContent}" termasuk konsep...`,[['Diakronik','Sinkronik','Periodik','Kronologis'][0],'Sinkronik','Periodik','Kronologis'],
       ['diakronik','sinkronik','periodik','kronologis'].indexOf(want),['diakronik','sinkronik','periodik','kronologis'].indexOf(cat),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)');
+    // Game 2: AUTO-CLOSE 3 detik
+    showDetail(c.textContent,cat.toUpperCase(),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)',3000);
     if(tlOk===tlData.length){
       setTimeout(()=>{
         markDone('timeline',{score:tlOk,acc:100});
@@ -1181,7 +1285,7 @@ function dropTL(col){
 }
 
 /* =========================================================
-   GAME 3: MISI ILMU SEJARAH
+   GAME 3: MISI ILMU SEJARAH — detail TAHAN TERBUKA
    ========================================================= */
 const hxLvData=[
   {n:'Akar Kata',i:'Cocokkan kata dengan <strong>arti & asal bahasanya</strong>! Klik pasangan yang benar untuk melihat penjelasan akademik.',
@@ -1241,7 +1345,7 @@ function renderHxTabs(){
     if(i>=hxUnlock)b.classList.add('lock');
     if(i<hxUnlock-1&&i!==hxLv)b.classList.add('done');
     b.textContent=lv.n;
-    b.onclick=()=>{if(i>=hxUnlock)return;hxLv=i;renderHxTabs();loadHx(i)};
+    b.onclick=()=>{if(i>=hxUnlock)return;hideDetail();hxLv=i;renderHxTabs();loadHx(i)};
     t.appendChild(b);
   });
 }
@@ -1265,6 +1369,7 @@ function selHx(el){
       const pair=hxLvData[hxLv].p.find(p=>p.l===a.dataset.k);
       a.classList.remove('sel');b.classList.remove('sel');a.classList.add('done');b.classList.add('done');
       hxOk++;notif('✓ Cocok!','ok');Sound.correct();
+      // Game 3: TANPA autoClose → tahan terbuka
       if(pair&&pair.info)showDetail(a.textContent,b.textContent,pair.info,pair.src);
       pushReview(`Pasangan: "${a.textContent}" dengan "${b.textContent}"`,[`${a.textContent} → ${pair.r}`],0,0,pair.info,pair.src);
       if(hxOk===hxLvData[hxLv].p.length)setTimeout(lvDone,1500);
@@ -1356,7 +1461,7 @@ function pickQuestions(n){
 }
 
 /* =========================================================
-   GAME 4: RODA PUTAR (teks diperbesar)
+   GAME 4: RODA PUTAR — detail AUTO-CLOSE 3 DETIK
    ========================================================= */
 const WHEEL_TOTAL=15;
 let wRot=0,wSpin=false,wCtx,wCanvas,wAnswered=0,wCorrect=0,wSession=[];
@@ -1365,7 +1470,7 @@ function initWheel(){
   drawWheel();
   wAnswered=0;wCorrect=0;
   wSession=pickQuestions(WHEEL_TOTAL);
-  reviewData=[];
+  reviewData=[];hideDetail();
   updateWheelScore();hideQ();
   const c=$('#wCenter');c.textContent='PUTAR';c.onclick=spin;
   startTimer('whTimer');
@@ -1438,6 +1543,8 @@ function ansW(i,btn){
   setTimeout(()=>$('#whScore').classList.remove('pulse'),600);
   $('#wExplainTxt').textContent=wCur.e;
   $('#wExplainSrc').innerHTML=wCur.s?`📖 Sumber: ${wCur.s}`:'';
+  // Game 4: AUTO-CLOSE 3 detik
+  showDetail(`Soal ${wAnswered}`, i===ok?'Benar ✓':'Salah ✗', wCur.e, wCur.s, 3000);
   setTimeout(()=>{
     $('#wExplain').classList.add('show');
     setTimeout(()=>$('#wActions').classList.add('show'),300);
@@ -1466,7 +1573,7 @@ function ansW(i,btn){
 function hideQ(){$('#wQ').classList.remove('show');$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show')}
 
 /* =========================================================
-   GAME 5: JUTAWAN
+   GAME 5: JUTAWAN — detail AUTO-CLOSE 3 DETIK
    ========================================================= */
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
@@ -1474,7 +1581,7 @@ let mlCur=0,mlLL={fifty:true,ask:true,phone:true},mlCorrectCount=0,mlSession=[];
 function initMl(){
   mlCur=0;mlLL={fifty:true,ask:true,phone:true};mlCorrectCount=0;
   mlSession=pickQuestions(MIL_TOTAL);
-  reviewData=[];
+  reviewData=[];hideDetail();
   ['ll1','ll2','ll3'].forEach(id=>{$(`#${id}`).disabled=false;$(`#${id}`).style.opacity=1});
   renderTree();loadMl();
   startTimer('mlTimer');
@@ -1525,6 +1632,8 @@ function ansMl(i,btn){
   if(i===ok){btn.classList.add('ok');notif('✓ Benar!','ok');mlCorrectCount++;Sound.correct()}
   else{btn.classList.add('no');all[ok].classList.add('ok');notif('✗ Salah! Tetap lanjut.','no');Sound.wrong();shakeScreen()}
   pushReview(q.q,q.o,q.a,i,q.e,q.s);
+  // Game 5: AUTO-CLOSE 3 detik
+  if(q.e) showDetail(`Soal ${mlCur+1}`, i===ok?'Benar ✓':'Salah ✗', q.e, q.s, 3000);
   setTimeout(()=>{mlCur++;loadMl()},1500);
 }
 function useLL(t){
