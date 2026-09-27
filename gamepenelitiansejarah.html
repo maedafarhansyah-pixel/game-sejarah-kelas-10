@@ -156,9 +156,11 @@ button{touch-action:manipulation}
 .pill.timer{background:linear-gradient(135deg,#7c3aed,#6d28d9);font-variant-numeric:tabular-nums}
 
 /* ============ INSTRUCTION ============ */
-.inst{padding:14px 16px;margin-bottom:18px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(6,182,212,.08));border-left:5px solid var(--maroon2);border-radius:14px;font-size:var(--fs-sm);color:var(--text2);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;line-height:1.65}
+.inst{padding:14px 16px;margin-bottom:18px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(6,182,212,.08));border-left:5px solid var(--maroon2);border-radius:14px;font-size:var(--fs-sm);color:var(--text2);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;line-height:1.75}
 .inst i{color:var(--maroon2);font-size:var(--fs-xl);flex-shrink:0;margin-top:2px}
-.inst strong{color:var(--maroon-dark);font-weight:800}
+.inst>div{flex:1 1 240px;min-width:0}
+.inst strong{color:var(--maroon-dark);font-weight:900;letter-spacing:.2px}
+.inst b{color:var(--maroon2);font-weight:800}
 .inst kbd{background:#fff;border:1px solid rgba(37,99,235,.3);border-bottom-width:2px;padding:2px 7px;border-radius:5px;font-size:var(--fs-xs);font-weight:800;color:var(--maroon2);font-family:inherit;margin:0 2px}
 .btn-mini{padding:8px 16px;font-size:var(--fs-sm);background:rgba(37,99,235,.1);border:2px solid var(--maroon3);color:var(--maroon);border-radius:30px;cursor:pointer;font-weight:800;transition:all .3s;font-family:inherit;min-height:40px}
 .btn-mini:hover{background:var(--maroon2);color:#fff}
@@ -385,6 +387,11 @@ button{touch-action:manipulation}
 .footer{margin-top:40px;padding:22px 16px;text-align:center;font-size:var(--fs-sm);color:var(--text3);border-top:1px solid rgba(30,77,140,.15);line-height:1.7}
 .footer .sch{font-weight:900;color:var(--maroon2);letter-spacing:2px;font-size:var(--fs-md);margin-bottom:6px}
 .footer .info b{color:var(--maroon-dark);font-weight:800}
+.footer .creator{margin:14px auto 10px;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;font-weight:900;font-size:var(--fs-md);letter-spacing:1px;color:#fff;background:linear-gradient(135deg,#7c3aed 0%,#2563eb 50%,#0891b2 100%);padding:12px 24px;border-radius:34px;box-shadow:0 10px 28px rgba(124,58,237,.4),inset 0 1px 0 rgba(255,255,255,.35);border:2px solid rgba(255,255,255,.5);text-shadow:0 1px 3px rgba(0,0,0,.25);position:relative;overflow:hidden;max-width:100%}
+.footer .creator::before{content:'★';position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#fde68a;font-size:var(--fs-sm);opacity:.85;animation:heroBadgeRotate 4s linear infinite}
+.footer .creator::after{content:'★';position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#fde68a;font-size:var(--fs-sm);opacity:.85;animation:heroBadgeRotate 4s linear infinite reverse}
+.footer .creator b{color:#fef3c7;font-weight:900;text-shadow:0 1px 3px rgba(0,0,0,.35);letter-spacing:1.2px}
+.footer .creator span.school{color:#cffafe;font-weight:800;letter-spacing:1px}
 .footer .credo{margin-top:10px;font-size:var(--fs-xs);font-style:italic;color:var(--text3);opacity:.85}
 
 /* ============ SCROLLBAR ============ */
@@ -430,6 +437,7 @@ button{touch-action:manipulation}
   .gc-dif{left:56px;font-size:.6rem;padding:3px 8px}
   .rv-item{padding:12px 12px}
   .gl-item{padding:12px 12px}
+  .footer .creator{font-size:var(--fs-sm);padding:10px 18px;letter-spacing:.6px}
 }
 
 @media(max-width:380px){
@@ -438,6 +446,7 @@ button{touch-action:manipulation}
   .hunt-tile .em{font-size:1.5rem}
   .hunt-tile .lb{font-size:.65rem}
   .gc-dif{position:static;margin-bottom:8px;display:inline-block}
+  .footer .creator{font-size:var(--fs-xs);padding:9px 14px}
 }
 
 @media(min-width:1024px){
@@ -604,7 +613,7 @@ button{touch-action:manipulation}
 
   <div class="footer">
     <div class="sch">📜 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
-    <div class="info">Guru Pengampu: <b>SYAHRANI, S.Pd.</b> · NIP. 19751217200501 1 016</div>
+    <div class="creator"><b>Created by : SYAHRANI, S.Pd</b> <span class="school">(SMAN - 3 Kasongan)</span></div>
     <div class="credo">"Sejarah adalah penyelidikan — bukan sekadar hafalan, melainkan cara berpikir kritis tentang masa lalu."</div>
   </div>
 </div>
@@ -618,7 +627,19 @@ button{touch-action:manipulation}
     <span class="pill" id="g1ScorePill">0</span>
     <span class="pill timer" id="g1TimerPill">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik <strong>PRIMER</strong> jika sumber dibuat saat peristiwa / oleh pelaku langsung. Klik <strong>SEKUNDER</strong> jika dibuat setelahnya. Setiap 5 jawaban benar berturut-turut muncul <strong>Sumber Emas</strong> (3x poin)! Tekan <kbd>1</kbd> / <kbd>2</kbd>.</div></div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — DETEKTIF SUMBER SEJARAH:</strong><br>
+      Tugasmu adalah <b>mengklasifikasikan setiap sumber sejarah</b> dengan cepat dan tepat sebelum waktu habis.<br>
+      • Klik tombol <strong>PRIMER</strong> jika sumber dibuat <b>saat peristiwa terjadi</b> atau berasal dari <b>pelaku / saksi langsung</b>. Contoh: naskah asli, prasasti, foto asli, wawancara saksi.<br>
+      • Klik tombol <strong>SEKUNDER</strong> jika sumber dibuat <b>setelah peristiwa</b> dan disusun berdasarkan sumber lain. Contoh: buku teks, biografi, ensiklopedia, artikel.<br>
+      • Setiap <strong>5 jawaban benar berturut-turut</strong>, akan muncul <strong>Sumber Emas ⚡</strong> dengan nilai poin <strong>3x lipat</strong>!<br>
+      • Jawaban <b>salah</b> = waktu berkurang <strong>−3 detik</strong> dan combo kembali ke x1.<br>
+      • Waktu total permainan: <strong>60 detik</strong>. Kumpulkan skor setinggi mungkin!<br>
+      • Pintasan keyboard: tekan <kbd>1</kbd> untuk <strong>PRIMER</strong>, tekan <kbd>2</kbd> untuk <strong>SEKUNDER</strong>.
+    </div>
+  </div>
   <div class="hud c3">
     <div class="hud-item"><div class="lbl">SKOR</div><div class="val" id="g1Score">0</div></div>
     <div class="hud-item"><div class="lbl">COMBO</div><div class="val gold" id="g1Combo">x1</div></div>
@@ -645,7 +666,18 @@ button{touch-action:manipulation}
     <span class="pill" id="g2FoundPill">0 / 6</span>
     <span class="pill timer" id="g2TimerPill">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Misi:</strong> Temukan <strong>6 sumber sejarah</strong> yang tersembunyi. Barang lain = jebakan (waktu −2s). Ada 1 <strong>sumber langka</strong> (⭐) yang memberi +5 detik!</div></div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — HEURISTIK HUNTER:</strong><br>
+      Misi utama: <b>temukan semua sumber sejarah yang tersembunyi</b> di antara kotak-kotak pada grid!<br>
+      • Grid berisi <strong>20 kotak</strong> — sebagian adalah <b>sumber sejarah asli</b> (prasasti, arsip, foto lama, wawancara, dll.) dan sebagian adalah <b>jebakan</b> (bukan sumber sejarah).<br>
+      • Klik kotak yang menurutmu berisi <strong>sumber sejarah</strong> untuk mengambilnya. Setiap sumber benar = <strong>+15 poin</strong>.<br>
+      • Jika salah klik (kotak <b>bukan sumber sejarah</b>), waktu akan berkurang <strong>−2 detik</strong>.<br>
+      • Ada <strong>1 kotak bertanda ⭐ (sumber langka)</strong> yang memberi bonus <strong>+30 poin</strong> dan <strong>+5 detik</strong> ekstra!<br>
+      • Target: temukan <strong>6 sumber sejarah</strong> sebelum waktu habis. Waktu total: <strong>50 detik</strong>.
+    </div>
+  </div>
   <div class="hud c3">
     <div class="hud-item"><div class="lbl">DITEMUKAN</div><div class="val" id="g2Found">0/6</div></div>
     <div class="hud-item"><div class="lbl">SKOR</div><div class="val" id="g2Score">0</div></div>
@@ -663,6 +695,19 @@ button{touch-action:manipulation}
     <h2>Kritik Sumber<small><i class="fas fa-lock"></i> Game 03 · Analisis</small></h2>
     <span class="pill" id="g3QnPill">1/10</span>
     <span class="pill timer" id="g3TimerPill">00:00</span>
+  </div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — KRITIK SUMBER:</strong><br>
+      Jawab <strong>10 soal pilihan ganda</strong> seputar <b>kritik sumber, metode sejarah, dan verifikasi sumber</b>.<br>
+      • Setiap soal memiliki <strong>4 pilihan jawaban (A, B, C, D)</strong>. Klik jawaban yang menurutmu <b>paling benar</b>.<br>
+      • Jawaban <strong>benar</strong> = <strong>+10 poin</strong>. Jika kamu menjawab benar <strong>3 kali berturut-turut (streak)</strong>, mendapat <strong>bonus +10 poin</strong> setiap soal.<br>
+      • Soal bertanda <strong>⚡ SOAL BONUS</strong> memberikan <strong>poin 2x lipat</strong> — jangan sampai salah!<br>
+      • Tersedia <strong>3 lifeline</strong> yang masing-masing hanya bisa dipakai <strong>1 kali</strong>:<br>
+      &nbsp;&nbsp;<strong>✂️ 50:50</strong> — menghapus 2 jawaban salah. &nbsp;|&nbsp; <strong>💡 HINT</strong> — menampilkan petunjuk jawaban. &nbsp;|&nbsp; <strong>⏭️ SKIP</strong> — melewati soal (streak direset).<br>
+      • Pintasan keyboard: tekan <kbd>1</kbd>–<kbd>4</kbd> untuk memilih jawaban A–D.
+    </div>
   </div>
   <div class="hud c4">
     <div class="hud-item"><div class="lbl">SOAL</div><div class="val" id="g3Qn">1/10</div></div>
@@ -693,7 +738,20 @@ button{touch-action:manipulation}
     <span class="pill" id="g4ScorePill">0</span>
     <span class="pill timer" id="g4TimerPill">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Baca pernyataan lalu klasifikasikan sebagai <strong>FAKTA</strong>, <strong>OPINI</strong>, atau <strong>PROPAGANDA</strong>. Combo = poin berlipat! Tekan <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd>.</div></div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — DETEKTIF FAKTA:</strong><br>
+      Baca setiap pernyataan, lalu tentukan kategorinya dengan cermat dan kritis!<br>
+      • <strong>✓ FAKTA</strong> — pernyataan yang <b>dapat diverifikasi</b> dengan bukti / sumber sejarah yang jelas (tanggal, tempat, tokoh, peristiwa nyata).<br>
+      • <strong>💭 OPINI</strong> — <b>pendapat pribadi</b> yang bersifat subjektif dan tidak dapat dibuktikan kebenarannya (perbandingan, selera, penilaian pribadi).<br>
+      • <strong>📢 PROPAGANDA</strong> — informasi yang <b>sengaja disebarkan</b> untuk mempengaruhi opini publik demi kepentingan tertentu; sering menyesatkan atau hanya menonjolkan satu sisi.<br>
+      • Jawaban <strong>benar</strong> = poin bertambah. Semakin panjang <strong>COMBO</strong>-mu, semakin besar poin yang diperoleh.<br>
+      • Jawaban <b>salah</b> = waktu berkurang <strong>−3 detik</strong> dan combo kembali ke x1.<br>
+      • Waktu total permainan: <strong>75 detik</strong>.<br>
+      • Pintasan keyboard: <kbd>1</kbd> <strong>Fakta</strong> · <kbd>2</kbd> <strong>Opini</strong> · <kbd>3</kbd> <strong>Propaganda</strong>.
+    </div>
+  </div>
   <div class="hud c3">
     <div class="hud-item"><div class="lbl">SKOR</div><div class="val" id="g4Score">0</div></div>
     <div class="hud-item"><div class="lbl">COMBO</div><div class="val gold" id="g4Combo">x1</div></div>
@@ -730,7 +788,18 @@ button{touch-action:manipulation}
     <div class="t" id="g5Rt">RONDE 1</div>
     <div class="d" id="g5Rd">Susun urutan yang benar.</div>
   </div>
-  <div class="inst" style="padding:10px 14px;font-size:var(--fs-xs)"><i class="fas fa-hand-pointer"></i><div>Klik dua kartu untuk <strong>menukar posisinya</strong>. Kalau sudah yakin, tekan <strong>PERIKSA</strong>.</div></div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — HISTORIOGRAFI BUILDER:</strong><br>
+      Susun <b>urutan yang benar dan logis</b> dari setiap ronde penyusunan historiografi!<br>
+      • Terdapat <strong>3 ronde</strong>: (1) <b>tahapan penelitian sejarah</b>, (2) <b>struktur tulisan sejarah</b>, dan (3) <b>penyusunan narasi paragraf sejarah</b>.<br>
+      • <strong>Klik dua kartu</strong> untuk <b>menukar posisi</b> keduanya. Ulangi sampai urutan menjadi benar.<br>
+      • Tekan tombol <strong>🔄 Reset</strong> untuk mengocok ulang urutan, atau <strong>✓ PERIKSA</strong> untuk memverifikasi jawabanmu.<br>
+      • Jawaban <strong>benar</strong> = <strong>+50 poin</strong> per ronde & lanjut otomatis ke ronde berikutnya.<br>
+      • Jawaban <b>salah</b> = <strong>nyawa berkurang 1</strong>. Kamu memiliki <strong>3 nyawa (❤❤❤)</strong>. Jika nyawa habis, permainan berakhir.
+    </div>
+  </div>
   <div class="order-list" id="g5List"></div>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px">
     <button class="btn-mini" onclick="g5Reset()"><i class="fas fa-rotate"></i> Reset</button>
@@ -746,6 +815,24 @@ button{touch-action:manipulation}
     <h2>Petualangan Sejarawan<small><i class="fas fa-dice"></i> Game 06 · Semua</small></h2>
     <span class="pill cyan" id="g6PosPill">Posisi 1</span>
     <span class="pill timer" id="g6TimerPill">00:00</span>
+  </div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div>
+      <strong>📖 PETUNJUK GAME — PETUALANGAN SEJARAWAN:</strong><br>
+      Jelajahi <b>papan 20 petak</b>, kumpulkan poin, jawab tantangan, dan capai petak terakhir untuk menang!<br>
+      • Klik tombol <strong>🎲 KOCOK DADU</strong> atau <strong>klik langsung pada dadu 3D</strong> untuk melempar dadu (nilai 1–6).<br>
+      • Setiap petak memiliki efek yang berbeda:<br>
+      &nbsp;&nbsp;<strong>❓ Tantangan</strong> — jawab soal sejarah (+15 poin jika benar).<br>
+      &nbsp;&nbsp;<strong>💎 Bonus</strong> — dapat <strong>+20 poin gratis</strong>.<br>
+      &nbsp;&nbsp;<strong>⭐ Maju 2</strong> — otomatis <b>maju 2 petak</b> ke depan.<br>
+      &nbsp;&nbsp;<strong>🎁 Kejutan</strong> — efek acak (poin bonus, lemparan dadu tambahan, maju, atau mundur).<br>
+      &nbsp;&nbsp;<strong>⚠️ Jebakan</strong> — <b>mundur 2 petak</b>. Tetap semangat!<br>
+      &nbsp;&nbsp;<strong>🏆 Selesai</strong> — petak akhir, permainan tamat!<br>
+      • Menjawab soal dengan tepat menambah <strong>poin</strong> dan <strong>jumlah benar</strong>.<br>
+      • Target: capai petak <strong>20 (🏆 Selesai)</strong> dengan skor setinggi mungkin.<br>
+      • Pintasan keyboard: tekan <kbd>Enter</kbd> atau <kbd>Space</kbd> saat dadu terpilih untuk mengocoknya.
+    </div>
   </div>
   <div class="hud c4">
     <div class="hud-item"><div class="lbl">POSISI</div><div class="val" id="g6Pos">1</div></div>
