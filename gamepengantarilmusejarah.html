@@ -446,7 +446,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .jj-next button{padding:14px 32px;border-radius:40px;border:none;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 10px 26px rgba(37,99,235,.35);transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:10px;letter-spacing:.3px}
 .jj-next button:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 14px 36px rgba(37,99,235,.5)}
 
-/* Banner peringkat di modal akhir */
 .jj-rank-banner{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0 18px;padding:14px 22px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(6,182,212,.08));border:1.5px solid rgba(37,99,235,.2)}
 .jj-rank-banner .rk-icon{font-size:2.4rem;line-height:1}
 .jj-rank-banner .rk-txt{text-align:left}
@@ -541,11 +540,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 
   <div class="footer">
     <div class="sch">📜 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
-    <div class="credit-wrap">
-      <div class="lbl"><i class="fas fa-medal"></i> Dibuat oleh <i class="fas fa-medal"></i></div>
-      <div class="name">SYAHRANI, S.Pd</div>
-      <div class="school"><i class="fas fa-school"></i> SMAN 3 KASONGAN</div>
-    </div>
     <div class="credo">"Sejarah adalah guru kehidupan — belajar dari masa lalu untuk membangun masa depan."</div>
   </div>
 </div>
@@ -1707,9 +1701,6 @@ function useLL(t){
 
 /* =========================================================
    GAME 6 — JEJAK SEJARAWAN
-   Bank 20 dilema → 10 acak per sesi
-   Skor = (keputusan tepat ÷ 10) × 100
-   Peringkat dengan skala wajar (tidak berlebihan)
    ========================================================= */
 const JJ_TOTAL=10;
 const JJ_BANK=20;
@@ -2049,7 +2040,6 @@ function jjFinish(){
   stopTimer();
   const score = Math.round((jjGoodCount / JJ_TOTAL) * 100);
 
-  /* Peringkat dengan skala wajar — semua label POSITIF, tidak berlebihan */
   let rankIcon='🚀', rankName='AWAL YANG BAIK', rankSub='Terus belajar & berlatih';
   if(score===100){ rankIcon='🌟'; rankName='LUAR BIASA';          rankSub='Semua keputusan tepat'; }
   else if(score>=80){ rankIcon='🏆'; rankName='SANGAT BAIK';       rankSub='Hampir sempurna'; }
