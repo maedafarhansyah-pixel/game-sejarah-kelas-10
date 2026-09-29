@@ -13,9 +13,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ================= ROOT =================
-   PERBAIKAN: variabel yang tidak terpakai dihapus
-   (--blue3..6, --cyan2/3, --purple2/3, --amber2/3, --grad-main/soft) */
 :root{
   --blue:#2563eb;--blue2:#3b82f6;
   --cyan:#06b6d4;
@@ -28,12 +25,10 @@
   --radius:18px;--ease:cubic-bezier(0.23,1,0.32,1);
   --shadow:0 20px 45px -18px rgba(15,42,110,.28);
   --shadow-lg:0 30px 70px -22px rgba(15,42,110,.38);
-  /* gradient bar dipakai .gc::before, .gh::before, .mq::before */
   --grad-bar:linear-gradient(90deg,#06b6d4,#2563eb 40%,#8b5cf6 75%,#f59e0b);
 }
 html,body{height:100%;overflow-x:hidden}
 
-/* PERBAIKAN: body background dari 5 layer → 3 layer */
 body{
   font-family:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
   color:var(--ink);min-height:100vh;font-size:16px;line-height:1.6;
@@ -47,7 +42,6 @@ body{
 body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001s!important}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:10px}
 
-/* PERBAIKAN: hapus .orb (6 blob blur(50px) bergerak) — hanya aurora yang tersisa */
 .aurora{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
 .aurora::before,.aurora::after{content:'';position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
 .aurora::before{background:radial-gradient(circle,rgba(6,182,212,.55),transparent 60%);top:-15vmax;left:-15vmax;animation:aur1 18s ease-in-out infinite}
@@ -62,9 +56,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .screen.active{display:block;animation:screenIn .7s var(--ease)}
 @keyframes screenIn{0%{opacity:0;transform:translateY(24px) scale(.98)}100%{opacity:1;transform:none}}
 
-/* ============ TOPBAR ============ */
 .topbar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:8px;flex-wrap:wrap}
-/* PERBAIKAN: hapus backdrop-filter dari .tb-btn (mahal, nyaris tak terlihat) */
 .tb-btn{padding:8px 16px;border-radius:99px;background:rgba(255,255,255,.9);border:1.5px solid rgba(37,99,235,.2);
   color:var(--blue);font-family:inherit;font-size:.74rem;font-weight:800;cursor:pointer;
   letter-spacing:.4px;transition:all .25s;display:inline-flex;align-items:center;gap:6px}
@@ -72,7 +64,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .tb-btn i{font-size:.85rem}
 .tb-btn .count{background:rgba(245,158,11,.18);color:#b45309;padding:1px 8px;border-radius:10px;font-size:.68rem}
 
-/* ============ HERO ============ */
 .hero{text-align:center;padding:20px 0 30px;position:relative}
 .hero-title{font-size:clamp(1.35rem,4.5vw,2.9rem);font-weight:800;line-height:1.15;letter-spacing:-.8px;background:linear-gradient(120deg,#1d4ed8,#06b6d4,#8b5cf6,#2563eb,#1d4ed8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:blueTextShift 6s linear infinite;filter:drop-shadow(0 6px 20px rgba(37,99,235,.25));position:relative;word-break:keep-all}
 .hero-title span{display:block;font-size:.32em;font-weight:600;margin-top:14px;-webkit-text-fill-color:var(--muted);background:none;filter:none;letter-spacing:6px;text-transform:uppercase}
@@ -87,7 +78,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 12px rgba(37,99,235,.25))}
 .stat-lbl{font-size:.78rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-top:2px}
 
-/* ============ DAILY FACT ============ */
 .daily-fact{max-width:720px;margin:24px auto 0;padding:16px 22px;border-radius:18px;
   background:linear-gradient(135deg,rgba(254,243,199,.75),rgba(253,230,138,.5));
   border:1.5px solid rgba(217,119,6,.3);display:flex;gap:14px;align-items:flex-start;
@@ -97,8 +87,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .daily-fact .txt{font-size:.88rem;color:#78350f;line-height:1.6;font-weight:500}
 .daily-fact .txt b{color:#92400e;font-weight:800}
 
-/* ============ PROGRESS ============ */
-/* PERBAIKAN: backdrop-filter dihapus, background solid */
 .progress-wrap{max-width:560px;margin:28px auto 0;padding:16px 22px;background:var(--card);border:1px solid var(--stroke);border-radius:16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.9rem;font-weight:700;position:relative}
 .progress-info .lbl{color:var(--muted);display:flex;align-items:center;gap:8px}
@@ -110,10 +98,8 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .reset-progress button{background:transparent;border:1.5px dashed rgba(37,99,235,.4);color:var(--blue);padding:6px 16px;border-radius:20px;font-size:.75rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit}
 .reset-progress button:hover{background:var(--blue);color:#fff;border-style:solid;border-color:var(--blue)}
 
-/* ============ GAME GRID ============ */
 .game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;margin-top:30px}
 @media(max-width:620px){.game-grid{grid-template-columns:1fr 1fr;gap:14px}}
-/* PERBAIKAN: hapus backdrop-filter, .gc-num, dan konflik :hover vs tilt */
 .gc{position:relative;border-radius:var(--radius);padding:28px 22px;background:var(--card);border:1px solid var(--stroke);cursor:pointer;overflow:hidden;transition:transform .3s var(--ease),box-shadow .4s,border-color .3s;box-shadow:var(--shadow);animation:cardIn .7s var(--ease) backwards;text-align:left}
 .gc:nth-child(1){animation-delay:.1s}.gc:nth-child(2){animation-delay:.2s}.gc:nth-child(3){animation-delay:.3s}.gc:nth-child(4){animation-delay:.4s}.gc:nth-child(5){animation-delay:.5s}
 @keyframes cardIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
@@ -134,8 +120,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .gc-dif.med{background:rgba(245,158,11,.18);color:#b45309}
 .gc-dif.hard{background:rgba(239,68,68,.15);color:var(--red2)}
 
-/* ============ GAME HEADER ============ */
-/* PERBAIKAN: backdrop-filter dihapus */
 .gh{display:flex;align-items:center;gap:12px;padding:14px 18px;margin-bottom:22px;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);flex-wrap:wrap;animation:fadeUp .5s var(--ease);position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .gh::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-bar);opacity:.9}
 .gh h2{flex:1;font-size:clamp(1.05rem,2.5vw,1.4rem);font-weight:800;color:var(--ink2);min-width:180px;position:relative}
@@ -145,14 +129,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .icon-btn:hover{background:var(--blue);color:#fff;transform:scale(1.1) rotate(-8deg);box-shadow:0 8px 24px rgba(37,99,235,.4)}
 .icon-btn.home{border-color:rgba(6,182,212,.4);color:var(--cyan)}
 .icon-btn.home:hover{background:var(--cyan);color:#fff;box-shadow:0 8px 24px rgba(6,182,212,.4)}
-/* PERBAIKAN: pill.timer disamakan warnanya (blue/cyan, bukan ungu) */
 .pill{padding:10px 20px;border-radius:40px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:800;font-size:.88rem;white-space:nowrap;box-shadow:0 6px 20px rgba(37,99,235,.35);transition:transform .3s;position:relative;z-index:1}
 .pill.pulse{animation:pillPulse .6s var(--ease)}
 @keyframes pillPulse{50%{transform:scale(1.15)}}
 .pill.cyan{background:linear-gradient(135deg,var(--cyan),var(--purple))}
 .pill.timer{background:linear-gradient(135deg,#2563eb,#3b82f6);font-variant-numeric:tabular-nums}
 
-/* ============ INSTRUCTION ============ */
 .inst{padding:20px 26px;margin-bottom:24px;
   background:linear-gradient(115deg,rgba(239,246,255,.98),rgba(236,254,255,.95));
   border:2px solid rgba(37,99,235,.22);border-left:6px solid var(--blue);
@@ -166,14 +148,11 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .btn-mini{margin-left:auto;padding:10px 20px;font-size:.9rem;background:rgba(37,99,235,.12);border:2px solid rgba(37,99,235,.3);color:var(--blue);border-radius:30px;cursor:pointer;font-weight:800;transition:all .3s;font-family:inherit;letter-spacing:.3px}
 .btn-mini:hover{background:var(--blue);color:#fff;border-color:var(--blue);transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,99,235,.3)}
 
-/* ============ DETEKTIF / MISI WAKTU ============ */
 .det-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:22px}
 .det-col{padding:20px 16px;min-height:240px;background:rgba(255,255,255,.78);border:2.5px dashed rgba(37,99,235,.32);border-radius:var(--radius);transition:all .35s var(--ease);position:relative;overflow:hidden}
 .det-col.hover{border-color:var(--blue);background:rgba(37,99,235,.08);transform:scale(1.02)}
 .det-col h4{text-align:center;color:var(--blue);font-size:1.15rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:900;line-height:1.15}
-/* PERBAIKAN: animation: float pada emoji dihapus (mengganggu saat membaca) */
 .det-col h4 .emoji{font-size:3.4rem;line-height:1;filter:drop-shadow(0 8px 18px rgba(37,99,235,.32))}
-/* PERBAIKAN: backdrop-filter dihapus dari .det-pool */
 .det-pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:18px;border-radius:var(--radius);background:var(--card);border:1px solid var(--stroke);min-height:100px;box-shadow:var(--shadow)}
 .src{padding:14px 16px;border-radius:12px;font-size:.9rem;font-weight:600;background:#fff;border:2px solid rgba(37,99,235,.13);cursor:pointer;transition:all .3s var(--ease);color:var(--ink);text-align:center;line-height:1.4;position:relative;overflow:hidden;font-family:inherit}
 .src:hover{border-color:var(--blue);transform:translateY(-3px) scale(1.02);box-shadow:0 10px 24px rgba(37,99,235,.18)}
@@ -184,7 +163,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .det-col .src{margin-bottom:10px;cursor:default;font-size:.82rem;padding:10px 12px}
 
-/* ============ MISI ILMU SEJARAH ============ */
 .lv-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
 .lv-tab{padding:12px 22px;border-radius:40px;background:#fff;border:2px solid rgba(37,99,235,.15);cursor:pointer;font-size:.85rem;font-weight:700;color:var(--muted);transition:all .35s var(--ease);position:relative;overflow:hidden;font-family:inherit}
 .lv-tab:hover:not(.lock){transform:translateY(-2px);border-color:var(--blue);color:var(--blue)}
@@ -202,7 +180,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .mi.done::after{content:'✓';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:800;font-size:1.1rem;animation:popCheck .4s var(--ease)}
 .mi.err{animation:shake .4s;border-color:var(--red);background:rgba(239,68,68,.1)}
 
-/* ===== DETAIL PANEL (backdrop-filter DIPERTAHANKAN di sini) ===== */
 .detail-panel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120%);
   max-width:680px;width:calc(100% - 40px);padding:20px 24px 22px;
   background:rgba(255,255,255,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
@@ -213,7 +190,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .detail-panel .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-right:96px}
 .detail-panel .hd i{color:var(--blue);font-size:1.3rem}
 .detail-panel .hd .t{font-weight:800;color:var(--ink2);font-size:1rem;letter-spacing:1px;text-transform:uppercase}
-/* PERBAIKAN: hint hanya ditampilkan pada mode tahan-terbuka (diatur via JS) */
 .detail-panel .hd .hint{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--muted);
   background:rgba(37,99,235,.08);padding:4px 10px;border-radius:20px;
   display:inline-flex;align-items:center;gap:5px;letter-spacing:.3px;white-space:nowrap}
@@ -226,13 +202,11 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .detail-panel .src-line{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(37,99,235,.2);font-size:.74rem;color:var(--muted);font-style:italic}
 .detail-panel .close-btn{position:absolute;top:12px;right:14px;background:rgba(37,99,235,.1);border:2px solid rgba(37,99,235,.3);color:var(--blue);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.05rem;font-weight:800;transition:all .3s;pointer-events:auto;font-family:inherit;display:flex;align-items:center;justify-content:center;line-height:1}
 .detail-panel .close-btn:hover{background:var(--red);color:#fff;transform:rotate(90deg);border-color:var(--red);box-shadow:0 6px 18px rgba(239,68,68,.4)}
-/* Countdown bar — SATU-SATUNYA indikator auto-close */
 .detail-panel .countdown{position:absolute;bottom:0;left:0;right:0;height:4px;border-radius:0 0 20px 20px;overflow:hidden;background:transparent;pointer-events:none}
 .detail-panel .countdown .fill{height:100%;width:100%;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));transform-origin:left;transform:scaleX(0);display:none}
 .detail-panel.auto .countdown .fill{display:block;animation:countdownShrink 3s linear forwards}
 @keyframes countdownShrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
-/* ============ WHEEL ============ */
 .ww{display:flex;flex-direction:column;align-items:center;gap:26px}
 .wh{position:relative;width:min(460px,92vw);height:min(460px,92vw)}
 .wpointer{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:2.4rem;color:var(--blue);z-index:10;filter:drop-shadow(0 6px 14px rgba(37,99,235,.4));animation:pointerBob 1.5s ease-in-out infinite}
@@ -241,7 +215,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));border:4px solid #fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;font-weight:800;color:#fff;font-size:.9rem;letter-spacing:1.5px;text-align:center;line-height:1.1;box-shadow:0 10px 28px rgba(37,99,235,.45),inset 0 2px 0 rgba(255,255,255,.3);transition:all .3s var(--ease);padding:8px;font-family:inherit}
 .wcenter:hover{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 14px 36px rgba(37,99,235,.55)}
 .wcenter:active{transform:translate(-50%,-50%) scale(.95)}
-/* PERBAIKAN: backdrop-filter dihapus dari .wq */
 .wq{width:100%;max-width:680px;padding:26px;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);text-align:center;display:none;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .wq.show{display:block;animation:qIn .5s var(--ease)}
 @keyframes qIn{0%{opacity:0;transform:translateY(20px) scale(.98)}100%{opacity:1;transform:none}}
@@ -263,17 +236,14 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .wq-actions{margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;display:none}
 .wq-actions.show{display:flex;animation:explainIn .5s var(--ease)}
 
-/* ============ JUTAWAN ============ */
 .ml{display:grid;grid-template-columns:1fr 230px;gap:22px}
 @media(max-width:820px){.ml{grid-template-columns:1fr}.mtree{order:-1;flex-direction:row!important;max-height:none;overflow-x:auto;padding:12px;gap:8px}.mtree .mi2{min-width:96px;flex-shrink:0}}
-/* PERBAIKAN: backdrop-filter dihapus dari .mtree */
 .mtree{display:flex;flex-direction:column-reverse;gap:4px;padding:16px 14px;border-radius:var(--radius);background:var(--card);border:1px solid var(--stroke);position:sticky;top:20px;height:fit-content;box-shadow:var(--shadow)}
 .mi2{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-radius:10px;font-size:.82rem;color:var(--muted);font-weight:600;transition:all .35s var(--ease)}
 .mi2.cur{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(37,99,235,.35);transform:scale(1.04)}
 .mi2.pass{color:var(--green);opacity:.9}
 .mi2.pass::before{content:'✓ ';font-weight:800}
 .mi2.mile{color:var(--amber);font-weight:800}
-/* PERBAIKAN: backdrop-filter dihapus dari .mq */
 .mq{padding:30px 26px;margin-bottom:22px;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .mq::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad-bar)}
 .mq .n{font-size:.85rem;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:800}
@@ -287,13 +257,11 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .mo button.no{background:rgba(239,68,68,.1);border-color:var(--red)}
 .mo button.elim{opacity:.25;pointer-events:none;text-decoration:line-through}
 .lls{display:flex;gap:14px;justify-content:center;margin-top:22px;flex-wrap:wrap}
-/* PERBAIKAN: hapus rotate(-6deg) pada hover — untuk tombol penting, terlalu playful */
 .ll{background:#fff;border:3px solid var(--blue);color:var(--blue);width:84px;height:84px;border-radius:50%;cursor:pointer;transition:all .35s var(--ease);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:.68rem;gap:3px;text-align:center;padding:6px;line-height:1.1;position:relative;font-family:inherit;box-shadow:0 6px 16px rgba(37,99,235,.15)}
 .ll i{font-size:1.25rem}
 .ll:hover:not(:disabled){background:var(--blue);color:#fff;transform:scale(1.08);box-shadow:0 10px 28px rgba(37,99,235,.4)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-/* ============ MODAL (backdrop-filter DIPERTAHANKAN di sini) ============ */
 .modal{position:fixed;inset:0;background:rgba(15,42,110,.55);display:none;justify-content:center;align-items:center;z-index:2000;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
 .modal.on{display:flex;animation:fadeIn .3s var(--ease)}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -322,20 +290,18 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 #mNextBtn[hidden]{display:none!important}
 @keyframes nextPulse{0%,100%{box-shadow:0 10px 26px rgba(6,182,212,.35)}50%{box-shadow:0 14px 40px rgba(6,182,212,.7),0 0 0 6px rgba(6,182,212,.15)}}
 
-/* ============ REVIEW MODAL ============ */
 .rv-list{text-align:left;max-height:55vh;overflow-y:auto;padding:4px 2px;margin-bottom:16px;flex:1 1 auto;min-height:0}
 .rv-item{padding:14px 16px;border-radius:12px;margin-bottom:10px;background:#f8fbff;border:1.5px solid rgba(37,99,235,.15);font-size:.88rem}
 .rv-item.ok{border-left:4px solid var(--green);background:rgba(16,185,129,.05)}
-.rv-item.no{border-left:4px solid var(--red);background:rgba(239,68,68,.05)}
+.rv-item.no{border-left:4px solid var(--amber);background:rgba(245,158,11,.05)}
 .rv-item .rq{font-weight:800;color:var(--ink2);margin-bottom:8px;font-size:.9rem;line-height:1.5}
 .rv-item .ra{font-size:.82rem;color:var(--muted);margin-bottom:4px;line-height:1.5}
 .rv-item .ra b{color:var(--green2);font-weight:800}
-.rv-item .ra b.wrong{color:var(--red2)}
+.rv-item .ra b.wrong{color:#b45309}
 .rv-item .re{font-size:.8rem;color:var(--muted2);line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(37,99,235,.15)}
 .rv-item .re b{color:var(--blue)}
 .rv-item .src{font-size:.74rem;color:var(--muted);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(37,99,235,.1)}
 
-/* ============ ACHIEVEMENTS GRID ============ */
 .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;text-align:left;flex:1 1 auto;min-height:0;overflow-y:auto;margin-bottom:6px}
 .ach{padding:16px 14px;border-radius:14px;background:#f8fbff;border:1.5px solid rgba(37,99,235,.15);display:flex;gap:12px;align-items:center;transition:all .3s}
 .ach.unlocked{background:linear-gradient(135deg,rgba(254,243,199,.6),rgba(253,230,138,.4));border-color:rgba(217,119,6,.4);box-shadow:0 6px 18px rgba(217,119,6,.1)}
@@ -345,7 +311,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .ach .ds{font-size:.7rem;color:var(--muted);line-height:1.35;margin-top:3px}
 .ach.unlocked .nm{color:#b45309}
 
-/* ============ GLOSSARY ============ */
 .gl-list{text-align:left;max-height:60vh;overflow-y:auto;padding:2px;flex:1 1 auto;min-height:0}
 .gl-item{padding:14px 16px;border-radius:12px;margin-bottom:10px;background:#f8fbff;border:1px solid rgba(37,99,235,.15);transition:all .25s}
 .gl-item:hover{background:rgba(239,246,255,.9);transform:translateX(4px)}
@@ -354,14 +319,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .gl-item .def{font-size:.83rem;color:var(--muted2);line-height:1.6}
 .gl-item .def b{color:var(--ink2);font-weight:700}
 
-/* ============ NOTIF ============ */
 .nf{position:fixed;top:26px;left:50%;transform:translateX(-50%) translateY(-130px);padding:16px 32px;border-radius:40px;z-index:3000;font-weight:800;font-size:.95rem;background:#fff;border:2px solid var(--blue);color:var(--blue);box-shadow:0 14px 40px rgba(15,42,110,.25);opacity:0;transition:all .4s var(--ease);pointer-events:none;letter-spacing:.3px;max-width:90vw;text-align:center}
 .nf.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .nf.ok{border-color:var(--green);color:var(--green);box-shadow:0 14px 40px rgba(16,185,129,.28)}
-.nf.no{border-color:var(--red);color:var(--red);box-shadow:0 14px 40px rgba(239,68,68,.28)}
+.nf.no{border-color:var(--amber);color:#b45309;box-shadow:0 14px 40px rgba(245,158,11,.28)}
 .nf.gold{border-color:var(--amber);color:#b45309;box-shadow:0 14px 40px rgba(245,158,11,.3)}
 
-/* ============ ACHIEVEMENT TOAST ============ */
 .ach-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);z-index:3500;padding:26px 36px;background:rgba(255,255,255,.97);border:3px solid var(--green);border-radius:22px;backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);box-shadow:0 30px 80px rgba(15,42,110,.3),0 0 0 8px rgba(16,185,129,.12);text-align:center;opacity:0;transition:all .6s var(--ease);pointer-events:none;max-width:90vw}
 .ach-toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .ach-toast .icn{font-size:3.5rem;margin-bottom:10px;animation:bounceIn .8s var(--ease) .2s backwards}
@@ -374,11 +337,9 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple));border-radius:10px}
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--blue2),var(--cyan),var(--purple))}
 
-/* ============ FOOTER ============ */
 .footer{margin-top:48px;padding:24px 16px;text-align:center;font-size:.78rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.15);position:relative;z-index:1}
 .footer .sch{font-weight:900;color:var(--blue);letter-spacing:2px;font-size:.85rem;margin-bottom:6px}
 
-/* PERBAIKAN: credit-wrap disederhanakan — hanya 1 animasi (nameShine) */
 .credit-wrap{margin-top:14px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;
   padding:14px 26px;border-radius:18px;position:relative;
   background:linear-gradient(135deg,rgba(15,42,110,.06),rgba(6,182,212,.06) 45%,rgba(245,158,11,.08));
@@ -432,6 +393,70 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .credit-wrap .lbl{letter-spacing:3px}
   .credit-wrap .school{font-size:.7rem;letter-spacing:1.2px}
 }
+
+/* ============================================================
+   STYLE GAME 6 — JEJAK SEJARAWAN
+   ============================================================ */
+.gc:nth-child(6){animation-delay:.6s}
+.jj-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+@media(max-width:620px){.jj-stats{grid-template-columns:1fr;gap:10px}}
+.jj-stat{padding:14px 18px;background:var(--card);border:1px solid var(--stroke);border-radius:16px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:all .3s}
+.jj-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-bar);opacity:.85}
+.jj-stat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.85rem;font-weight:800;color:var(--ink2)}
+.jj-stat-header .ic{display:inline-flex;align-items:center;gap:6px}
+.jj-stat-header .ic i{color:var(--blue)}
+.jj-stat-bar{height:10px;border-radius:10px;background:rgba(37,99,235,.1);overflow:hidden}
+.jj-stat-fill{height:100%;border-radius:10px;transition:width .8s var(--ease),background .4s;background:linear-gradient(90deg,#2563eb,#06b6d4);width:50%}
+.jj-stat.danger .jj-stat-fill{background:linear-gradient(90deg,#f59e0b,#d97706)}
+.jj-stat.warn .jj-stat-fill{background:linear-gradient(90deg,#f59e0b,#d97706)}
+.jj-stat.great .jj-stat-fill{background:linear-gradient(90deg,#10b981,#059669)}
+.jj-stat-val{font-weight:900;font-size:.9rem;color:var(--blue);font-variant-numeric:tabular-nums}
+.jj-stage{position:relative;margin-bottom:22px}
+.jj-card{padding:36px 32px;background:var(--card);border:1px solid var(--stroke);border-radius:24px;box-shadow:var(--shadow-lg);text-align:center;position:relative;overflow:hidden;animation:jjCardIn .7s var(--ease)}
+@keyframes jjCardIn{0%{opacity:0;transform:scale(.92) translateY(30px)}100%{opacity:1;transform:none}}
+.jj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad-bar)}
+.jj-card-num{font-size:.72rem;font-weight:900;letter-spacing:3px;color:var(--blue);text-transform:uppercase;margin-bottom:14px}
+.jj-card-icon{font-size:4rem;margin-bottom:14px;display:inline-block;filter:drop-shadow(0 8px 20px rgba(37,99,235,.3))}
+.jj-card-title{font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:900;color:var(--ink2);margin-bottom:12px;letter-spacing:-.3px}
+.jj-card-text{font-size:1rem;color:var(--ink);line-height:1.7;max-width:560px;margin:0 auto 26px;font-weight:500}
+.jj-choices{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto}
+@media(max-width:620px){.jj-choices{grid-template-columns:1fr}}
+.jj-choice{padding:18px 20px;border-radius:16px;background:#fff;border:2px solid rgba(37,99,235,.15);color:var(--ink);text-align:left;font-family:inherit;font-size:.92rem;font-weight:700;line-height:1.5;cursor:pointer;transition:all .35s var(--ease);position:relative;overflow:hidden;display:flex;align-items:flex-start;gap:12px}
+.jj-choice:hover:not(:disabled){border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 28px rgba(37,99,235,.2);background:rgba(37,99,235,.04)}
+.jj-choice .kbd{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:900;font-size:.8rem;flex-shrink:0;box-shadow:0 4px 10px rgba(37,99,235,.3)}
+.jj-choice.picked-good{border-color:var(--green);background:rgba(16,185,129,.10);position:relative;animation:jjPulse .5s var(--ease)}
+.jj-choice.picked-good::after{content:'✓';position:absolute;top:10px;right:14px;color:var(--green);font-weight:900;font-size:1.1rem}
+.jj-choice.picked-wrong{border-color:var(--amber);background:rgba(245,158,11,.08);position:relative;animation:jjPulse .5s var(--ease)}
+.jj-choice.picked-wrong::after{content:'○';position:absolute;top:8px;right:14px;color:var(--amber);font-weight:900;font-size:1.2rem}
+.jj-choice.reveal-correct{border-color:var(--green);background:rgba(16,185,129,.06);position:relative}
+.jj-choice.reveal-correct::after{content:'✓ Benar';position:absolute;top:10px;right:14px;color:var(--green);font-weight:900;font-size:.78rem;letter-spacing:.5px}
+@keyframes jjPulse{50%{transform:scale(1.02)}}
+.jj-choice:disabled{cursor:default;opacity:.85}
+.jj-feedback{margin-top:20px;padding:16px 22px;background:linear-gradient(115deg,rgba(239,246,255,.95),rgba(236,254,255,.9));border:1px solid rgba(37,99,235,.15);border-left:4px solid var(--blue);border-radius:12px;text-align:left;display:none}
+.jj-feedback.show{display:block;animation:explainIn .5s var(--ease)}
+.jj-feedback .lbl{font-size:.72rem;font-weight:900;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.jj-feedback .txt{font-size:.92rem;line-height:1.7;color:var(--ink);font-weight:500}
+.jj-feedback .deltas{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.jj-delta{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-size:.78rem;font-weight:800}
+.jj-delta.up{background:rgba(16,185,129,.15);color:#065f46}
+.jj-delta.down{background:rgba(245,158,11,.15);color:#b45309}
+.jj-feedback .src{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:10px;padding-top:8px;border-top:1px dashed rgba(37,99,235,.2)}
+.jj-next{display:none;justify-content:center;margin-top:20px}
+.jj-next.show{display:flex}
+.jj-next button{padding:14px 32px;border-radius:40px;border:none;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 10px 26px rgba(37,99,235,.35);transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:10px;letter-spacing:.3px}
+.jj-next button:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 14px 36px rgba(37,99,235,.5)}
+
+/* Banner peringkat di modal akhir */
+.jj-rank-banner{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0 18px;padding:14px 22px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(6,182,212,.08));border:1.5px solid rgba(37,99,235,.2)}
+.jj-rank-banner .rk-icon{font-size:2.4rem;line-height:1}
+.jj-rank-banner .rk-txt{text-align:left}
+.jj-rank-banner .rk-name{font-weight:900;font-size:1.05rem;color:var(--ink2);letter-spacing:.5px}
+.jj-rank-banner .rk-sub{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:2px}
+.jj-score-card{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.jj-score-card .sc{padding:14px 16px;border-radius:14px;background:#f8fbff;border:1.5px solid rgba(37,99,235,.15);text-align:center}
+.jj-score-card .sc-val{font-size:1.6rem;font-weight:900;color:var(--blue);line-height:1}
+.jj-score-card .sc-lbl{font-size:.72rem;color:var(--muted);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px}
+@media(max-width:520px){.jj-score-card{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -504,6 +529,13 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
       <i class="fas fa-crown gc-icon"></i>
       <h3>Jutawan Sejarah</h3><p>15 soal acak, salah tetap lanjut, 3 bantuan tersedia.</p>
       <span class="gc-tag">Quiz Show</span>
+    </div>
+    <!-- GAME 6 -->
+    <div class="gc" data-game="jejak" data-tilt tabindex="0" role="button" aria-label="Jejak Sejarawan">
+      <span class="gc-dif med">SEDANG</span>
+      <i class="fas fa-compass gc-icon"></i>
+      <h3>Jejak Sejarawan</h3><p>10 dilema acak dari bank 20 dilema etika &amp; keputusan sejarawan.</p>
+      <span class="gc-tag">Decision</span>
     </div>
   </div>
 
@@ -621,6 +653,51 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   </div>
 </div>
 
+<!-- GAME 6: JEJAK SEJARAWAN -->
+<div id="gameJejak" class="screen">
+  <div class="gh">
+    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <h2>Jejak Sejarawan<small><i class="fas fa-compass"></i> Game 06 · Dilema &amp; Keputusan</small></h2>
+    <span class="pill" id="jjProgress">Kartu 0 / 10</span>
+    <span class="pill timer" id="jjTimer">00:00</span>
+  </div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Kamu berperan sebagai <strong>sejarawan muda</strong>. Setiap sesi menyajikan <strong>10 dilema acak dari bank 20 dilema</strong> etika &amp; keputusan. Pilih keputusan dengan menekan tombol <kbd>1</kbd> atau <kbd>2</kbd>, lalu tekan <kbd>Enter</kbd> untuk lanjut. Keputusanmu mempengaruhi 3 aspek: <strong>Ketelitian</strong>, <strong>Objektivitas</strong>, dan <strong>Empati</strong>. <strong>Skor akhir</strong> dihitung dari <strong>jumlah keputusan tepat</strong>. Main berulang kali untuk menghadapi dilema yang berbeda!</div></div>
+  <div class="jj-stats">
+    <div class="jj-stat" id="jjStatKet">
+      <div class="jj-stat-header"><span class="ic"><i class="fas fa-microscope"></i> Ketelitian</span><span class="jj-stat-val" id="jjValKet">50</span></div>
+      <div class="jj-stat-bar"><div class="jj-stat-fill" id="jjFillKet"></div></div>
+    </div>
+    <div class="jj-stat" id="jjStatObj">
+      <div class="jj-stat-header"><span class="ic"><i class="fas fa-scale-balanced"></i> Objektivitas</span><span class="jj-stat-val" id="jjValObj">50</span></div>
+      <div class="jj-stat-bar"><div class="jj-stat-fill" id="jjFillObj"></div></div>
+    </div>
+    <div class="jj-stat" id="jjStatEmp">
+      <div class="jj-stat-header"><span class="ic"><i class="fas fa-heart"></i> Empati</span><span class="jj-stat-val" id="jjValEmp">50</span></div>
+      <div class="jj-stat-bar"><div class="jj-stat-fill" id="jjFillEmp"></div></div>
+    </div>
+  </div>
+  <div class="jj-stage">
+    <div class="jj-card" id="jjCard">
+      <div class="jj-card-num" id="jjNum">Dilema 1 / 10</div>
+      <div class="jj-card-icon" id="jjIcon">📜</div>
+      <div class="jj-card-title" id="jjTitle">Memuat...</div>
+      <div class="jj-card-text" id="jjText"></div>
+      <div class="jj-choices">
+        <button class="jj-choice" id="jjChoiceA"></button>
+        <button class="jj-choice" id="jjChoiceB"></button>
+      </div>
+      <div class="jj-feedback" id="jjFeedback">
+        <div class="lbl"><i class="fas fa-lightbulb"></i> Konsekuensi Keputusan</div>
+        <div class="txt" id="jjFeedbackTxt"></div>
+        <div class="deltas" id="jjDeltas"></div>
+        <div class="src" id="jjSrc"></div>
+        <div class="jj-next" id="jjNextWrap"><button id="jjNextBtn" onclick="nextJj()"><span id="jjNextLabel">Lanjut</span> <i class="fas fa-arrow-right"></i></button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- DETAIL PANEL -->
 <div class="detail-panel" id="detailPanel">
   <button class="close-btn" onclick="hideDetail()" aria-label="Tutup">✕</button>
@@ -718,6 +795,7 @@ const Sound = {
   click(){ this.beep(600,0.05,'square',0.04); },
   correct(){ this.beep(660,0.1,'sine',0.14); this.beep(880,0.15,'sine',0.14,0.08); this.beep(1100,0.18,'sine',0.10,0.16); },
   wrong(){ this.beep(220,0.18,'sawtooth',0.10); this.beep(165,0.28,'sawtooth',0.10,0.12); },
+  soft(){ this.beep(440,0.12,'sine',0.07); this.beep(330,0.14,'sine',0.05,0.10); },
   spin(){ for(let i=0;i<8;i++) this.beep(400+i*60,0.05,'square',0.05,i*0.06); },
   land(){ this.beep(523,0.1,'sine',0.14); this.beep(784,0.16,'sine',0.12,0.08); },
   win(){ [523,659,784,1047,1319].forEach((f,i)=>this.beep(f,0.22,'sine',0.14,i*0.09)); },
@@ -797,7 +875,6 @@ function unlockAch(id){
   if(a[id]) return false;
   a[id]=Date.now(); saveAch(a);
   const ach=ACHS.find(x=>x.id===id);
-  /* PERBAIKAN: tidak lagi memanggil notif() — achToast sudah cukup, hindari tumpang tindih */
   if(ach){ setTimeout(()=>{ Sound.ach(); }, 400); }
   renderAch();
   return true;
@@ -894,7 +971,7 @@ function openReview(){
     const chosen=r.chosenIdx>=0?r.opts[r.chosenIdx]:'(tidak dijawab)';
     return `<div class="rv-item ${ok?'ok':'no'}">
       <div class="rq">${i+1}. ${r.q}</div>
-      <div class="ra">Jawabanmu: <b class="${ok?'':'wrong'}">${chosen}</b>${ok?' ✓':' ✗'}</div>
+      <div class="ra">Jawabanmu: <b class="${ok?'':'wrong'}">${chosen}</b>${ok?' ✓':' ○'}</div>
       ${!ok?`<div class="ra">Jawaban benar: <b>${r.opts[r.correctIdx]}</b></div>`:''}
       <div class="re"><b>💡 Pembahasan:</b> ${r.explanation||''}</div>
       ${r.source?`<div class="src">📖 ${r.source}</div>`:''}
@@ -943,15 +1020,12 @@ function toggleMotion(){
 
 /* =========================================================
    BG PARTICLES
-   PERBAIKAN: hapus 6 orb; kurangi jumlah partikel; 
-   garis koneksi tetap tapi lebih sedikit karena N lebih kecil.
    ========================================================= */
 (function(){
   const cv=$('#bgCanvas'),ctx=cv.getContext('2d');
   let w,h,parts=[];
   function rz(){w=cv.width=innerWidth;h=cv.height=innerHeight}
   rz();addEventListener('resize',rz);
-  /* dari innerWidth/25 → innerWidth/40 (lebih ringan) */
   const N=Math.min(34,Math.floor(innerWidth/40));
   for(let i=0;i<N;i++)parts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.6,c:['#2563eb','#06b6d4','#8b5cf6','#60a5fa'][Math.floor(Math.random()*4)]});
   function loop(){
@@ -963,7 +1037,6 @@ function toggleMotion(){
   loop();
 })();
 
-/* CLICK BURST (dikurangi 8 → 6 partikel) */
 document.addEventListener('click',e=>{
   if(document.body.classList.contains('reduce-motion')) return;
   for(let i=0;i<6;i++){
@@ -978,11 +1051,8 @@ document.addEventListener('click',e=>{
 
 function shakeScreen(){ if(document.body.classList.contains('reduce-motion'))return; document.body.animate([{transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},{transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},{transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}],{duration:400,easing:'ease-out'})}
 
-/* ============ UTIL UI ============ */
 function notif(msg,type=''){const n=$('#nf');n.textContent=msg;n.className='nf on '+type;clearTimeout(n._t);n._t=setTimeout(()=>n.classList.remove('on'),1700)}
 
-/* PERBAIKAN: modal() mengelola tampil/sembunyi tombol Review & Home
-   agar tidak muncul 4 tombol bersamaan saat ada tombol "Lanjut". */
 function modal(emoji,title,text,badge,list){
   const next=$('#mNextBtn'), revBtn=$('#mReviewBtn'), homeBtn=$('#mHomeBtn');
   next.hidden=true;
@@ -992,8 +1062,6 @@ function modal(emoji,title,text,badge,list){
   if(badge){$('#mBadge').style.display='inline-flex';$('#mBadgeText').textContent=badge}else{$('#mBadge').style.display='none'}
   if(list&&list.length){$('#mList').style.display='block';$('#mList').innerHTML=list.map(it=>`<div class="item"><div class="ttl">${it.t}</div><div class="dsc">${it.d}</div></div>`).join('')}else{$('#mList').style.display='none'}
   $('#modal').classList.add('on');
-  /* PERBAIKAN: hapus confetti() dari modal — biarkan pemanggil yang urus, 
-     sehingga tidak double dengan showAchievement(). */
   if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎'].includes(emoji))confetti();
 }
 function closeModal(){$('#modal').classList.remove('on')}
@@ -1014,11 +1082,6 @@ function goGame(id){
   if(id==='millionaire')initMl();
 }
 
-/* =========================================================
-   DETAIL PANEL
-   - Game 1 & 3 : tahan terbuka (tutup manual)
-   - Game 2,4,5 : auto-tutup 3 detik (hint di-hidden CSS .detail-panel.auto)
-   ========================================================= */
 let detailTimer = null;
 function showDetail(left, right, text, src, autoCloseMs){
   if(detailTimer){ clearTimeout(detailTimer); detailTimer = null; }
@@ -1032,7 +1095,6 @@ function showDetail(left, right, text, src, autoCloseMs){
   panel.classList.add('show');
 
   if(autoCloseMs && autoCloseMs > 0){
-    /* Mode auto: hint disembunyikan via CSS .detail-panel.auto .hint{display:none} */
     const fill = $('#dpCountdown');
     fill.style.animation='none';
     void fill.offsetWidth;
@@ -1050,7 +1112,6 @@ function hideDetail(){
   panel.classList.remove('auto');
 }
 
-/* TILT */
 document.querySelectorAll('[data-tilt]').forEach(el=>{
   el.addEventListener('mousemove',e=>{
     if(document.body.classList.contains('reduce-motion'))return;
@@ -1064,7 +1125,6 @@ document.querySelectorAll('.gc').forEach(c=>{
   c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); c.click(); } });
 });
 
-/* CONFETTI */
 function confetti(){
   if(document.body.classList.contains('reduce-motion'))return;
   const cv=$('#confetti'),ctx=cv.getContext('2d');
@@ -1082,9 +1142,6 @@ function confetti(){
   loop();
 }
 
-/* ACHIEVEMENT TOAST
-   PERBAIKAN: hapus confetti() & Sound.ach() dari sini — 
-   dipanggil sekali saja dari pemanggil, bukan dobel. */
 const achToasts={
   detektif:{icn:'🔍',ttl:'DETEKTIF ULUNG',sub:'Kamu menuntaskan Detektif Sumber Sejarah!'},
   timeline:{icn:'⏳',ttl:'PENJELAJAH WAKTU',sub:'Kamu memahami 4 konsep waktu sejarah!'},
@@ -1103,8 +1160,7 @@ function showAchievement(id){
 }
 
 /* =========================================================
-   GAME 1: DETEKTIF — detail TAHAN TERBUKA
-   PERBAIKAN: array opts dirapikan (const OPTS) agar tidak membingungkan.
+   GAME 1: DETEKTIF
    ========================================================= */
 const DET_OPTS=['Tertulis','Lisan','Benda'];
 const detData=[
@@ -1172,7 +1228,6 @@ function dropDet(col){
     setTimeout(()=>$('#detScore').classList.remove('pulse'),600);
     notif('✓ Benar!','ok');
     Sound.correct();
-    /* PERBAIKAN: array opts dirapikan */
     pushReview(
       `"${c.textContent}" termasuk sumber...`,
       DET_OPTS,
@@ -1184,8 +1239,6 @@ function dropDet(col){
     if(detOk===detData.length){
       setTimeout(()=>{
         markDone('detektif',{score:detOk,acc:100});
-        /* PERBAIKAN: hanya panggil Sound.win + confetti sekali, 
-           showAchievement() tidak lagi memanggil confetti/sound */
         Sound.win();confetti();showAchievement('detektif');
         setTimeout(()=>modal('🔍','Detektif Hebat!',`Kamu mengklasifikasikan 27 sumber sejarah dengan tepat dalam ${fmtTime(timerSec)}!`,'Detektif Ulung 🔍'),400);
       },700);
@@ -1199,7 +1252,7 @@ function dropDet(col){
 }
 
 /* =========================================================
-   GAME 2: PENJELAJAH WAKTU — detail AUTO-CLOSE 3 DETIK
+   GAME 2: PENJELAJAH WAKTU
    ========================================================= */
 const TL_OPTS=['Diakronik','Sinkronik','Periodik','Kronologis'];
 const tlData=[
@@ -1284,7 +1337,7 @@ function dropTL(col){
 }
 
 /* =========================================================
-   GAME 3: MISI ILMU SEJARAH — detail TAHAN TERBUKA
+   GAME 3: MISI ILMU SEJARAH
    ========================================================= */
 const hxLvData=[
   {n:'Akar Kata',i:'Cocokkan kata dengan <strong>arti & asal bahasanya</strong>! Klik pasangan yang benar untuk melihat penjelasan akademik.',
@@ -1387,8 +1440,6 @@ function lvDone(){
     const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
     Sound.correct();
     modal('⭐',`Level ${hxLv+1} Selesai!`,`Kamu membuka <strong>Level ${hxLv+2}: ${hxLvData[hxLv+1].n}</strong>! Berikut ringkasan penjelasan:`,null,list);
-    /* PERBAIKAN: saat tombol "Lanjut" muncul, sembunyikan tombol Home & Review
-       agar tidak ada 4 tombol bersamaan */
     const next=$('#mNextBtn');
     next.hidden=false;
     next.innerHTML=`<i class="fas fa-arrow-right"></i> Lanjut ke Level ${hxLv+2}: ${hxLvData[hxLv+1].n}`;
@@ -1462,7 +1513,7 @@ function pickQuestions(n){
 }
 
 /* =========================================================
-   GAME 4: RODA PUTAR — detail AUTO-CLOSE 3 DETIK
+   GAME 4: RODA PUTAR
    ========================================================= */
 const WHEEL_TOTAL=15;
 let wRot=0,wSpin=false,wCtx,wCanvas,wAnswered=0,wCorrect=0,wSession=[];
@@ -1573,7 +1624,7 @@ function ansW(i,btn){
 function hideQ(){$('#wQ').classList.remove('show');$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show')}
 
 /* =========================================================
-   GAME 5: JUTAWAN — detail AUTO-CLOSE 3 DETIK
+   GAME 5: JUTAWAN
    ========================================================= */
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
@@ -1655,12 +1706,410 @@ function useLL(t){
 }
 
 /* =========================================================
+   GAME 6 — JEJAK SEJARAWAN
+   Bank 20 dilema → 10 acak per sesi
+   Skor = (keputusan tepat ÷ 10) × 100
+   Peringkat dengan skala wajar (tidak berlebihan)
+   ========================================================= */
+const JJ_TOTAL=10;
+const JJ_BANK=20;
+let jjIdx=0, jjStats={ket:50,obj:50,emp:50}, jjPicked=false;
+let jjSession=[];
+let jjGoodCount=0;
+
+const jjData=[
+  {
+    icon:'📜',
+    title:'Arsip Berdebu di Loteng Museum',
+    text:'Kamu menemukan tumpukan surat tua di loteng museum daerah. Banyak yang sudah lapuk dan sulit dibaca. Waktu penelitianmu hanya 3 hari.',
+    a:{kbd:'1',txt:'Foto &amp; katalog seluruh surat, walau hanya sebagian yang bisa dibaca.',d:{ket:+15,obj:0,emp:0},good:true,
+       fb:'Keputusan ini mencerminkan <b>ketelitian</b>. Sejarawan wajib mengarsipkan semua temuan sebelum menafsirkan — sesuai tahap <b>heuristik</b>. Bahkan fragmen kecil bisa menjadi kunci rekonstruksi.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — tahap heuristik &amp; pengarsipan'},
+    b:{kbd:'2',txt:'Pilih 5 surat yang paling jelas saja, sisanya biarkan.',d:{ket:-12,obj:0,emp:0},good:false,
+       fb:'Memilih-milih sumber berdasarkan kemudahan membaca berisiko <b>bias seleksi</b>. Prinsip kritik sumber menuntut kita menguji SEMUA bukti, bukan hanya yang nyaman.',
+       src:'Louis Gottschalk, Understanding History (1950)'}
+  },
+  {
+    icon:'📰',
+    title:'Dua Koran, Dua Versi',
+    text:'Koran A (pro-pemerintah) dan Koran B (oposisi) memberitakan peristiwa 1965 dengan versi yang sangat berbeda. Manuskripmu harus memilih satu sebagai rujukan utama.',
+    a:{kbd:'1',txt:'Gunakan Koran A karena lebih resmi dan lengkap.',d:{ket:0,obj:-15,emp:0},good:false,
+       fb:'Menggunakan sumber pemerintah TANPA kritik dapat melanggengkan <b>narasi tunggal</b>. Sejarawan harus menguji bias setiap sumber, termasuk sumber "resmi".',
+       src:'Sartono Kartodirdjo — kritik sumber &amp; historiografi kritis'},
+    b:{kbd:'2',txt:'Bandingkan keduanya, sajikan kedua versi, dan jelaskan bias masing-masing.',d:{ket:+10,obj:+20,emp:+5},good:true,
+       fb:'Inilah inti <b>objektivitas</b> sejarawan: tidak memihak, menyajikan multi-perspektif, dan menguji bias sumber. Inilah praktik <b>kritik internal</b> yang matang.',
+       src:'R.G. Collingwood, The Idea of History (1946) — sejarah sebagai penyelidikan kritis'}
+  },
+  {
+    icon:'🎙️',
+    title:'Wawancara dengan Pelaku Sejarah',
+    text:'Seorang veteran 90 tahun bersedia diwawancarai. Ia mulai bercerita dengan emosional, menangis, dan sesekali melampaui fakta yang bisa diverifikasi.',
+    a:{kbd:'1',txt:'Potong bagian emosional dan hanya ambil data faktual.',d:{ket:+5,obj:+5,emp:-20},good:false,
+       fb:'Memangkas dimensi emosional menghilangkan <b>wajah manusiawi</b> sejarah. Sejarah bukan sekadar data — ia adalah pengalaman manusia. Sejarawan perlu <b>empati</b> untuk memahami pelaku.',
+       src:'Peter Gay, Style in History (1974) — sejarah sebagai kisah manusiawi'},
+    b:{kbd:'2',txt:'Dengarkan penuh, catat emosinya, lalu verifikasi fakta dari sumber lain.',d:{ket:+10,obj:+5,emp:+20},good:true,
+       fb:'Inilah <b>empati historis</b> — memahami pelaku dari sudut pandang mereka, tanpa mengorbankan verifikasi. <b>Kritik eksternal</b> tetap dilakukan setelahnya.',
+       src:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995) — empati &amp; verifikasi'}
+  },
+  {
+    icon:'💻',
+    title:'Godaan Copy-Paste',
+    text:'Deadline makalah tinggal 6 jam. Kamu menemukan artikel online yang persis menjawab pertanyaanmu. Tinggal salin, edit sedikit, selesai.',
+    a:{kbd:'1',txt:'Salin dan modifikasi sedikit, tambahkan daftar pustaka.',d:{ket:-25,obj:-20,emp:-10},good:false,
+       fb:'Ini <b>plagiarisme</b> — pelanggaran integritas akademik paling serius. Sejarawan wajib memproduksi analisis orisinal berdasarkan sumber primer yang ia kumpulkan sendiri.',
+       src:'Permendiknas No. 17/2010 — pencegahan plagiarisme'},
+    b:{kbd:'2',txt:'Jadikan artikel sebagai sumber sekunder, tulis ulang dengan analisis dan sumber primer sendiri.',d:{ket:+15,obj:+15,emp:+5},good:true,
+       fb:'Inilah etika akademik yang benar: <b>mengutip dengan benar</b>, menganalisis ulang, dan tetap memproduksi karya orisinal. Integritas adalah mahkota sejarawan.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — etika penulisan sejarah'}
+  },
+  {
+    icon:'🕵️',
+    title:'Foto yang Mengubah Narasi',
+    text:'Kamu menemukan foto langka yang membantah narasi umum di buku pelajaran. Foto itu dimiliki keluarga yang memintamu TIDAK mempublikasikannya.',
+    a:{kbd:'1',txt:'Publikasikan saja demi kebenaran sejarah — hak publik lebih besar.',d:{ket:+10,obj:+10,emp:-25},good:false,
+       fb:'Mengabaikan permintaan keluarga berpotensi melanggar <b>etika penelitian</b>. Kebenaran sejarah penting, tapi tidak boleh dicapai dengan mengorbankan martabat subjek.',
+       src:'Kode Etik Penelitian Sejarah — perlindungan subjek &amp; privasi'},
+    b:{kbd:'2',txt:'Diskusikan dengan keluarga, tawarkan anonimisasi, hormati keputusan mereka.',d:{ket:+5,obj:+5,emp:+25},good:true,
+       fb:'Sejarawan modern menempatkan <b>etika</b> di atas ego akademik. Negosiasi &amp; anonimisasi adalah jalan tengah yang menjaga integritas sekaligus empati.',
+       src:'Pedoman Etika Penelitian Sosial-Humaniora (LIPI)'}
+  },
+  {
+    icon:'⚖️',
+    title:'Teori Favorit vs Data Baru',
+    text:'Data arsip terbaru justru MELEMAHKAN teori favoritmu yang sudah kamu bangun 2 tahun. Mengubahnya berarti kehilangan sebagian prestise akademik.',
+    a:{kbd:'1',txt:'Pertahankan teori lama, abaikan data baru sebagai "kecuali".',d:{ket:-20,obj:-25,emp:0},good:false,
+       fb:'Ini bentuk <b>bias konfirmasi</b> — bahaya terbesar sejarawan. Mempertahankan teori dengan mengorbankan bukti adalah pengkhianatan pada metode ilmiah.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — anti-bias konfirmasi'},
+    b:{kbd:'2',txt:'Revisi teori, publikasikan perubahan, akui data baru sebagai koreksi.',d:{ket:+20,obj:+20,emp:+5},good:true,
+       fb:'Inilah <b>kejujuran ilmiah</b> sejati. Sejarah tumbuh justru lewat revisi. Sejarawan besar mengubah tesisnya bila bukti menuntut.',
+       src:'R.G. Collingwood, The Idea of History (1946) — sejarah sebagai penyelidikan terbuka'}
+  },
+  {
+    icon:'👥',
+    title:'Suara yang Terlupakan',
+    text:'Sumber utama tentang sebuah desa hanya berasal dari pejabat Belanda. Suara rakyat jelata nyaris tak terdokumentasi.',
+    a:{kbd:'1',txt:'Fokus pada sumber Belanda — lebih otoritatif.',d:{ket:0,obj:-15,emp:-15},good:false,
+       fb:'Terlalu percaya pada sumber penguasa berisiko melahirkan <b>sejarah dari atas</b> (history from above) yang mengabaikan pengalaman rakyat.',
+       src:'Sartono Kartodirdjo — kritik sejarah dari bawah'},
+    b:{kbd:'2',txt:'Cari sumber lisan, cerita rakyat, dan artefak rakyat sebagai penyeimbang.',d:{ket:+10,obj:+15,emp:+20},good:true,
+       fb:'Inilah <b>sejarah dari bawah</b> (history from below) — mendengar yang tersingkir. Metode <b>oral history</b> dan kajian folklore jadi kuncinya.',
+       src:'Sartono Kartodirdjo, Pemikiran dan Perkembangan Historiografi Indonesia (1982)'}
+  },
+  {
+    icon:'🎬',
+    title:'Film Sejarah vs Fakta',
+    text:'Sutradara film populer memintamu menjadi konsultan. Ia ingin adegan dramatis yang MELENCENG dari fakta sejarah.',
+    a:{kbd:'1',txt:'Setuju saja — yang penting publik tertarik pada sejarah.',d:{ket:-20,obj:-20,emp:0},good:false,
+       fb:'Mengorbankan fakta demi drama berisiko menyebarkan <b>pseudo-sejarah</b>. Hiburan boleh, tapi tidak boleh memalsukan sejarah.',
+       src:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995) — guna rekreatif vs edukatif'},
+    b:{kbd:'2',txt:'Tolak adegan itu, tawarkan alternatif dramatis yang tetap akurat.',d:{ket:+20,obj:+20,emp:+5},good:true,
+       fb:'Sejarawan bertanggung jawab menjaga akurasi. Dramatisasi boleh, <b>falsifikasi tidak</b>. Ini bentuk pengabdian pada guna <b>edukatif</b> sejarah.',
+       src:'R. Moh. Ali, Pengantar Ilmu Sejarah Indonesia (1963)'}
+  },
+  {
+    icon:'🕰️',
+    title:'Konteks vs Penilaian',
+    text:'Kamu meneliti tokoh yang melakukan hal-hal yang jika dinilai dengan moral hari ini tampak salah. Bagaimana kamu menulisnya?',
+    a:{kbd:'1',txt:'Hakimi dengan standar moral modern — lebih mudah dibaca publik.',d:{ket:-10,obj:-25,emp:-15},good:false,
+       fb:'Ini <b>presentisme</b> — mengukur masa lalu dengan kacamata masa kini. Sejarawan harus memahami masa lalu <b>dalam konteks zamannya</b>.',
+       src:'R.G. Collingwood, The Idea of History (1946) — kontekstualisasi historis'},
+    b:{kbd:'2',txt:'Pahami konteks zamannya dulu, baru berikan penilaian yang seimbang.',d:{ket:+15,obj:+25,emp:+15},good:true,
+       fb:'Inilah <b>empati historis</b> sejati — memahami pelaku dalam konteks zamannya. Ini bukan pembenaran, tapi keadilan metodologis.',
+       src:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995) — konteks &amp; empati'}
+  },
+  {
+    icon:'📖',
+    title:'Karya yang Terlupakan',
+    text:'Kamu menemukan buku sejarah langka yang mengubah pemahamanmu. Tapi bukunya sudah lama hilang dari peredaran.',
+    a:{kbd:'1',txt:'Simpan sebagai koleksi pribadi — mungkin suatu hari berguna.',d:{ket:-15,obj:-10,emp:-20},good:false,
+       fb:'Menyimpan sumber sejarah untuk diri sendiri bertentangan dengan <b>etika keilmuan</b>. Sejarah adalah milik publik, bukan kolektor.',
+       src:'Kode Etik Sejarawan Indonesia (MSI)'},
+    b:{kbd:'2',txt:'Digitalkan, publikasikan, dan bagikan ke komunitas akademik.',d:{ket:+10,obj:+15,emp:+25},good:true,
+       fb:'Sejarawan sejati <b>berbagi pengetahuan</b>. Digitalisasi menyelamatkan sumber dari kepunahan sekaligus membuka akses untuk generasi mendatang.',
+       src:'Benedict Anderson, Imagined Communities (1983) — sejarah publik'}
+  },
+  {
+    icon:'⚔️',
+    title:'Dua Veteran, Dua Versi',
+    text:'Dua veteran yang sama-sama menyaksikan pertempuran tahun 1949 memberi keterangan yang saling bertentangan. Keduanya tampak jujur dan meyakinkan.',
+    a:{kbd:'1',txt:'Pilih versi yang lebih sering dikutip buku pelajaran populer.',d:{ket:-15,obj:-20,emp:0},good:false,
+       fb:'Memilih sumber karena popularitas, bukan karena kritik, adalah <b>argumentum ad populum</b>. Sejarawan harus menguji kredibilitas setiap saksi dengan <b>kritik internal</b>.',
+       src:'Louis Gottschalk, Understanding History (1950)'},
+    b:{kbd:'2',txt:'Sajikan kedua versi, cari bukti pendukung tambahan, dan jelaskan kemungkinan bias tiap saksi.',d:{ket:+20,obj:+20,emp:+10},good:true,
+       fb:'Inilah metode sejarah yang matang: sumber yang bertentangan bukan masalah, melainkan <b>peluang memperkaya narasi</b>. Lakukan cross-check dengan arsip, foto, atau saksi ketiga.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — cross-check sumber'}
+  },
+  {
+    icon:'🎭',
+    title:'Godaan Menambah Drama',
+    text:'Narasi sejarahmu terasa datar. Kamu tergoda menambahkan detail dramatis (dialog, cuaca, suasana) yang TIDAK ada di sumber, demi pembaca.',
+    a:{kbd:'1',txt:'Tambahkan saja — pembaca tidak akan tahu bedanya, dan cerita jadi menarik.',d:{ket:-25,obj:-20,emp:-5},good:false,
+       fb:'Menambahkan detail fiktif = <b>fabrikasi</b>, dosa terbesar sejarawan. Sejarah bukan novel — apa yang tidak ada di sumber tidak boleh ada di narasi.',
+       src:'R.G. Collingwood, The Idea of History (1946) — imajinasi terikat bukti'},
+    b:{kbd:'2',txt:'Tetap setia pada sumber; gunakan imajinasi hanya untuk MERANGKAI, bukan menciptakan fakta.',d:{ket:+20,obj:+25,emp:+5},good:true,
+       fb:'Inilah <b>imajinasi historis</b> yang sah — Collingwood menekankan bahwa sejarawan boleh berimajinasi, tetapi imajinasi itu harus <b>terikat ketat pada bukti</b>.',
+       src:'R.G. Collingwood, The Idea of History (1946)'}
+  },
+  {
+    icon:'📚',
+    title:'Tekanan Penerbit',
+    text:'Penerbit memintamu menyederhanakan temuan yang kompleks agar lebih mudah dijual. Ia minta kamu "mengorbankan sedikit detail" demi pembaca awam.',
+    a:{kbd:'1',txt:'Setuju — popularitas lebih penting dari detail akademik.',d:{ket:-15,obj:-15,emp:0},good:false,
+       fb:'Menyederhanakan boleh, tetapi <b>mengorbankan akurasi</b> demi pasar melanggar tanggung jawab sejarawan. Populasi vs. simplifikasi berlebihan adalah garis tipis yang harus dijaga.',
+       src:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995) — guna edukatif'},
+    b:{kbd:'2',txt:'Tolak kompromi akurasi; tawarkan gaya bahasa populer yang tetap setia pada temuan.',d:{ket:+20,obj:+20,emp:+10},good:true,
+       fb:'Sejarawan modern bisa menulis populer <b>tanpa mengorbankan akurasi</b> — inilah tantangan intelektual sejati. Contoh: karya sejarawan publik seperti M.C. Ricklefs.',
+       src:'M.C. Ricklefs, Sejarah Indonesia Modern (2008) — sejarah untuk publik'}
+  },
+  {
+    icon:'🤝',
+    title:'Rekan yang Berbuat Curang',
+    text:'Kamu mengetahui rekan peneliti memalsukan beberapa data arsip agar temuannya lebih dramatis. Ia memintamu tutup mulut.',
+    a:{kbd:'1',txt:'Diam saja — bukan urusanmu, dan itu bisa merusak karier temanmu.',d:{ket:-25,obj:-25,emp:-10},good:false,
+       fb:'Mendiamkan <b>fabrikasi data</b> adalah bentuk <b>keterlibatan pasif</b> dalam pelanggaran integritas akademik. Ini merusak kepercayaan publik pada ilmu sejarah.',
+       src:'Kode Etik Sejarawan Indonesia (MSI) — kewajiban pelaporan'},
+    b:{kbd:'2',txt:'Bicarakan dulu dengan rekan; bila ia menolak mengoreksi, laporkan ke komite etik.',d:{ket:+15,obj:+20,emp:+15},good:true,
+       fb:'Langkah ini menggabungkan <b>keberanian moral</b> dengan <b>empati</b>: beri kesempatan koreksi, tetapi tegakkan integritas keilmuan bila perlu. Ini bentuk tanggung jawab profesional.',
+       src:'Permendiknas No. 17/2010 &amp; Kode Etik Sejarawan Indonesia'}
+  },
+  {
+    icon:'🔄',
+    title:'Koreksi Karya Sendiri',
+    text:'Kamu menyadari buku sejarahmu yang terbit 3 tahun lalu mengandung kesalahan faktual. Buku itu sudah jadi rujukan banyak orang.',
+    a:{kbd:'1',txt:'Diamkan — sudah terlanjur terbit, koreksi bisa merusak reputasimu.',d:{ket:-20,obj:-25,emp:-10},good:false,
+       fb:'Membiarkan kesalahan beredar demi gengsi pribadi adalah <b>pengkhianatan pada ilmu</b>. Sejarawan sejati menempatkan kebenaran di atas ego.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — etika revisi'},
+    b:{kbd:'2',txt:'Terbitkan erratum resmi dan revisi di edisi berikutnya; umumkan secara terbuka.',d:{ket:+25,obj:+25,emp:+15},good:true,
+       fb:'Inilah <b>kejujuran akademik</b> sejati. Mengakui kesalahan justru meningkatkan kredibilitas jangka panjang. Sejarah tumbuh lewat koreksi berkelanjutan.',
+       src:'R.G. Collingwood, The Idea of History (1946) — sejarah yang terbuka pada revisi'}
+  },
+  {
+    icon:'🎧',
+    title:'Deepfake Audio Masa Lalu',
+    text:'Seseorang mengirimimu "rekaman asli" suara Bung Karno tahun 1960-an. Kualitas suaranya sangat bagus, hampir tidak mungkin untuk era itu.',
+    a:{kbd:'1',txt:'Gunakan saja — isinya cocok dengan narasi yang kamu cari.',d:{ket:-25,obj:-25,emp:0},good:false,
+       fb:'Dalam era <b>AI dan deepfake</b>, skeptisisme adalah kewajiban. Sumber "terlalu bagus untuk jadi kenyataan" justru harus paling dicurigai. Wajib kritik eksternal.',
+       src:'Kritik Eksternal &amp; Etika Digital — verifikasi sumber audiovisual'},
+    b:{kbd:'2',txt:'Verifikasi dulu: cek arsip asli, analisis spektrum audio, dan minta pendapat ahli forensik digital.',d:{ket:+25,obj:+20,emp:0},good:true,
+       fb:'Inilah <b>kritik eksternal abad ke-21</b>. Kemajuan AI menuntut sejarawan menguasai <b>verifikasi digital</b>. Tanpa itu, sejarah rentan dimanipulasi.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — kritik sumber audiovisual modern'}
+  },
+  {
+    icon:'🕊️',
+    title:'Informan Minta Anonim',
+    text:'Narasumbermu — satu-satunya saksi hidup peristiwa penting — bersedia diwawancarai, tetapi hanya jika identitasnya dirahasiakan.',
+    a:{kbd:'1',txt:'Tolak — sejarah butuh nama dan bukti, bukan kesaksian anonim.',d:{ket:+5,obj:0,emp:-25},good:false,
+       fb:'Menolak mentah-mentah menghilangkan <b>kesaksian berharga</b>. Sejarawan modern dapat menggunakan teknik <b>anonimisasi</b> tanpa mengorbankan nilai sejarah.',
+       src:'Kode Etik Penelitian Sosial — hak informan'},
+    b:{kbd:'2',txt:'Terima dengan protokol anonimisasi; simpan identitas asli di arsip tertutup.',d:{ket:+10,obj:+10,emp:+25},good:true,
+       fb:'Inilah keseimbangan <b>etika &amp; keilmuan</b>. Anonimisasi melindungi narasumber, sementara verifikasi tetap dapat dilakukan oleh peneliti berwenang.',
+       src:'Pedoman Etika Penelitian Sosial-Humaniora (LIPI)'}
+  },
+  {
+    icon:'⏱️',
+    title:'Kecepatan vs Akurasi',
+    text:'Deadline publikasi tinggal 2 hari. Kamu masih ragu pada beberapa data karena belum sempat cross-check. Penerbit menekan untuk segera cetak.',
+    a:{kbd:'1',txt:'Cetak saja — revisi bisa menyusul di edisi berikutnya.',d:{ket:-20,obj:-20,emp:-5},good:false,
+       fb:'Menerbitkan karya yang belum terverifikasi = <b>menyebarkan potensi kesalahan</b>. Revisi di edisi berikutnya tidak akan pernah mengejar pembaca pertama.',
+       src:'Kuntowijoyo, Metodologi Sejarah (2003) — verifikasi sebelum publikasi'},
+    b:{kbd:'2',txt:'Minta perpanjangan deadline; verifikasi tuntas lebih penting dari kecepatan.',d:{ket:+25,obj:+20,emp:+5},good:true,
+       fb:'Inilah <b>integritas metodologis</b>. Sejarawan sejati lebih memilih telat publikasi daripada menyebar temuan yang belum matang. Reputasi jangka panjang lebih penting.',
+       src:'Louis Gottschalk, Understanding History (1950) — kewajiban verifikasi'}
+  },
+  {
+    icon:'✨',
+    title:'Sumber yang "Terlalu Sempurna"',
+    text:'Kamu menemukan dokumen yang <i>terlalu rapi</i> menjawab semua pertanyaanmu. Tanggal, tanda tangan, dan isinya sempurna — bahkan agak mencurigakan.',
+    a:{kbd:'1',txt:'Syukurlah! Langsung gunakan — ini jawaban atas semua keraguanmu.',d:{ket:-25,obj:-20,emp:0},good:false,
+       fb:'Hati-hati! Sumber yang "terlalu sempurna" sering kali adalah <b>sumber palsu atau buatan</b>. Sejarawan skeptis justru paling curiga pada bukti yang terlalu pas.',
+       src:'Louis Gottschalk, Understanding History (1950) — kritik eksternal'},
+    b:{kbd:'2',txt:'Uji forensik: periksa tinta, kertas, gaya bahasa, dan konsistensi dengan sumber lain.',d:{ket:+25,obj:+20,emp:0},good:true,
+       fb:'Inilah <b>kritik eksternal tingkat lanjut</b>. Bukti yang terlalu bagus justru wajib diuji paling ketat. Beberapa pemalsuan sejarah terbesar bermula dari "penemuan sempurna".',
+       src:'Louis Gottschalk, Understanding History (1950) — verifikasi forensik sumber'}
+  },
+  {
+    icon:'🎯',
+    title:'Topik Populer vs Penting',
+    text:'Kamu harus memilih topik skripsi: (A) topik populer yang mudah dapat data & cepat lulus, atau (B) topik sulit namun mengisi kekosongan penting dalam historiografi Indonesia.',
+    a:{kbd:'1',txt:'Ambil topik populer — efisien, cepat lulus, dan banyak referensi.',d:{ket:-10,obj:-10,emp:-15},good:false,
+       fb:'Memilih topik hanya demi kemudahan bukanlah salah, tetapi mengabaikan <b>kebutuhan ilmu</b> membuat sejarah berhenti berkembang. Setiap generasi sejarawan harus mengisi celah yang belum tergarap.',
+       src:'Sartono Kartodirdjo, Pemikiran dan Perkembangan Historiografi Indonesia (1982)'},
+    b:{kbd:'2',txt:'Ambil topik sulit yang penting — meski lebih lama, kontribusinya lebih bermakna.',d:{ket:+15,obj:+15,emp:+20},good:true,
+       fb:'Inilah <b>panggilan sejarawan sejati</b>. Ilmu sejarah maju justru karena ada yang berani meneliti yang sulit dan tersembunyi. Kontribusi jangka panjang mengalahkan kenyamanan jangka pendek.',
+       src:'R. Moh. Ali, Pengantar Ilmu Sejarah Indonesia (1963) — pengabdian pada ilmu'}
+  }
+];
+
+function initJejak(){
+  jjIdx=0; jjStats={ket:50,obj:50,emp:50}; jjPicked=false;
+  jjGoodCount=0;
+  jjSession = shuffle(jjData).slice(0, JJ_TOTAL);
+  reviewData=[]; hideDetail();
+  updateJjStats(); renderJj();
+  startTimer('jjTimer');
+}
+function updateJjStats(){
+  ['ket','obj','emp'].forEach(k=>{
+    const val=Math.max(0,Math.min(100,jjStats[k]));
+    const label={ket:'Ket',obj:'Obj',emp:'Emp'}[k];
+    const valEl=$('#jjVal'+label);
+    const fillEl=$('#jjFill'+label);
+    const statEl=$('#jjStat'+label);
+    if(valEl) valEl.textContent=val;
+    if(fillEl) fillEl.style.width=val+'%';
+    if(statEl){
+      statEl.classList.remove('danger','warn','great');
+      if(val<=25) statEl.classList.add('danger');
+      else if(val<=45) statEl.classList.add('warn');
+      else if(val>=75) statEl.classList.add('great');
+    }
+  });
+}
+function renderJj(){
+  const d=jjSession[jjIdx];
+  if(!d) return;
+  jjPicked=false;
+  $('#jjProgress').textContent=`Kartu ${jjIdx+1} / ${JJ_TOTAL}`;
+  $('#jjNum').textContent=`Dilema ${jjIdx+1} / ${JJ_TOTAL}`;
+  $('#jjIcon').textContent=d.icon;
+  $('#jjTitle').textContent=d.title;
+  $('#jjText').innerHTML=d.text;
+  const A=$('#jjChoiceA'), B=$('#jjChoiceB');
+  A.className='jj-choice'; B.className='jj-choice';
+  A.disabled=false; B.disabled=false;
+  A.innerHTML=`<span class="kbd">${d.a.kbd}</span><span>${d.a.txt}</span>`;
+  B.innerHTML=`<span class="kbd">${d.b.kbd}</span><span>${d.b.txt}</span>`;
+  A.onclick=()=>pickJj('a');
+  B.onclick=()=>pickJj('b');
+  $('#jjFeedback').classList.remove('show');
+  $('#jjNextWrap').classList.remove('show');
+  $('#jjNextLabel').textContent=(jjIdx<JJ_TOTAL-1)?'Lanjut ke Dilema '+(jjIdx+2):'Lihat Hasil Akhir';
+}
+function pickJj(which){
+  if(jjPicked) return;
+  jjPicked=true;
+  const d=jjSession[jjIdx];
+  const choice=d[which];
+  const A=$('#jjChoiceA'), B=$('#jjChoiceB');
+  A.disabled=true; B.disabled=true;
+  const chosenEl=which==='a'?A:B;
+  const otherEl =which==='a'?B:A;
+
+  if(choice.good){
+    chosenEl.classList.add('picked-good');
+    Sound.correct();
+    jjGoodCount++;
+  } else {
+    chosenEl.classList.add('picked-wrong');
+    otherEl.classList.add('reveal-correct');
+    Sound.soft();
+  }
+
+  jjStats.ket=Math.max(0,Math.min(100,jjStats.ket+(choice.d.ket||0)));
+  jjStats.obj=Math.max(0,Math.min(100,jjStats.obj+(choice.d.obj||0)));
+  jjStats.emp=Math.max(0,Math.min(100,jjStats.emp+(choice.d.emp||0)));
+  updateJjStats();
+
+  $('#jjFeedbackTxt').innerHTML=choice.fb;
+  const deltas=[];
+  const labels={ket:'Ketelitian',obj:'Objektivitas',emp:'Empati'};
+  const icons={ket:'🔬',obj:'⚖️',emp:'❤️'};
+  ['ket','obj','emp'].forEach(k=>{
+    const dv=choice.d[k]||0;
+    if(dv!==0){
+      const cls=dv>0?'up':'down';
+      const sign=dv>0?'+':'';
+      deltas.push(`<span class="jj-delta ${cls}">${icons[k]} ${labels[k]}: ${sign}${dv}</span>`);
+    }
+  });
+  $('#jjDeltas').innerHTML=deltas.length?deltas.join(''):'<span class="jj-delta up">Tidak ada perubahan signifikan</span>';
+  $('#jjSrc').innerHTML=choice.src?`📖 Sumber: ${choice.src}`:'';
+  $('#jjFeedback').classList.add('show');
+  setTimeout(()=>$('#jjNextWrap').classList.add('show'),300);
+
+  pushReview(
+    `Dilema ${jjIdx+1}: ${d.title}`,
+    [d.a.txt.replace(/&amp;/g,'&'), d.b.txt.replace(/&amp;/g,'&')],
+    choice.good?(which==='a'?0:1):(which==='a'?1:0),
+    which==='a'?0:1,
+    choice.fb.replace(/<\/?[^>]+>/g,' '),
+    choice.src
+  );
+}
+function nextJj(){
+  if(jjIdx<JJ_TOTAL-1){
+    jjIdx++;
+    renderJj();
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    jjFinish();
+  }
+}
+function jjFinish(){
+  stopTimer();
+  const score = Math.round((jjGoodCount / JJ_TOTAL) * 100);
+
+  /* Peringkat dengan skala wajar — semua label POSITIF, tidak berlebihan */
+  let rankIcon='🚀', rankName='AWAL YANG BAIK', rankSub='Terus belajar & berlatih';
+  if(score===100){ rankIcon='🌟'; rankName='LUAR BIASA';          rankSub='Semua keputusan tepat'; }
+  else if(score>=80){ rankIcon='🏆'; rankName='SANGAT BAIK';       rankSub='Hampir sempurna'; }
+  else if(score>=60){ rankIcon='👍'; rankName='BAIK';              rankSub='Sebagian besar tepat'; }
+  else if(score>=40){ rankIcon='📚'; rankName='CUKUP BAIK';        rankSub='Sudah ada kemajuan'; }
+  else if(score>=20){ rankIcon='🌱'; rankName='BERKEMBANG';         rankSub='Sedang tumbuh'; }
+
+  markDone('jejak',{score:score,acc:score});
+  if(score>=60){ Sound.win(); confetti(); } else { Sound.land(); }
+  showAchievement('jejak');
+
+  const stats=[['Ketelitian',jjStats.ket],['Objektivitas',jjStats.obj],['Empati',jjStats.emp]];
+  stats.sort((a,b)=>b[1]-a[1]);
+  const dominan=stats[0][0];
+
+  const summary=`
+    <div class="jj-rank-banner">
+      <div class="rk-icon">${rankIcon}</div>
+      <div class="rk-txt">
+        <div class="rk-name">${rankName}</div>
+        <div class="rk-sub">${rankSub}</div>
+      </div>
+    </div>
+    <div class="jj-score-card">
+      <div class="sc">
+        <div class="sc-val">${jjGoodCount}/${JJ_TOTAL}</div>
+        <div class="sc-lbl">Keputusan Tepat</div>
+      </div>
+      <div class="sc">
+        <div class="sc-val">${score}%</div>
+        <div class="sc-lbl">Skor Akhir</div>
+      </div>
+    </div>
+    <p style="margin-top:8px"><b>💪 Aspek terkuatmu:</b> ${dominan} (${stats[0][1]})</p>
+    <p style="font-size:.88rem;color:var(--muted)">Setiap keputusan adalah pembelajaran berharga. Seorang sejarawan tumbuh dari pengalaman, refleksi, dan keberanian mengambil keputusan.</p>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:8px">🔄 <i>Buka lagi untuk menghadapi <b>kombinasi dilema yang berbeda</b>!</i></p>
+  `;
+
+  setTimeout(()=>modal(rankIcon, 'PERJALANAN SELESAI', summary, rankName), 500);
+}
+
+/* =========================================================
    KEYBOARD SHORTCUTS
    ========================================================= */
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeModal();hideDetail();closeAch();closeGloss();closeReview()}
   const activeGame=document.querySelector('.screen.active');
   if(!activeGame||activeGame.id==='mainMenu')return;
+
+  if(activeGame.id==='gameJejak'){
+    if((e.key==='1'||e.key==='2')&&!jjPicked){
+      const btn=e.key==='1'?$('#jjChoiceA'):$('#jjChoiceB');
+      if(btn&&!btn.disabled){btn.click();e.preventDefault();}
+    }
+    if(e.key==='Enter'&&jjPicked&&$('#jjNextWrap').classList.contains('show')){
+      $('#jjNextBtn').click();e.preventDefault();
+    }
+    return;
+  }
+
   if(['1','2','3','4'].includes(e.key)){
     const idx=parseInt(e.key)-1;
     const woOpts=activeGame.querySelectorAll('#wOpts button:not(:disabled)');
@@ -1685,6 +2134,64 @@ try{
   if(localStorage.getItem('pq2_sound')==='0'){Sound.enabled=false;$('#soundBtn').innerHTML='<i class="fas fa-volume-xmark"></i> Bisu'}
   if(localStorage.getItem('pq2_motion')==='0'){document.body.classList.add('reduce-motion')}
 }catch(e){}
+
+/* =========================================================
+   PATCH — extend goGame() & updateMenu() untuk 'jejak'
+   ========================================================= */
+(function patchForJejak(){
+  const _goGame = goGame;
+  window.goGame = function(id){
+    if(id==='jejak'){
+      Sound.click();
+      stopTimer();
+      hideDetail();
+      $$('.screen').forEach(s=>s.classList.remove('active'));
+      $('#gameJejak').classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+      reviewData=[];
+      initJejak();
+      return;
+    }
+    return _goGame(id);
+  };
+
+  const _updateMenu = updateMenu;
+  window.updateMenu = function(){
+    const p=loadProgress();
+    document.querySelectorAll('.gc').forEach(c=>{
+      c.classList.toggle('done',!!(p[c.dataset.game]&&p[c.dataset.game].done));
+    });
+    const done=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
+    const totalNow=6;
+    if($('#progText')) $('#progText').textContent=`${done} / ${totalNow} Game`;
+    if($('#progFill')) $('#progFill').style.width=(done/totalNow*100)+'%';
+  };
+
+  achToasts.jejak={icn:'🧭',ttl:'PENJELAJAH DILEMA',sub:'Kamu menuntaskan 10 dilema etika sejarawan!'};
+
+  const _check = checkAchievements;
+  window.checkAchievements=function(gameId,d={}){
+    const p=loadProgress();
+    const doneCount=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
+    if(doneCount>=1) unlockAch('first_step');
+    if(doneCount>=5) unlockAch('explorer');
+    if(gameId==='detektif'&&d.score===27) unlockAch('detective_master');
+    if(gameId==='millionaire'&&d.score>=10) unlockAch('millionaire');
+    if(gameId==='histo'&&d.score>=1) unlockAch('historian');
+    if(d.acc===100||d.score===27&&gameId==='detektif'||d.score===15&&gameId==='wheel') unlockAch('perfect');
+    if(timerSec>0&&timerSec<120&&(d.acc>=70||d.score>=10)) unlockAch('speedrun');
+    const accs=Object.values(p).filter(x=>x.done&&x.acc!==undefined).map(x=>x.acc);
+    if(accs.length>=3){
+      const avg=accs.reduce((a,b)=>a+b,0)/accs.length;
+      if(avg>=80) unlockAch('scholar');
+    }
+  };
+
+  const hsGame = document.querySelector('.hero-stats .stat:nth-child(1) .stat-num');
+  if(hsGame) hsGame.textContent='6';
+  const heroSub = document.querySelector('.hero-sub');
+  if(heroSub) heroSub.textContent='Belajar memahami prinsip ilmu sejarah kelas X dengan 6 game interaktif yang seru dan mendidik.';
+})();
 
 /* ============ INIT ============ */
 updateMenu();
