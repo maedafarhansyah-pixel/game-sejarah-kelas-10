@@ -15,7 +15,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ===== PERBAIKAN: variabel tak terpakai dihapus (--maroon4, --maroon5, --blue4) ===== */
 :root{
   --maroon:#1e4d8c;--maroon2:#2563eb;--maroon3:#3b82f6;
   --maroon-dark:#0c1e3d;--maroon-deep:#081428;
@@ -42,14 +41,12 @@ img,canvas,svg{max-width:100%;height:auto}
 button{touch-action:manipulation}
 
 /* ============ BACKGROUND ============ */
-/* PERBAIKAN: hanya 3 lapisan (base + grid + canvas). bg-noise & bg-vignette dihapus */
 .bg-base{position:fixed;inset:0;z-index:-5;background:radial-gradient(ellipse 90% 60% at 50% 0%, rgba(37,99,235,.14) 0%, transparent 55%),radial-gradient(ellipse 80% 55% at 85% 100%, rgba(6,182,212,.13) 0%, transparent 50%),radial-gradient(ellipse 60% 40% at 10% 90%, rgba(245,158,11,.07) 0%, transparent 55%),linear-gradient(180deg, #f0f7ff 0%, #e8f2ff 50%, #dbeafe 100%)}
 .bg-grid{position:fixed;inset:0;z-index:-4;pointer-events:none;background-image:linear-gradient(rgba(30,77,140,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(6,182,212,.06) 1px, transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(ellipse at center, #000 25%, transparent 82%);mask-image:radial-gradient(ellipse at center, #000 25%, transparent 82%)}
 #bgCanvas{position:fixed;inset:0;z-index:-2;pointer-events:none}
 
 /* ============ TOP CONTROLS ============ */
 .top-controls{position:fixed;top:12px;right:12px;z-index:5000;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 24px)}
-/* PERBAIKAN: backdrop-filter dihapus dari .tb-btn (mahal, efek kecil) */
 .tb-btn{min-height:44px;padding:8px 14px;border-radius:22px;background:rgba(255,255,255,.98);border:2px solid rgba(30,77,140,.2);color:var(--maroon2);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 8px 22px rgba(30,77,140,.15);transition:all .35s var(--ease);font-size:var(--fs-xs);font-weight:800;font-family:inherit;white-space:nowrap;letter-spacing:.3px}
 .tb-btn:hover{transform:translateY(-2px);background:var(--maroon2);color:#fff;border-color:var(--maroon2)}
 .tb-btn.icon-only{width:44px;padding:0;min-width:44px}
@@ -102,17 +99,14 @@ button{touch-action:manipulation}
 /* ============ GAME GRID ============ */
 .game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:30px}
 @media(max-width:520px){.game-grid{grid-template-columns:1fr;gap:14px}}
-/* PERBAIKAN: animasi conic-gradient (--angle) dihapus, ganti border statis */
 .gc{position:relative;border-radius:22px;padding:24px 20px 20px;background:#ffffff;border:1.5px solid rgba(30,77,140,.14);cursor:pointer;overflow:hidden;transition:transform .35s var(--ease), box-shadow .35s, border-color .3s;box-shadow:0 8px 24px rgba(30,77,140,.06);min-height:210px;display:flex;flex-direction:column;text-align:left;font-family:inherit}
 .gc:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(30,77,140,.16);border-color:var(--c1)}
 .gc:focus-visible{outline:3px solid var(--maroon2);outline-offset:3px}
 .gc.done{border-color:var(--good);background:linear-gradient(135deg,#ffffff 0%,rgba(16,185,129,.06) 100%)}
 .gc.done:hover{border-color:var(--good)}
-/* PERBAIKAN: badge ganda (.gc-done-badge) dihapus, sisakan .gc-check saja */
 .gc-check{position:absolute;top:14px;right:16px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--good2),var(--good));color:#fff;display:none;align-items:center;justify-content:center;font-weight:900;font-size:var(--fs-xl);box-shadow:0 8px 24px rgba(16,185,129,.45),0 0 0 4px rgba(16,185,129,.15);z-index:6;pointer-events:none}
 .gc.done .gc-check{display:flex;animation:checkIn .6s cubic-bezier(.34,1.56,.64,1) both}
 @keyframes checkIn{0%{transform:scale(0) rotate(-180deg);opacity:0}70%{transform:scale(1.2) rotate(15deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
-/* PERBAIKAN: .gc-num (angka hantu) dihapus */
 .gc-icon-wrap{position:relative;z-index:2;width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;background:var(--c1-gradient);box-shadow:0 10px 24px var(--c1-glow),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .5s var(--ease)}
 .gc:hover .gc-icon-wrap{transform:translateY(-3px) rotate(-8deg) scale(1.08)}
 .gc-icon-wrap i{color:#fff;font-size:clamp(1.3rem,2.5vw,1.6rem);text-shadow:0 2px 8px rgba(0,0,0,.2)}
@@ -134,9 +128,10 @@ button{touch-action:manipulation}
 .gc[data-game="g4"]{--c1:#0e7490;--c2:#06b6d4;--c1-glass:rgba(8,145,178,.12);--c1-border:rgba(8,145,178,.25);--c1-glow:rgba(6,182,212,.35);--c1-gradient:linear-gradient(135deg,#0e7490,#06b6d4)}
 .gc[data-game="g5"]{--c1:#b45309;--c2:#f59e0b;--c1-glass:rgba(180,83,9,.12);--c1-border:rgba(180,83,9,.25);--c1-glow:rgba(245,158,11,.35);--c1-gradient:linear-gradient(135deg,#b45309,#f59e0b)}
 .gc[data-game="g6"]{--c1:#92400e;--c2:#fbbf24;--c1-glass:rgba(146,64,14,.12);--c1-border:rgba(146,64,14,.25);--c1-glow:rgba(251,191,36,.35);--c1-gradient:linear-gradient(135deg,#92400e,#fbbf24)}
+/* ===== GAME 7: nuansa violet-magenta ===== */
+.gc[data-game="g7"]{--c1:#7c3aed;--c2:#a855f7;--c1-glass:rgba(124,58,237,.12);--c1-border:rgba(124,58,237,.28);--c1-glow:rgba(168,85,247,.4);--c1-gradient:linear-gradient(135deg,#7c3aed,#a855f7,#ec4899)}
 
 /* ============ GAME HEADER ============ */
-/* PERBAIKAN: pill duplikat di header dihapus (skor sudah di HUD) */
 .gh{display:flex;align-items:center;gap:10px;padding:14px 16px;margin-bottom:18px;background:#ffffff;border:2px solid rgba(30,77,140,.18);border-radius:var(--radius);flex-wrap:wrap;box-shadow:0 4px 20px rgba(30,77,140,.08)}
 .gh h2{flex:1 1 220px;font-size:var(--fs-xl);font-weight:800;color:var(--maroon-dark);line-height:1.25;min-width:180px}
 .gh h2 small{display:block;font-size:var(--fs-xs);color:var(--maroon2);letter-spacing:2px;text-transform:uppercase;margin-top:4px;font-weight:700}
@@ -174,7 +169,6 @@ button{touch-action:manipulation}
 .hud-item .lbl{font-size:var(--fs-xs);letter-spacing:1.2px;color:var(--maroon2);font-weight:800;line-height:1.2}
 .hud-item .val{font-size:var(--fs-xl);font-weight:900;color:var(--maroon-dark);font-variant-numeric:tabular-nums;line-height:1.15;margin-top:2px}
 .hud-item .val.gold{color:var(--gold)}
-/* PERBAIKAN: animasi background-position dihapus (mahal, tidak compositable) */
 .bar-track{height:8px;border-radius:8px;background:rgba(30,77,140,.12);overflow:hidden;margin-bottom:14px}
 .bar-fill{height:100%;width:100%;border-radius:8px;background:linear-gradient(90deg,#1e4d8c,#3b82f6,#06b6d4,#22d3ee);transition:width .1s linear}
 .bar-fill.low{background:linear-gradient(90deg,#f59e0b,#ef4444)}
@@ -356,7 +350,6 @@ button{touch-action:manipulation}
 .gl-item .def b{color:var(--maroon-dark);font-weight:800}
 
 /* ============ ACHIEVEMENT TOAST ============ */
-/* PERBAIKAN: shadow 80px dihapus (mahal) — sisakan 1 shadow */
 .ach-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);z-index:3500;padding:22px 28px;background:#ffffff;border:3px solid var(--good);border-radius:22px;box-shadow:0 30px 60px rgba(12,30,61,.35);text-align:center;opacity:0;transition:all .6s var(--ease);pointer-events:none;max-width:90vw}
 .ach-toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .ach-toast .icn{font-size:clamp(2.5rem,7vw,3.2rem);margin-bottom:8px}
@@ -401,6 +394,119 @@ button{touch-action:manipulation}
 ::-webkit-scrollbar-track{background:rgba(30,77,140,.06)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#1e4d8c,#3b82f6,#06b6d4);border-radius:10px}
 
+/* =========================================================
+   ============ GAME 7 : JEJAK DI BUMI TAMBUN BUNGAI =======
+   ========================================================= */
+.g7-wrap{display:flex;flex-direction:column;gap:14px}
+.g7-progress-box{background:#ffffff;border:2px solid rgba(124,58,237,.22);border-radius:16px;padding:12px 14px;box-shadow:0 4px 18px rgba(124,58,237,.08)}
+.g7-progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:var(--fs-xs);font-weight:800;color:#6d28d9;letter-spacing:1px;text-transform:uppercase;gap:10px;flex-wrap:wrap}
+.g7-progress-info .num{color:#7c3aed;font-weight:900}
+.g7-progress-track{height:10px;border-radius:10px;background:rgba(124,58,237,.12);overflow:hidden}
+.g7-progress-fill{height:100%;width:0%;border-radius:10px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899);transition:width .5s var(--ease);box-shadow:0 0 12px rgba(168,85,247,.45)}
+
+.g7-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:520px){.g7-stats{grid-template-columns:repeat(3,1fr);gap:6px}}
+.g7-stat{background:#ffffff;border:1.5px solid rgba(124,58,237,.18);border-radius:14px;padding:10px 8px;text-align:center;box-shadow:0 3px 12px rgba(124,58,237,.06);transition:transform .3s var(--ease)}
+.g7-stat .lbl{font-size:var(--fs-xs);color:#6d28d9;font-weight:800;letter-spacing:1px;text-transform:uppercase;line-height:1.2}
+.g7-stat .val{font-size:var(--fs-xl);font-weight:900;margin-top:3px;font-variant-numeric:tabular-nums;line-height:1.15}
+.g7-stat .val.high{color:#10b981}
+.g7-stat .val.mid{color:#f59e0b}
+.g7-stat .val.low{color:#ef4444}
+.g7-stat .mini-track{height:5px;border-radius:5px;background:rgba(124,58,237,.12);overflow:hidden;margin-top:6px}
+.g7-stat .mini-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#7c3aed,#ec4899);transition:width .5s var(--ease)}
+
+.g7-scene{background:linear-gradient(180deg,#ffffff 0%,#faf5ff 100%);border:2px solid rgba(124,58,237,.22);border-radius:22px;padding:22px 20px;box-shadow:0 10px 34px rgba(124,58,237,.1);position:relative;overflow:hidden}
+.g7-scene::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899,#f59e0b);border-radius:22px 22px 0 0}
+.g7-scene-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.g7-scene-icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#7c3aed,#ec4899);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.9rem;box-shadow:0 8px 22px rgba(124,58,237,.4);flex-shrink:0}
+.g7-scene-title{flex:1 1 200px;min-width:0}
+.g7-scene-title .chapter{font-size:var(--fs-xs);color:#7c3aed;font-weight:900;letter-spacing:2px;text-transform:uppercase;line-height:1.2;margin-bottom:3px}
+.g7-scene-title h3{font-size:var(--fs-xl);color:#0c1e3d;font-weight:900;line-height:1.25;margin:0}
+.g7-scene-text{font-size:var(--fs-md);color:#1e3a5f;line-height:1.75;font-weight:500}
+.g7-scene-text b{color:#7c3aed;font-weight:800}
+.g7-scene-text i{color:#6d28d9;font-style:italic;font-weight:600}
+
+.g7-question{margin-top:14px;padding:12px 14px;border-left:4px solid #ec4899;background:linear-gradient(135deg,rgba(236,72,153,.08),rgba(168,85,247,.05));border-radius:12px;font-weight:800;color:#6d28d9;font-size:var(--fs-md);line-height:1.5}
+
+.g7-choices{display:flex;flex-direction:column;gap:12px}
+.g7-choice{position:relative;background:#ffffff;border:2px solid rgba(124,58,237,.2);border-radius:16px;padding:16px 16px 16px 58px;text-align:left;font-family:inherit;font-size:var(--fs-md);font-weight:600;color:#0c1e3d;cursor:pointer;transition:all .25s var(--ease);line-height:1.5;box-shadow:0 3px 12px rgba(124,58,237,.06);min-height:56px;display:flex;align-items:center;width:100%}
+.g7-choice:hover:not(:disabled){border-color:#7c3aed;transform:translateY(-2px);box-shadow:0 8px 22px rgba(124,58,237,.18);background:linear-gradient(135deg,#ffffff,#faf5ff)}
+.g7-choice:disabled{cursor:default;opacity:.55}
+.g7-choice .badge{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:var(--fs-md);box-shadow:0 4px 12px rgba(124,58,237,.35)}
+.g7-choice.chosen{border-color:#7c3aed;background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
+.g7-choice.chosen .badge{background:linear-gradient(135deg,#ec4899,#f59e0b)}
+
+.g7-feedback{background:linear-gradient(135deg,#ffffff,#f0fdf4);border:2px solid #10b981;border-radius:18px;padding:18px 18px;box-shadow:0 8px 26px rgba(16,185,129,.15);animation:g7FbIn .55s var(--ease)}
+@keyframes g7FbIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+.g7-feedback .head{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-weight:900;color:#059669;font-size:var(--fs-md);letter-spacing:.5px;text-transform:uppercase}
+.g7-feedback .head .ic{font-size:1.4rem}
+.g7-feedback .body{font-size:var(--fs-md);color:#1e3a5f;line-height:1.7;font-weight:500}
+.g7-feedback .body b{color:#059669;font-weight:800}
+.g7-feedback .body i{color:#6d28d9;font-weight:600}
+.g7-feedback .effects{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.g7-feedback .eff{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:var(--fs-xs);font-weight:900;letter-spacing:.5px;text-transform:uppercase}
+.g7-feedback .eff.up{background:rgba(16,185,129,.15);color:#059669;border:1px solid rgba(16,185,129,.35)}
+.g7-feedback .eff.down{background:rgba(239,68,68,.12);color:#b91c1c;border:1px solid rgba(239,68,68,.3)}
+.g7-feedback .eff.neutral{background:rgba(124,58,237,.1);color:#6d28d9;border:1px solid rgba(124,58,237,.28)}
+
+.g7-continue-row{display:flex;justify-content:flex-end;margin-top:4px}
+.g7-continue{background:linear-gradient(135deg,#7c3aed,#a855f7,#ec4899);color:#fff;border:none;border-radius:40px;padding:12px 26px;font-family:inherit;font-weight:900;font-size:var(--fs-md);cursor:pointer;transition:all .3s var(--ease);box-shadow:0 8px 24px rgba(124,58,237,.4);min-height:48px;display:inline-flex;align-items:center;gap:8px;letter-spacing:.5px}
+.g7-continue:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 32px rgba(124,58,237,.55)}
+
+.g7-result{background:linear-gradient(180deg,#ffffff 0%,#faf5ff 100%);border:2px solid rgba(124,58,237,.3);border-radius:22px;padding:22px 18px;box-shadow:0 10px 34px rgba(124,58,237,.15);animation:g7FbIn .6s var(--ease)}
+.g7-result-head{text-align:center;margin-bottom:16px}
+.g7-result-head .em{font-size:clamp(2.6rem,7vw,3.4rem);line-height:1}
+.g7-result-head h3{font-size:var(--fs-2xl);font-weight:900;color:#6d28d9;margin-top:6px;letter-spacing:.3px}
+.g7-result-head .sub{color:var(--text2);font-size:var(--fs-sm);margin-top:6px;line-height:1.55}
+
+.g7-summary{background:#ffffff;border:1.5px solid rgba(124,58,237,.18);border-radius:16px;padding:14px 16px;margin-bottom:12px}
+.g7-summary .ttl{font-size:var(--fs-xs);font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#7c3aed;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.g7-summary .row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed rgba(124,58,237,.15);font-size:var(--fs-sm)}
+.g7-summary .row:last-child{border-bottom:none}
+.g7-summary .row .k{color:#4a6585;font-weight:700}
+.g7-summary .row .v{color:#0c1e3d;font-weight:900;text-align:right}
+
+.g7-decision-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.g7-decision-item{background:#ffffff;border-left:4px solid #7c3aed;border-radius:10px;padding:10px 12px;font-size:var(--fs-sm);box-shadow:0 2px 8px rgba(124,58,237,.06)}
+.g7-decision-item .n{font-weight:900;color:#7c3aed;font-size:var(--fs-xs);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.g7-decision-item .q{font-weight:700;color:#0c1e3d;line-height:1.4;margin-bottom:4px}
+.g7-decision-item .a{color:#1e3a5f;font-style:italic;line-height:1.45}
+
+.g7-reflect{background:linear-gradient(135deg,rgba(236,72,153,.08),rgba(168,85,247,.06));border:1.5px dashed rgba(124,58,237,.4);border-radius:16px;padding:16px 16px;margin-bottom:14px}
+.g7-reflect .ttl{font-weight:900;color:#6d28d9;font-size:var(--fs-md);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.g7-reflect ol{margin:0;padding-left:22px;color:#1e3a5f;font-size:var(--fs-sm);line-height:1.75}
+.g7-reflect ol li{margin-bottom:8px;font-weight:500}
+.g7-reflect ol li b{color:#6d28d9;font-weight:800}
+
+.g7-quote{margin:14px 0 6px;padding:14px 16px;border-left:4px solid #ec4899;background:linear-gradient(135deg,rgba(236,72,153,.05),rgba(168,85,247,.03));border-radius:12px;font-style:italic;color:#1e3a5f;font-size:var(--fs-sm);line-height:1.75}
+.g7-quote b{color:#6d28d9;font-style:normal;font-weight:900}
+
+.g7-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.g7-btn{padding:12px 22px;border-radius:40px;font-family:inherit;font-weight:900;font-size:var(--fs-md);cursor:pointer;transition:all .3s var(--ease);border:none;min-height:48px;display:inline-flex;align-items:center;gap:8px;letter-spacing:.5px}
+.g7-btn.primary{background:linear-gradient(135deg,#7c3aed,#a855f7,#ec4899);color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.4)}
+.g7-btn.primary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 32px rgba(124,58,237,.55)}
+.g7-btn.ghost{background:transparent;border:2px solid #7c3aed;color:#7c3aed}
+.g7-btn.ghost:hover{background:#7c3aed;color:#fff}
+
+.g7-intro{background:linear-gradient(180deg,#ffffff 0%,#faf5ff 100%);border:2px solid rgba(124,58,237,.25);border-radius:22px;padding:24px 20px;box-shadow:0 10px 34px rgba(124,58,237,.12);text-align:center}
+.g7-intro .em{font-size:clamp(3rem,9vw,4rem);line-height:1;margin-bottom:10px}
+.g7-intro h3{font-size:var(--fs-2xl);font-weight:900;color:#6d28d9;margin-bottom:10px;letter-spacing:.3px}
+.g7-intro p{color:var(--text2);font-size:var(--fs-md);line-height:1.7;margin-bottom:16px;text-align:left;font-weight:500}
+.g7-intro p b{color:#6d28d9;font-weight:800}
+.g7-intro .rules{background:#faf5ff;border:1.5px dashed rgba(124,58,237,.35);border-radius:14px;padding:14px 16px;text-align:left;margin-bottom:16px}
+.g7-intro .rules .rr{font-size:var(--fs-sm);color:#1e3a5f;line-height:1.7;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.g7-intro .rules .rr:last-child{margin-bottom:0}
+.g7-intro .rules .rr i{color:#ec4899;margin-top:4px;flex-shrink:0}
+
+.g7-quiz-opt{background:#ffffff;border:2px solid rgba(124,58,237,.2);color:#0c1e3d;padding:14px 16px;border-radius:12px;font-size:var(--fs-md);text-align:left;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:10px;font-family:inherit;width:100%;font-weight:600;min-height:52px;line-height:1.4;margin-bottom:9px}
+.g7-quiz-opt .k{width:28px;height:28px;border-radius:50%;background:rgba(124,58,237,.12);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:var(--fs-sm);color:#7c3aed;flex-shrink:0}
+.g7-quiz-opt:hover:not(:disabled){border-color:#7c3aed;transform:translateX(3px);background:rgba(124,58,237,.06)}
+.g7-quiz-opt.correct{border-color:#10b981;background:rgba(16,185,129,.12)}
+.g7-quiz-opt.correct .k{background:#10b981;color:#fff}
+.g7-quiz-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.1)}
+.g7-quiz-opt.wrong .k{background:#ef4444;color:#fff}
+.g7-quiz-opt:disabled{cursor:default}
+
 /* ============ RESPONSIVE ============ */
 @media(max-width:600px){
   .screen{padding:78px 10px 40px}
@@ -440,6 +546,13 @@ button{touch-action:manipulation}
   .rv-item{padding:12px 12px}
   .gl-item{padding:12px 12px}
   .footer .creator{font-size:var(--fs-sm);padding:10px 18px;letter-spacing:.6px}
+  .g7-scene{padding:18px 14px}
+  .g7-scene-icon{width:54px;height:54px;font-size:1.5rem}
+  .g7-scene-title h3{font-size:var(--fs-lg)}
+  .g7-choice{padding:14px 14px 14px 54px;font-size:var(--fs-sm)}
+  .g7-choice .badge{left:12px;width:30px;height:30px;font-size:var(--fs-sm)}
+  .g7-stat .val{font-size:var(--fs-lg)}
+  .g7-stat .lbl{font-size:.6rem}
 }
 @media(max-width:380px){
   .hud.c4{grid-template-columns:repeat(2,1fr)}
@@ -447,6 +560,8 @@ button{touch-action:manipulation}
   .hunt-tile .em{font-size:2.4rem}
   .hunt-tile .lb{font-size:.85rem}
   .footer .creator{font-size:var(--fs-xs);padding:9px 14px}
+  .g7-stats{grid-template-columns:repeat(3,1fr);gap:5px}
+  .g7-stat{padding:8px 4px}
 }
 @media(min-width:1024px){
   .game-grid{grid-template-columns:repeat(3,1fr);gap:24px}
@@ -472,13 +587,12 @@ button{touch-action:manipulation}
 <div class="top-controls">
   <button class="tb-btn icon-only" id="audioToggle" onclick="toggleMute()" title="Suara ON/OFF" aria-label="Suara"><i class="fas fa-volume-high"></i></button>
   <button class="tb-btn icon-only" id="fsToggle" onclick="toggleFullscreen(event)" title="Layar Penuh (F)" aria-label="Layar Penuh"><i class="fas fa-expand"></i></button>
-  <button class="tb-btn" onclick="openAch()" title="Pencapaian" aria-label="Pencapaian"><i class="fas fa-trophy" style="color:var(--gold)"></i><span class="txt">Pencapaian</span> <span class="count" id="achCount">0/8</span></button>
+  <button class="tb-btn" onclick="openAch()" title="Pencapaian" aria-label="Pencapaian"><i class="fas fa-trophy" style="color:var(--gold)"></i><span class="txt">Pencapaian</span> <span class="count" id="achCount">0/9</span></button>
   <button class="tb-btn" onclick="openGloss()" title="Glosarium" aria-label="Glosarium"><i class="fas fa-book"></i><span class="txt">Glosarium</span></button>
   <button class="tb-btn" onclick="openReview()" title="Review Jawaban" aria-label="Review"><i class="fas fa-list-check"></i><span class="txt">Review</span></button>
   <button class="tb-btn" onclick="toggleMotion()" id="motionBtn" title="Mode Tenang" aria-label="Mode Tenang"><i class="fas fa-wand-magic-sparkles"></i><span class="txt">Animasi</span></button>
 </div>
 
-<!-- PERBAIKAN: bg-noise & bg-vignette dihapus -->
 <div class="bg-base"></div>
 <div class="bg-grid"></div>
 <canvas id="bgCanvas"></canvas>
@@ -493,13 +607,13 @@ button{touch-action:manipulation}
       <span>Penelitian Sejarah · Kelas X Fase E</span>
     </div>
     <h1 class="hero-title">MISI 2 : PENELITIAN SEJARAH</h1>
-    <p class="hero-sub">Belajar metode penelitian sejarah dengan 6 mini-game interaktif — dari heuristik hingga historiografi.</p>
+    <p class="hero-sub">Belajar metode penelitian sejarah dengan 7 mini-game interaktif — dari heuristik hingga historiografi.</p>
     <div class="cp-badge">
       <i class="fas fa-graduation-cap"></i>
       <span><b>Fase E · Capaian Pembelajaran:</b> Peserta didik mampu memahami konsep dasar penelitian sejarah, sumber sejarah, kritik sumber, dan menuliskan hasil penelitian sejarah sederhana secara sistematis.</span>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Games</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Games</div></div>
       <div class="stat"><div class="stat-num">120+</div><div class="stat-lbl">Konten</div></div>
       <div class="stat"><div class="stat-num" id="hsAch">0</div><div class="stat-lbl">Pencapaian</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">Fun</div></div>
@@ -516,14 +630,13 @@ button{touch-action:manipulation}
     <div class="progress-wrap">
       <div class="progress-info">
         <span class="lbl"><i class="fas fa-trophy"></i> Progress Belajar</span>
-        <span class="val" id="progText">0 / 6 Game</span>
+        <span class="val" id="progText">0 / 7 Game</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
       <div class="reset-progress"><button onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Reset Progress</button></div>
     </div>
   </div>
 
-  <!-- PERBAIKAN: .gc-done-badge & .gc-num dihapus, hanya .gc-check yang tersisa -->
   <div class="game-grid">
     <div class="gc" data-game="g1" tabindex="0" role="button" aria-label="Detektif Sumber">
       <span class="gc-check">✓</span>
@@ -588,6 +701,18 @@ button{touch-action:manipulation}
       <p>Board game 20 petak dengan dadu & kejutan acak!</p>
       <div class="gc-foot">
         <span class="gc-tag"><span class="dot"></span>Semua</span>
+        <div class="gc-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <!-- ===== GAME 7: JEJAK DI BUMI TAMBUN BUNGAI ===== -->
+    <div class="gc" data-game="g7" tabindex="0" role="button" aria-label="Jejak di Bumi Tambun Bungai">
+      <span class="gc-check">✓</span>
+      <span class="gc-dif hard">NARATIF</span>
+      <div class="gc-icon-wrap"><i class="fas fa-book-open-reader"></i></div>
+      <h3>Jejak di Bumi Tambun Bungai</h3>
+      <p>Cerita interaktif — telusuri sejarah pembentukan Palangkaraya &amp; Kalimantan Tengah dari Kelurahan Pahandut!</p>
+      <div class="gc-foot">
+        <span class="gc-tag"><span class="dot"></span>Pilihan &amp; Konsekuensi</span>
         <div class="gc-arrow"><i class="fas fa-arrow-right"></i></div>
       </div>
     </div>
@@ -778,7 +903,6 @@ button{touch-action:manipulation}
     </div>
   </div>
   <div class="order-list" id="g5List"></div>
-  <!-- PERBAIKAN: tombol PERIKSA tidak lagi pakai .pill, ganti .btn-mini.primary -->
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px">
     <button class="btn-mini" onclick="g5Reset()"><i class="fas fa-rotate"></i> Reset</button>
     <button class="btn-mini primary" onclick="g5Check()"><i class="fas fa-check"></i> PERIKSA</button>
@@ -860,6 +984,106 @@ button{touch-action:manipulation}
   <div class="log" id="g6Log" style="margin-top:12px">Tekan <b>KOCOK DADU</b> untuk memulai petualanganmu!</div>
 </div>
 
+<!-- ============================================================
+     GAME 7: JEJAK DI BUMI TAMBUN BUNGAI
+     ============================================================ -->
+<div id="gameG7" class="screen">
+  <div class="gh">
+    <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <h2>Jejak di Bumi Tambun Bungai<small><i class="fas fa-book-open-reader"></i> Game 07 · Cerita Interaktif</small></h2>
+    <span class="pill timer gh-timer" id="g7TimerPill">00:00</span>
+  </div>
+
+  <!-- INTRO -->
+  <div id="g7IntroWrap" class="g7-wrap">
+    <div class="g7-intro">
+      <div class="em">📓</div>
+      <h3>Jejak di Bumi Tambun Bungai</h3>
+      <p>Kamu adalah <b>peneliti sejarah muda</b> yang mendapat tugas menulis sejarah <b>Proses Pembentukan Kota Palangkaraya dan Provinsi Kalimantan Tengah</b>. Di kantor kelurahan <b>Pahandut</b>, kamu menemukan kotak arsip tua bertuliskan <b>"1957"</b>. Isinya berdebu, sebagian rusak. Sejak saat itu, setiap keputusanmu akan memengaruhi <b>jalannya cerita</b>, <b>kualitas penelitianmu</b>, dan <b>dampaknya bagi warga</b>.</p>
+      <div class="rules">
+        <div class="rr"><i class="fas fa-circle-dot"></i><span><b>7 situasi keputusan</b> — setiap situasi memiliki 3 pilihan.</span></div>
+        <div class="rr"><i class="fas fa-circle-dot"></i><span>Setiap pilihan mengubah <b>3 indikator</b>: Integritas, Ketelitian, dan Pertimbangan Dampak.</span></div>
+        <div class="rr"><i class="fas fa-circle-dot"></i><span>Pilihanmu juga <b>membuka/menutup jalur cerita</b> berikutnya.</span></div>
+        <div class="rr"><i class="fas fa-circle-dot"></i><span>Di akhir, kamu akan melihat <b>"Jejak Keputusanmu"</b> dan pertanyaan refleksi.</span></div>
+        <div class="rr"><i class="fas fa-circle-dot"></i><span>Ada juga <b>Kuis Kilat 15 bank soal</b> tentang Palangkaraya &amp; Kalteng — soal berganti setiap kamu membuka game!</span></div>
+      </div>
+      <div class="g7-actions">
+        <button class="g7-btn primary" onclick="g7Start()"><i class="fas fa-play"></i> Mulai Investigasi</button>
+        <button class="g7-btn ghost" type="button" onclick="g7QuizStart()"><i class="fas fa-brain"></i> Kuis Kilat</button>
+      </div>
+    </div>
+
+    <!-- QUIZ WRAP -->
+    <div id="g7QuizWrap" class="g7-wrap" style="display:none">
+      <div class="g7-progress-box">
+        <div class="g7-progress-info">
+          <span><i class="fas fa-brain"></i> Kuis Kilat Palangkaraya &amp; Kalteng</span>
+          <span class="num" id="g7QuizProgress">1/5</span>
+        </div>
+        <div class="g7-progress-track"><div class="g7-progress-fill" id="g7QuizBar" style="width:0%"></div></div>
+      </div>
+      <div class="qcard" id="g7QuizCard" style="position:relative">
+        <div class="tag" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">KUIS</div>
+        <div class="q" id="g7QuizQ">Memuat…</div>
+        <div class="hint" id="g7QuizHint"></div>
+      </div>
+      <div id="g7QuizOpts"></div>
+      <div class="g7-actions" style="margin-top:6px">
+        <button class="g7-btn ghost" type="button" onclick="g7QuizClose()"><i class="fas fa-arrow-left"></i> Kembali</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAMEPLAY -->
+  <div id="g7PlayWrap" class="g7-wrap" style="display:none">
+    <div class="g7-progress-box">
+      <div class="g7-progress-info">
+        <span><i class="fas fa-bookmark"></i> Bab Investigasi</span>
+        <span class="num"><span id="g7Step">1</span> / 7</span>
+      </div>
+      <div class="g7-progress-track"><div class="g7-progress-fill" id="g7ProgFill"></div></div>
+    </div>
+
+    <div class="g7-stats">
+      <div class="g7-stat">
+        <div class="lbl">Integritas</div>
+        <div class="val mid" id="g7Integritas">50</div>
+        <div class="mini-track"><div class="mini-fill" id="g7IntegritasBar" style="width:50%"></div></div>
+      </div>
+      <div class="g7-stat">
+        <div class="lbl">Ketelitian</div>
+        <div class="val mid" id="g7Ketelitian">50</div>
+        <div class="mini-track"><div class="mini-fill" id="g7KetelitianBar" style="width:50%"></div></div>
+      </div>
+      <div class="g7-stat">
+        <div class="lbl">Dampak</div>
+        <div class="val mid" id="g7Dampak">50</div>
+        <div class="mini-track"><div class="mini-fill" id="g7DampakBar" style="width:50%"></div></div>
+      </div>
+    </div>
+
+    <div class="g7-scene" id="g7Scene">
+      <div class="g7-scene-head">
+        <div class="g7-scene-icon" id="g7SceneIcon">📦</div>
+        <div class="g7-scene-title">
+          <div class="chapter" id="g7Chapter">Situasi 1</div>
+          <h3 id="g7SceneTitle">Kotak Tua di Kantor Kelurahan Pahandut</h3>
+        </div>
+      </div>
+      <div class="g7-scene-text" id="g7SceneText">Memuat…</div>
+      <div class="g7-question" id="g7Question">Apa yang akan kamu lakukan?</div>
+    </div>
+
+    <div class="g7-choices" id="g7Choices"></div>
+
+    <div id="g7FeedbackWrap"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="g7ResultWrap" class="g7-wrap" style="display:none"></div>
+</div>
+
 <!-- PERSISTENT UI -->
 <div class="pops" id="pops"></div>
 <div class="banner" id="banner"></div>
@@ -867,7 +1091,6 @@ button{touch-action:manipulation}
 <div class="confetti" id="confetti"></div>
 
 <!-- MODAL UTAMA -->
-<!-- PERBAIKAN: tombol Home dihapus, sisakan Review + Selesai -->
 <div class="modal" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-emoji" id="mEmoji">🎉</div>
@@ -989,7 +1212,7 @@ function updateFsIcon(){const btn=document.getElementById('fsToggle');if(!btn)re
 const KEY='histoexplorer_misi2_v1';
 const ACH_KEY='histoexplorer_misi2_ach_v1';
 const SEEN_KEY='histoexplorer_seen_v3';
-const TOTAL=6;
+const TOTAL=7;
 function loadProgress(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return{};}}
 function saveProgress(p){try{localStorage.setItem(KEY,JSON.stringify(p));}catch(e){}}
 function markDone(id,data={}){
@@ -1016,21 +1239,20 @@ function updateMenu(){
 
 /* =========================================================
    ACHIEVEMENTS
-   PERBAIKAN: master & scholar kini punya kriteria berbeda
    ========================================================= */
 const ACHS=[
   {id:'first_step',icn:'🎯',ttl:'Langkah Pertama',sub:'Selesaikan 1 game'},
   {id:'explorer',icn:'🧭',ttl:'Penjelajah Sejarah',sub:'Selesaikan 4 game'},
-  {id:'master',icn:'🏆',ttl:'Master Peneliti',sub:'Selesaikan semua 6 game'},
+  {id:'master',icn:'🏆',ttl:'Master Peneliti',sub:'Selesaikan semua 7 game'},
   {id:'detective',icn:'🔍',ttl:'Detektif Sumber',sub:'Skor ≥ 250 di Detektif Sumber'},
   {id:'hunter',icn:'🕵️',ttl:'Heuristik Hunter',sub:'Temukan 6/6 sumber'},
   {id:'analyst',icn:'⚖️',ttl:'Analis Kritis',sub:'Skor ≥ 200 di Detektif Fakta'},
   {id:'writer',icn:'📝',ttl:'Penulis Sejarah',sub:'Selesaikan Historiografi 3/3'},
-  {id:'scholar',icn:'📚',ttl:'Cendekiawan',sub:'Total skor ≥ 500 dari semua game'}
+  {id:'scholar',icn:'📚',ttl:'Cendekiawan',sub:'Total skor ≥ 500 dari semua game'},
+  {id:'storyteller',icn:'📖',ttl:'Penjaga Jejak',sub:'Selesaikan Game 7 dengan Integritas ≥ 70'}
 ];
 function loadAch(){try{return JSON.parse(localStorage.getItem(ACH_KEY))||{};}catch(e){return{};}}
 function saveAch(a){try{localStorage.setItem(ACH_KEY,JSON.stringify(a));}catch(e){}}
-/* PERBAIKAN: hapus notif() di sini — ach-toast sudah cukup, hindari tumpang tindih */
 function unlockAch(id){
   const a=loadAch();if(a[id])return false;
   a[id]=Date.now();saveAch(a);
@@ -1041,12 +1263,12 @@ function checkAchievements(gameId,d={}){
   const doneCount=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
   if(doneCount>=1)unlockAch('first_step');
   if(doneCount>=4)unlockAch('explorer');
-  if(doneCount>=6)unlockAch('master');
+  if(doneCount>=7)unlockAch('master');
   if(gameId==='g1'&&d.score>=250)unlockAch('detective');
   if(gameId==='g2'&&d.found>=6)unlockAch('hunter');
   if(gameId==='g4'&&d.score>=200)unlockAch('analyst');
   if(gameId==='g5'&&d.won)unlockAch('writer');
-  // scholar: kriteria berbeda — total skor lintas game
+  if(gameId==='g7'&&d.integritas>=70)unlockAch('storyteller');
   const totalScore=Object.values(p).reduce((s,x)=>s+(x.score||0),0);
   if(totalScore>=500)unlockAch('scholar');
 }
@@ -1111,7 +1333,12 @@ const GLOSSARY=[
   {t:'Sartono Kartodirdjo',d:'(1921–2007) Sejarawan Indonesia, pelopor historiografi Indonesia-sentris.'},
   {t:'R.G. Collingwood',d:'(1889–1943) Filsuf Inggris, penulis <b>The Idea of History</b>.'},
   {t:'Herodotus',d:'(484–425 SM) Sejarawan Yunani, dijuluki <b>Bapak Sejarah Dunia</b>.'},
-  {t:'Ibnu Khaldun',d:'(1332–1406 M) Sejarawan Muslim, penulis <b>Muqaddimah</b>.'}
+  {t:'Ibnu Khaldun',d:'(1332–1406 M) Sejarawan Muslim, penulis <b>Muqaddimah</b>.'},
+  {t:'Tjilik Riwut',d:'(1918–1987) Pejuang & Gubernur pertama Kalimantan Tengah, dijuluki <b>Bapak Pembangunan Kalteng</b>. Pahlawan Nasional (Keppres No. 108/TK/1998).'},
+  {t:'UU Darurat No. 10/1957',d:'Dasar hukum pembentukan <b>Provinsi Kalimantan Tengah</b> & Kota Palangkaraya. Disahkan menjadi UU No. 21/1958.'},
+  {t:'Pahandut',d:'Nama kampung asli di tepi Sungai Kahayan yang menjadi cikal bakal Kota Palangkaraya. Namanya berganti menjadi Palangkaraya berdasarkan UU No. 21/1958.'},
+  {t:'Bumi Tambun Bungai',d:'Julukan Provinsi Kalimantan Tengah. "Tambun Bungai" merujuk pada senjata pusaka khas Dayak.'},
+  {t:'Huma Betang',d:'Rumah adat Dayak; filosofi kebersamaan & keterbukaan masyarakat Kalimantan Tengah.'}
 ];
 function openGloss(){sfxClick();document.getElementById('glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term"><i class="fas fa-bookmark"></i>${g.t}</div><div class="def">${g.d}</div></div>`).join('');document.getElementById('glModal').classList.add('on');}
 function closeGloss(){document.getElementById('glModal').classList.remove('on');}
@@ -1127,7 +1354,11 @@ const FACTS=[
   '<b>Anakronisme</b> adalah kesalahan menempatkan peristiwa/tokoh pada kurun waktu yang tidak sesuai.',
   'Buku <b>Understanding History</b> (1950) karya Louis Gottschalk menjadi rujukan klasik metode sejarah hingga kini.',
   'Sejarawan Indonesia <b>Sartono Kartodirdjo</b> adalah pelopor historiografi Indonesia-sentris.',
-  'Sumber sejarah terbagi 4 jenis: <b>tertulis, lisan, benda, dan audiovisual</b>.'
+  'Sumber sejarah terbagi 4 jenis: <b>tertulis, lisan, benda, dan audiovisual</b>.',
+  '<b>Kota Palangkaraya</b> dibangun pada 17 Juli 1957 oleh Presiden Soekarno di bekas Kampung Pahandut, tepi Sungai Kahayan.',
+  '<b>Tjilik Riwut</b> adalah pejuang Dayak yang gigih memperjuangkan pembentukan Provinsi Kalimantan Tengah — diangkat sebagai Pahlawan Nasional tahun 1998.',
+  '<b>UU Darurat No. 10/1957</b> adalah dasar hukum pembentukan Provinsi Kalimantan Tengah, disahkan menjadi UU No. 21/1958.',
+  'Nama <b>Palangkaraya</b> berasal dari bahasa Dayak Ngaju: Palangka (tempat) + Raya (besar) = tempat yang suci, mulia, dan besar.'
 ];
 function updateDailyFact(){
   const d=new Date();
@@ -1184,12 +1415,10 @@ function closeReview(){document.getElementById('rvModal').classList.remove('on')
   loop();
 })();
 
-/* ============ PERBAIKAN: sfxClick global hanya untuk tombol navigasi, 
-   bukan jawaban game (yang punya sfx sendiri) ============ */
 document.addEventListener('click',e=>{
-  const t=e.target.closest('button,.gc,.choice,.opt,.hunt-tile,.order-item,.tool,.tile');
+  const t=e.target.closest('button,.gc,.choice,.opt,.hunt-tile,.order-item,.tool,.tile,.g7-choice,.g7-btn,.g7-quiz-opt');
   if(!t) return;
-  if(t.matches('.choice,.opt,.hunt-tile,.order-item,.tool,.tile')) return;
+  if(t.matches('.choice,.opt,.hunt-tile,.order-item,.tool,.tile,.g7-choice,.g7-quiz-opt')) return;
   sfxClick();
 });
 
@@ -1201,8 +1430,6 @@ function flash(t){const f=document.getElementById('flash');f.className='flash '+
 function banner(txt,ms){const b=document.getElementById('banner');b.textContent=txt;b.classList.add('show');setTimeout(()=>b.classList.remove('show'),ms||1600);}
 function confetti(){const c=document.getElementById('confetti');const colors=['#1e4d8c','#2563eb','#3b82f6','#60a5fa','#06b6d4','#22d3ee','#67e8f9','#f59e0b','#fbbf24','#10b981'];for(let i=0;i<60;i++){const d=document.createElement('div');d.className='cf';d.style.left=Math.random()*100+'%';d.style.background=colors[rnd(colors.length)];d.style.animationDuration=(1.4+Math.random()*1.2)+'s';d.style.animationDelay=(Math.random()*.3)+'s';c.appendChild(d);setTimeout(()=>d.remove(),2600);}}
 
-/* ============ PERBAIKAN: modal() tidak lagi dobel confetti/suara.
-   showAchievement memainkan sfxAch. modal memainkan sfxVictory + confetti ============ */
 function modal(emoji,title,text,badge){
   document.getElementById('mEmoji').textContent=emoji;
   document.getElementById('mTitle').textContent=title;
@@ -1213,23 +1440,22 @@ function modal(emoji,title,text,badge){
   const actions=document.getElementById('mActions');
   if(actions) actions.style.display='flex';
   document.getElementById('modal').classList.add('on');
-  if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎','🔍','🕵️','🔐','⚖️','📝','🎲','⏳'].includes(emoji)){
+  if(['🎉','🏆','👑','⭐','🔥','🎊','🎯','💎','🔍','🕵️','🔐','⚖️','📝','🎲','⏳','📖'].includes(emoji)){
     confetti();
     sfxVictory();
   }
 }
 function closeModal(){document.getElementById('modal').classList.remove('on');}
 
-/* ============ ACHIEVEMENT TOAST ============ */
 const achData={
   g1:{icn:'🔍',ttl:'Detektif Ulung',sub:'Kamu menuntaskan Detektif Sumber Sejarah!'},
   g2:{icn:'🕵️',ttl:'Heuristik Hunter',sub:'Kamu menemukan semua sumber tersembunyi!'},
   g3:{icn:'🔐',ttl:'Ahli Verifikasi',sub:'Kamu menuntaskan Kritik Sumber!'},
   g4:{icn:'⚖️',ttl:'Detektif Fakta',sub:'Kamu menguasai kritik isi sumber!'},
   g5:{icn:'📝',ttl:'Penulis Sejarah',sub:'Kamu berhasil menyusun Historiografi!'},
-  g6:{icn:'🎲',ttl:'Petualang Sejati',sub:'Kamu menuntaskan Petualangan Sejarawan!'}
+  g6:{icn:'🎲',ttl:'Petualang Sejati',sub:'Kamu menuntaskan Petualangan Sejarawan!'},
+  g7:{icn:'📖',ttl:'Penjaga Jejak',sub:'Kamu menuntaskan investigasi Jejak di Bumi Tambun Bungai!'}
 };
-/* PERBAIKAN: showAchievement hanya memainkan sfxAch. Confetti diserahkan ke modal(). */
 function showAchievement(id){
   const a=achData[id];if(!a)return;
   const t=document.getElementById('achToast');
@@ -1249,6 +1475,7 @@ function goGame(id){
   window.scrollTo({top:0,behavior:'smooth'});reviewData=[];
   if(id==='g1')g1Start();if(id==='g2')g2Start();if(id==='g3')g3Start();
   if(id==='g4')g4Start();if(id==='g5')g5Start();if(id==='g6')g6Start();
+  if(id==='g7')g7Open();
   setTimeout(updateDiceHalf,200);
 }
 document.querySelectorAll('.gc').forEach(c=>{
@@ -1596,7 +1823,7 @@ function g4End(){
 const G5_ROUNDS=[
   {title:'Urutkan Tahapan Penelitian Sejarah',desc:'Empat langkah utama dari awal sampai akhir.',items:['Heuristik — mencari & mengumpulkan sumber','Kritik — memverifikasi keaslian & kredibilitas','Interpretasi — menafsirkan fakta & mencari makna','Historiografi — menulis narasi sejarah']},
   {title:'Susun Struktur Tulisan Sejarah',desc:'Bagian-bagian tulisan historiografi yang baik.',items:['Judul — topik yang jelas & menarik','Pendahuluan — latar belakang & rumusan masalah','Isi / Analisis — uraian & pembahasan sumber','Kesimpulan — jawaban atas rumusan masalah','Daftar Sumber — daftar pustaka & rujukan']},
-  {title:'Susun Paragraf Narasi Sejarah',desc:'Rangkai kalimat menjadi paragraf logis.',items:['Desaku bernama Sumberejo.','Menurut wawancara dengan Mbah Joyo (2023), nama ini berasal dari mata air yang melimpah.','Prasasti di balai desa berangka tahun 1920 juga menyebut kata "sumber".','Buku sejarah daerah (1985) mencatat desa ini sebagai daerah pertanian sejak zaman kolonial.','Dari ketiga sumber tersebut, dapat disimpulkan bahwa nama Sumberejo berkaitan erat dengan sumber air.']}
+  {title:'Susun Paragraf Narasi Sejarah',desc:'Rangkai kalimat menjadi paragraf logis.',items:['Desaku bernama Sumberejo.','Menurut wawancara dengan Pa Karya (2023), nama ini berasal dari mata air yang melimpah.','Prasasti di balai desa berangka tahun 1920 juga menyebut kata "sumber".','Buku sejarah daerah (1985) mencatat desa ini sebagai daerah pertanian sejak zaman kolonial.','Dari ketiga sumber tersebut, dapat disimpulkan bahwa nama Sumberejo berkaitan erat dengan sumber air.']}
 ];
 const g5={round:0,order:[],selected:null,score:0,lives:3,locked:false};
 function g5Start(){g5.round=0;g5.score=0;g5.lives=3;g5.locked=false;g5Load();startLearnTimer('#g5TimerPill');}
@@ -1709,14 +1936,12 @@ function g6Roll(){
   let dy=((target.y-curY)%360+360)%360;
   dx += 360*spins;
   dy += 360*spins;
-  /* PERBAIKAN: batasi akumulasi sudut agar tidak tumbuh tak terbatas */
   g6.accX=(g6.accX+dx)%3600;
   g6.accY=(g6.accY+dy)%3600;
 
   dice.style.transition='transform 1.5s cubic-bezier(.2,.9,.25,1)';
   dice.style.transform=`rotateX(${g6.accX+dx*0}deg) rotateY(${g6.accY+dy*0}deg)`;
 
-  /* Karena kita modulo, gunakan nilai spin aktual */
   const finalX=g6.accX;
   const finalY=g6.accY;
   dice.style.transform=`rotateX(${finalX}deg) rotateY(${finalY}deg)`;
@@ -1770,7 +1995,6 @@ function g6Surprise(){const r=Math.random();
   else{document.getElementById('g6Log').innerHTML='🎁 <b>KEJUTAN!</b> Mundur 1 petak. Tak apa, lanjut terus!';sfxWrong();setTimeout(()=>{g6.pos=Math.max(0,g6.pos-1);g6Render();g6Next();},800);}}
 function g6Next(){g6.rolling=false;if(g6.pos>=G6_TILES.length-1){setTimeout(g6End,400);return;}const b=document.getElementById('g6RollBtn');b.disabled=false;b.textContent='🎲 KOCOK DADU';}
 
-/* PERBAIKAN: g6Ask membangun DOM node langsung (bukan string HTML dengan onclick inline) */
 function g6Ask(){
   if(g6.pool.length===0)g6.pool=pickFresh(G6_QS,12,'g6',q=>q.q);
   const raw=g6.pool.splice(rnd(g6.pool.length),1)[0];
@@ -1802,7 +2026,6 @@ function g6Ask(){
     wrap.appendChild(btn);
   });
 
-  // Sembunyikan tombol modal-actions standar agar tidak bentrok dengan opsi jawaban
   const actions=document.getElementById('mActions');
   if(actions) actions.style.display='none';
 
@@ -1835,6 +2058,781 @@ function g6End(){
   markDone('g6',{score:g6.score});showAchievement('g6');
   modal('🎲',rank,`${msg}<br><br>Skor: <b style="color:#f59e0b;font-size:1.3rem">${g6.score}</b> · Benar: <b style="color:#10b981">${g6.right}</b> · Lemparan: <b style="color:#10b981">${g6.rolls}</b>`,'Petualang Sejati 🎲');
 }
+
+/* =========================================================
+   =========================================================
+   GAME 7 : JEJAK DI BUMI TAMBUN BUNGAI
+   Interactive Story + Choice & Consequence
+   Setting: Palangkaraya & Kalimantan Tengah 1957
+   =========================================================
+   ========================================================= */
+const g7={
+  step:0,
+  integritas:50,
+  ketelitian:50,
+  dampak:50,
+  choices:[],
+  flags:{},
+  currentStory:null,
+  ended:false,
+  quizDeck:[],
+  quizIdx:0,
+  quizScore:0,
+  quizRight:0,
+  quizAnswered:false
+};
+
+/* ---------- DATA CERITA G7 : JEJAK DI BUMI TAMBUN BUNGAI ---------- */
+const G7_STORY={
+  s1:{
+    chapter:'Situasi 1 · Kantor Kelurahan Pahandut',
+    icon:'📦',
+    title:'Kotak Tua di Tepi Sungai Kahayan',
+    text:'Sore itu, saat membantu merapikan gudang kantor kelurahan <b>Pahandut</b>, kamu menemukan <b>kotak kayu berdebu</b> bertuliskan tangan: <i>"Arsip Pembentukan Kalteng — 1957"</i>. Tutupnya sudah lapuk dan beberapa lembar di dalamnya tampak lembap. Jantungmu berdebar — ini bisa jadi bahan penelitian sejarah yang berharga tentang <b>berdirinya Kota Palangkaraya dan Provinsi Kalimantan Tengah</b>.',
+    question:'Apa yang akan kamu lakukan dengan kotak itu?',
+    choices:[
+      {
+        text:'Buka sendiri sekarang juga, periksa isinya dengan cepat.',
+        effects:{integritas:-8, ketelitian:-6, dampak:2},
+        setFlag:{cara_buka:'spontan'},
+        feedback:'Kamu menemukan beberapa dokumen menarik, tetapi karena terburu-buru, ada satu lembar yang sobek saat kamu angkat. Kamu juga belum minta izin resmi. Kamu merasa tidak nyaman — arsip ini bukan milikmu.',
+        effectLabels:['Integritas −8','Ketelitian −6','Dampak +2'],
+        next:'s2'
+      },
+      {
+        text:'Laporkan temuan kepada Lurah, minta izin resmi untuk meneliti.',
+        effects:{integritas:10, ketelitian:5, dampak:8},
+        setFlag:{cara_buka:'izin_resmi'},
+        feedback:'Lurah tersenyum dan mengapresiasi kejujuranmu. Beliau memberi izin tertulis dan bahkan menceritakan bahwa kotak itu pernah disimpan oleh almarhum kakeknya — seorang <b>pejuang yang terlibat dalam peristiwa 1957</b>. Kamu kini memiliki <b>akses resmi</b> dan <b>konteks awal</b> dari sumber lisan.',
+        effectLabels:['Integritas +10','Ketelitian +5','Dampak +8'],
+        next:'s2'
+      },
+      {
+        text:'Foto bagian luarnya saja untuk dokumentasi, lalu kembalikan seperti semula.',
+        effects:{integritas:4, ketelitian:-10, dampak:-2},
+        setFlag:{cara_buka:'foto_aman'},
+        feedback:'Kamu memang menjaga etika dengan tidak membuka kotak tanpa izin. Namun kamu juga tidak mendapat informasi apa pun. Investigasimu akan dimulai dari nol — tanpa petunjuk dari kotak itu.',
+        effectLabels:['Integritas +4','Ketelitian −10','Dampak −2'],
+        next:'s2'
+      }
+    ]
+  },
+
+  s2:{
+    chapter:'Situasi 2 · Rumah Sesepuh Kelurahan Pahandut',
+    icon:'🎙️',
+    title:'Kesaksian Pa Karya tentang 1957',
+    text:(f)=> f.cara_buka==='izin_resmi'
+      ? 'Lurah menyarankanmu menemui <b>Pa Karya</b> (92 tahun), sesepuh Kelurahan Pahandut yang katanya masih ingat peristiwa <b>17 Juli 1957</b> saat Presiden Soekarno meletakkan batu pertama Kota Palangkaraya. Saat kamu datang, Pa Karya menyambutmu dengan ramah. Ia mulai bercerita dengan mata yang berkaca-kaca tentang bagaimana rombongan Presiden menaiki perahu menyusuri <b>Sungai Kahayan</b> menuju kampung kecil yang dikelilingi hutan lebat.'
+      : 'Kamu memutuskan untuk tetap menyelidiki dan bertanya ke warga. Seorang warga menyarankanmu menemui <b>Pa Karya</b> (92 tahun), sesepuh Kelurahan Pahandut yang katanya masih ingat peristiwa 1957. Saat kamu datang tanpa izin resmi, Pa Karya tampak ragu — namun akhirnya mau bercerita juga tentang <b>pemancangan tiang pertama Kota Palangkaraya</b> oleh Presiden Soekarno di tepi Sungai Kahayan.',
+    question:'Bagaimana kamu menangani kesaksian Pa Karya?',
+    choices:[
+      {
+        text:'Percaya saja apa yang dikatakan Pa Karya — beliau saksi hidup!',
+        effects:{integritas:-4, ketelitian:-12, dampak:2},
+        setFlag:{saksi:'percaya_bulat'},
+        feedback:'Cerita Pa Karya sangat hidup, dan kamu langsung mencatatnya sebagai sumber utama. Tetapi ada beberapa hal yang tampak tidak konsisten — misalnya tanggal dan nama pejabat yang datang. Karena kamu tidak memverifikasi, ada risiko besar kesalahan masuk ke tulisanmu tentang <b>sejarah pembentukan Palangkaraya</b>.',
+        effectLabels:['Integritas −4','Ketelitian −12','Dampak +2'],
+        next:'s3'
+      },
+      {
+        text:'Rekam wawancara, catat detailnya, lalu cek silang dengan sumber lain.',
+        effects:{integritas:8, ketelitian:12, dampak:5},
+        setFlag:{saksi:'verifikasi'},
+        feedback:'Kamu merekam dengan izin, lalu membuat transkrip. Beberapa detail berbeda dari ingatan Pa Karya — misalnya ia menyebut <b>Banjarmasin</b> sebagai ibu kota sementara, yang ternyata benar menurut arsip. Metode <b>verifikasi silang</b> mulai membuahkan hasil.',
+        effectLabels:['Integritas +8','Ketelitian +12','Dampak +5'],
+        next:'s3'
+      },
+      {
+        text:'Bandingkan ceritanya dengan dua sesepuh lain, tanpa beri tahu salah satunya.',
+        effects:{integritas:2, ketelitian:8, dampak:6},
+        setFlag:{saksi:'multi_sumber'},
+        feedback:'Kamu mewawancarai tiga sesepuh secara terpisah. Ada perbedaan versi yang menarik — misalnya tentang siapa yang pertama mengusulkan nama "Palangkaraya". Itu justru menjadi pintu masuk untuk analisis lebih dalam tentang <b>proses pembentukan provinsi Kalimantan Tengah</b>.',
+        effectLabels:['Integritas +2','Ketelitian +8','Dampak +6'],
+        next:'s3'
+      }
+    ]
+  },
+
+  s3:{
+    chapter:'Situasi 3 · Dokumen Kontradiktif',
+    icon:'📑',
+    title:'Dokumen Belanda vs Catatan Pejuang',
+    text:(f)=>{
+      const base='Di dasar kotak, kamu menemukan <b>dua dokumen</b> yang menceritakan peristiwa yang sama namun sangat berbeda: satu <b>laporan berbahasa Belanda tahun 1948</b> tentang wilayah Dayak Besar, dan satu <b>catatan tangan pejuang Kalteng tahun 1957</b> tentang upaya pembentukan provinsi. Keduanya menyebut peran tokoh dan tanggal yang tidak sama. ';
+      if(f.saksi==='verifikasi') return base+'Berkat transkrip wawancaramu, kamu memiliki sedikit petunjuk tambahan untuk memutuskan mana yang lebih dapat dipercaya.';
+      if(f.saksi==='multi_sumber') return base+'Tiga versi kesaksian yang kamu kumpulkan memberi perspektif tambahan untuk menimbang kedua dokumen.';
+      return base+'Kamu hanya berpegang pada kesaksian Pa Karya yang belum diverifikasi — situasimu lebih sulit.';
+    },
+    question:'Bagaimana kamu menangani sumber yang bertentangan ini?',
+    choices:[
+      {
+        text:'Pakai saja dokumen Belanda — bahasanya resmi dan tampak lebih meyakinkan.',
+        effects:{integritas:-6, ketelitian:-10, dampak:-4},
+        setFlag:{dokumen:'pilih_kolonial'},
+        feedback:'Dokumen Belanda memang rapi, tetapi ditulis dari sudut pandang <b>pemerintah kolonial</b> yang berkepentingan. Kamu melewatkan perjuangan <b>Tjilik Riwut</b> dan tokoh Dayak lainnya yang gigih memperjuangkan pembentukan Provinsi Kalimantan Tengah. Ini contoh bahaya <b>historiografi kolonial</b> yang tidak kritis.',
+        effectLabels:['Integritas −6','Ketelitian −10','Dampak −4'],
+        next:'s4'
+      },
+      {
+        text:'Bandingkan keduanya, cari konteks & kepentingan masing-masing penulis.',
+        effects:{integritas:10, ketelitian:14, dampak:6},
+        setFlag:{dokumen:'bandingkan_kritis'},
+        feedback:'Kamu menyusun tabel perbandingan: siapa penulisnya, untuk siapa ditulis, dan apa yang mungkin disembunyikan. Ternyata kedua sumber bisa <i>saling melengkapi</i> — dokumen Belanda mencatat kondisi wilayah, catatan pejuang mencatat perjuangan politik. Inilah inti <b>kritik sumber</b> yang menghasilkan pemahaman utuh tentang <b>UU Darurat No. 10/1957</b>.',
+        effectLabels:['Integritas +10','Ketelitian +14','Dampak +6'],
+        next:'s4'
+      },
+      {
+        text:'Tuliskan keduanya berdampingan, biarkan pembaca menilai sendiri.',
+        effects:{integritas:5, ketelitian:4, dampak:8},
+        setFlag:{dokumen:'sajikan_dua'},
+        feedback:'Kamu menyajikan dua versi tanpa memihak. Ini menghargai <b>perspektif</b>, tetapi kurang menunjukkan analisis pribadimu sebagai peneliti. Pembaca akan menghargai kejujuranmu, namun mereka mungkin bertanya-tanya: apa kesimpulanmu tentang <b>proses pembentukan Palangkaraya</b>?',
+        effectLabels:['Integritas +5','Ketelitian +4','Dampak +8'],
+        next:'s4'
+      }
+    ]
+  },
+
+  s4:{
+    chapter:'Situasi 4 · Deadline Mendekat',
+    icon:'⏳',
+    title:'Bagian yang Hilang: Mengapa Pahandut Dipilih?',
+    text:'Gurumu meminta draf laporan minggu ini. Namun ada <b>satu pertanyaan penting</b> yang belum jelas: mengapa <b>Pahandut</b> dipilih menjadi ibu kota Provinsi Kalimantan Tengah, mengalahkan Sampit, Barito, dan Kapuas? Dokumennya rusak, dan tidak ada saksi yang benar-benar tahu alasan pastinya. Waktu terus berjalan. Kamu mulai tergoda untuk "mengisi" bagian kosong dengan dugaanmu sendiri agar tulisan terlihat lengkap.',
+    question:'Bagaimana kamu mengisi bagian yang hilang?',
+    choices:[
+      {
+        text:'Tuliskan dugaanmu seolah-olah itu fakta, biar tulisan lengkap.',
+        effects:{integritas:-15, ketelitian:-8, dampak:-10},
+        setFlag:{fabrikasi:'ya'},
+        feedback:'Drafmu memang selesai lebih cepat. Tetapi kamu baru saja melakukan <b>fabrikasi</b> — pelanggaran berat dalam penelitian sejarah. Jika ketahuan, seluruh kredibilitasmu bisa hancur. Integritas seorang sejarawan adalah segalanya, terutama ketika menulis tentang <b>sejarah bangsanya sendiri</b>.',
+        effectLabels:['Integritas −15','Ketelitian −8','Dampak −10'],
+        next:'s5'
+      },
+      {
+        text:'Tulis "tidak diketahui secara pasti" dan jelaskan keterbatasan sumber.',
+        effects:{integritas:12, ketelitian:10, dampak:4},
+        setFlag:{fabrikasi:'jujur'},
+        feedback:'Gurumu justru <b>memuji kejujuranmu</b>. Sejarah yang baik bukan yang menyembunyikan ketidaktahuan, tetapi yang <i>mengakui</i> batas sumber. Keterbatasan itu sendiri adalah temuan — dan kamu bisa menyarankan penelitian lanjutan tentang <b>dinamika perebutan ibu kota provinsi</b> antara Pahandut, Sampit, Barito, dan Kapuas.',
+        effectLabels:['Integritas +12','Ketelitian +10','Dampak +4'],
+        next:'s5'
+      },
+      {
+        text:'Cari sumber tambahan di Arsip Daerah — meski harus menunda deadline.',
+        effects:{integritas:6, ketelitian:14, dampak:2},
+        setFlag:{fabrikasi:'cari_sumber'},
+        feedback:'Setelah menelepon beberapa arsip, kamu menemukan satu <b>manuskrip di Arsip Daerah</b> yang menyebut peristiwa itu secara samar. Bukan jawaban lengkap, tetapi petunjuk penting. Kamu melaporkan ke guru bahwa kamu butuh waktu tambahan untuk meneliti <b>dokumen UU Darurat No. 10/1957</b>.',
+        effectLabels:['Integritas +6','Ketelitian +14','Dampak +2'],
+        next:'s5'
+      }
+    ]
+  },
+
+  s5:{
+    chapter:'Situasi 5 · Informasi Sensitif',
+    icon:'🔒',
+    title:'Rahasia Keluarga Lurah',
+    text:(f)=>{
+      let base='Di salah satu dokumen, kamu menemukan catatan yang menyebut bahwa <b>kakek dari lurah saat ini</b> mungkin terlibat dalam peristiwa yang tidak menyenangkan pada masa perjuangan pembentukan provinsi. Informasi ini sensitif — bisa memengaruhi reputasi keluarga yang masih hidup. ';
+      if(f.fabrikasi==='cari_sumber') base+='Manuskrip di Arsip Daerah memperkuat sebagian catatan itu — meski tetap belum pasti.';
+      if(f.dokumen==='bandingkan_kritis') base+='Kritik sumbermu mengajarkan: jangan langsung percaya satu dokumen, apalagi dalam hal sepenting ini.';
+      return base;
+    },
+    question:'Apa yang akan kamu lakukan dengan informasi sensitif ini?',
+    choices:[
+      {
+        text:'Publikasikan langsung — publik berhak tahu seluruh kebenaran.',
+        effects:{integritas:-4, ketelitian:2, dampak:-12},
+        setFlag:{sensitif:'publikasi_langsung'},
+        feedback:'Kamu memang jujur, tetapi kamu melupakan <b>tanggung jawab sosial</b>. Informasi yang belum final bisa menghancurkan reputasi orang. Sejarah bukan hanya soal "membuka", tapi juga soal <b>cara</b> dan <b>waktu</b> menyampaikannya — terutama dalam masyarakat <b>Huma Betang</b> yang menjunjung kebersamaan.',
+        effectLabels:['Integritas −4','Ketelitian +2','Dampak −12'],
+        next:'s6'
+      },
+      {
+        text:'Diskusikan dulu dengan lurah & keluarga terkait sebelum menulis.',
+        effects:{integritas:12, ketelitian:6, dampak:14},
+        setFlag:{sensitif:'dialog'},
+        feedback:'Lurah terkejut, tetapi menghargai keterbukaanmu. Ia memberi <b>konteks tambahan</b>: kakeknya memang berada dalam situasi sulit saat itu, ketika <b>Banjarmasin masih menjadi ibu kota sementara</b> dan situasi politik tidak stabil. Dengan dialog, kamu mendapat pemahaman yang lebih utuh, dan warga tidak merasa dilangkahi.',
+        effectLabels:['Integritas +12','Ketelitian +6','Dampak +14'],
+        next:'s6'
+      },
+      {
+        text:'Hapus bagian itu dari laporan supaya aman.',
+        effects:{integritas:-8, ketelitian:-6, dampak:2},
+        setFlag:{sensitif:'hapus'},
+        feedback:'Laporanmu aman, tetapi kamu baru saja menyembunyikan bagian penting dari sejarah. Sejarawan yang menyensor fakta tanpa alasan ilmiah kehilangan integritasnya — meski niatmu baik. Apalagi ini tentang <b>sejarah pembentukan provinsi</b> yang melibatkan banyak pihak dengan kepentingan berbeda.',
+        effectLabels:['Integritas −8','Ketelitian −6','Dampak +2'],
+        next:'s6'
+      }
+    ]
+  },
+
+  s6:{
+    chapter:'Situasi 6 · Presentasi di Kantor Kelurahan',
+    icon:'🎤',
+    title:'Berbicara di Depan Warga Pahandut',
+    text:'Hari presentasi tiba. Kantor kelurahan penuh — ada sesepuh, pemuda, dan anak-anak. Semua ingin tahu apa yang kamu temukan tentang <b>sejarah pembentukan Palangkaraya dan Kalimantan Tengah</b>. Kamu berdiri di depan, dipegangi mikrofon. Bagaimana kamu menyajikan hasil penelitianmu?',
+    question:'Bagaimana kamu menyampaikan hasil penelitian?',
+    choices:[
+      {
+        text:'Fokus pada cerita paling dramatis agar warga terkesan.',
+        effects:{integritas:-6, ketelitian:-6, dampak:-4},
+        setFlag:{presentasi:'dramatis'},
+        feedback:'Warga memang terkesan, tetapi setelah acara beberapa orang mempertanyakan beberapa bagian — karena kamu melebih-lebihkan. Rasa percaya warga sedikit terganggu. Sejarah bukan hiburan — atau setidaknya bukan hanya hiburan. Apalagi ini menyangkut <b>identitas Bumi Tambun Bungai</b>.',
+        effectLabels:['Integritas −6','Ketelitian −6','Dampak −4'],
+        next:'s7'
+      },
+      {
+        text:'Sajikan seimbang: fakta, ketidakpastian, dan konteks sosial.',
+        effects:{integritas:12, ketelitian:10, dampak:12},
+        setFlag:{presentasi:'seimbang'},
+        feedback:'Presentasimu tenang, jelas, dan jujur. Kamu bahkan menyebutkan bagian-bagian yang belum pasti — seperti mengapa <b>Pahandut dipilih</b> dibandingkan Sampit atau Barito. Warga mengangguk — mereka menghargai kejujuranmu. Beberapa pemuda bertanya, ingin ikut meneliti sejarah kelurahan juga.',
+        effectLabels:['Integritas +12','Ketelitian +10','Dampak +12'],
+        next:'s7'
+      },
+      {
+        text:'Serahkan sepenuhnya kepada guru pembimbing untuk bicara.',
+        effects:{integritas:-2, ketelitian:-2, dampak:-6},
+        setFlag:{presentasi:'serahkan'},
+        feedback:'Presentasi berjalan lancar, tetapi warga merasa kamu sendiri tidak menguasai hasil penelitianmu. Tanggung jawab seorang peneliti termasuk <b>mengomunikasikan</b> hasilnya — bukan hanya menyerahkan ke orang lain. Apalagi ini tentang <b>sejarah kelurahan mereka sendiri</b>.',
+        effectLabels:['Integritas −2','Ketelitian −2','Dampak −6'],
+        next:'s7'
+      }
+    ]
+  },
+
+  s7:{
+    chapter:'Situasi 7 · Setelah Semua',
+    icon:'📚',
+    title:'Arsip untuk Bumi Tambun Bungai',
+    text:'Penelitianmu selesai. Sekarang, kotak kayu tua itu kembali menjadi pertanyaan: apa yang akan kamu lakukan dengan dokumen aslinya? Ini bukan lagi soal tugas — ini soal <b>warisan</b> untuk generasi mendatang di Bumi Tambun Bungai.',
+    question:'Apa keputusan terakhirmu terhadap arsip tersebut?',
+    choices:[
+      {
+        text:'Simpan sendiri sebagai koleksi pribadi — siapa tahu nanti berguna.',
+        effects:{integritas:-12, ketelitian:0, dampak:-10},
+        setFlag:{arsip:'pribadi'},
+        feedback:'Kamu mengamankan dokumen, tetapi warga kehilangan akses ke sejarah mereka sendiri. Arsip yang tidak bisa diakses publiknya lambat laun akan kehilangan makna sebagai sumber sejarah. Padahal dokumen ini menyimpan <b>jejak perjuangan pembentukan provinsi</b> yang seharusnya menjadi milik bersama.',
+        effectLabels:['Integritas −12','Dampak −10'],
+        next:'end'
+      },
+      {
+        text:'Serahkan kembali ke arsip kelurahan, dengan salinan digital untuk semua warga.',
+        effects:{integritas:14, ketelitian:8, dampak:14},
+        setFlag:{arsip:'kembali_ke_kelurahan'},
+        feedback:'Kamu memindai setiap lembar, menyimpan aslinya di lemari arsip yang lebih baik, dan membagikan tautan digital ke warga. Warga berterima kasih. Kini sejarah mereka <b>milik mereka kembali</b> — sesuai semangat <b>Huma Betang</b> yang menjunjung kebersamaan dan keterbukaan.',
+        effectLabels:['Integritas +14','Ketelitian +8','Dampak +14'],
+        next:'end'
+      },
+      {
+        text:'Serahkan ke museum provinsi — agar lebih aman dan terawat.',
+        effects:{integritas:6, ketelitian:6, dampak:2},
+        setFlag:{arsip:'museum'},
+        feedback:'Museum menerima dengan gembira — dokumen akan lebih terawat. Namun warga merasa <i>kehilangan</i> sesuatu: arsip itu adalah kenangan mereka. Keputusanmu baik, tetapi ada harga yang harus dibayar. Idealnya, arsip tetap dekat dengan komunitas yang menghasilkannya.',
+        effectLabels:['Integritas +6','Ketelitian +6','Dampak +2'],
+        next:'end'
+      }
+    ]
+  }
+};
+
+/* =========================================================
+   BANK SOAL G7 : 15 SOAL TENTANG PALANGKARAYA & KALTENG
+   Sistem pickFresh agar soal berganti setiap kali login kembali
+   ========================================================= */
+const G7_QS=[
+  {
+    id:'g7q1',
+    q:'Kota Palangkaraya dibangun pada tahun 1957 berdasarkan…',
+    o:['UU Darurat No. 10/1957 tentang Pembentukan Daerah Swatantra Tingkat I Kalimantan Tengah','UU No. 21/1958 tentang Pembentukan Kota Palangkaraya','Peraturan Presiden No. 5/1965 tentang Kotamadya Palangkaraya','Keputusan Gubernur Kalteng No. 12/1959'],
+    a:0,
+    h:'UU Darurat No. 10/1957 menjadi dasar hukum pembentukan Provinsi Kalimantan Tengah sekaligus pendirian Palangkaraya.',
+    s:'UU Darurat No. 10/1957 & Kalteng.go.id'
+  },
+  {
+    id:'g7q2',
+    q:'Nama asli Kampung Pahandut diganti menjadi "Palangkaraya" berdasarkan…',
+    o:['UU No. 21/1958','UU Darurat No. 10/1957','UU No. 27/1959','Perda Kalteng No. 3/1960'],
+    a:0,
+    h:'Berdasarkan UU 21/1958, nama Pahandut berganti nama menjadi Palangkaraya.',
+    s:'UU No. 21/1958 & Kalteng.go.id'
+  },
+  {
+    id:'g7q3',
+    q:'Arti kata "Palangkaraya" dalam bahasa Dayak Ngaju adalah…',
+    o:['Tempat yang suci, mulia, dan besar','Kota di tepi sungai yang ramai','Hutan belantara yang dibuka','Pusat pemerintahan Dayak'],
+    a:0,
+    h:'Palangka artinya "tempat" dan Raya artinya "besar". Secara keseluruhan berarti tempat yang suci, mulia, dan besar.',
+    s:'Riwut (1958) & Tribunkalteng.com'
+  },
+  {
+    id:'g7q4',
+    q:'Tanggal 17 Juli 1957 diperingati sebagai hari jadi Kota Palangkaraya karena…',
+    o:['Presiden Soekarno meletakkan batu pertama pembangunan Kota Palangkaraya di Pahandut','Provinsi Kalimantan Tengah resmi terbentuk berdasarkan UU Darurat','Kota Palangkaraya resmi berstatus Kotamadya','Nama Pahandut resmi diganti menjadi Palangkaraya'],
+    a:0,
+    h:'Pada 17 Juli 1957, Presiden Soekarno meletakkan batu pertama pembangunan Palangkaraya di Pahandut, di tepi Sungai Kahayan.',
+    s:'Perpusnas.go.id & Tribunkalteng.com'
+  },
+  {
+    id:'g7q5',
+    q:'Tokoh yang dijuluki sebagai "Bapak Pembangunan Kalimantan Tengah" adalah…',
+    o:['Tjilik Riwut','RTA Milono','Hasan Basri','Sandung Ngabe Soekah'],
+    a:0,
+    h:'Tjilik Riwut (1918–1987) adalah pejuang Dayak Ngaju yang gigih memperjuangkan pembentukan Provinsi Kalimantan Tengah. Beliau dinobatkan sebagai pahlawan nasional berdasarkan Keppres No. 108/TK/1998.',
+    s:'Keppres No. 108/TK/1998 & Antaranews.com'
+  },
+  {
+    id:'g7q6',
+    q:'Provinsi Kalimantan Tengah resmi terbentuk pada tanggal…',
+    o:['23 Mei 1957','17 Juli 1957','2 Juli 1958','1 Januari 1957'],
+    a:0,
+    h:'Provinsi Kalimantan Tengah resmi terbentuk pada 23 Mei 1957 berdasarkan UU Darurat No. 10/1957. Namun peresmian oleh Presiden Soekarno baru dilakukan pada 17 Juli 1957.',
+    s:'Kalteng.go.id & Kompas.id'
+  },
+  {
+    id:'g7q7',
+    q:'Sebelum menjadi provinsi otonom, wilayah Kalimantan Tengah merupakan bagian dari…',
+    o:['Provinsi Kalimantan Selatan','Provinsi Kalimantan Timur','Provinsi Kalimantan Barat','Karesidenan Banjarmasin'],
+    a:0,
+    h:'Sebelum berdiri sebagai daerah otonom, Kalimantan Tengah masuk dalam Karesidenan Kalimantan Selatan berdasarkan UU No. 25/1956.',
+    s:'UU No. 25/1956 & KomisiInformasi.go.id'
+  },
+  {
+    id:'g7q8',
+    q:'Ibu kota sementara Provinsi Kalimantan Tengah sebelum pindah ke Palangkaraya adalah…',
+    o:['Banjarmasin','Sampit','Kuala Kapuas','Muara Teweh'],
+    a:0,
+    h:'Karena Pahandut belum siap, sementara waktu ibu kota Provinsi Kalimantan Tengah berkedudukan di Banjarmasin. Baru pada 1959 dipindahkan ke Palangkaraya.',
+    s:'Lontar.ui.ac.id & Kalteng.go.id'
+  },
+  {
+    id:'g7q9',
+    q:'Pada saat pertama kali dibentuk, Provinsi Kalimantan Tengah hanya memiliki 3 Kabupaten Tingkat II, yaitu…',
+    o:['Barito, Kapuas, dan Kotawaringin','Barito, Kapuas, dan Katingan','Kotawaringin, Katingan, dan Gunung Mas','Kapuas, Barito, dan Pulang Pisau'],
+    a:0,
+    h:'Ketika pertama dibentuk, Provinsi Kalimantan Tengah hanya memiliki 3 Kabupaten: Barito, Kapuas, dan Kotawaringin.',
+    s:'ANRI.go.id & Kalteng.go.id'
+  },
+  {
+    id:'g7q10',
+    q:'Gubernur pertama yang membentuk Provinsi Kalimantan Tengah adalah…',
+    o:['RTA Milono','Tjilik Riwut','Hasan Basri','Agustin Teras Narang'],
+    a:0,
+    h:'RTA Milono adalah Gubernur Pembentuk Kalimantan Tengah yang menjadikan provinsi ini sebagai tempat residen dari Departemen Dalam Negeri pada 23 Mei 1957.',
+    s:'Kalteng.go.id'
+  },
+  {
+    id:'g7q11',
+    q:'Julukan Provinsi Kalimantan Tengah adalah…',
+    o:['Bumi Tambun Bungai & Bumi Pancasila','Kota Cantik','Bumi Isen Mulang','Bumi Huma Betang'],
+    a:0,
+    h:'Kalimantan Tengah dijuluki Bumi Tambun Bungai dan Bumi Pancasila. "Tambun Bungai" merujuk pada senjata pusaka Dayak.',
+    s:'Antaranews.com & Kalteng.go.id'
+  },
+  {
+    id:'g7q12',
+    q:'Motto Kota Palangkaraya yang berasal dari bahasa Dayak Ngaju adalah…',
+    o:['Isen Mulang (pantang mundur)','Huma Betang (rumah besar)','Tambun Bungai (senjata pusaka)','Palangka Raya (tempat besar)'],
+    a:0,
+    h:'"Isen Mulang" berarti pantang mundur — semangat yang menjadi motto Kota Palangkaraya.',
+    s:'Kompas.id & Wikipedia Indonesia'
+  },
+  {
+    id:'g7q13',
+    q:'Sungai yang menjadi orientasi awal permukiman Kampung Pahandut adalah…',
+    o:['Sungai Kahayan','Sungai Kapuas','Sungai Barito','Sungai Katingan'],
+    a:0,
+    h:'Sejarah Kota Palangkaraya berawal dari permukiman Kampung Pahandut di tepi Sungai Kahayan. Sungai ini menjadi orientasi tempat tinggal dan pengembangan kehidupan masyarakat Dayak.',
+    s:'Garuda.kemdiktisaintek.go.id & Riwut (1958)'
+  },
+  {
+    id:'g7q14',
+    q:'Presiden Soekarno merencanakan Palangkaraya sebagai…',
+    o:['Ibu kota negara di masa depan, menggantikan Jakarta','Pusat perdagangan di Kalimantan','Kota pelabuhan utama Indonesia','Ibu kota Provinsi Kalimantan Selatan'],
+    a:0,
+    h:'Pada saat kota ini mulai dibangun, Presiden Soekarno merencanakan Palangkaraya sebagai ibu kota negara di masa depan, menggantikan Jakarta. Palangkaraya adalah kota baru mandiri pertama di awal Kemerdekaan RI.',
+    s:'Kompas.id & ESI Kemendikbud'
+  },
+  {
+    id:'g7q15',
+    q:'UU Darurat No. 10/1957 disahkan menjadi UU No. 21/1958 yang mengatur tentang…',
+    o:['Pembentukan Daerah Swatantra Tingkat I Kalimantan Tengah','Pembentukan Kota Palangkaraya','Pemindahan ibu kota provinsi','Pemekaran Kabupaten di Kalimantan Tengah'],
+    a:0,
+    h:'UU Darurat No. 10/1957 tentang Pembentukan Daerah Swatantra Tingkat I Kalimantan Tengah kemudian disahkan menjadi UU No. 21/1958.',
+    s:'UU No. 21/1958 & Repositori Kemendikbud'
+  }
+];
+
+/* ---------- Buka Game 7 (menu intro) ---------- */
+function g7Open(){
+  const intro=document.getElementById('g7IntroWrap');
+  const play=document.getElementById('g7PlayWrap');
+  const result=document.getElementById('g7ResultWrap');
+  const quiz=document.getElementById('g7QuizWrap');
+  if(intro) intro.style.display='flex';
+  if(play) play.style.display='none';
+  if(result){result.style.display='none';result.innerHTML='';}
+  if(quiz) quiz.style.display='none';
+  startLearnTimer('#g7TimerPill');
+}
+
+/* ---------- Mulai Game 7 (Story Mode) ---------- */
+function g7Start(){
+  g7.step=0;g7.integritas=50;g7.ketelitian=50;g7.dampak=50;
+  g7.choices=[];g7.flags={};g7.ended=false;
+  document.getElementById('g7IntroWrap').style.display='none';
+  document.getElementById('g7PlayWrap').style.display='flex';
+  document.getElementById('g7ResultWrap').style.display='none';
+  document.getElementById('g7ResultWrap').innerHTML='';
+  sfxClick();
+  g7ShowScene('s1');
+}
+
+/* ---------- Update HUD G7 ---------- */
+function g7UpdateHUD(){
+  document.getElementById('g7Integritas').textContent=g7.integritas;
+  document.getElementById('g7Ketelitian').textContent=g7.ketelitian;
+  document.getElementById('g7Dampak').textContent=g7.dampak;
+  document.getElementById('g7IntegritasBar').style.width=Math.max(0,Math.min(100,g7.integritas))+'%';
+  document.getElementById('g7KetelitianBar').style.width=Math.max(0,Math.min(100,g7.ketelitian))+'%';
+  document.getElementById('g7DampakBar').style.width=Math.max(0,Math.min(100,g7.dampak))+'%';
+  const cl=(v)=>v>=70?'high':(v>=40?'mid':'low');
+  document.getElementById('g7Integritas').className='val '+cl(g7.integritas);
+  document.getElementById('g7Ketelitian').className='val '+cl(g7.ketelitian);
+  document.getElementById('g7Dampak').className='val '+cl(g7.dampak);
+  const stepNum=g7.step+1;
+  document.getElementById('g7Step').textContent=stepNum;
+  document.getElementById('g7ProgFill').style.width=((g7.step)/(7)*100)+'%';
+}
+
+/* ---------- Tampilkan Scene ---------- */
+function g7ShowScene(id){
+  const s=G7_STORY[id];if(!s)return g7End();
+  g7.currentStory=s;
+  g7UpdateHUD();
+
+  const icon=document.getElementById('g7SceneIcon');
+  const ch=document.getElementById('g7Chapter');
+  const ttl=document.getElementById('g7SceneTitle');
+  const txt=document.getElementById('g7SceneText');
+  const q=document.getElementById('g7Question');
+  const choicesWrap=document.getElementById('g7Choices');
+  const fbWrap=document.getElementById('g7FeedbackWrap');
+
+  icon.textContent=s.icon;
+  ch.textContent=s.chapter;
+  ttl.textContent=s.title;
+  txt.innerHTML=(typeof s.text==='function')?s.text(g7.flags):s.text;
+  q.textContent=s.question;
+  choicesWrap.innerHTML='';fbWrap.innerHTML='';
+
+  const letters=['A','B','C'];
+  s.choices.forEach((c,i)=>{
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='g7-choice';
+    btn.innerHTML=`<span class="badge">${letters[i]}</span><span>${c.text}</span>`;
+    btn.addEventListener('click',()=>g7Choose(i));
+    choicesWrap.appendChild(btn);
+  });
+
+  const scene=document.getElementById('g7Scene');
+  scene.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:400,easing:'cubic-bezier(0.23,1,0.32,1)'});
+}
+
+/* ---------- Pilih Opsi G7 ---------- */
+function g7Choose(idx){
+  const s=g7.currentStory;if(!s)return;
+  const c=s.choices[idx];if(!c)return;
+  const choicesWrap=document.getElementById('g7Choices');
+  const btns=[...choicesWrap.querySelectorAll('.g7-choice')];
+  btns.forEach((b,i)=>{b.disabled=true;if(i===idx)b.classList.add('chosen');});
+  sfxClick();
+
+  const eff=c.effects||{};
+  g7.integritas+=eff.integritas||0;
+  g7.ketelitian+=eff.ketelitian||0;
+  g7.dampak+=eff.dampak||0;
+  g7.integritas=Math.max(0,Math.min(100,g7.integritas));
+  g7.ketelitian=Math.max(0,Math.min(100,g7.ketelitian));
+  g7.dampak=Math.max(0,Math.min(100,g7.dampak));
+
+  if(c.setFlag) Object.assign(g7.flags,c.setFlag);
+
+  g7.choices.push({
+    sceneId:Object.keys(G7_STORY).find(k=>G7_STORY[k]===s),
+    question:s.question,
+    chosenText:c.text,
+    effects:c.effects,
+    effectLabels:c.effectLabels||[]
+  });
+
+  const totalDelta=(eff.integritas||0)+(eff.ketelitian||0)+(eff.dampak||0);
+  if(totalDelta>=15){flash('good');sfxCorrect();}
+  else if(totalDelta<=-10){flash('bad');sfxWrong();shakeScreen();}
+  else {sfxClick();}
+
+  const fbWrap=document.getElementById('g7FeedbackWrap');
+  const effLabels=c.effectLabels||[];
+  const effHtml=effLabels.map(l=>{
+    const isDown=l.includes('−')||l.includes('-');
+    const cls=isDown?'down':'up';
+    return `<span class="eff ${cls}">${l}</span>`;
+  }).join('');
+  fbWrap.innerHTML=`
+    <div class="g7-feedback">
+      <div class="head"><span class="ic">💬</span> Konsekuensi Pilihanmu</div>
+      <div class="body">${c.feedback}</div>
+      ${effHtml?`<div class="effects">${effHtml}</div>`:''}
+    </div>
+    <div class="g7-continue-row">
+      <button class="g7-continue" type="button" onclick="g7Next()"><i class="fas fa-arrow-right"></i> Lanjut</button>
+    </div>`;
+  g7UpdateHUD();
+  fbWrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ---------- Lanjut ke scene berikutnya ---------- */
+function g7Next(){
+  const s=g7.currentStory;if(!s)return;
+  const last=g7.choices[g7.choices.length-1];
+  const next=(s.choices.find(c=>c.text===last.chosenText)||{}).next;
+  document.getElementById('g7FeedbackWrap').innerHTML='';
+  if(next==='end'||!next){g7End();return;}
+  g7.step++;
+  g7ShowScene(next);
+  sfxClick();
+}
+
+/* ---------- Akhir Game 7 (Story Mode) ---------- */
+function g7End(){
+  g7.ended=true;
+  document.getElementById('g7PlayWrap').style.display='none';
+  const wrap=document.getElementById('g7ResultWrap');
+  wrap.style.display='flex';
+
+  const {integritas,ketelitian,dampak}=g7;
+
+  const avg=(integritas+ketelitian+dampak)/3;
+  let archetype='📚 Peneliti Muda',desc='Kamu menyelesaikan investigasi dengan pengalaman yang berharga.';
+  let emoji='📚';
+
+  if(integritas>=70 && ketelitian>=70 && dampak>=70){
+    archetype='🏆 Sejarawan Bumi Tambun Bungai';
+    desc='Kamu menyeimbangkan <b>kejujuran</b>, <b>ketelitian</b>, dan <b>kepedulian sosial</b>. Inilah sosok peneliti yang mampu menjaga kepercayaan publik tanpa mengorbankan kebenaran — sejalan dengan semangat <b>Huma Betang</b>.';
+    emoji='🏆';
+  } else if(integritas>=70 && dampak>=70){
+    archetype='🤝 Penjaga Warisan Huma Betang';
+    desc='Kamu sangat peduli pada integritas & dampak sosial. Perluas wawasan metodologismu agar temuanmu lebih kuat dan dapat dipertanggungjawabkan secara ilmiah.';
+    emoji='🤝';
+  } else if(ketelitian>=70 && integritas>=70){
+    archetype='🔍 Peneliti Teliti & Jujur';
+    desc='Metode & kejujuranmu kuat. Jangan lupa untuk tetap mempertimbangkan bagaimana temuanmu berdampak bagi masyarakat yang hidup di dalamnya.';
+    emoji='🔍';
+  } else if(integritas<40 || (dampak<40 && ketelitian<40)){
+    archetype='🌱 Calon Sejarawan Pahandut';
+    desc='Kamu masih belajar — dan itu tidak apa-apa! Beberapa keputusan mungkin belum ideal, tetapi justru di sanalah pelajaran paling berharga. Coba mainkan lagi dengan pendekatan berbeda.';
+    emoji='🌱';
+  } else if(avg>=65){
+    archetype='🥇 Sejarawan Andal';
+    desc='Kamu menjalani investigasi dengan baik. Perhatikan kembali beberapa keputusan yang mempengaruhi integritas & dampak.';
+    emoji='🥇';
+  } else {
+    archetype='🧭 Penjelajah Sungai Kahayan';
+    desc='Kamu telah menjelajahi jalan yang penuh keputusan. Setiap pilihan punya harga — dan setiap harga mengajarkan sesuatu.';
+    emoji='🧭';
+  }
+
+  const decisionHtml=g7.choices.map((c,i)=>{
+    return `<div class="g7-decision-item">
+      <div class="n">Keputusan ${i+1}</div>
+      <div class="q">${c.question}</div>
+      <div class="a">→ <i>${c.chosenText}</i></div>
+    </div>`;
+  }).join('');
+
+  const totalInt=g7.choices.reduce((s,c)=>s+((c.effects&&c.effects.integritas)||0),0);
+  const totalKet=g7.choices.reduce((s,c)=>s+((c.effects&&c.effects.ketelitian)||0),0);
+  const totalDam=g7.choices.reduce((s,c)=>s+((c.effects&&c.effects.dampak)||0),0);
+  const fmtDelta=v=>(v>=0?'+':'')+v;
+
+  wrap.innerHTML=`
+    <div class="g7-result">
+      <div class="g7-result-head">
+        <div class="em">${emoji}</div>
+        <h3>Jejak Keputusanmu</h3>
+        <div class="sub">${archetype}</div>
+      </div>
+
+      <div class="g7-summary">
+        <div class="ttl"><i class="fas fa-chart-simple"></i> Ringkasan Investigasi</div>
+        <div class="row"><span class="k">Jumlah Keputusan</span><span class="v">${g7.choices.length} / 7</span></div>
+        <div class="row"><span class="k">Integritas</span><span class="v">${integritas} <span style="color:${totalInt>=0?'#059669':'#b91c1c'};font-size:.85em">(${fmtDelta(totalInt)})</span></span></div>
+        <div class="row"><span class="k">Ketelitian</span><span class="v">${ketelitian} <span style="color:${totalKet>=0?'#059669':'#b91c1c'};font-size:.85em">(${fmtDelta(totalKet)})</span></span></div>
+        <div class="row"><span class="k">Pertimbangan Dampak</span><span class="v">${dampak} <span style="color:${totalDam>=0?'#059669':'#b91c1c'};font-size:.85em">(${fmtDelta(totalDam)})</span></span></div>
+      </div>
+
+      <div class="g7-summary">
+        <div class="ttl"><i class="fas fa-list-check"></i> Jejak Langkah</div>
+        <div class="g7-decision-list">${decisionHtml}</div>
+      </div>
+
+      <div class="g7-quote">
+        <b>Renungan:</b> ${desc}
+        <br><br>
+        Dalam sejarah, sebuah keputusan tidak selalu memiliki akibat yang sederhana. Manusia pada masa lalu — seperti <b>Tjilik Riwut</b>, <b>RTA Milono</b>, dan para pejuang Kalimantan Tengah — juga menghadapi keterbatasan informasi, tekanan, dan nilai-nilai yang berbeda dengan kita. Memahami <b>konteks</b> membantu kita melihat mengapa mereka mengambil keputusan tertentu, seperti memilih <b>Pahandut</b> sebagai ibu kota, atau memperjuangkan <b>UU Darurat No. 10/1957</b>. Memahami mereka membantu kita belajar dari mereka.
+      </div>
+
+      <div class="g7-reflect">
+        <div class="ttl"><i class="fas fa-comments"></i> Refleksi Pembelajaran</div>
+        <ol>
+          <li>Keputusan mana yang menurutmu <b>paling sulit</b> diambil? Mengapa?</li>
+          <li>Apa yang paling memengaruhi keputusanmu — <b>informasi yang kamu punya</b>, <b>nilai pribadimu</b>, atau <b>perasaanmu</b> saat itu?</li>
+          <li>Jika kamu diberi kesempatan <b>mengulang</b>, keputusan mana yang ingin kamu ubah — dan bagaimana hasilnya mungkin berbeda?</li>
+          <li>Bagaimana pengalaman ini mengubah cara pandangmu tentang <b>pekerjaan sejarawan</b> dan pentingnya menjaga <b>warisan sejarah daerah</b>?</li>
+        </ol>
+      </div>
+
+      <div class="g7-actions">
+        <button class="g7-btn ghost" type="button" onclick="g7Restart()"><i class="fas fa-rotate-left"></i> Main Lagi</button>
+        <button class="g7-btn primary" type="button" onclick="g7Finish()"><i class="fas fa-check"></i> Simpan &amp; Selesai</button>
+      </div>
+    </div>`;
+
+  confetti();
+  sfxVictory();
+
+  if(integritas>=70 && ketelitian>=70 && dampak>=70){
+    setTimeout(()=>banner('🏆 Kamu menjadi Sejarawan Bumi Tambun Bungai!',3200),600);
+  }
+  wrap.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- Restart Story Mode ---------- */
+function g7Restart(){
+  sfxClick();
+  g7Start();
+}
+
+/* ---------- Simpan & Selesai Story Mode ---------- */
+function g7Finish(){
+  stopLearnTimer();
+  const score=Math.round((g7.integritas+g7.ketelitian+g7.dampak));
+  markDone('g7',{score:score,integritas:g7.integritas,ketelitian:g7.ketelitian,dampak:g7.dampak});
+  showAchievement('g7');
+
+  let rank='📚 Peneliti Muda', msg='Terima kasih sudah menelusuri jejak sejarah Bumi Tambun Bungai!';
+  const avg=(g7.integritas+g7.ketelitian+g7.dampak)/3;
+  if(g7.integritas>=70 && g7.ketelitian>=70 && g7.dampak>=70){rank='🏆 Sejarawan Bumi Tambun Bungai';msg='Luar biasa! Kamu menyeimbangkan integritas, ketelitian, dan dampak.';}
+  else if(avg>=65){rank='🥇 Sejarawan Andal';msg='Kerja bagus! Investigasimu solid dan bertanggung jawab.';}
+  else if(avg>=50){rank='🥈 Penjelajah Sungai Kahayan';msg='Bagus! Setiap keputusanmu mengajarkan sesuatu.';}
+  else{rank='🌱 Calon Sejarawan Pahandut';msg='Jangan menyerah — coba main lagi dengan pendekatan berbeda!';}
+
+  modal('📖',rank,
+    `${msg}<br><br>`+
+    `Integritas: <b style="color:#7c3aed">${g7.integritas}</b> · `+
+    `Ketelitian: <b style="color:#7c3aed">${g7.ketelitian}</b> · `+
+    `Dampak: <b style="color:#7c3aed">${g7.dampak}</b><br><br>`+
+    `<span style="font-size:.9em;color:#4a6585">Buka <b>Review</b> untuk melihat semua pilihanmu, atau <b>Selesai</b> untuk kembali ke menu.</span>`,
+    'Penjaga Jejak 📖');
+}
+
+/* =========================================================
+   G7 QUIZ MODE — 15 Bank Soal, ambil 5 per sesi
+   Soal berganti setiap kali siswa membuka game kembali
+   ========================================================= */
+function g7QuizStart(){
+  const picked=pickFresh(G7_QS,5,'g7',q=>q.id);
+  g7.quizDeck=picked.map(q=>{
+    const correctText=q.o[q.a];
+    const newO=shuffle(q.o.slice());
+    return {...q,o:newO,a:newO.indexOf(correctText)};
+  });
+  g7.quizIdx=0;g7.quizScore=0;g7.quizRight=0;g7.quizAnswered=false;
+  document.getElementById('g7IntroWrap').style.display='none';
+  document.getElementById('g7PlayWrap').style.display='none';
+  document.getElementById('g7ResultWrap').style.display='none';
+  document.getElementById('g7QuizWrap').style.display='flex';
+  sfxClick();
+  g7QuizRender();
+}
+
+function g7QuizRender(){
+  if(g7.quizIdx>=g7.quizDeck.length){g7QuizEnd();return;}
+  const q=g7.quizDeck[g7.quizIdx];
+  g7.quizAnswered=false;
+  document.getElementById('g7QuizProgress').textContent=(g7.quizIdx+1)+'/'+g7.quizDeck.length;
+  document.getElementById('g7QuizBar').style.width=(g7.quizIdx/g7.quizDeck.length*100)+'%';
+  document.getElementById('g7QuizQ').textContent=q.q;
+  const hint=document.getElementById('g7QuizHint');
+  hint.textContent='';hint.classList.remove('show');
+  const optsWrap=document.getElementById('g7QuizOpts');
+  optsWrap.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.o.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='g7-quiz-opt';
+    btn.type='button';
+    btn.innerHTML=`<span class="k">${letters[i]}</span><span>${o}</span>`;
+    btn.onclick=()=>g7QuizAnswer(i,btn);
+    optsWrap.appendChild(btn);
+  });
+}
+
+function g7QuizAnswer(i,btn){
+  if(g7.quizAnswered)return;g7.quizAnswered=true;
+  const q=g7.quizDeck[g7.quizIdx];
+  const opts=[...document.querySelectorAll('#g7QuizOpts .g7-quiz-opt')];
+  opts.forEach(b=>b.disabled=true);
+  if(i===q.a){
+    btn.classList.add('correct');g7.quizRight++;g7.quizScore+=20;
+    sfxCorrect();pulseScreen();
+    notif(praise()+' +20 poin','ok',1400);
+  } else {
+    btn.classList.add('wrong');opts[q.a].classList.add('correct');
+    sfxWrong();shakeScreen();notif(encourage(),'no',2000);
+  }
+  const hint=document.getElementById('g7QuizHint');
+  hint.textContent='💡 '+q.h;
+  hint.classList.add('show');
+  pushReview(q.q,q.o,q.a,i,q.h,q.s);
+  setTimeout(()=>{g7.quizIdx++;g7QuizRender();},1700);
+}
+
+function g7QuizEnd(){
+  document.getElementById('g7QuizWrap').style.display='none';
+  document.getElementById('g7IntroWrap').style.display='flex';
+  document.getElementById('g7QuizBar').style.width='100%';
+  stopLearnTimer();
+  let rank='🌱 Calon Sejarawan Pahandut',msg='Terus belajar sejarah Bumi Tambun Bungai!';
+  if(g7.quizRight>=5){rank='🏆 Master Sejarah Palangkaraya';msg='Sempurna! Semua soal terjawab benar!';}
+  else if(g7.quizRight>=4){rank='🥇 Ahli Sejarah Kalteng';msg='Hebat! Pengetahuanmu tentang Palangkaraya & Kalteng sangat baik.';}
+  else if(g7.quizRight>=3){rank='🥈 Pengenal Sejarah Daerah';msg='Bagus! Sedikit lagi untuk sempurna.';}
+  else if(g7.quizRight>=2){rank='📚 Pelajar Sejarah';msg='Bagus, terus asah pengetahuanmu!';}
+  modal('📝',rank,
+    `${msg}<br><br>`+
+    `Skor Kuis: <b style="color:#f59e0b;font-size:1.3rem">${g7.quizScore}</b> · Benar: <b style="color:#10b981">${g7.quizRight}/${g7.quizDeck.length}</b><br><br>`+
+    `<span style="font-size:.9em;color:#4a6585">Soal akan berganti setiap kali kamu membuka Kuis Kilat lagi — <b>15 soal</b> siap diacak untukmu!</span>`,
+    'Kuis Palangkaraya 📝');
+}
+
+function g7QuizClose(){
+  document.getElementById('g7QuizWrap').style.display='none';
+  document.getElementById('g7IntroWrap').style.display='flex';
+  sfxClick();
+}
+
+/* ---------- Keyboard untuk Game 7 (Story Mode) ---------- */
+document.addEventListener('keydown',e=>{
+  const active=document.querySelector('.screen.active');
+  if(!active||active.id!=='gameG7')return;
+  if(!['1','2','3'].includes(e.key))return;
+  const idx=parseInt(e.key)-1;
+  const btns=document.querySelectorAll('#g7Choices .g7-choice:not(:disabled)');
+  if(btns[idx]){
+    e.preventDefault();
+    btns[idx].click();
+  }
+});
 
 /* ============ KEYBOARD ============ */
 document.addEventListener('keydown',e=>{
@@ -1879,7 +2877,6 @@ try{
 }catch(e){}
 
 /* ============ INIT ============ */
-/* PERBAIKAN: updateDiceHalf dipanggil sekali setelah load (sebelumnya 4 kali) */
 updateMenu();
 updateDailyFact();
 renderAch();
