@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <meta name="description" content="MISI 4: Kerajaan Hindu-Buddha — 7 Game Pembelajaran Interaktif Sejarah Kelas X Fase E."/>
 <meta name="theme-color" content="#2563eb"/>
 <title>MISI 4 : Kerajaan Hindu-Buddha di Indonesia — 7 Games</title>
@@ -330,12 +330,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple));border-radius:10px}
 .footer{margin-top:48px;padding:24px 16px;text-align:center;font-size:.78rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.15);position:relative;z-index:1}
 .footer .sch{font-weight:900;color:var(--blue);letter-spacing:2px;font-size:.85rem;margin-bottom:6px}
-.credit-wrap{margin-top:14px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;padding:14px 26px;border-radius:18px;background:linear-gradient(135deg,rgba(15,42,110,.06),rgba(6,182,212,.06) 45%,rgba(37,99,235,.08));border:1.5px solid rgba(37,99,235,.2);box-shadow:0 10px 30px -10px rgba(15,42,110,.25)}
-.credit-wrap .lbl{font-size:.62rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
-.credit-wrap .lbl i{color:var(--blue)}
-.credit-wrap .name{font-size:clamp(0.9rem,1.9vw,1.1rem);font-weight:800;letter-spacing:1.2px;line-height:1.15;color:#1e3a8a;padding:0 4px}
-.credit-wrap .school{font-size:.78rem;font-weight:700;font-style:italic;letter-spacing:2px;color:transparent;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;display:inline-flex;align-items:center;gap:6px}
-.credit-wrap .school i{font-style:normal;font-size:.72rem;color:var(--cyan);-webkit-text-fill-color:var(--cyan)}
 .footer .credo{margin-top:12px;font-size:.74rem;font-style:italic;color:var(--muted);opacity:.85}
 .fb{margin-top:14px;padding:14px 18px;border-radius:14px;font-weight:700;display:none}
 .fb.show{display:block}
@@ -380,6 +374,149 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .detail-panel{width:calc(100% - 20px);bottom:10px;padding:16px 16px 18px}
   .detail-panel .txt{font-size:.86rem;line-height:1.6}
   .scr-tile{width:44px;height:52px;font-size:1.3rem}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE PATCH — HP · Tablet · Laptop · TV 60"
+   ═══════════════════════════════════════════════════════════════ */
+
+/* A. Root fluid */
+html { font-size: 16px; }
+@media (max-width: 400px) { html { font-size: 14px; } }
+@media (max-width: 340px) { html { font-size: 13px; } }
+@media (min-width: 1920px){ html { font-size: 18px; } }
+@media (min-width: 2560px){ html { font-size: 21px; } }
+@media (min-width: 3200px){ html { font-size: 24px; } }
+body { font-size: 1rem; }
+
+/* B. Viewport stabil */
+.screen {
+  max-width: min(78rem, 94vw);
+  padding: 1.5rem clamp(0.75rem, 2vw, 1.5rem) 3.75rem;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* C. Safe-area untuk iPhone notch & home-bar */
+.topbar { padding-top: max(0px, env(safe-area-inset-top)); }
+.modal  { padding:
+  max(0.75rem, env(safe-area-inset-top))
+  max(0.75rem, env(safe-area-inset-right))
+  max(0.75rem, env(safe-area-inset-bottom))
+  max(0.75rem, env(safe-area-inset-left)); }
+.detail-panel { bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+.modal-box    { max-height: min(88vh, 88dvh); }
+
+/* D. Touch friendliness */
+.tb-btn, .icon-btn, .gc, .src, .mi, .mo button, .emoji-opt,
+.wo button, .btn, .ll, .scr-tile, .wcenter, .fortune-center,
+.lv-tab, .reset-progress button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* E. Grid Menu Game */
+.game-grid { grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr)); }
+@media (max-width: 620px){ .game-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; } }
+@media (max-width: 360px){ .game-grid { grid-template-columns: 1fr; } }
+
+/* F. Board Klasifikasi — pakai CSS var --cols */
+.det-board { grid-template-columns: repeat(var(--cols, 3), 1fr); }
+@media (max-width: 820px){
+  .det-board {
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)) !important;
+    gap: 0.7rem;
+  }
+  .det-col { min-height: auto; padding: 0.85rem 0.7rem; }
+  .det-col h4 { flex-direction: row; gap: 0.5rem; font-size: 0.95rem; margin-bottom: 0.7rem; letter-spacing: 0.5px; }
+  .det-col h4 .emoji { font-size: 1.6rem; }
+  .det-pool { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: 0.6rem; padding: 0.75rem; }
+  .src { font-size: 0.82rem; padding: 0.6rem 0.5rem; }
+}
+
+/* G. Roda Warisan & Fortune */
+.wh, .fortune-wheel {
+  width:  min(30rem, 88vw, 60vh);
+  height: min(30rem, 88vw, 60vh);
+}
+.wcenter {
+  width:  clamp(4.2rem, 22%, 7rem);
+  height: clamp(4.2rem, 22%, 7rem);
+  font-size: clamp(0.7rem, 1.6vw, 0.95rem);
+}
+.fortune-center {
+  width:  clamp(4.8rem, 24%, 7.5rem);
+  height: clamp(4.8rem, 24%, 7.5rem);
+  font-size: clamp(0.75rem, 1.7vw, 1rem);
+}
+.wq { max-width: min(42rem, 94vw); }
+
+/* H. Scramble tiles */
+.scr-tile {
+  width:  clamp(2.4rem, 9vw, 3.4rem);
+  height: clamp(2.8rem, 10.5vw, 3.9rem);
+  font-size: clamp(1rem, 4vw, 1.5rem);
+}
+.scramble-hint { font-size: clamp(0.82rem, 2.4vw, 1rem); }
+
+/* I. Emoji Puzzle */
+.emoji-big { font-size: clamp(2.4rem, 6vw, 7rem); letter-spacing: clamp(4px, 1vw, 12px); }
+
+/* J. Topbar */
+@media (max-width: 640px){
+  .topbar { justify-content: center; gap: 0.45rem; }
+  .tb-btn { padding: 0.5rem 0.8rem; font-size: 0.7rem; }
+  .tb-btn .count { padding: 1px 6px; font-size: 0.62rem; }
+}
+@media (max-width: 380px){
+  .tb-btn { padding: 0.42rem 0.62rem; font-size: 0.64rem; letter-spacing: 0; }
+}
+
+/* K. Hero & Statistik */
+@media (max-width: 600px){
+  .hero { padding: 0.6rem 0 1.2rem; }
+  .hero-title span { letter-spacing: 3px; font-size: 0.38em; }
+  .hero-stats { gap: 1.1rem; margin-top: 1.1rem; }
+  .stat-num { font-size: 1.5rem; }
+  .stat-lbl { font-size: 0.68rem; letter-spacing: 1px; }
+  .daily-fact { padding: 0.85rem 1rem; }
+  .progress-wrap { padding: 0.85rem 1rem; }
+}
+
+/* L. Landscape HP */
+@media (max-height: 520px) and (orientation: landscape){
+  .screen { padding-top: 0.6rem; padding-bottom: 1.5rem; }
+  .hero   { padding: 0.3rem 0 0.8rem; }
+  .hero-stats { margin-top: 0.6rem; gap: 0.9rem; }
+  .stat-num { font-size: 1.3rem; }
+  .daily-fact, .progress-wrap { margin-top: 0.6rem; }
+  .wh, .fortune-wheel { width: min(16rem, 42vw); height: min(16rem, 42vw); }
+}
+
+/* M. Tablet */
+@media (min-width: 768px) and (max-width: 1024px){
+  .game-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .ml { grid-template-columns: 1fr; }
+}
+
+/* N. TV 60" & monitor besar */
+@media (min-width: 1920px){
+  .gc { padding: 2rem 1.7rem; }
+  .gc-icon { font-size: 2.8rem; }
+  .gc h3 { font-size: 1.15rem; }
+  .gc p  { font-size: 0.92rem; }
+  .inst  { font-size: 1.1rem; padding: 1.4rem 1.8rem; }
+  .src, .mi, .mo button, .emoji-opt, .wo button { padding: 1.1rem 1.3rem; }
+  .nf { font-size: 1.05rem; padding: 1.1rem 2.2rem; }
+  .modal-box { max-width: 46rem; }
+  .modal-box.wide { max-width: 62rem; }
+}
+
+/* O. Detail panel */
+.detail-panel { width: min(42rem, calc(100% - 1.5rem)); }
+@media (max-width: 600px){
+  .detail-panel { padding: 1rem 1rem 1.15rem; border-radius: 16px; }
+  .detail-panel .txt { font-size: 0.88rem; line-height: 1.65; }
 }
 </style>
 </head>
@@ -470,11 +607,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 
   <div class="footer">
     <div class="sch">📜 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
-    <div class="credit-wrap">
-      <div class="lbl"><i class="fas fa-medal"></i> Dibuat oleh <i class="fas fa-medal"></i></div>
-      <div class="name">SYAHRANI, S.Pd</div>
-      <div class="school">SMAN 3 KASONGAN</div>
-    </div>
     <div class="credo">"Bangsa yang besar adalah bangsa yang menghargai sejarahnya."</div>
   </div>
 </div>
@@ -492,7 +624,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   </div>
   <div class="lv-tabs" id="klTabs"></div>
   <div class="inst" id="klInst"><i class="fas fa-circle-info"></i><div>Memuat instruksi...</div></div>
-  <div class="det-board" id="klBoard" style="grid-template-columns:repeat(3,1fr)"></div>
+  <div class="det-board" id="klBoard"></div>
   <div class="det-pool" id="klPool"></div>
 </div>
 
@@ -917,7 +1049,6 @@ function showAchievement(id){
    GAME 1 : KLASIFIKASI & KONSEP WAKTU — 5 LEVEL
    ═══════════════════════════════════════════════════════════════ */
 
-// Level 1: 30 item — Klasifikasi Peninggalan
 const klDetData=[
   {t:'Yupa',c:'prasasti',e:'Prasasti Yupa (7 buah) dari Kerajaan Kutai. Berhuruf Pallawa & bahasa Sanskerta. Sumber sejarah tertulis tertua Indonesia.',s:'Museum Nasional Indonesia'},
   {t:'Ciaruteun',c:'prasasti',e:'Prasasti Ciaruteun (Tarumanegara) — memuat jejak kaki Raja Purnawarman disamakan dengan Wisnu.',s:'Bogor, Jawa Barat'},
@@ -951,7 +1082,6 @@ const klDetData=[
   {t:'Smaradahana',c:'kitab',e:'Kakawin karya Mpu Dharmaja masa Kediri.',s:'Kakawin Jawa Kuno'}
 ];
 
-// Level 2: 16 kartu — Konsep Waktu
 const klTlData=[
   {t:'Sejarah Majapahit dari berdiri 1293 M hingga runtuh abad ke-16',c:'diakronik',e:'DIAKRONIK = memanjang waktu. Melihat perubahan Majapahit dari awal berdiri hingga keruntuhannya.'},
   {t:'Perkembangan Sriwijaya abad ke-7 s.d. abad ke-13',c:'diakronik',e:'DIAKRONIK = kronologi kemaharajaan maritim dari awal berdiri hingga kemunduran.'},
@@ -971,7 +1101,6 @@ const klTlData=[
   {t:'Singasari 1222 → Majapahit 1293 → Demak 1478',c:'kronologis',e:'KRONOLOGIS = urutan berdirinya kerajaan di Jawa.'}
 ];
 
-// Level 3: 24 item — Per Zaman Kerajaan
 const klZamanData=[
   {t:'Yupa',c:'awal',e:'Prasasti Yupa (400 M) — Kerajaan Kutai. Sumber sejarah tertulis tertua Indonesia.',s:'Museum Nasional'},
   {t:'Ciaruteun',c:'awal',e:'Prasasti Ciaruteun — Tarumanegara, jejak kaki Purnawarman disamakan dengan Wisnu.',s:'Bogor'},
@@ -999,7 +1128,6 @@ const klZamanData=[
   {t:'Sutasoma',c:'jatim',e:'Kakawin Mpu Tantular — sumber Bhinneka Tunggal Ika.',s:'Majapahit'}
 ];
 
-// Level 4: 15 item — Karya Sastra
 const klSastraData=[
   {t:'Negarakertagama',c:'kakawin',e:'Kakawin Mpu Prapanca (1365 M) — sumber utama sejarah Majapahit.',s:'Kakawin'},
   {t:'Sutasoma',c:'kakawin',e:'Kakawin Mpu Tantular — sumber "Bhinneka Tunggal Ika".',s:'Kakawin'},
@@ -1018,7 +1146,6 @@ const klSastraData=[
   {t:'Tantu Panggelaran',c:'naskah',e:'Naskah asal-usul Gunung Semeru.',s:'Naskah'}
 ];
 
-// Level 5: 15 item — Hindu / Buddha / Sinkretis
 const klAgamaData=[
   {t:'Prambanan',c:'hindu',e:'Candi Hindu terbesar — Trimurti (Siwa). Rakai Pikatan.',s:'UNESCO'},
   {t:'Gedong Songo',c:'hindu',e:'Kompleks 9 candi Hindu peninggalan Sanjaya.',s:'Semarang'},
@@ -1037,7 +1164,6 @@ const klAgamaData=[
   {t:'Candi Sumberjati',c:'sinkretis',e:'Candi Siwa-Buddha era Majapahit (pendharmaan Raden Wijaya).',s:'Blitar'}
 ];
 
-/* DEFINISI 5 LEVEL */
 const klLevels=[
   {
     name:'Klasifikasi',
@@ -1124,7 +1250,7 @@ function loadKlLevel(i){
   $('#klScore').textContent=`0 / ${lv.total}`;
   const board=$('#klBoard');
   const colCount=lv.cols.length;
-  board.style.gridTemplateColumns=`repeat(${colCount},1fr)`;
+  board.style.setProperty('--cols', colCount);
   board.innerHTML='';
   lv.cols.forEach(cat=>{
     const col=document.createElement('div');
