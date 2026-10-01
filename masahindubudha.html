@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="MISI 4: Kerajaan Hindu-Buddha — 8 Game Pembelajaran Interaktif Sejarah Kelas X Fase E."/>
+<meta name="description" content="MISI 4: Kerajaan Hindu-Buddha — 7 Game Pembelajaran Interaktif Sejarah Kelas X Fase E."/>
 <meta name="theme-color" content="#2563eb"/>
-<title>MISI 4 : Kerajaan Hindu-Buddha di Indonesia — 8 Games</title>
+<title>MISI 4 : Kerajaan Hindu-Buddha di Indonesia — 7 Games</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -81,8 +81,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .gc-dif.easy{background:rgba(16,185,129,.15);color:var(--green2)}
 .gc-dif.med{background:rgba(245,158,11,.18);color:#b45309}
 .gc-dif.hard{background:rgba(239,68,68,.15);color:var(--red2)}
-.gc[data-game="detektif"]{--bar-grad:linear-gradient(90deg,#06b6d4,#2563eb,#8b5cf6,#f59e0b);--icon-grad:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6)}
-.gc[data-game="timeline"]{--bar-grad:linear-gradient(90deg,#3b82f6,#06b6d4);--icon-grad:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6)}
+.gc[data-game="klasifikasi"]{--bar-grad:linear-gradient(90deg,#06b6d4,#2563eb,#8b5cf6,#f59e0b);--icon-grad:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6)}
 .gc[data-game="histo"]{--bar-grad:linear-gradient(90deg,#f59e0b,#fbbf24);--icon-grad:linear-gradient(135deg,#f59e0b,#fbbf24)}
 .gc[data-game="wheel"]{--bar-grad:linear-gradient(90deg,#8b5cf6,#a78bfa);--icon-grad:linear-gradient(135deg,#8b5cf6,#a78bfa)}
 .gc[data-game="millionaire"]{--bar-grad:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);--icon-grad:linear-gradient(135deg,#2563eb,#06b6d4,#8b5cf6)}
@@ -111,10 +110,10 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .inst kbd{background:#fff;border:1.5px solid rgba(37,99,235,.45);border-bottom-width:3px;padding:3px 11px;border-radius:7px;font-size:.85rem;font-weight:800;color:var(--blue);font-family:inherit;display:inline-block;margin:0 3px;box-shadow:0 2px 0 rgba(37,99,235,.15)}
 .btn-mini{margin-left:auto;padding:10px 20px;font-size:.9rem;background:rgba(37,99,235,.12);border:2px solid rgba(37,99,235,.3);color:var(--blue);border-radius:30px;cursor:pointer;font-weight:800;transition:all .3s;font-family:inherit;letter-spacing:.3px}
 .btn-mini:hover{background:var(--blue);color:#fff;border-color:var(--blue);transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,99,235,.3)}
-.det-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:22px}
+.det-board{display:grid;gap:16px;margin-bottom:22px}
 .det-col{padding:20px 16px;min-height:240px;background:rgba(255,255,255,.85);border:2.5px dashed rgba(37,99,235,.32);border-radius:var(--radius);transition:all .35s var(--ease);position:relative;overflow:hidden}
-.det-col h4{text-align:center;color:var(--blue);font-size:1.15rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:900;line-height:1.15}
-.det-col h4 .emoji{font-size:3.4rem;line-height:1;filter:drop-shadow(0 8px 18px rgba(37,99,235,.32))}
+.det-col h4{text-align:center;color:var(--blue);font-size:1.05rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:900;line-height:1.15}
+.det-col h4 .emoji{font-size:3rem;line-height:1;filter:drop-shadow(0 8px 18px rgba(37,99,235,.32))}
 .det-pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:18px;border-radius:var(--radius);background:var(--card);border:1px solid var(--stroke);min-height:100px;box-shadow:var(--shadow)}
 .src{padding:14px 16px;border-radius:12px;font-size:.9rem;font-weight:600;background:#fff;border:2px solid rgba(37,99,235,.13);cursor:pointer;transition:all .3s var(--ease);color:var(--ink);text-align:center;line-height:1.4;position:relative;overflow:hidden;font-family:inherit}
 .src:hover{border-color:var(--blue);transform:translateY(-3px) scale(1.02);box-shadow:0 10px 24px rgba(37,99,235,.18)}
@@ -123,9 +122,9 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .src.ok::after{content:' ✓';color:var(--green);font-weight:800}
 .src.no{animation:shake .4s;border-color:var(--red);background:rgba(239,68,68,.1)}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.det-col .src{margin-bottom:10px;cursor:default;font-size:.82rem;padding:10px 12px}
+.det-col .src{margin-bottom:10px;cursor:default;font-size:.78rem;padding:8px 10px}
 .lv-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
-.lv-tab{padding:12px 22px;border-radius:40px;background:#fff;border:2px solid rgba(37,99,235,.15);cursor:pointer;font-size:.85rem;font-weight:700;color:var(--muted);transition:all .35s var(--ease);position:relative;overflow:hidden;font-family:inherit}
+.lv-tab{padding:12px 20px;border-radius:40px;background:#fff;border:2px solid rgba(37,99,235,.15);cursor:pointer;font-size:.83rem;font-weight:700;color:var(--muted);transition:all .35s var(--ease);position:relative;overflow:hidden;font-family:inherit;display:inline-flex;align-items:center;gap:6px}
 .lv-tab:hover:not(.lock){transform:translateY(-2px);border-color:var(--blue);color:var(--blue)}
 .lv-tab.on{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border-color:var(--blue);box-shadow:0 8px 20px rgba(37,99,235,.35)}
 .lv-tab.lock{opacity:.35;cursor:not-allowed}
@@ -145,8 +144,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .detail-panel .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-right:96px}
 .detail-panel .hd i{color:var(--blue);font-size:1.3rem}
 .detail-panel .hd .t{font-weight:800;color:var(--ink2);font-size:1rem;letter-spacing:1px;text-transform:uppercase}
-.detail-panel .hd .hint{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--muted);background:rgba(37,99,235,.08);padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:5px;letter-spacing:.3px;white-space:nowrap}
-.detail-panel.auto .hd .hint{display:none}
 .detail-panel .pair{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .detail-panel .pair .chip{padding:5px 14px;background:rgba(37,99,235,.1);border-radius:20px;font-weight:700;font-size:.85rem;color:var(--ink2);border:1px solid rgba(37,99,235,.2)}
 .detail-panel .pair .arrow{color:var(--blue);font-size:1rem}
@@ -277,7 +274,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 @keyframes bounceIn{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
 .modal-box h2{font-size:1.5rem;margin-bottom:12px;background:linear-gradient(135deg,#1d4ed8,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
 .modal-box p{color:var(--muted);margin-bottom:16px;font-size:1rem;line-height:1.7;font-weight:500}
-.modal-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(16,185,129,.1);border:2px solid var(--green);color:var(--green);border-radius:30px;font-weight:800;font-size:.85rem;margin-bottom:14px;text-transform:uppercase;letter-spacing:1.5px}
 .modal-list{text-align:left;margin-bottom:16px;padding-right:8px;flex:1 1 auto;min-height:0;overflow-y:auto;max-height:45vh}
 .modal-list .item{padding:12px 16px;margin-bottom:8px;background:rgba(239,246,255,.8);border-left:3px solid var(--blue);border-radius:8px}
 .modal-list .item .ttl{font-weight:800;color:var(--ink2);font-size:.88rem;margin-bottom:4px}
@@ -341,7 +337,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
 .credit-wrap .school{font-size:.78rem;font-weight:700;font-style:italic;letter-spacing:2px;color:transparent;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;display:inline-flex;align-items:center;gap:6px}
 .credit-wrap .school i{font-style:normal;font-size:.72rem;color:var(--cyan);-webkit-text-fill-color:var(--cyan)}
 .footer .credo{margin-top:12px;font-size:.74rem;font-style:italic;color:var(--muted);opacity:.85}
-.footer b{color:var(--ink2)}
 .fb{margin-top:14px;padding:14px 18px;border-radius:14px;font-weight:700;display:none}
 .fb.show{display:block}
 .fb.good{background:rgba(16,185,129,.14);color:#065f46}
@@ -377,14 +372,13 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   .ach-grid{grid-template-columns:1fr 1fr}
   .inst{font-size:.98rem;padding:16px 18px;line-height:1.75}
   .inst i{font-size:1.4rem}
-  .det-col h4{font-size:1.02rem;letter-spacing:1.5px}
-  .det-col h4 .emoji{font-size:2.8rem}
+  .det-col h4{font-size:.9rem;letter-spacing:1px}
+  .det-col h4 .emoji{font-size:2.4rem}
   .det-col{min-height:200px;padding:16px 12px}
   .modal-box{padding:26px 20px 22px}
   #mNextBtn{width:100%;justify-content:center}
   .detail-panel{width:calc(100% - 20px);bottom:10px;padding:16px 16px 18px}
   .detail-panel .txt{font-size:.86rem;line-height:1.6}
-  .detail-panel .hd{padding-right:80px}
   .scr-tile{width:44px;height:52px;font-size:1.3rem}
 }
 </style>
@@ -404,12 +398,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <button class="tb-btn" onclick="toggleMotion()" id="motionBtn"><i class="fas fa-wand-magic-sparkles"></i> Animasi</button>
   </div>
   <div class="hero">
-    <h1 class="hero-title">MISI 4 : KERAJAAN HINDU-BUDDHA<span>8 Game Pembelajaran Interaktif</span></h1>
-    <p class="hero-sub">8 game dengan materi <b>unik</b> — setiap game punya fokus berbeda, saling melengkapi, tanpa duplikasi soal!</p>
+    <h1 class="hero-title">MISI 4 : KERAJAAN HINDU-BUDDHA<span>7 Game Pembelajaran Interaktif</span></h1>
+    <p class="hero-sub">7 game dengan materi <b>unik</b> — setiap game punya fokus berbeda, saling melengkapi!</p>
     <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian Pembelajaran:</b> Menganalisis proses masuknya Hindu-Buddha, perkembangan kerajaan Hindu-Buddha di Nusantara, serta warisan budaya dan transisi menuju masa Islam.</span></div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Games</div></div>
-      <div class="stat"><div class="stat-num">180+</div><div class="stat-lbl">Konten Unik</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Games</div></div>
+      <div class="stat"><div class="stat-num">230+</div><div class="stat-lbl">Konten Unik</div></div>
       <div class="stat"><div class="stat-num" id="hsAch">0</div><div class="stat-lbl">Pencapaian</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">Fun</div></div>
     </div>
@@ -423,56 +417,50 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     </div>
 
     <div class="progress-wrap">
-      <div class="progress-info"><span class="lbl"><i class="fas fa-trophy" style="color:var(--amber)"></i> Progress Belajar</span><span class="val" id="progText">0 / 8 Game</span></div>
+      <div class="progress-info"><span class="lbl"><i class="fas fa-trophy" style="color:var(--amber)"></i> Progress Belajar</span><span class="val" id="progText">0 / 7 Game</span></div>
       <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
       <div class="reset-progress"><button onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Reset Progress</button></div>
     </div>
   </div>
 
   <div class="game-grid">
-    <div class="gc" data-game="detektif" data-tilt tabindex="0" role="button" style="--i:0">
-      <span class="gc-dif easy">MUDAH</span>
-      <i class="fas fa-scroll gc-icon"></i>
-      <h3>Detektif Peninggalan</h3><p><b>Klasifikasi jenis</b> 30 peninggalan ke Prasasti, Candi, atau Kitab. 3 nyawa!</p>
-      <span class="gc-tag">Klasifikasi</span>
-    </div>
-    <div class="gc" data-game="timeline" data-tilt tabindex="0" role="button" style="--i:1">
+    <div class="gc" data-game="klasifikasi" data-tilt tabindex="0" role="button" style="--i:0">
       <span class="gc-dif med">SEDANG</span>
-      <i class="fas fa-hourglass-half gc-icon"></i>
-      <h3>Penjelajah Waktu</h3><p><b>Konsep waktu</b> — Diakronik, Sinkronik, Periodik, Kronologis. 12 kartu acak.</p>
-      <span class="gc-tag">Konsep Waktu</span>
+      <i class="fas fa-scroll gc-icon"></i>
+      <h3>Klasifikasi & Konsep Waktu</h3><p><b>5 Level</b>: Jenis · Konsep Waktu · Zaman · Sastra · Agama.</p>
+      <span class="gc-tag">5 Level</span>
     </div>
-    <div class="gc" data-game="histo" data-tilt tabindex="0" role="button" style="--i:2">
+    <div class="gc" data-game="histo" data-tilt tabindex="0" role="button" style="--i:1">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-landmark gc-icon"></i>
       <h3>Misi Kerajaan</h3><p><b>Matching tokoh</b> dengan peninggalan. 6 level berjenjang.</p>
-      <span class="gc-tag">Matching</span>
+      <span class="gc-tag">6 Level</span>
     </div>
-    <div class="gc" data-game="wheel" data-tilt tabindex="0" role="button" style="--i:3">
+    <div class="gc" data-game="wheel" data-tilt tabindex="0" role="button" style="--i:2">
       <span class="gc-dif easy">MUDAH</span>
       <i class="fas fa-dharmachakra gc-icon"></i>
       <h3>Roda Warisan</h3><p><b>Pemahaman konsep</b> — soal sesuai kategori roda. 48 bank soal.</p>
       <span class="gc-tag">Pemahaman</span>
     </div>
-    <div class="gc" data-game="millionaire" data-tilt tabindex="0" role="button" style="--i:4">
+    <div class="gc" data-game="millionaire" data-tilt tabindex="0" role="button" style="--i:3">
       <span class="gc-dif hard">TANTANGAN</span>
       <i class="fas fa-crown gc-icon"></i>
       <h3>Jutawan Sejarah</h3><p><b>Soal HOTS</b> — analisis & evaluasi. Timer 30s + safe haven.</p>
       <span class="gc-tag">HOTS</span>
     </div>
-    <div class="gc" data-game="scramble" data-tilt tabindex="0" role="button" style="--i:5">
+    <div class="gc" data-game="scramble" data-tilt tabindex="0" role="button" style="--i:4">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-shuffle gc-icon"></i>
       <h3>Susun Kata Kerajaan</h3><p><b>Vocabulary</b> — 15 istilah kunci. Drag-drop huruf + timer.</p>
       <span class="gc-tag">Kosakata</span>
     </div>
-    <div class="gc" data-game="emoji" data-tilt tabindex="0" role="button" style="--i:6">
+    <div class="gc" data-game="emoji" data-tilt tabindex="0" role="button" style="--i:5">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-face-grin-stars gc-icon"></i>
       <h3>Tebak Emoji Peninggalan</h3><p><b>Visual puzzle</b> — 14 soal tebak dari clue emoji.</p>
       <span class="gc-tag">Visual</span>
     </div>
-    <div class="gc" data-game="fortune" data-tilt tabindex="0" role="button" style="--i:7">
+    <div class="gc" data-game="fortune" data-tilt tabindex="0" role="button" style="--i:6">
       <span class="gc-dif hard">TANTANGAN</span>
       <i class="fas fa-dice gc-icon"></i>
       <h3>Roda Tantangan Sejarah</h3><p><b>Soal cepat</b> + efek acak: bonus, ×2/×3, JACKPOT ×5, penalti.</p>
@@ -491,53 +479,29 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   </div>
 </div>
 
-<!-- GAME 1: DETEKTIF -->
-<div id="gameDetektif" class="screen">
+<!-- GAME 1: KLASIFIKASI & KONSEP WAKTU (5 LEVEL) -->
+<div id="gameKlasifikasi" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Detektif Peninggalan<small><i class="fas fa-scroll"></i> Game 01 · Klasifikasi Jenis</small></h2>
-    <span class="pill lives" id="detLives">❤❤❤ 3 Nyawa</span>
-    <span class="pill" id="detScore">0 / 30</span>
-    <span class="pill timer" id="detTimer">00:00</span>
+    <h2>Klasifikasi & Konsep Waktu<small><i class="fas fa-scroll"></i> Game 01 · 5 Level</small></h2>
+    <span class="pill lives" id="klLives">❤❤❤ 3 Nyawa</span>
+    <span class="pill cyan" id="klLv">Level 1 / 5</span>
+    <span class="pill" id="klScore">0 / 30</span>
+    <span class="pill timer" id="klTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Klasifikasi jenis peninggalan</b>. Klik kartu, lalu pilih kategori yang tepat. Kamu punya <strong>3 nyawa</strong>! Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori.
-    <button class="btn-mini" onclick="resetDet()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
-  <div class="det-board" style="grid-template-columns:repeat(3,1fr)">
-    <div class="det-col" data-cat="prasasti"><h4><span class="emoji">📜</span>Prasasti</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="candi"><h4><span class="emoji">🛕</span>Candi</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="kitab"><h4><span class="emoji">📖</span>Kitab</h4><div class="col-inner"></div></div>
-  </div>
-  <div class="det-pool" id="detPool"></div>
+  <div class="lv-tabs" id="klTabs"></div>
+  <div class="inst" id="klInst"><i class="fas fa-circle-info"></i><div>Memuat instruksi...</div></div>
+  <div class="det-board" id="klBoard" style="grid-template-columns:repeat(3,1fr)"></div>
+  <div class="det-pool" id="klPool"></div>
 </div>
 
-<!-- GAME 2: TIMELINE -->
-<div id="gameTimeline" class="screen">
-  <div class="gh">
-    <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Penjelajah Waktu<small><i class="fas fa-hourglass-half"></i> Game 02 · Konsep Waktu</small></h2>
-    <span class="pill" id="tlScore">0 / 12</span>
-    <span class="pill timer" id="tlTimer">00:00</span>
-  </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Konsep waktu sejarah</b> — Diakronik, Sinkronik, Periodik, Kronologis. 12 kartu diambil acak dari 16 kartu.
-    <button class="btn-mini" onclick="showTLTutorial()"><i class="fas fa-book-open"></i> Tutorial</button>
-    <button class="btn-mini" onclick="resetTL()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
-  <div class="det-board" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
-    <div class="det-col" data-cat="diakronik"><h4><span class="emoji">📜</span>Diakronik</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="sinkronik"><h4><span class="emoji">🔍</span>Sinkronik</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="periodik"><h4><span class="emoji">🗓️</span>Periodik</h4><div class="col-inner"></div></div>
-    <div class="det-col" data-cat="kronologis"><h4><span class="emoji">⏳</span>Kronologis</h4><div class="col-inner"></div></div>
-  </div>
-  <div class="det-pool" id="tlPool"></div>
-</div>
-
-<!-- GAME 3: MISI KERAJAAN -->
+<!-- GAME 2: MISI KERAJAAN -->
 <div id="gameHisto" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Misi Kerajaan<small><i class="fas fa-landmark"></i> Game 03 · Matching Tokoh</small></h2>
+    <h2>Misi Kerajaan<small><i class="fas fa-landmark"></i> Game 02 · Matching Tokoh</small></h2>
     <span class="pill cyan" id="hxLv">Level 1 / 6</span>
     <span class="pill timer" id="hxTimer">00:00</span>
   </div>
@@ -546,17 +510,16 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   <div class="mg"><div class="mc" id="hxL"></div><div class="mc" id="hxR"></div></div>
 </div>
 
-<!-- GAME 4: RODA WARISAN -->
+<!-- GAME 3: RODA WARISAN -->
 <div id="gameWheel" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Roda Warisan<small><i class="fas fa-dharmachakra"></i> Game 04 · Pemahaman</small></h2>
+    <h2>Roda Warisan<small><i class="fas fa-dharmachakra"></i> Game 03 · Pemahaman</small></h2>
     <span class="pill" id="whScore">Soal 0 / 15</span>
     <span class="pill timer" id="whTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Pemahaman konsep</b> — soal sesuai kategori roda. Fokus pada fakta & pemahaman dasar.
-    <br>Klik <strong>PUTAR</strong>, jawab soal. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Pemahaman konsep</b> — soal sesuai kategori roda. Klik <strong>PUTAR</strong>, jawab soal. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>.</div></div>
   <div class="ww">
     <div class="wh">
       <div class="wpointer"><i class="fas fa-caret-down"></i></div>
@@ -573,16 +536,16 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   </div>
 </div>
 
-<!-- GAME 5: JUTAWAN -->
+<!-- GAME 4: JUTAWAN -->
 <div id="gameMillionaire" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Jutawan Sejarah<small><i class="fas fa-crown"></i> Game 05 · Soal HOTS</small></h2>
+    <h2>Jutawan Sejarah<small><i class="fas fa-crown"></i> Game 04 · Soal HOTS</small></h2>
     <span class="pill" id="mlScore">1 / 15</span>
     <span class="pill timer" id="mlTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Soal HOTS (Higher Order Thinking)</b> — analisis, evaluasi, sintesis. Timer 30 detik + safe haven di soal 5 & 10. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Soal HOTS</b> — analisis, evaluasi, sintesis. Timer 30 detik + safe haven. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>.</div></div>
   <div class="ml">
     <div>
       <div class="mq"><div class="ml-timer" id="mlQTimer">⏱ 30s</div><div class="n" id="mlN">Pertanyaan 1 · 100 poin</div><div class="q" id="mlQ">Memuat...</div></div>
@@ -597,12 +560,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   </div>
 </div>
 
-<!-- GAME 6: SCRAMBLE -->
+<!-- GAME 5: SCRAMBLE -->
 <div id="gameScramble" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Susun Kata Kerajaan<small><i class="fas fa-shuffle"></i> Game 06 · Vocabulary</small></h2>
+    <h2>Susun Kata Kerajaan<small><i class="fas fa-shuffle"></i> Game 05 · Vocabulary</small></h2>
     <span class="pill" id="scrScore">0 / 15</span>
     <span class="pill timer" id="scrTimer">00:00</span>
   </div>
@@ -622,17 +585,16 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   <div class="fb center" id="scrFb"></div>
 </div>
 
-<!-- GAME 7: EMOJI -->
+<!-- GAME 6: EMOJI -->
 <div id="gameEmoji" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Tebak Emoji Peninggalan<small><i class="fas fa-face-grin-stars"></i> Game 07 · Visual Puzzle</small></h2>
+    <h2>Tebak Emoji Peninggalan<small><i class="fas fa-face-grin-stars"></i> Game 06 · Visual Puzzle</small></h2>
     <span class="pill" id="emoScore">0 / 14</span>
     <span class="pill timer" id="emoTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Visual puzzle</b> — tebak peninggalan/peristiwa dari clue emoji. 14 soal, 30 detik/soal!
-    <button class="btn-mini" onclick="resetEmoji()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Fokus game ini:</strong> <b>Visual puzzle</b> — tebak peninggalan/peristiwa dari clue emoji. 14 soal, 30 detik/soal!</div></div>
   <div class="emoji-puzzle">
     <div class="emoji-timer" id="emoTimerBig">⏱ 30s</div>
     <div class="emoji-big" id="emoBig"></div>
@@ -642,12 +604,12 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   <div class="fb" id="emoFb"></div>
 </div>
 
-<!-- GAME 8: FORTUNE -->
+<!-- GAME 7: FORTUNE -->
 <div id="gameFortune" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Roda Tantangan Sejarah<small><i class="fas fa-dice"></i> Game 08 · Roda Takdir</small></h2>
+    <h2>Roda Tantangan Sejarah<small><i class="fas fa-dice"></i> Game 07 · Roda Takdir</small></h2>
     <span class="pill gold" id="ftPts">0 poin</span>
     <span class="pill timer" id="ftTimer">00:00</span>
   </div>
@@ -682,7 +644,6 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
   <button class="close-btn" onclick="hideDetail()">✕</button>
   <div class="hd">
     <i class="fas fa-lightbulb"></i><span class="t">Penjelasan Detail</span>
-    <span class="hint" id="dpHint"><i class="fas fa-lock"></i> Tahan terbuka</span>
   </div>
   <div class="pair" id="dpPair"></div>
   <div class="txt" id="dpText"></div>
@@ -697,7 +658,7 @@ body.reduce-motion *{animation-duration:.001s!important;transition-duration:.001
     <div id="mText"></div>
     <div id="mList" class="modal-list" style="display:none"></div>
     <div class="modal-actions">
-      <button class="btn cyan" id="mNextBtn" hidden onclick="hxNextLevel()"><i class="fas fa-arrow-right"></i> Lanjut</button>
+      <button class="btn cyan" id="mNextBtn" hidden onclick="klNextLevel()"><i class="fas fa-arrow-right"></i> Lanjut</button>
       <button class="btn green" id="mReviewBtn" onclick="openReview();closeModal()"><i class="fas fa-list-check"></i> Review Jawaban</button>
       <button class="btn" onclick="closeModal();goHome()"><i class="fas fa-check"></i> Selesai</button>
     </div>
@@ -760,7 +721,6 @@ const Sound={ctx:null,enabled:true,
   land(){this.beep(523,.1,'sine',.14);this.beep(784,.16,'sine',.12,.08)},
   win(){[523,659,784,1047,1319].forEach((f,i)=>this.beep(f,.22,'sine',.14,i*.09))},
   lose(){[400,320,240].forEach((f,i)=>this.beep(f,.28,'sawtooth',.09,i*.14))},
-  ach(){[880,1047,1319].forEach((f,i)=>this.beep(f,.18,'triangle',.13,i*.08))},
   tick(){this.beep(1200,.03,'sine',.03)}
 };
 
@@ -771,7 +731,7 @@ let timerInt=null,timerSec=0,timerId=null;
 function startTimer(el){stopTimer();timerSec=0;timerId=el;if(el&&$(el))$(el).textContent='00:00';timerInt=setInterval(()=>{timerSec++;if(timerId&&$(timerId))$(timerId).textContent=fmtTime(timerSec)},1000)}
 function stopTimer(){if(timerInt){clearInterval(timerInt);timerInt=null}}
 
-const KEY='misi_hb_v5',ACH_KEY='misi_hb_ach_v5',TOTAL=8;
+const KEY='misi_hb_v7',ACH_KEY='misi_hb_ach_v7',TOTAL=7;
 function loadProgress(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
 function saveProgress(p){try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}}
 function markDone(id,d={}){const p=loadProgress();p[id]={done:true,...d,date:new Date().toISOString(),time:timerSec};saveProgress(p);updateMenu();checkAchievements(id,d)}
@@ -781,10 +741,10 @@ function updateMenu(){const p=loadProgress();document.querySelectorAll('.gc').fo
 const ACHS=[
   {id:'first_step',icon:'🎯',name:'Langkah Pertama',desc:'Selesaikan 1 game'},
   {id:'perfect',icon:'💯',name:'Sempurna',desc:'Akurasi 100% dalam 1 game'},
-  {id:'explorer',icon:'🧭',name:'Penjelajah',desc:'Selesaikan semua 8 game'},
+  {id:'explorer',icon:'🧭',name:'Penjelajah',desc:'Selesaikan semua 7 game'},
   {id:'scholar',icon:'📚',name:'Cendekiawan',desc:'Rata-rata akurasi ≥ 80%'},
   {id:'speedrun',icon:'⚡',name:'Kilat',desc:'Selesaikan game < 2 menit'},
-  {id:'detective_master',icon:'📜',name:'Detektif Ulung',desc:'30/30 benar di Detektif'},
+  {id:'kl_master',icon:'📜',name:'Ahli Klasifikasi',desc:'Tuntaskan 5 level Game Klasifikasi'},
   {id:'millionaire',icon:'👑',name:'Jutawan Sejati',desc:'Skor ≥ 10 di Jutawan'},
   {id:'historian',icon:'🏛️',name:'Sejarawan Muda',desc:'Selesaikan 6 level Misi Kerajaan'},
   {id:'wordmaster',icon:'🔤',name:'Ahli Kata',desc:'Selesaikan Susun Kata tanpa lewati'},
@@ -797,8 +757,8 @@ function checkAchievements(gameId,d={}){
   const p=loadProgress();
   const doneCount=Object.keys(p).filter(k=>p[k]&&p[k].done).length;
   if(doneCount>=1)unlockAch('first_step');
-  if(doneCount>=8)unlockAch('explorer');
-  if(gameId==='detektif'&&d.score>=30)unlockAch('detective_master');
+  if(doneCount>=7)unlockAch('explorer');
+  if(gameId==='klasifikasi'&&d.lv5Done)unlockAch('kl_master');
   if(gameId==='millionaire'&&d.score>=10)unlockAch('millionaire');
   if(gameId==='histo'&&d.score>=1)unlockAch('historian');
   if(gameId==='scramble'&&d.noSkip)unlockAch('wordmaster');
@@ -823,6 +783,7 @@ const GLOSSARY=[
   {t:'Candi',d:'Bangunan suci Hindu-Buddha — tempat ibadah, pemujaan, kadang makam raja.'},
   {t:'Stupa',d:'Bangunan suci Buddha berbentuk lonceng. Borobudur memiliki 72 stupa.'},
   {t:'Kakawin',d:'Puisi Jawa Kuno dengan metrum India. Contoh: Negarakertagama, Arjunawiwaha, Sutasoma.'},
+  {t:'Kidung',d:'Puisi pendek berbahasa Jawa Pertengahan. Contoh: Kidung Sunda, Kidung Ranggalawe.'},
   {t:'Mandala',d:'Konsep kekuasaan Asia Tenggara kuno: pusat kontrol mengelilingi wilayah tanpa batas tegas.'},
   {t:'Ekspedisi Pamalayu',d:'Ekspedisi Kertanegara (Singasari) ke Sumatera tahun 1275 M.'},
   {t:'Sumpah Palapa',d:'Sumpah Gajah Mada untuk tidak menikmati kenikmatan duniawi sebelum Nusantara bersatu.'},
@@ -844,7 +805,8 @@ const GLOSSARY=[
   {t:'Melayu Kuno',d:'Kerajaan di Jambi (abad ke-7 M) yang merupakan pendahulu Sriwijaya.'},
   {t:'Dapunta Hyang',d:'Raja pertama Melayu Kuno yang memimpin ekspansi besar ke Sumatera.'},
   {t:'Pura',d:'Tempat ibadah umat Hindu di Bali. Contoh: Pura Besakih.'},
-  {t:'Kalender Saka',d:'Kalender Hindu yang digunakan di Nusantara — sumber nama hari Senin-Minggu.'}
+  {t:'Kalender Saka',d:'Kalender Hindu yang digunakan di Nusantara — sumber nama hari Senin-Minggu.'},
+  {t:'Sinkretis',d:'Percampuran dua aliran kepercayaan — dalam konteks Hindu-Buddha: Siwa-Buddha.'}
 ];
 function openGloss(){Sound.click();$('#glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term"><i class="fas fa-bookmark"></i>${g.t}</div><div class="def">${g.d}</div></div>`).join('');$('#glModal').classList.add('on')}
 function closeGloss(){$('#glModal').classList.remove('on')}
@@ -896,19 +858,20 @@ document.addEventListener('click',e=>{if(document.body.classList.contains('reduc
 function shakeScreen(){if(document.body.classList.contains('reduce-motion'))return;document.body.animate([{transform:'translate(0,0)'},{transform:'translate(-6px,3px)'},{transform:'translate(6px,-3px)'},{transform:'translate(-4px,2px)'},{transform:'translate(4px,-2px)'},{transform:'translate(0,0)'}],{duration:400,easing:'ease-out'})}
 
 function notif(msg,type=''){const n=$('#nf');n.textContent=msg;n.className='nf on '+type;clearTimeout(n._t);n._t=setTimeout(()=>n.classList.remove('on'),1700)}
-function modal(emoji,title,text,badge,list){
-  const next=$('#mNextBtn');if(next)next.hidden=true;
+function modal(emoji,title,text,list,nextBtnText,nextBtnFn){
+  const next=$('#mNextBtn');if(next){next.hidden=true;next.textContent='';next.onclick=klNextLevel;}
   $('#mReviewBtn').style.display=reviewData.length ? 'inline-flex' : 'none';
   $('#mEmoji').textContent=emoji;
   $('#mTitle').textContent=title;
   $('#mText').innerHTML=text?`<p>${text}</p>`:'';
   if(list&&list.length){$('#mList').style.display='block';$('#mList').innerHTML=list.map(it=>`<div class="item"><div class="ttl">${it.t}</div><div class="dsc">${it.d}</div></div>`).join('')}else{$('#mList').style.display='none'}
+  if(nextBtnText&&next){next.hidden=false;next.innerHTML='<i class="fas fa-arrow-right"></i> '+nextBtnText;if(nextBtnFn)next.onclick=nextBtnFn}
   $('#modal').classList.add('on');
 }
 function closeModal(){$('#modal').classList.remove('on')}
 function backMenu(){stopTimer();hideDetail();$('.screen.active')?.classList.remove('active');$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu()}
 function goHome(){stopTimer();hideDetail();closeTut();$$('.screen').forEach(s=>s.classList.remove('active'));$('#mainMenu').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});updateMenu();updateDailyFact()}
-function goGame(id){Sound.click();stopTimer();hideDetail();$$('.screen').forEach(s=>s.classList.remove('active'));const map={detektif:'#gameDetektif',timeline:'#gameTimeline',histo:'#gameHisto',wheel:'#gameWheel',millionaire:'#gameMillionaire',scramble:'#gameScramble',emoji:'#gameEmoji',fortune:'#gameFortune'};$(map[id]).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});reviewData=[];if(id==='detektif')resetDet();if(id==='timeline')resetTL();if(id==='histo')initHx();if(id==='wheel')initWheel();if(id==='millionaire')initMl();if(id==='scramble')resetScramble();if(id==='emoji')resetEmoji();if(id==='fortune')resetFortune()}
+function goGame(id){Sound.click();stopTimer();hideDetail();$$('.screen').forEach(s=>s.classList.remove('active'));const map={klasifikasi:'#gameKlasifikasi',histo:'#gameHisto',wheel:'#gameWheel',millionaire:'#gameMillionaire',scramble:'#gameScramble',emoji:'#gameEmoji',fortune:'#gameFortune'};$(map[id]).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});reviewData=[];if(id==='klasifikasi')initKl();if(id==='histo')initHx();if(id==='wheel')initWheel();if(id==='millionaire')initMl();if(id==='scramble')resetScramble();if(id==='emoji')resetEmoji();if(id==='fortune')resetFortune()}
 
 function showTut(html){$('#tutBox').innerHTML=html;$('#tutOverlay').classList.add('on')}
 function closeTut(){$('#tutOverlay').classList.remove('on')}
@@ -917,20 +880,13 @@ let detailTimer=null;
 function showDetail(left,right,text,src,autoCloseMs){
   if(detailTimer){clearTimeout(detailTimer);detailTimer=null}
   const panel=$('#detailPanel');
-  panel.classList.remove('auto');
   $('#dpPair').innerHTML=`<span class="chip">${left}</span><span class="arrow"><i class="fas fa-arrow-right"></i></span><span class="chip r">${right}</span>`;
   $('#dpText').textContent=text;
   $('#dpSrc').innerHTML=src?`📖 Sumber: ${src}`:'';
   panel.classList.add('show');
-  if(autoCloseMs&&autoCloseMs>0){
-    $('#dpHint').innerHTML='';
-    panel.classList.add('auto');
-    detailTimer=setTimeout(()=>hideDetail(),autoCloseMs);
-  } else {
-    $('#dpHint').innerHTML='<i class="fas fa-lock"></i> Tahan terbuka · klik ✕ untuk tutup';
-  }
+  if(autoCloseMs&&autoCloseMs>0){detailTimer=setTimeout(()=>hideDetail(),autoCloseMs)}
 }
-function hideDetail(){if(detailTimer){clearTimeout(detailTimer);detailTimer=null}const panel=$('#detailPanel');panel.classList.remove('show');panel.classList.remove('auto')}
+function hideDetail(){if(detailTimer){clearTimeout(detailTimer);detailTimer=null}const panel=$('#detailPanel');panel.classList.remove('show')}
 
 document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('mousemove',e=>{if(document.body.classList.contains('reduce-motion'))return;const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.transform=`perspective(900px) rotateX(${((y-r.height/2)/(r.height/2))*-5}deg) rotateY(${((x-r.width/2)/(r.width/2))*5}deg) translateY(-6px) scale(1.02)`});el.addEventListener('mouseleave',()=>el.style.transform='')});
 document.querySelectorAll('.gc').forEach(c=>{c.addEventListener('click',()=>goGame(c.dataset.game));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click()}})});
@@ -947,7 +903,7 @@ function confetti(){
 }
 
 function showAchievement(id){
-  const map={detektif:{icn:'📜',ttl:'DETEKTIF ULUNG',sub:'Kamu menuntaskan Detektif Peninggalan!'},timeline:{icn:'⏳',ttl:'PENJELAJAH WAKTU',sub:'Kamu memahami 4 konsep waktu!'},histo:{icn:'🏛️',ttl:'PETUALANG SEJATI',sub:'Kamu menuntaskan 6 level Misi Kerajaan!'},wheel:{icn:'🎡',ttl:'PEMUTAR HEBAT',sub:'Kamu menyelesaikan 15 soal Roda Warisan!'},millionaire:{icn:'👑',ttl:'JUTAWAN SEJARAH',sub:'Kamu menyelesaikan 15 soal HOTS!'},scramble:{icn:'🔤',ttl:'AHLI KATA',sub:'Kamu menyusun semua kata sejarah!'},emoji:{icn:'😀',ttl:'DETEKTIF VISUAL',sub:'Kamu menuntaskan Tebak Emoji!'},fortune:{icn:'🎲',ttl:'PEMBURU FORTUNE',sub:'Kamu menyelesaikan Roda Tantangan!'}};
+  const map={klasifikasi:{icn:'📜',ttl:'AHLI KLASIFIKASI',sub:'Kamu menuntaskan 5 level Klasifikasi & Konsep Waktu!'},histo:{icn:'🏛️',ttl:'PETUALANG SEJATI',sub:'Kamu menuntaskan 6 level Misi Kerajaan!'},wheel:{icn:'🎡',ttl:'PEMUTAR HEBAT',sub:'Kamu menyelesaikan 15 soal Roda Warisan!'},millionaire:{icn:'👑',ttl:'JUTAWAN SEJARAH',sub:'Kamu menyelesaikan 15 soal HOTS!'},scramble:{icn:'🔤',ttl:'AHLI KATA',sub:'Kamu menyusun semua kata sejarah!'},emoji:{icn:'😀',ttl:'DETEKTIF VISUAL',sub:'Kamu menuntaskan Tebak Emoji!'},fortune:{icn:'🎲',ttl:'PEMBURU FORTUNE',sub:'Kamu menyelesaikan Roda Tantangan!'}};
   const a=map[id];if(!a)return;
   const t=$('#achToast');
   $('#achIcn').textContent=a.icn;
@@ -958,11 +914,11 @@ function showAchievement(id){
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GAME 1 : DETEKTIF PENINGGALAN — BANK UNIK: 30 ITEM KLASIFIKASI
-   Materi: Identifikasi JENIS peninggalan (Prasasti/Candi/Kitab)
+   GAME 1 : KLASIFIKASI & KONSEP WAKTU — 5 LEVEL
    ═══════════════════════════════════════════════════════════════ */
-const detData=[
-  // 10 PRASASTI
+
+// Level 1: 30 item — Klasifikasi Peninggalan
+const klDetData=[
   {t:'Yupa',c:'prasasti',e:'Prasasti Yupa (7 buah) dari Kerajaan Kutai. Berhuruf Pallawa & bahasa Sanskerta. Sumber sejarah tertulis tertua Indonesia.',s:'Museum Nasional Indonesia'},
   {t:'Ciaruteun',c:'prasasti',e:'Prasasti Ciaruteun (Tarumanegara) — memuat jejak kaki Raja Purnawarman disamakan dengan Wisnu.',s:'Bogor, Jawa Barat'},
   {t:'Tugu',c:'prasasti',e:'Prasasti Tugu — penggalian Sungai Candrabhaga & Gomati oleh Purnawarman. Rakyat diberi 1.000 sapi.',s:'Jakarta Utara'},
@@ -973,7 +929,6 @@ const detData=[
   {t:'Canggal',c:'prasasti',e:'Prasasti Canggal (732 M) — peninggalan Mataram Kuno. Raja Sanjaya mendirikan lingga.',s:'Magelang, Jawa Tengah'},
   {t:'Wurare',c:'prasasti',e:'Prasasti Wurare — peninggalan Singasari. Raja Kertanegara sebagai Bhatara Siwa-Buddha.',s:'Surabaya, Jawa Timur'},
   {t:'Jambu',c:'prasasti',e:'Prasasti Jambu (Tarumanegara) — memuat pujian kepada Raja Purnawarman.',s:'Bogor, Jawa Barat'},
-  // 10 CANDI
   {t:'Borobudur',c:'candi',e:'Candi Buddha terbesar di dunia (Dinasti Syailendra). 2.672 panel relief, 504 arca Buddha. UNESCO 1991.',s:'UNESCO World Heritage'},
   {t:'Prambanan',c:'candi',e:'Candi Hindu terbesar di Indonesia (Rakai Pikatan). Dipersembahkan untuk Trimurti: Brahma, Wisnu, Siwa.',s:'UNESCO World Heritage'},
   {t:'Mendut',c:'candi',e:'Candi Buddha (Dinasti Syailendra). Terletak 3 km dari Borobudur. Berisi arca Buddha & Avalokitesvara.',s:'Magelang, Jawa Tengah'},
@@ -984,7 +939,6 @@ const detData=[
   {t:'Jago',c:'candi',e:'Candi peninggalan Singasari. Berisi arca Amoghapasa.',s:'Malang, Jawa Timur'},
   {t:'Penataran',c:'candi',e:'Candi Hindu terbesar Jawa Timur, peninggalan Majapahit.',s:'Blitar, Jawa Timur'},
   {t:'Kidal',c:'candi',e:'Candi peninggalan Singasari. Tempat pendharmaan Raja Anusapati.',s:'Malang, Jawa Timur'},
-  // 10 KITAB
   {t:'Negarakertagama',c:'kitab',e:'Kakawin Mpu Prapanca (1365 M). Sumber utama sejarah Majapahit & wilayah kekuasaannya.',s:'Kakawin Jawa Kuno'},
   {t:'Pararaton',c:'kitab',e:'Kitab sejarah raja-raja Tumapel & Majapahit, berbahasa Jawa Pertengahan.',s:'Sastra Jawa'},
   {t:'Sutasoma',c:'kitab',e:'Kakawin Mpu Tantular. Sumber semboyan "Bhinneka Tunggal Ika".',s:'Kakawin Jawa Kuno'},
@@ -996,115 +950,261 @@ const detData=[
   {t:'Tantu Panggelaran',c:'kitab',e:'Naskah Jawa Pertengahan tentang asal-usul Gunung Semeru.',s:'Sastra Jawa'},
   {t:'Smaradahana',c:'kitab',e:'Kakawin karya Mpu Dharmaja masa Kediri.',s:'Kakawin Jawa Kuno'}
 ];
-let detSel=null,detOk=0,detLives=3;
-function updateDetLives(){const el=$('#detLives');el.innerHTML='❤'.repeat(detLives)+'<span style="opacity:.35">'+'❤'.repeat(3-detLives)+'</span> '+detLives+' Nyawa'}
-function resetDet(){detSel=null;detOk=0;detLives=3;reviewData=[];hideDetail();updateDetLives();$('#detScore').textContent='0 / 30';const pool=$('#detPool');pool.innerHTML='';shuffle(detData).forEach(d=>{const el=document.createElement('div');el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.t=d.t;el.onclick=()=>selDet(el);pool.appendChild(el)});$$('#gameDetektif .det-col .col-inner').forEach(c=>c.innerHTML='');$$('#gameDetektif .det-col').forEach(c=>{c.onclick=()=>dropDet(c)});startTimer('detTimer')}
-function selDet(el){if(el.classList.contains('ok'))return;Sound.click();if(detSel===el){el.classList.remove('sel');detSel=null;return}if(detSel)detSel.classList.remove('sel');detSel=el;el.classList.add('sel')}
-function dropDet(col){
-  if(!detSel){notif('Pilih kartu dulu!','no');return}
-  const c=detSel,cat=col.dataset.cat,want=c.dataset.cat;
-  const data=detData.find(x=>x.t===c.dataset.t);
-  if(cat===want){
-    c.classList.remove('sel');c.classList.add('ok');c.onclick=null;
-    col.querySelector('.col-inner').appendChild(c);detSel=null;detOk++;
-    $('#detScore').textContent=detOk+' / 30';
-    $('#detScore').classList.add('pulse');setTimeout(()=>$('#detScore').classList.remove('pulse'),600);
-    notif('✓ Benar!','ok');Sound.correct();
-    pushReview(`"${c.textContent}" termasuk kategori...`,['Prasasti','Candi','Kitab'],['prasasti','candi','kitab'].indexOf(want),['prasasti','candi','kitab'].indexOf(cat),data.e,data.s);
-    showDetail(c.textContent,cat.toUpperCase(),data.e,data.s);
-    if(detOk===detData.length){
-      setTimeout(()=>{markDone('detektif',{score:detOk,acc:100});Sound.win();confetti();showAchievement('detektif');setTimeout(()=>modal('📜','Detektif Hebat!',`Kamu mengklasifikasikan ${detData.length} peninggalan dengan tepat dalam ${fmtTime(timerSec)}!`,'Detektif Ulung 📜'),400)},700)
-    }
-  } else {
-    c.classList.remove('sel');c.classList.add('no');detSel=null;
-    detLives--;updateDetLives();
-    notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();
-    setTimeout(()=>c.classList.remove('no'),500);
-    if(detLives<=0){
-      setTimeout(()=>{
-        markDone('detektif',{score:detOk,acc:Math.round(detOk/detData.length*100)});
-        Sound.lose();
-        modal('💔','Game Over!',`Kamu kehabisan nyawa. Skor akhir: ${detOk}/${detData.length} peninggalan. Coba lagi ya!`,'Latihan lagi 💪');
-      },600);
-    }
-  }
-}
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 2 : PENJELAJAH WAKTU — BANK UNIK: 16 KARTU KONSEP WAKTU
-   Materi: Diakronik / Sinkronik / Periodik / Kronologis
-   ═══════════════════════════════════════════════════════════════ */
-const tlData=[
-  // DIAKRONIK (4)
+// Level 2: 16 kartu — Konsep Waktu
+const klTlData=[
   {t:'Sejarah Majapahit dari berdiri 1293 M hingga runtuh abad ke-16',c:'diakronik',e:'DIAKRONIK = memanjang waktu. Melihat perubahan Majapahit dari awal berdiri hingga keruntuhannya.'},
   {t:'Perkembangan Sriwijaya abad ke-7 s.d. abad ke-13',c:'diakronik',e:'DIAKRONIK = kronologi kemaharajaan maritim dari awal berdiri hingga kemunduran.'},
   {t:'Evolusi arsitektur candi dari abad ke-8 ke abad ke-14',c:'diakronik',e:'DIAKRONIK = melihat perubahan gaya arsitektur sepanjang waktu.'},
   {t:'Proses masuknya Hindu-Buddha ke Nusantara',c:'diakronik',e:'DIAKRONIK = menelusuri proses masuknya pengaruh India dari awal hingga berkembang.'},
-  // SINKRONIK (4)
   {t:'Kondisi ekonomi Majapahit pada masa Hayam Wuruk',c:'sinkronik',e:'SINKRONIK = analisis mendalam satu kurun waktu (abad ke-14 M).'},
   {t:'Struktur sosial masyarakat Kutai abad ke-4 M',c:'sinkronik',e:'SINKRONIK = menganalisis struktur sosial satu masa tertentu.'},
   {t:'Kehidupan keagamaan Sriwijaya abad ke-7 M',c:'sinkronik',e:'SINKRONIK = memotret satu aspek pada satu waktu.'},
   {t:'Sistem pemerintahan Mataram Kuno era Rakai Pikatan',c:'sinkronik',e:'SINKRONIK = analisis satu aspek pada satu periode.'},
-  // PERIODIK (4)
   {t:'Zaman Praaksara, Hindu-Buddha, dan Islam',c:'periodik',e:'PERIODIK = pembagian sejarah Indonesia menjadi periode-periode besar.'},
   {t:'Masa Kutai, Tarumanegara, Sriwijaya',c:'periodik',e:'PERIODIK = pembabakan sejarah kerajaan berdasarkan zaman.'},
   {t:'Pembabakan Kerajaan Klasik Awal Indonesia',c:'periodik',e:'PERIODIK = membagi masa kerajaan klasik awal menjadi babak-babak.'},
   {t:'Periode Kemaharajaan Maritim Nusantara',c:'periodik',e:'PERIODIK = babak khusus kejayaan maritim Nusantara.'},
-  // KRONOLOGIS (4)
   {t:'Berdirinya Kutai → Tarumanegara → Sriwijaya',c:'kronologis',e:'KRONOLOGIS = urutan waktu kemunculan kerajaan.'},
   {t:'Ken Arok 1222 → Kertanegara 1275 → Hayam Wuruk 1350',c:'kronologis',e:'KRONOLOGIS = urutan tahun peristiwa penting.'},
   {t:'Prasasti Yupa 400 M → Kedukan Bukit 683 M',c:'kronologis',e:'KRONOLOGIS = urutan prasasti berdasarkan tahun pembuatan.'},
   {t:'Singasari 1222 → Majapahit 1293 → Demak 1478',c:'kronologis',e:'KRONOLOGIS = urutan berdirinya kerajaan di Jawa.'}
 ];
-let tlSel=null,tlOk=0,tlSession=[];
-function showTLTutorial(){
-  showTut(`<h2>📚 Tutorial: 4 Konsep Waktu Sejarah</h2>
-    <p class="lead">Sebelum mulai, pahami 4 konsep waktu dalam ilmu sejarah. Ini kunci untuk menjawab semua kartu!</p>
-    <div class="tut-grid">
-      <div class="tut-card"><span class="ic">📜</span><div class="ttl">Diakronik</div><div class="dsc">Memanjang dalam waktu. Menelusuri <b>perkembangan/perubahan</b> dari awal hingga akhir.<br><i>Contoh: Sejarah Majapahit 1293-1500 M.</i></div></div>
-      <div class="tut-card"><span class="ic">🔍</span><div class="ttl">Sinkronik</div><div class="dsc">Meluas dalam ruang pada <b>satu kurun waktu</b> tertentu. Analisis mendalam.<br><i>Contoh: Ekonomi Majapahit abad ke-14 M.</i></div></div>
-      <div class="tut-card"><span class="ic">🗓️</span><div class="ttl">Periodik</div><div class="dsc">Pembabakan sejarah menjadi <b>periode-periode besar</b>.<br><i>Contoh: Zaman Praaksara, Hindu-Buddha, Islam.</i></div></div>
-      <div class="tut-card"><span class="ic">⏳</span><div class="ttl">Kronologis</div><div class="dsc">Urutan waktu <b>dari awal ke akhir</b> berdasarkan tahun.<br><i>Contoh: Yupa 400 M → Kedukan Bukit 683 M.</i></div></div>
-    </div>
-    <button class="btn cyan" onclick="closeTut()"><i class="fas fa-play"></i> Siap, Mulai Bermain!</button>`);
+
+// Level 3: 24 item — Per Zaman Kerajaan
+const klZamanData=[
+  {t:'Yupa',c:'awal',e:'Prasasti Yupa (400 M) — Kerajaan Kutai. Sumber sejarah tertulis tertua Indonesia.',s:'Museum Nasional'},
+  {t:'Ciaruteun',c:'awal',e:'Prasasti Ciaruteun — Tarumanegara, jejak kaki Purnawarman disamakan dengan Wisnu.',s:'Bogor'},
+  {t:'Tugu',c:'awal',e:'Prasasti Tugu — penggalian Sungai Gomati oleh Purnawarman.',s:'Jakarta'},
+  {t:'Jambu',c:'awal',e:'Prasasti Jambu — pujian kepada Raja Purnawarman.',s:'Bogor'},
+  {t:'Kebon Kopi',c:'awal',e:'Prasasti Kebon Kopi — tapak kaki gajah Airawata.',s:'Ciampea'},
+  {t:'Muara Cianten',c:'awal',e:'Prasasti Muara Cianten — Tarumanegara.',s:'Bogor'},
+  {t:'Kedukan Bukit',c:'maritim',e:'Prasasti Kedukan Bukit (683 M) — perjalanan Dapunta Hyang.',s:'Palembang'},
+  {t:'Talang Tuo',c:'maritim',e:'Prasasti Talang Tuo (684 M) — Taman Sriksetra.',s:'Palembang'},
+  {t:'Kota Kapur',c:'maritim',e:'Prasasti Kota Kapur (686 M) — sumpah Sriwijaya.',s:'Bangka Belitung'},
+  {t:'Telaga Batu',c:'maritim',e:'Prasasti Telaga Batu — sumpah pejabat Sriwijaya.',s:'Palembang'},
+  {t:'Padang Roco',c:'maritim',e:'Prasasti Padang Roco — Dharmasraya, penerus Sriwijaya.',s:'Sumatera Barat'},
+  {t:'Karang Berahi',c:'maritim',e:'Prasasti Karang Berahi — ekspansi Sriwijaya ke Jambi.',s:'Jambi'},
+  {t:'Canggal',c:'mataram',e:'Prasasti Canggal (732 M) — Sanjaya mendirikan lingga.',s:'Magelang'},
+  {t:'Borobudur',c:'mataram',e:'Candi Buddha terbesar dunia (Syailendra). UNESCO 1991.',s:'UNESCO'},
+  {t:'Prambanan',c:'mataram',e:'Candi Hindu terbesar Indonesia (Sanjaya). UNESCO 1991.',s:'UNESCO'},
+  {t:'Kalasan',c:'mataram',e:'Candi Buddha untuk Dewi Tara (Syailendra).',s:'Sleman'},
+  {t:'Mendut',c:'mataram',e:'Candi Buddha 3 km dari Borobudur.',s:'Magelang'},
+  {t:'Gedong Songo',c:'mataram',e:'9 candi Hindu peninggalan Sanjaya.',s:'Semarang'},
+  {t:'Bharatayuddha',c:'jatim',e:'Kakawin Mpu Sedah-Panuluh (Kediri era Jayabaya).',s:'Kediri'},
+  {t:'Arjunawiwaha',c:'jatim',e:'Kakawin Mpu Kanwa (era Airlangga).',s:'Kediri'},
+  {t:'Candi Kidal',c:'jatim',e:'Candi pendharmaan Anusapati (Singasari).',s:'Malang'},
+  {t:'Negarakertagama',c:'jatim',e:'Kakawin Mpu Prapanca (1365 M) — Majapahit.',s:'Majapahit'},
+  {t:'Candi Penataran',c:'jatim',e:'Candi Hindu terbesar Jawa Timur (Majapahit).',s:'Blitar'},
+  {t:'Sutasoma',c:'jatim',e:'Kakawin Mpu Tantular — sumber Bhinneka Tunggal Ika.',s:'Majapahit'}
+];
+
+// Level 4: 15 item — Karya Sastra
+const klSastraData=[
+  {t:'Negarakertagama',c:'kakawin',e:'Kakawin Mpu Prapanca (1365 M) — sumber utama sejarah Majapahit.',s:'Kakawin'},
+  {t:'Sutasoma',c:'kakawin',e:'Kakawin Mpu Tantular — sumber "Bhinneka Tunggal Ika".',s:'Kakawin'},
+  {t:'Bharatayuddha',c:'kakawin',e:'Kakawin Mpu Sedah & Mpu Panuluh — adaptasi Mahabharata.',s:'Kakawin'},
+  {t:'Arjunawiwaha',c:'kakawin',e:'Kakawin Mpu Kanwa era Airlangga.',s:'Kakawin'},
+  {t:'Ramayana Kakawin',c:'kakawin',e:'Kakawin Ramayana versi Jawa Kuno.',s:'Kakawin'},
+  {t:'Kunjarakarna',c:'kakawin',e:'Kakawin perjalanan ke neraka & surga.',s:'Kakawin'},
+  {t:'Smaradahana',c:'kakawin',e:'Kakawin Mpu Dharmaja masa Kediri.',s:'Kakawin'},
+  {t:'Arjunawijaya',c:'kakawin',e:'Kakawin Mpu Tantular.',s:'Kakawin'},
+  {t:'Hariwangsa',c:'kakawin',e:'Kakawin Mpu Panuluh.',s:'Kakawin'},
+  {t:'Kidung Sunda',c:'kidung',e:'Kidung tentang tragedi Perang Bubat 1357 M.',s:'Kidung'},
+  {t:'Kidung Ranggalawe',c:'kidung',e:'Kidung tentang pemberontakan Ranggalawe.',s:'Kidung'},
+  {t:'Kidung Panji Wijayakrama',c:'kidung',e:'Kidung Panji era Majapahit.',s:'Kidung'},
+  {t:'Pararaton',c:'naskah',e:'Naskah sejarah raja Tumapel & Majapahit.',s:'Naskah'},
+  {t:'Calon Arang',c:'naskah',e:'Naskah Calon Arang janda sakti Desa Girah.',s:'Naskah'},
+  {t:'Tantu Panggelaran',c:'naskah',e:'Naskah asal-usul Gunung Semeru.',s:'Naskah'}
+];
+
+// Level 5: 15 item — Hindu / Buddha / Sinkretis
+const klAgamaData=[
+  {t:'Prambanan',c:'hindu',e:'Candi Hindu terbesar — Trimurti (Siwa). Rakai Pikatan.',s:'UNESCO'},
+  {t:'Gedong Songo',c:'hindu',e:'Kompleks 9 candi Hindu peninggalan Sanjaya.',s:'Semarang'},
+  {t:'Candi Penataran',c:'hindu',e:'Candi Hindu terbesar Jawa Timur (Majapahit).',s:'Blitar'},
+  {t:'Candi Kidal',c:'hindu',e:'Candi Hindu pendharmaan Anusapati (Singasari).',s:'Malang'},
+  {t:'Candi Surawana',c:'hindu',e:'Candi Hindu era Majapahit, relief Arjunawiwaha.',s:'Kediri'},
+  {t:'Candi Tegawangi',c:'hindu',e:'Candi Hindu era Majapahit, relief Sudamala.',s:'Kediri'},
+  {t:'Borobudur',c:'buddha',e:'Candi Buddha terbesar dunia (Syailendra). UNESCO 1991.',s:'UNESCO'},
+  {t:'Mendut',c:'buddha',e:'Candi Buddha — arca Buddha & Avalokitesvara.',s:'Magelang'},
+  {t:'Pawon',c:'buddha',e:'Candi Buddha antara Mendut & Borobudur.',s:'Magelang'},
+  {t:'Kalasan',c:'buddha',e:'Candi Buddha untuk Dewi Tara.',s:'Sleman'},
+  {t:'Candi Jago',c:'buddha',e:'Candi Buddha — berisi arca Amoghapasa.',s:'Malang'},
+  {t:'Candi Sumberawan',c:'buddha',e:'Candi Buddha era Majapahit.',s:'Malang'},
+  {t:'Candi Singasari',c:'sinkretis',e:'Candi Siwa-Buddha — Kertanegara sebagai Bhatara Siwa-Buddha.',s:'Malang'},
+  {t:'Candi Jawi',c:'sinkretis',e:'Candi Siwa-Buddha era Singasari (pendharmaan Kertanegara).',s:'Pasuruan'},
+  {t:'Candi Sumberjati',c:'sinkretis',e:'Candi Siwa-Buddha era Majapahit (pendharmaan Raden Wijaya).',s:'Blitar'}
+];
+
+/* DEFINISI 5 LEVEL */
+const klLevels=[
+  {
+    name:'Klasifikasi',
+    icon:'📜',
+    instruction:'<strong>Level 1:</strong> Klik kartu peninggalan di bawah, lalu pilih kategori: <strong>Prasasti, Candi, atau Kitab</strong>. Kamu punya <strong>3 nyawa</strong>! Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>.',
+    total:30,
+    cols:['prasasti','candi','kitab'],
+    colLabels:{prasasti:'Prasasti',candi:'Candi',kitab:'Kitab'},
+    colEmojis:{prasasti:'📜',candi:'🛕',kitab:'📖'},
+    hasLives:true,
+    getSession:()=>shuffle(klDetData)
+  },
+  {
+    name:'Konsep Waktu',
+    icon:'⏳',
+    instruction:'<strong>Level 2:</strong> Klik kartu, lalu pilih konsep waktu: <strong>Diakronik, Sinkronik, Periodik, atau Kronologis</strong>. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>.',
+    total:12,
+    cols:['diakronik','sinkronik','periodik','kronologis'],
+    colLabels:{diakronik:'Diakronik',sinkronik:'Sinkronik',periodik:'Periodik',kronologis:'Kronologis'},
+    colEmojis:{diakronik:'📜',sinkronik:'🔍',periodik:'🗓️',kronologis:'⏳'},
+    hasLives:false,
+    getSession:()=>shuffle(klTlData).slice(0,12)
+  },
+  {
+    name:'Per Zaman Kerajaan',
+    icon:'🏛️',
+    instruction:'<strong>Level 3:</strong> Klasifikasikan peninggalan berdasarkan <strong>zamannya</strong>. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>.',
+    total:24,
+    cols:['awal','maritim','mataram','jatim'],
+    colLabels:{awal:'Kutai & Tarumanegara',maritim:'Sriwijaya & Melayu',mataram:'Mataram Kuno & Kalingga',jatim:'Kediri, Singasari & Majapahit'},
+    colEmojis:{awal:'🪨',maritim:'⛵',mataram:'🛕',jatim:'👑'},
+    hasLives:false,
+    getSession:()=>shuffle(klZamanData)
+  },
+  {
+    name:'Karya Sastra',
+    icon:'📖',
+    instruction:'<strong>Level 4:</strong> Klasifikasikan karya sastra Hindu-Buddha: <strong>Kakawin · Kidung · Naskah Jawa Pertengahan</strong>. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>.',
+    total:15,
+    cols:['kakawin','kidung','naskah'],
+    colLabels:{kakawin:'Kakawin',kidung:'Kidung',naskah:'Naskah Jawa Pertengahan'},
+    colEmojis:{kakawin:'📜',kidung:'🎵',naskah:'📖'},
+    hasLives:false,
+    getSession:()=>shuffle(klSastraData)
+  },
+  {
+    name:'Hindu–Buddha',
+    icon:'☸️',
+    instruction:'<strong>Level 5:</strong> Klasifikasikan candi berdasarkan <strong>corak agamanya</strong>: Hindu · Buddha · Sinkretis (Siwa-Buddha). Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>.',
+    total:15,
+    cols:['hindu','buddha','sinkretis'],
+    colLabels:{hindu:'Hindu',buddha:'Buddha',sinkretis:'Sinkretis (Siwa-Buddha)'},
+    colEmojis:{hindu:'🕉️',buddha:'☸️',sinkretis:'🔯'},
+    hasLives:false,
+    getSession:()=>shuffle(klAgamaData)
+  }
+];
+
+let klCurLv=0,klUnlock=1,klSel=null,klOk=0,klLives=3,klSession=[];
+
+function initKl(){klCurLv=0;klUnlock=1;reviewData=[];hideDetail();renderKlTabs();loadKlLevel(0);startTimer('klTimer')}
+
+function renderKlTabs(){
+  const t=$('#klTabs');t.innerHTML='';
+  klLevels.forEach((lv,i)=>{
+    const b=document.createElement('div');
+    b.className='lv-tab';
+    if(i===klCurLv)b.classList.add('on');
+    if(i>=klUnlock)b.classList.add('lock');
+    if(i<klUnlock-1&&i!==klCurLv)b.classList.add('done');
+    b.innerHTML=`<span>${lv.icon}</span><span>Level ${i+1} · ${lv.name}</span>`;
+    b.onclick=()=>{if(i>=klUnlock)return;hideDetail();klCurLv=i;renderKlTabs();loadKlLevel(i)};
+    t.appendChild(b);
+  });
 }
-function resetTL(){
-  tlSel=null;tlOk=0;reviewData=[];hideDetail();
-  $('#tlScore').textContent='0 / 12';
-  tlSession=shuffle(tlData).slice(0,12);
-  const pool=$('#tlPool');pool.innerHTML='';
-  tlSession.forEach(d=>{const el=document.createElement('div');el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.t=d.t;el.onclick=()=>selTL(el);pool.appendChild(el)});
-  $$('#gameTimeline .det-col .col-inner').forEach(c=>c.innerHTML='');
-  $$('#gameTimeline .det-col').forEach(c=>{c.onclick=()=>dropTL(c)});
-  startTimer('tlTimer');
-  if(!localStorage.getItem('mhb_tut_seen')){showTLTutorial();try{localStorage.setItem('mhb_tut_seen','1')}catch(e){}}
+
+function loadKlLevel(i){
+  const lv=klLevels[i];
+  klSel=null;klOk=0;klLives=3;hideDetail();
+  $('#klLv').textContent=`Level ${i+1} / ${klLevels.length}`;
+  $('#klInst').innerHTML=`<i class="fas fa-circle-info"></i><div>${lv.instruction}</div>`;
+  $('#klLives').style.display=lv.hasLives?'':'none';
+  if(lv.hasLives)updateKlLives();
+  $('#klScore').textContent=`0 / ${lv.total}`;
+  const board=$('#klBoard');
+  const colCount=lv.cols.length;
+  board.style.gridTemplateColumns=`repeat(${colCount},1fr)`;
+  board.innerHTML='';
+  lv.cols.forEach(cat=>{
+    const col=document.createElement('div');
+    col.className='det-col';
+    col.dataset.cat=cat;
+    col.innerHTML=`<h4><span class="emoji">${lv.colEmojis[cat]}</span>${lv.colLabels[cat]}</h4><div class="col-inner"></div>`;
+    col.onclick=()=>dropKl(col);
+    board.appendChild(col);
+  });
+  klSession=lv.getSession();
+  const pool=$('#klPool');pool.innerHTML='';
+  klSession.forEach(d=>{
+    const el=document.createElement('div');
+    el.className='src';el.textContent=d.t;
+    el.dataset.cat=d.c;el.dataset.t=d.t;
+    el.onclick=()=>selKl(el);
+    pool.appendChild(el);
+  });
 }
-function selTL(el){if(el.classList.contains('ok'))return;Sound.click();if(tlSel===el){el.classList.remove('sel');tlSel=null;return}if(tlSel)tlSel.classList.remove('sel');tlSel=el;el.classList.add('sel')}
-function dropTL(col){
-  if(!tlSel){notif('Pilih kartu dulu!','no');return}
-  const c=tlSel,cat=col.dataset.cat,want=c.dataset.cat;
-  const data=tlSession.find(x=>x.t===c.dataset.t);
+
+function updateKlLives(){
+  const el=$('#klLives');
+  el.innerHTML='❤'.repeat(klLives)+'<span style="opacity:.35">'+'❤'.repeat(3-klLives)+'</span> '+klLives+' Nyawa';
+}
+
+function selKl(el){
+  if(el.classList.contains('ok'))return;
+  Sound.click();
+  if(klSel===el){el.classList.remove('sel');klSel=null;return}
+  if(klSel)klSel.classList.remove('sel');
+  klSel=el;el.classList.add('sel');
+}
+
+function dropKl(col){
+  if(!klSel){notif('Pilih kartu dulu!','no');return}
+  const c=klSel,cat=col.dataset.cat,want=c.dataset.cat;
+  const data=klSession.find(x=>x.t===c.dataset.t);
   if(cat===want){
     c.classList.remove('sel');c.classList.add('ok');c.onclick=null;
-    col.querySelector('.col-inner').appendChild(c);tlSel=null;tlOk++;
-    $('#tlScore').textContent=tlOk+' / 12';
-    $('#tlScore').classList.add('pulse');setTimeout(()=>$('#tlScore').classList.remove('pulse'),600);
+    col.querySelector('.col-inner').appendChild(c);
+    klSel=null;klOk++;
+    $('#klScore').textContent=`${klOk} / ${klLevels[klCurLv].total}`;
+    $('#klScore').classList.add('pulse');setTimeout(()=>$('#klScore').classList.remove('pulse'),600);
     notif('✓ Benar!','ok');Sound.correct();
-    pushReview(`"${c.textContent}" termasuk konsep...`,['Diakronik','Sinkronik','Periodik','Kronologis'],['diakronik','sinkronik','periodik','kronologis'].indexOf(want),['diakronik','sinkronik','periodik','kronologis'].indexOf(cat),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)');
-    showDetail(c.textContent,cat.toUpperCase(),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)',4000);
-    if(tlOk===tlSession.length){
-      setTimeout(()=>{markDone('timeline',{score:tlOk,acc:100});Sound.win();confetti();showAchievement('timeline');setTimeout(()=>modal('⏳','Penjelajah Waktu!',`Kamu memahami 4 konsep waktu sejarah dalam ${fmtTime(timerSec)}!`,'Penjelajah Waktu ⏳'),400)},700)
-    }
+    pushReview(`"${c.textContent}" termasuk kategori...`,[klLevels[klCurLv].colLabels[want]],0,0,data.e,data.s);
+    showDetail(c.textContent,klLevels[klCurLv].colLabels[want].toUpperCase(),data.e,data.s);
+    if(klOk===klLevels[klCurLv].total)klLevelDone();
   } else {
-    c.classList.remove('sel');c.classList.add('no');tlSel=null;
+    c.classList.remove('sel');c.classList.add('no');klSel=null;
+    if(klLevels[klCurLv].hasLives){klLives--;updateKlLives()}
     notif('✗ Salah kategori!','no');Sound.wrong();shakeScreen();
     setTimeout(()=>c.classList.remove('no'),500);
+    if(klLevels[klCurLv].hasLives&&klLives<=0){
+      setTimeout(()=>{
+        Sound.lose();
+        modal('💔','Game Over!',`Kamu kehabisan nyawa di Level ${klCurLv+1}. Skor: ${klOk}/${klLevels[klCurLv].total}. Coba lagi ya!`,null,'Ulangi Level',()=>{closeModal();klCurLv=klCurLv;renderKlTabs();loadKlLevel(klCurLv)});
+      },600);
+    }
   }
 }
 
+function klLevelDone(){
+  hideDetail();
+  const lv=klLevels[klCurLv];
+  if(klCurLv<klLevels.length-1){
+    klUnlock=klCurLv+2;
+    renderKlTabs();
+    Sound.correct();
+    modal('⭐',`Level ${klCurLv+1} Selesai!`,`Kamu membuka <strong>Level ${klCurLv+2}: ${klLevels[klCurLv+1].name}</strong>!`,null,`Lanjut ke Level ${klCurLv+2}`,klNextLevel);
+  } else {
+    markDone('klasifikasi',{score:klOk,acc:100,lv5Done:true});
+    Sound.win();confetti();showAchievement('klasifikasi');
+    setTimeout(()=>modal('🏆','Tuntas Semua!',`Selamat! Kamu menyelesaikan <strong>5 level</strong> Klasifikasi & Konsep Waktu!`,null,null,null),700);
+  }
+}
+
+function klNextLevel(){closeModal();if(klCurLv<klLevels.length-1){klCurLv++;renderKlTabs();loadKlLevel(klCurLv)}}
+
 /* ═══════════════════════════════════════════════════════════════
-   GAME 3 : MISI KERAJAAN — MATCHING TOKOH 6 LEVEL
-   Materi: Tokoh/kerajaan ↔ Peninggalan/peran (Kurikulum Merdeka)
+   GAME 2 : MISI KERAJAAN — 6 LEVEL MATCHING
    ═══════════════════════════════════════════════════════════════ */
 const hxLvData=[
   {n:'Teori Masuknya',i:'Cocokkan <strong>teori</strong> dengan <strong>pendukung/intinya</strong>!',p:[
@@ -1166,72 +1266,58 @@ function lvDone(){
     hxUnlock=hxLv+2;renderHxTabs();
     const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
     Sound.correct();
-    modal('⭐',`Level ${hxLv+1} Selesai!`,`Kamu membuka <strong>Level ${hxLv+2}: ${hxLvData[hxLv+1].n}</strong>!`,null,list);
-    const next=$('#mNextBtn');next.hidden=false;next.innerHTML=`<i class="fas fa-arrow-right"></i> Lanjut ke Level ${hxLv+2}`;
-    $('#mReviewBtn').style.display='none';
+    modal('⭐',`Level ${hxLv+1} Selesai!`,`Kamu membuka <strong>Level ${hxLv+2}: ${hxLvData[hxLv+1].n}</strong>!`,list,`Lanjut ke Level ${hxLv+2}`,()=>{closeModal();hxLv++;renderHxTabs();loadHx(hxLv)});
   } else {
     markDone('histo',{score:hxOk});Sound.win();confetti();showAchievement('histo');
     const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
-    setTimeout(()=>modal('🏆','Misi Selesai!',`Selamat! Kamu menuntaskan 6 level Misi Kerajaan Hindu-Buddha!`,'Petualang Sejati 🏛️',list),1500);
+    setTimeout(()=>modal('🏆','Misi Selesai!',`Selamat! Kamu menuntaskan 6 level Misi Kerajaan Hindu-Buddha!`,list,null,null),1500);
   }
 }
-function hxNextLevel(){closeModal();hxLv++;renderHxTabs();loadHx(hxLv)}
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 4 : RODA WARISAN — BANK UNIK: 48 SOAL (6 × 8 KATEGORI)
-   Fokus: PEMAHAMAN konsep (C2-C3) — bukan hafalan, bukan HOTS
-   ═══════════════════════════════════════════════════════════════ */
+/* GAME 3 : RODA WARISAN — 48 SOAL */
 const WHEEL_BANK=[
-  // KATEGORI "TEORI" (6)
   {q:'Apa inti dari Teori Ksatria?',o:['Kaum Brahmana diundang penguasa lokal','Kaum bangsawan India mendirikan kerajaan','Pedagang India menetap','Orang Nusantara belajar ke India'],a:1,e:'Teori Ksatria: kaum bangsawan/ksatria India datang dan mendirikan kerajaan.',s:'C.C. Berg',cat:'Teori'},
   {q:'Siapa pendukung utama Teori Brahmana?',o:['N.J. Krom','J.C. van Leur','C.C. Berg','F.D.K. Bosch'],a:1,e:'J.C. van Leur — pendukung Teori Brahmana.',s:'J.C. van Leur',cat:'Teori'},
   {q:'Teori Arus Balik menyatakan Hindu-Buddha dibawa oleh...',o:['Pedagang Arab','Orang Nusantara yang belajar ke India','Biksu Tiongkok','Bangsawan India'],a:1,e:'Teori Arus Balik: orang Nusantara belajar ke India lalu menyebarkan kembali.',s:'F.D.K. Bosch',cat:'Teori'},
   {q:'Apa makna AKULTURASI dalam konteks Hindu-Buddha?',o:['Penolakan budaya asing','Percampuran dua budaya menghasilkan bentuk baru','Penghapusan budaya lokal','Pemisahan agama'],a:1,e:'Akulturasi: percampuran dua budaya yang menghasilkan bentuk baru tanpa menghilangkan ciri asli.',s:'Kuntowijoyo',cat:'Teori'},
   {q:'Teori Waisya menekankan peran...',o:['Kaum bangsawan','Kaum Brahmana','Pedagang India','Petani'],a:2,e:'Teori Waisya (N.J. Krom): Hindu-Buddha dibawa para pedagang India yang singgah dan menetap.',s:'N.J. Krom',cat:'Teori'},
   {q:'Mengapa teori masuknya Hindu-Buddha ada lebih dari satu?',o:['Karena tidak ada bukti','Karena bukti sejarah beragam & bisa dianalisis dari berbagai sisi','Karena sejarawan salah','Karena hanya satu yang benar'],a:1,e:'Setiap teori didukung bukti berbeda. Sejarah menganalisis dari berbagai sudut pandang.',s:'Metodologi Sejarah',cat:'Teori'},
-  // KATEGORI "AWAL" (6)
-  {q:'Kerajaan Hindu tertua di Indonesia adalah...',o:['Tarumanegara','Kutai','Sriwijaya','Kalingga'],a:1,e:'KUTAI (± 400 M) di Muara Kaman, Kalimantan Timur — kerajaan Hindu tertua.',s:'Prasasti Yupa',cat:'Awal'},
-  {q:'Berapa jumlah Prasasti Yupa yang ditemukan?',o:['3 buah','5 buah','7 buah','9 buah'],a:2,e:'7 buah Prasasti Yupa ditemukan di Muara Kaman.',s:'Museum Nasional Indonesia',cat:'Awal'},
+  {q:'Kerajaan Hindu tertua di Indonesia adalah...',o:['Tarumanegara','Kutai','Sriwijaya','Kalingga'],a:1,e:'KUTAI (± 400 M) di Muara Kaman, Kalimantan Timur.',s:'Prasasti Yupa',cat:'Awal'},
+  {q:'Berapa jumlah Prasasti Yupa yang ditemukan?',o:['3 buah','5 buah','7 buah','9 buah'],a:2,e:'7 buah Prasasti Yupa ditemukan di Muara Kaman.',s:'Museum Nasional',cat:'Awal'},
   {q:'Raja Tarumanegara yang membangun irigasi Sungai Gomati adalah...',o:['Mulawarman','Purnawarman','Aswawarman','Kudungga'],a:1,e:'PURNAWARMAN membangun irigasi Sungai Candrabhaga & Gomati.',s:'Prasasti Tugu',cat:'Awal'},
   {q:'Kerajaan Kalingga dipimpin oleh ratu bernama...',o:['Pramodhawardhani','Ratu Sima','Tribhuwana','Dyah Pitaloka'],a:1,e:'Ratu Sima — pemimpin Kalingga yang terkenal adil.',s:'Catatan I-Tsing',cat:'Awal'},
   {q:'Aliran Hindu yang dianut Kerajaan Kutai adalah...',o:['Wisnu','Siwa','Brahma','Buddha'],a:1,e:'Kutai menganut Hindu aliran SIWA.',s:'Prasasti Yupa',cat:'Awal'},
   {q:'Prasasti Tugu menceritakan tentang...',o:['Pernikahan raja','Penggalian sungai untuk irigasi','Pendirian candi','Perang besar'],a:1,e:'Prasasti Tugu: Purnawarman menggali Sungai Candrabhaga & Gomati untuk irigasi.',s:'Jakarta Utara',cat:'Awal'},
-  // KATEGORI "MELAYU" (6)
   {q:'Kerajaan Melayu Kuno terletak di daerah...',o:['Palembang','Jambi','Aceh','Medan'],a:1,e:'Melayu Kuno di JAMBI, tepi Sungai Batanghari.',s:'Prasasti Kedukan Bukit',cat:'Melayu'},
   {q:'Siapa raja pertama Melayu Kuno yang memimpin ekspansi besar?',o:['Balaputradewa','Dapunta Hyang','Mulawarman','Sanjaya'],a:1,e:'Dapunta Hyang Sri Jayanasa memimpin ekspansi besar Melayu Kuno.',s:'Prasasti Kedukan Bukit',cat:'Melayu'},
   {q:'Bahasa Melayu Kuno adalah nenek moyang dari bahasa...',o:['Sanskerta','Indonesia','Jawa Kuno','Arab'],a:1,e:'Bahasa Melayu Kuno → nenek moyang BAHASA INDONESIA.',s:'Prasasti Talang Tuo',cat:'Melayu'},
   {q:'Prasasti Talang Tuo menceritakan pembuatan...',o:['Candi Borobudur','Taman Sriksetra','Sungai Gomati','Ibu kota'],a:1,e:'Prasasti Talang Tuo (684 M): pembuatan Taman Sriksetra.',s:'Palembang',cat:'Melayu'},
   {q:'Setelah Sriwijaya runtuh, Melayu Kuno berdiri kembali sebagai...',o:['Kutai','Dharmasraya','Singasari','Kalingga'],a:1,e:'Melayu Kuno berdiri kembali sebagai DHARMASRAYA.',s:'Prasasti Padang Roco',cat:'Melayu'},
   {q:'Prasasti Padang Roco menyebut raja bernama...',o:['Dapunta Hyang','Srimat Tribhuwanaraja','Mulawarman','Kertanegara'],a:1,e:'Prasasti Padang Roco menyebut Raja Srimat Tribhuwanaraja.',s:'Dharmasraya',cat:'Melayu'},
-  // KATEGORI "SRIWIJAYA" (6)
   {q:'Sriwijaya mencapai puncak kejayaan sebagai...',o:['Kerajaan agraris','Kemaharajaan maritim','Kerajaan pegunungan','Kerajaan terisolasi'],a:1,e:'Sriwijaya — KEMAHARAJAAN MARITIM terbesar Nusantara.',s:'Prasasti Kedukan Bukit',cat:'Sriwijaya'},
   {q:'Pusat pemerintahan Sriwijaya berada di...',o:['Jambi','Palembang','Aceh','Medan'],a:1,e:'Pusat Sriwijaya di PALEMBANG.',s:'Prasasti Kedukan Bukit',cat:'Sriwijaya'},
   {q:'Wilayah otonom di bawah Sriwijaya disebut...',o:['Bhre','Kedatuan','Sapta Prabu','Rakai'],a:1,e:'KEDATUAN = wilayah otonom Sriwijaya dipimpin DATU.',s:'O.W. Wolters',cat:'Sriwijaya'},
   {q:'Bangsawan lokal pemimpin kedatuan Sriwijaya disebut...',o:['Bhre','Datu','Patih','Rakai'],a:1,e:'DATU = bangsawan lokal pemimpin kedatuan.',s:'O.W. Wolters',cat:'Sriwijaya'},
   {q:'Biksu Tiongkok yang mencatat kejayaan Sriwijaya adalah...',o:['Fa-Hien','I-Tsing','Xuanzang','Cheng Ho'],a:1,e:'I-TSING mencatat 1.000+ biksu belajar di Sriwijaya.',s:'Catatan I-Tsing',cat:'Sriwijaya'},
   {q:'Letak strategis Sriwijaya yang membuatnya menjadi kerajaan besar adalah...',o:['Di pegunungan tinggi','Menguasai Selat Malaka','Di tengah hutan','Di tepi Sungai Nil'],a:1,e:'Sriwijaya menguasai SELAT MALAKA — jalur perdagangan internasional.',s:'Prasasti Kedukan Bukit',cat:'Sriwijaya'},
-  // KATEGORI "MATARAM" (6)
   {q:'Candi Borobudur dibangun oleh Dinasti...',o:['Sanjaya','Syailendra','Isyana','Warmadewa'],a:1,e:'Borobudur dibangun Dinasti SYAILENDRA (Buddha Mahayana).',s:'UNESCO',cat:'Mataram'},
   {q:'Candi Prambanan dibangun oleh Raja...',o:['Sanjaya','Rakai Pikatan','Balaputradewa','Samaratungga'],a:1,e:'Prambanan dibangun Rakai Pikatan untuk Trimurti.',s:'UNESCO',cat:'Mataram'},
   {q:'Candi Buddha terbesar di dunia adalah...',o:['Mendut','Borobudur','Pawon','Kalasan'],a:1,e:'BOROBUDUR — 2.672 panel relief, 504 arca Buddha.',s:'UNESCO',cat:'Mataram'},
   {q:'Dinasti Syailendra menganut Buddha aliran...',o:['Hinayana','Mahayana','Theravada','Vajrayana'],a:1,e:'Dinasti Syailendra Buddha MAHAYANA.',s:'Prasasti Kalasan',cat:'Mataram'},
   {q:'Pernikahan Rakai Pikatan (Hindu) dengan Pramodhawardhani (Buddha) menjadi simbol...',o:['Konflik','Toleransi beragama','Perang','Pemisahan'],a:1,e:'Pernikahan ini simbol TOLERANSI BERAGAMA di Mataram Kuno.',s:'Prasasti Wantil',cat:'Mataram'},
   {q:'Kerajaan Kalingga terletak di daerah...',o:['Jawa Barat','Jawa Tengah (Jepara)','Jawa Timur','Sumatera'],a:1,e:'Kalingga di JAWA TENGAH (Jepara).',s:'Catatan I-Tsing',cat:'Mataram'},
-  // KATEGORI "SINGASARI" (6)
   {q:'Pendiri Kerajaan Singasari adalah...',o:['Ken Arok','Kertanegara','Jayakatwang','Raden Wijaya'],a:0,e:'KEN AROK mendirikan Singasari tahun 1222 M.',s:'Kitab Pararaton',cat:'Singasari'},
   {q:'Ekspedisi Pamalayu (1275 M) dikirim oleh raja...',o:['Ken Arok','Kertanegara','Hayam Wuruk','Jayabaya'],a:1,e:'KERTANEGARA mengirim Ekspedisi Pamalayu ke Sumatera.',s:'Kitab Negarakertagama',cat:'Singasari'},
   {q:'Raja Kediri yang terkenal dengan ramalannya adalah...',o:['Airlangga','Jayabaya','Kertanegara','Ken Arok'],a:1,e:'Raja JAYABAYA (1135-1159 M) — terkenal dengan Ramalan Jayabaya.',s:'Prasasti Ngantang',cat:'Singasari'},
   {q:'Raja Airlangga membagi kerajaannya menjadi...',o:['Kediri & Jenggala','Singasari & Majapahit','Mataram & Kediri','Kahuripan & Jenggala'],a:0,e:'Airlangga membagi Kahuripan menjadi KEDIRI & JENGGALA.',s:'Kitab Negarakertagama',cat:'Singasari'},
   {q:'Kitab Bharatayuddha ditulis oleh...',o:['Mpu Prapanca','Mpu Sedah & Mpu Panuluh','Mpu Tantular','Mpu Kanwa'],a:1,e:'Bharatayuddha ditulis Mpu Sedah & diselesaikan Mpu Panuluh.',s:'Kakawin Jawa Kuno',cat:'Singasari'},
   {q:'Singasari runtuh akibat pemberontakan yang dipimpin...',o:['Ken Arok','Kertanegara','Jayakatwang','Raden Wijaya'],a:2,e:'Jayakatwang memberontak dan menumbangkan Singasari (1292 M).',s:'Kitab Pararaton',cat:'Singasari'},
-  // KATEGORI "MAJAPAHIT" (6)
   {q:'Patih Majapahit yang mengucapkan Sumpah Palapa adalah...',o:['Hayam Wuruk','Gajah Mada','Mpu Prapanca','Raden Wijaya'],a:1,e:'GAJAH MADA mengucapkan Sumpah Palapa.',s:'Kitab Negarakertagama',cat:'Majapahit'},
   {q:'Kitab Negarakertagama ditulis oleh...',o:['Mpu Prapanca','Mpu Sedah','Mpu Panuluh','Mpu Kanwa'],a:0,e:'Negarakertagama ditulis MPU PRAPANCA (1365 M).',s:'Kakawin Jawa Kuno',cat:'Majapahit'},
   {q:'Pendiri Kerajaan Majapahit adalah...',o:['Ken Arok','Kertanegara','Raden Wijaya','Hayam Wuruk'],a:2,e:'RADEN WIJAYA (Kertarajasa) pendiri Majapahit 1293 M.',s:'Kitab Pararaton',cat:'Majapahit'},
   {q:'Dewan 7 penasihat raja Majapahit disebut...',o:['Bhre','Rakai','Sapta Prabu','Patih'],a:2,e:'SAPTA PRABU — dewan penasihat raja Majapahit.',s:'Kitab Negarakertagama',cat:'Majapahit'},
   {q:'Putra mahkota Majapahit disebut...',o:['Bhre','Yuwaraja','Rakai','Patih'],a:1,e:'YUWARAJA — putra mahkota Majapahit.',s:'Kitab Negarakertagama',cat:'Majapahit'},
   {q:'Perang Bubat (1357 M) melibatkan Majapahit dengan kerajaan...',o:['Sriwijaya','Sunda','Singasari','Kediri'],a:1,e:'Perang Bubat: konflik diplomatik Majapahit dan SUNDA.',s:'Kitab Pararaton',cat:'Majapahit'},
-  // KATEGORI "WARISAN" (6)
   {q:'Kata "raja", "putra", "guru" diserap dari bahasa...',o:['Arab','Sanskerta','Jawa','Melayu'],a:1,e:'Kata-kata ini dari SANSKERTA — warisan Hindu-Buddha.',s:'KBBI',cat:'Warisan'},
   {q:'Semboyan "Bhinneka Tunggal Ika" berasal dari kitab...',o:['Negarakertagama','Sutasoma','Pararaton','Ramayana'],a:1,e:'Sutasoma karya Mpu Tantular — sumber Bhinneka Tunggal Ika.',s:'Kakawin Jawa Kuno',cat:'Warisan'},
   {q:'Sistem irigasi tradisional Bali yang diakui UNESCO adalah...',o:['Subak','Sengkedan','Terrasering','Bendungan'],a:0,e:'SUBAK — sistem irigasi Bali, warisan dunia UNESCO.',s:'UNESCO',cat:'Warisan'},
@@ -1244,19 +1330,13 @@ const WHEEL_CATS=['Teori','Awal','Melayu','Sriwijaya','Mataram','Singasari','Maj
 const WHEEL_COLORS=['#3b82f6','#06b6d4','#8b5cf6','#f59e0b','#2563eb','#a78bfa','#22d3ee','#fbbf24'];
 let wRotation=0,wSpin=false,wCanvas,wAnswered=0,wCorrect=0,wPool=[];
 function initWheel(){
-  wCanvas=$('#wCanvas');
-  wRotation=0;
+  wCanvas=$('#wCanvas');wRotation=0;
   wCanvas.style.transition='none';wCanvas.style.transform='rotate(0deg)';void wCanvas.offsetWidth;
   wCanvas.style.transition='transform 4.2s cubic-bezier(.17,.67,.3,1)';
   drawWheelOnce();
-  wAnswered=0;wCorrect=0;
-  wPool=[];
-  WHEEL_CATS.forEach(cat=>{
-    const qs=WHEEL_BANK.filter(q=>q.cat===cat);
-    wPool.push({cat,questions:shuffle(qs)});
-  });
-  reviewData=[];hideDetail();
-  updateWheelScore();hideQ();
+  wAnswered=0;wCorrect=0;wPool=[];
+  WHEEL_CATS.forEach(cat=>{const qs=WHEEL_BANK.filter(q=>q.cat===cat);wPool.push({cat,questions:shuffle(qs)})});
+  reviewData=[];hideDetail();updateWheelScore();hideQ();
   const c=$('#wCenter');c.textContent='PUTAR';c.onclick=spin;
   startTimer('whTimer');
 }
@@ -1284,21 +1364,19 @@ let wCurCat=null;
 function spin(){
   if(wSpin)return;
   if(wAnswered>=WHEEL_TOTAL){notif('Selesai! Lihat hasilmu.','gold');return}
-  wSpin=true;hideQ();
-  Sound.spin();
+  wSpin=true;hideQ();Sound.spin();
   const idx=Math.floor(Math.random()*WHEEL_CATS.length);
   const segDeg=360/WHEEL_CATS.length;
   let targetR=-90-(idx*segDeg+segDeg/2);
   targetR=((targetR%360)+360)%360;
   const curNorm=((wRotation%360)+360)%360;
-  let delta=targetR-curNorm;
-  if(delta<0)delta+=360;
+  let delta=targetR-curNorm;if(delta<0)delta+=360;
   const turns=5+Math.floor(Math.random()*4);
   wRotation+=turns*360+delta;
   wCanvas.style.transform=`rotate(${wRotation}deg)`;
   $('#wCenter').textContent='...';
   wCurCat=WHEEL_CATS[idx];
-  setTimeout(()=>{wSpin=false;$('#wCenter').textContent='PUTAR';Sound.land();showQ();},4200);
+  setTimeout(()=>{wSpin=false;$('#wCenter').textContent='PUTAR';Sound.land();showQ()},4200);
 }
 let wCur=null,wAns=false;
 function showQ(){
@@ -1307,9 +1385,7 @@ function showQ(){
   let q=null;
   if(catEntry&&catEntry.questions.length>0){q=catEntry.questions.shift()}
   else{for(const entry of wPool){if(entry.questions.length>0){q=entry.questions.shift();break}}}
-  if(!q){
-    const allQ=WHEEL_BANK.filter(x=>x.cat===wCurCat);q=shuffle(allQ)[0];
-  }
+  if(!q){const allQ=WHEEL_BANK.filter(x=>x.cat===wCurCat);q=shuffle(allQ)[0]}
   const correctText=q.o[q.a];const shuffledOpts=shuffle(q.o);
   q={...q,o:shuffledOpts,a:shuffledOpts.indexOf(correctText)};
   wCur=q;wAns=false;
@@ -1343,47 +1419,44 @@ function ansW(i,btn){
       markDone('wheel',{score:wCorrect,total:WHEEL_TOTAL,acc:pct});
       if(pct>=70){Sound.win();confetti()}else Sound.lose();
       showAchievement('wheel');
-      setTimeout(()=>{modal(emoji,title,`Kamu menjawab benar ${wCorrect} dari ${WHEEL_TOTAL} soal (${pct}%)!`,'Pemutar Hebat 🎡');const c=$('#wCenter');c.textContent='ULANGI';c.onclick=initWheel;},400);
+      setTimeout(()=>{modal(emoji,title,`Kamu menjawab benar ${wCorrect} dari ${WHEEL_TOTAL} soal (${pct}%)!`,null,null,null);const c=$('#wCenter');c.textContent='ULANGI';c.onclick=initWheel},400);
     },4200);
   }
 }
 function hideQ(){$('#wQ').classList.remove('show');$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show')}
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 5 : JUTAWAN SEJARAH — BANK UNIK: 30 SOAL HOTS (C4-C5)
-   Fokus: ANALISIS & EVALUASI — bukan hafalan!
-   ═══════════════════════════════════════════════════════════════ */
+/* GAME 4 : JUTAWAN — 30 SOAL HOTS */
 const HOTS_BANK=[
-  {q:'Mengapa Sriwijaya lebih memilih menjadi kerajaan maritim dibanding agraris?',o:['Karena tidak punya lahan pertanian','Karena letaknya strategis di Selat Malaka','Karena dilarang kerajaan India','Karena tidak bisa bertani'],a:1,e:'Letak Sriwijaya di Selat Malaka memungkinkan kontrol jalur dagang internasional — lebih menguntungkan sebagai kerajaan maritim.',s:'Analisis Geografi Sejarah',cat:'Analisis'},
-  {q:'Mengapa kerajaan Kutai dianggap sebagai kerajaan Hindu tertua di Indonesia?',o:['Karena rajanya beragama Hindu','Karena memiliki prasasti tertulis tertua (Yupa) yang menyebut ritual Hindu','Karena terletak paling barat','Karena penduduknya banyak'],a:1,e:'Prasasti Yupa (400 M) adalah bukti tertulis tertua yang menunjukkan praktik Hindu (kurban sapi untuk Brahmana).',s:'Prasasti Yupa',cat:'Analisis'},
-  {q:'Apa perbedaan strategi pemerintahan Sriwijaya dan Majapahit?',o:['Sriwijaya feodal, Majapahit maritim','Sriwijaya federatif-maritim, Majapahit sentralistis-agraris','Keduanya sama','Keduanya agraris'],a:1,e:'Sriwijaya memakai sistem federasi kedatuan (maritim), Majapahit lebih sentralistis dengan Sapta Prabu & Bhre (agraris).',s:'Perbandingan Sistem Pemerintahan',cat:'Analisis'},
-  {q:'Mengapa Islam lebih mudah diterima masyarakat Nusantara dibanding Hindu-Buddha?',o:['Karena lebih kaya','Karena tidak mengenal kasta & disebarkan lewat perdagangan yang damai','Karena dipaksa raja','Karena lebih tua'],a:1,e:'Islam tidak mengenal sistem kasta, disebarkan secara damai oleh pedagang & ulama — cocok dengan masyarakat Nusantara.',s:'M.C. Ricklefs',cat:'Analisis'},
+  {q:'Mengapa Sriwijaya lebih memilih menjadi kerajaan maritim dibanding agraris?',o:['Karena tidak punya lahan pertanian','Karena letaknya strategis di Selat Malaka','Karena dilarang kerajaan India','Karena tidak bisa bertani'],a:1,e:'Letak Sriwijaya di Selat Malaka memungkinkan kontrol jalur dagang internasional.',s:'Analisis Geografi',cat:'Analisis'},
+  {q:'Mengapa kerajaan Kutai dianggap sebagai kerajaan Hindu tertua di Indonesia?',o:['Karena rajanya beragama Hindu','Karena memiliki prasasti tertulis tertua (Yupa) yang menyebut ritual Hindu','Karena terletak paling barat','Karena penduduknya banyak'],a:1,e:'Prasasti Yupa (400 M) adalah bukti tertulis tertua yang menunjukkan praktik Hindu.',s:'Prasasti Yupa',cat:'Analisis'},
+  {q:'Apa perbedaan strategi pemerintahan Sriwijaya dan Majapahit?',o:['Sriwijaya feodal, Majapahit maritim','Sriwijaya federatif-maritim, Majapahit sentralistis-agraris','Keduanya sama','Keduanya agraris'],a:1,e:'Sriwijaya sistem federasi kedatuan (maritim), Majapahit lebih sentralistis dengan Sapta Prabu & Bhre.',s:'Perbandingan Sistem',cat:'Analisis'},
+  {q:'Mengapa Islam lebih mudah diterima masyarakat Nusantara dibanding Hindu-Buddha?',o:['Karena lebih kaya','Karena tidak mengenal kasta & disebarkan lewat perdagangan yang damai','Karena dipaksa raja','Karena lebih tua'],a:1,e:'Islam tidak mengenal sistem kasta, disebarkan secara damai oleh pedagang & ulama.',s:'M.C. Ricklefs',cat:'Analisis'},
   {q:'Mengapa Borobudur dan Prambanan bisa dibangun berdekatan meski berbeda agama?',o:['Karena dipaksa raja','Karena adanya toleransi antara Dinasti Sanjaya (Hindu) & Syailendra (Buddha)','Karena kebetulan','Karena perang'],a:1,e:'Kedua dinasti hidup berdampingan secara damai, bahkan pernikahan Rakai Pikatan & Pramodhawardhani menjadi simbol toleransi.',s:'Prasasti Wantil',cat:'Analisis'},
   {q:'"Majapahit adalah cikal bakal NKRI." Evaluasi pernyataan ini.',o:['Salah, tidak ada kaitan','Benar, karena Sumpah Palapa & Bhinneka Tunggal Ika menginspirasi persatuan Indonesia','Salah, hanya mitos','Tidak dapat dievaluasi'],a:1,e:'Sumpah Palapa & Bhinneka Tunggal Ika dari Majapahit menginspirasi Sumpah Pemuda 1928 dan semboyan NKRI.',s:'Analisis Historis',cat:'Evaluasi'},
   {q:'Apa makna Sumpah Palapa bagi persatuan Indonesia modern?',o:['Tidak ada makna','Inspirasi semangat persatuan Nusantara yang mengilhami Sumpah Pemuda 1928','Hanya cerita rakyat','Bukti perang'],a:1,e:'Sumpah Palapa menginspirasi semangat persatuan yang kemudian tercermin dalam Sumpah Pemuda 1928.',s:'Analisis Historis',cat:'Evaluasi'},
-  {q:'Mengapa Ramalan Jayabaya tidak bisa disebut sebagai sumber sejarah ilmiah?',o:['Karena ditulis dalam bahasa asing','Karena bersifat mitos/ramalan yang tidak dapat diverifikasi, berbeda dari prasasti atau kitab sejarah','Karena tidak ada','Karena dilarang'],a:1,e:'Ramalan tidak dapat diverifikasi secara ilmiah. Sumber sejarah harus berdasarkan bukti yang bisa diuji.',s:'Metodologi Sejarah',cat:'Evaluasi'},
-  {q:'Mengapa Kerajaan Kutai bisa disebut "kerajaan", bukan sekadar "suku"?',o:['Karena banyak penduduk','Karena sudah memiliki sistem pemerintahan terstruktur, prasasti, & upacara keagamaan formal','Karena wilayah luas','Karena punya tentara'],a:1,e:'Adanya prasasti Yupa, silsilah raja (Kudungga-Aswawarman-Mulawarman), & upacara Hindu menunjukkan struktur kenegaraan.',s:'Prasasti Yupa',cat:'Analisis'},
+  {q:'Mengapa Ramalan Jayabaya tidak bisa disebut sebagai sumber sejarah ilmiah?',o:['Karena ditulis dalam bahasa asing','Karena bersifat mitos/ramalan yang tidak dapat diverifikasi','Karena tidak ada','Karena dilarang'],a:1,e:'Ramalan tidak dapat diverifikasi secara ilmiah. Sumber sejarah harus berdasarkan bukti yang bisa diuji.',s:'Metodologi Sejarah',cat:'Evaluasi'},
+  {q:'Mengapa Kerajaan Kutai bisa disebut "kerajaan", bukan sekadar "suku"?',o:['Karena banyak penduduk','Karena sudah memiliki sistem pemerintahan terstruktur, prasasti, & upacara keagamaan formal','Karena wilayah luas','Karena punya tentara'],a:1,e:'Adanya prasasti Yupa, silsilah raja, & upacara Hindu menunjukkan struktur kenegaraan.',s:'Prasasti Yupa',cat:'Analisis'},
   {q:'Apa dampak letak geografis Nusantara terhadap penyebaran Hindu-Buddha?',o:['Tidak ada dampak','Nusantara menjadi jalur persinggahan pedagang India-Tiongkok, mempercepat akulturasi','Menghambat penyebaran','Membuat terisolasi'],a:1,e:'Letak strategis antara India & Tiongkok menjadikan Nusantara tempat persinggahan & interaksi budaya.',s:'Analisis Geografi',cat:'Analisis'},
-  {q:'Mengapa Sutasoma dijadikan sumber semboyan "Bhinneka Tunggal Ika"?',o:['Karena ditulis raja','Karena mengajarkan toleransi Hindu-Buddha yang relevan untuk keberagaman Indonesia','Karena pendek','Karena berbahasa Sanskerta'],a:1,e:'Sutasoma mengajarkan "berbeda-beda tetapi tetap satu" dalam konteks Hindu-Buddha — relevan untuk Indonesia yang beragam.',s:'Kakawin Sutasoma',cat:'Evaluasi'},
-  {q:'Apa pelajaran penting dari Perang Bubat (1357 M)?',o:['Kekuatan militer menentukan segalanya','Pentingnya diplomasi yang setara & menghormati martabat pihak lain','Perang selalu benar','Tidak ada pelajaran'],a:1,e:'Perang Bubat mengajarkan pentingnya diplomasi yang menghormati martabat dan kesetaraan antara dua kerajaan.',s:'Kitab Pararaton',cat:'Evaluasi'},
+  {q:'Mengapa Sutasoma dijadikan sumber semboyan "Bhinneka Tunggal Ika"?',o:['Karena ditulis raja','Karena mengajarkan toleransi Hindu-Buddha yang relevan untuk keberagaman Indonesia','Karena pendek','Karena berbahasa Sanskerta'],a:1,e:'Sutasoma mengajarkan "berbeda-beda tetapi tetap satu" dalam konteks Hindu-Buddha.',s:'Kakawin Sutasoma',cat:'Evaluasi'},
+  {q:'Apa pelajaran penting dari Perang Bubat (1357 M)?',o:['Kekuatan militer menentukan segalanya','Pentingnya diplomasi yang setara & menghormati martabat pihak lain','Perang selalu benar','Tidak ada pelajaran'],a:1,e:'Perang Bubat mengajarkan pentingnya diplomasi yang menghormati martabat dan kesetaraan.',s:'Kitab Pararaton',cat:'Evaluasi'},
   {q:'Bagaimana caramu menganalisis keandalan Prasasti Yupa sebagai sumber sejarah?',o:['Percaya saja','Cek keaslian, konteks penemuan, bahasa, & bandingkan dengan sumber lain','Tidak perlu dianalisis','Hanya baca terjemahan'],a:1,e:'Analisis sumber sejarah: verifikasi keaslian, konteks, bahasa, dan bandingkan dengan sumber lain.',s:'Metodologi Sejarah',cat:'Analisis'},
   {q:'Mengapa sistem kasta Hindu tidak begitu kuat di Nusantara?',o:['Karena dilarang','Karena masyarakat Nusantara sudah memiliki struktur sosial sendiri sebelum Hindu masuk','Karena tidak paham','Karena tidak ada Brahmana'],a:1,e:'Masyarakat Nusantara sudah memiliki struktur sosial → Hindu berakulturasi, tidak menggantikan total.',s:'Akulturasi Nusantara',cat:'Analisis'},
-  {q:'Apa kontribusi terbesar Mpu Prapanca bagi sejarah Indonesia?',o:['Membangun candi','Mendokumentasikan Majapahit dalam Negarakertagama — sumber utama sejarah','Memimpin perang','Menjadi raja'],a:1,e:'Negarakertagama (1365 M) karya Mpu Prapanca menjadi sumber utama sejarah Majapahit.',s:'Kitab Negarakertagama',cat:'Evaluasi'},
+  {q:'Apa kontribusi terbesar Mpu Prapanca bagi sejarah Indonesia?',o:['Membangun candi','Mendokumentasikan Majapahit dalam Negarakertagama — sumber utama sejarah','Memimpin perang','Menjadi raja'],a:1,e:'Negarakertagama (1365 M) karya Mpu Prapanca menjadi sumber utama sejarah Majapahit.',s:'Negarakertagama',cat:'Evaluasi'},
   {q:'Mengapa sistem pemerintahan Sriwijaya & Majapahit berbeda meski sama-sama besar?',o:['Kebetulan','Karena perbedaan basis ekonomi: Sriwijaya maritim, Majapahit agraris','Karena raja berbeda','Karena agama berbeda'],a:1,e:'Basis ekonomi menentukan sistem pemerintahan: maritim → federasi kedatuan; agraris → sentralistis Sapta Prabu.',s:'Perbandingan Sistem',cat:'Analisis'},
   {q:'Bagaimana pengaruh Hindu-Buddha terhadap Bahasa Indonesia modern?',o:['Tidak ada','Ribuan kata serapan Sanskerta (raja, putra, guru, manusia) menjadi bagian Bahasa Indonesia','Merusak bahasa','Hanya di prasasti'],a:1,e:'Bahasa Indonesia memiliki ribuan kata serapan Sanskerta — warisan Hindu-Buddha.',s:'KBBI & Linguistik',cat:'Analisis'},
-  {q:'Apa relevansi nilai toleransi Mataram Kuno bagi Indonesia saat ini?',o:['Tidak relevan','Relevan: Hindu-Buddha bisa hidup damai → contoh untuk keberagaman agama di Indonesia','Hanya sejarah','Hanya mitos'],a:1,e:'Toleransi Sanjaya-Syailendra menjadi contoh historis untuk kerukunan beragama di Indonesia.',s:'Analisis Nilai',cat:'Evaluasi'},
+  {q:'Apa relevansi nilai toleransi Mataram Kuno bagi Indonesia saat ini?',o:['Tidak relevan','Relevan: Hindu-Buddha bisa hidup damai → contoh untuk keberagaman agama','Hanya sejarah','Hanya mitos'],a:1,e:'Toleransi Sanjaya-Syailendra menjadi contoh historis untuk kerukunan beragama di Indonesia.',s:'Analisis Nilai',cat:'Evaluasi'},
   {q:'Mengapa prasasti disebut sumber sejarah primer?',o:['Karena tua','Karena dibuat pada zamannya & menjadi bukti langsung peristiwa','Karena berbahasa Sanskerta','Karena ditemukan arkeolog'],a:1,e:'Prasasti dibuat pada masa peristiwa → sumber primer (first-hand).',s:'Metodologi Sejarah',cat:'Analisis'},
-  {q:'Bagaimana menilai apakah Majapahit benar-benar menguasai seluruh Nusantara?',o:['Percaya klaim','Bandingkan Negarakertagama dengan sumber luar & bukti arkeologis','Tidak perlu','Hanya baca buku teks'],a:1,e:'Klaim wilayah harus diverifikasi dengan sumber eksternal & bukti arkeologis — pendekatan historis kritis.',s:'Metodologi Sejarah',cat:'Evaluasi'},
+  {q:'Bagaimana menilai apakah Majapahit benar-benar menguasai seluruh Nusantara?',o:['Percaya klaim','Bandingkan Negarakertagama dengan sumber luar & bukti arkeologis','Tidak perlu','Hanya baca buku teks'],a:1,e:'Klaim wilayah harus diverifikasi dengan sumber eksternal & bukti arkeologis.',s:'Metodologi Sejarah',cat:'Evaluasi'},
   {q:'Apa peran kunci Selat Malaka bagi Sriwijaya?',o:['Tempat wisata','Jalur perdagangan internasional India-Tiongkok yang harus dikuasai','Sungai suci','Tidak penting'],a:1,e:'Selat Malaka = jalur dagang tersibuk. Menguasainya berarti menguasai ekonomi Asia Tenggara.',s:'Analisis Geografi',cat:'Analisis'},
   {q:'Mengapa Kerajaan Bali bisa tetap Hindu hingga kini?',o:['Karena dipaksa','Karena Bali mengembangkan identitas Hindu-Bali yang kuat & tidak ditaklukkan kerajaan Islam','Karena terisolasi','Karena tidak ada Islam'],a:1,e:'Bali mengembangkan identitas Hindu-Bali yang unik; kerajaan Islam tidak menaklukkan Bali secara permanen.',s:'Sejarah Bali',cat:'Analisis'},
   {q:'Apa sumbangan utama pujangga Nusantara bagi peradaban?',o:['Tidak ada','Mendokumentasikan sejarah & menciptakan karya sastra yang menjadi sumber sejarah & identitas budaya','Hanya hiburan','Hanya untuk raja'],a:1,e:'Pujangga seperti Mpu Prapanca, Tantular, Sedah, Panuluh — penjaga memori bangsa.',s:'Sejarah Sastra',cat:'Evaluasi'},
   {q:'Evaluasi: apakah Sumpah Palapa lebih bermakna simbolis atau politis?',o:['Hanya simbolis','Keduanya: simbolis (persatuan) & politis (legitimasi ekspansi Majapahit)','Hanya politis','Tidak bermakna'],a:1,e:'Sumpah Palapa bermakna ganda: simbol persatuan Nusantara & legitimasi politik ekspansi Gajah Mada.',s:'Analisis Historis',cat:'Evaluasi'},
   {q:'Apa dampak akulturasi Hindu-Buddha pada arsitektur masjid kuno?',o:['Tidak ada','Atap tumpang, gapura, & ornamen bergaya Hindu-Buddha pada masjid Demak & Kudus','Penghapusan semua','Pelarangan'],a:1,e:'Masjid Demak & Menara Kudus memiliki elemen Hindu-Buddha — contoh akulturasi berkelanjutan.',s:'Sejarah Akulturasi',cat:'Analisis'},
-  {q:'Mengapa penting mempelajari sistem pemerintahan kuno?',o:['Untuk nostalgia','Untuk memahami akar tradisi pemerintahan Indonesia & belajar dari kelebihan/kekurangannya','Tidak penting','Hanya tugas sekolah'],a:1,e:'Sistem Sapta Prabu Majapahit & kedatuan Sriwijaya mirip sistem modern Indonesia — relevan untuk pembelajaran.',s:'Analisis Historis',cat:'Evaluasi'},
-  {q:'Bagaimana sejarah Hindu-Buddha berkontribusi pada identitas Indonesia?',o:['Tidak berkontribusi','Memberikan warisan bahasa, sastra, seni, kalender, arsitektur, & semboyan negara','Hanya cerita masa lalu','Hanya untuk wisata'],a:1,e:'Warisan Hindu-Buddha: Bahasa Sanskerta, Bhinneka Tunggal Ika, Borobudur/Prambanan (UNESCO), subak, wayang — identitas Indonesia.',s:'Analisis Warisan',cat:'Evaluasi'},
+  {q:'Mengapa penting mempelajari sistem pemerintahan kuno?',o:['Untuk nostalgia','Untuk memahami akar tradisi pemerintahan Indonesia & belajar dari kelebihan/kekurangannya','Tidak penting','Hanya tugas sekolah'],a:1,e:'Sistem Sapta Prabu Majapahit & kedatuan Sriwijaya mirip sistem modern Indonesia.',s:'Analisis Historis',cat:'Evaluasi'},
+  {q:'Bagaimana sejarah Hindu-Buddha berkontribusi pada identitas Indonesia?',o:['Tidak berkontribusi','Memberikan warisan bahasa, sastra, seni, kalender, arsitektur, & semboyan negara','Hanya cerita masa lalu','Hanya untuk wisata'],a:1,e:'Warisan Hindu-Buddha: Bahasa Sanskerta, Bhinneka Tunggal Ika, Borobudur/Prambanan, subak, wayang.',s:'Analisis Warisan',cat:'Evaluasi'},
   {q:'Apa pelajaran dari keruntuhan Majapahit?',o:['Tidak ada','Perang saudara & perpecahan internal melemahkan kerajaan besar','Kekalahan militer','Bencana alam'],a:1,e:'Perang Paregreg (perang saudara) setelah Hayam Wuruk melemahkan Majapahit.',s:'Kitab Pararaton',cat:'Evaluasi'},
   {q:'Mengapa keberadaan candi di berbagai daerah membuktikan luasnya pengaruh Hindu-Buddha?',o:['Kebetulan','Candi = bukti fisik bahwa ajaran Hindu-Buddha diadopsi berbagai kerajaan lokal','Karena dibawa turis','Karena dulu satu negara'],a:1,e:'Candi di Sumatera, Jawa, Bali = bukti luasnya pengaruh Hindu-Buddha di Nusantara.',s:'Bukti Arkeologis',cat:'Analisis'},
-  {q:'Bagaimana peran seni sebagai media akulturasi Hindu-Buddha di Nusantara?',o:['Tidak berperan','Wayang, gamelan, & seni ukir mengadopsi kisah & estetika Hindu namun tetap bercita rasa lokal','Hanya dekorasi','Hanya untuk raja'],a:1,e:'Wayang & gamelan = contoh seni akulturasi — kisah Hindu (Ramayana/Mahabharata) dibalut estetika lokal.',s:'Sejarah Seni',cat:'Analisis'}
+  {q:'Bagaimana peran seni sebagai media akulturasi Hindu-Buddha di Nusantara?',o:['Tidak berperan','Wayang, gamelan, & seni ukir mengadopsi kisah & estetika Hindu namun tetap bercita rasa lokal','Hanya dekorasi','Hanya untuk raja'],a:1,e:'Wayang & gamelan = contoh seni akulturasi — kisah Hindu dibalut estetika lokal.',s:'Sejarah Seni',cat:'Analisis'}
 ];
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
@@ -1405,7 +1478,7 @@ function loadMl(){
     markDone('millionaire',{score:mlCorrectCount,total:MIL_TOTAL,acc:pct});
     if(pct>=70){Sound.win();confetti()}else Sound.lose();
     showAchievement('millionaire');
-    setTimeout(()=>modal(emoji,title,`Kamu menjawab benar ${mlCorrectCount} dari ${MIL_TOTAL} soal HOTS (${pct}%)!`,'Jutawan Sejarah 👑'),500);
+    setTimeout(()=>modal(emoji,title,`Kamu menjawab benar ${mlCorrectCount} dari ${MIL_TOTAL} soal HOTS (${pct}%)!`,null,null,null),500);
     return;
   }
   const q=mlSession[mlCur];
@@ -1435,10 +1508,7 @@ function useLL(t){
   else{const sure=Math.random()>0.15;const pick=sure?ok:[0,1,2,3].filter(i=>i!==ok)[Math.floor(Math.random()*3)];notif(`Temanmu menjawab: ${String.fromCharCode(65+pick)}`,'gold')}
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 6 : SUSUN KATA — 15 VOCABULARY UNIK
-   Fokus: KOSAKATA sejarah (nama kerajaan, kitab, konsep)
-   ═══════════════════════════════════════════════════════════════ */
+/* GAME 5 : SUSUN KATA — 15 VOCABULARY */
 const SCR_WORDS=[
   {w:'YUPA',h:'Tiang batu bertulis, peninggalan utama Kerajaan Kutai (7 buah).'},
   {w:'BOROBUDUR',h:'Candi Buddha terbesar di dunia, Warisan Dunia UNESCO.'},
@@ -1460,7 +1530,7 @@ let scrIdx=0,scrScore=0,scrCur=null,scrAnswered=false,scrSkipped=false,scrPlaced
 function resetScramble(){scrIdx=0;scrScore=0;scrSkipped=false;reviewData=[];$('#scrScore').textContent='0 / 15';$('#scrFb').className='fb center';startTimer('scrTimer');loadScramble()}
 function stopScrWordTimer(){if(scrWordTimerInt){clearInterval(scrWordTimerInt);scrWordTimerInt=null}}
 function startScrWordTimer(){stopScrWordTimer();scrWordTimeLeft=30;const el=$('#scrWordTimer');el.className='scr-timer';el.textContent='⏱ 30s';scrWordTimerInt=setInterval(()=>{if(scrAnswered){clearInterval(scrWordTimerInt);return}scrWordTimeLeft--;el.textContent='⏱ '+scrWordTimeLeft+'s';if(scrWordTimeLeft<=5){el.className='scr-timer danger';if(scrWordTimeLeft>0)Sound.tick()}if(scrWordTimeLeft<=0){clearInterval(scrWordTimerInt);scrWordTimeUp()}},1000)}
-function scrWordTimeUp(){if(scrAnswered)return;scrAnswered=true;const fb=$('#scrFb');fb.className='fb center show bad';fb.innerHTML=`⏱ Waktu habis! Jawaban: <b>${scrCur.w}</b>`;Sound.wrong();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,-1,`Jawaban benar: ${scrCur.w}`,'Glosarium Sejarah','(waktu habis)');setTimeout(()=>{scrIdx++;loadScramble()},1800)}
+function scrWordTimeUp(){if(scrAnswered)return;scrAnswered=true;const fb=$('#scrFb');fb.className='fb center show bad';fb.innerHTML=`⏱ Waktu habis! Jawaban: <b>${scrCur.w}</b>`;Sound.wrong();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,-1,`Jawaban benar: ${scrCur.w}`,'Glosarium','(waktu habis)');setTimeout(()=>{scrIdx++;loadScramble()},1800)}
 function loadScramble(){
   if(scrIdx>=SCR_WORDS.length){finishScramble();return}
   scrAnswered=false;scrCur=SCR_WORDS[scrIdx];scrPlaced=[];
@@ -1485,8 +1555,8 @@ function checkScramble(){
   if(!val)return;
   scrAnswered=true;stopScrWordTimer();
   const ok=val===scrCur.w;const fb=$('#scrFb');
-  if(ok){scrScore++;$('#scrScore').textContent=scrScore+' / 15';fb.className='fb center show good';fb.innerHTML=`✓ <b>Tepat!</b> Jawabannya <b>${scrCur.w}</b>. +100 poin!`;Sound.correct();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,0,`Jawaban benar: ${scrCur.w}`,'Glosarium Sejarah Hindu-Buddha');const dots=$$('#scrProg .scramble-dot');if(dots[scrIdx])dots[scrIdx].classList.add('ok')}
-  else{fb.className='fb center show bad';fb.innerHTML=`✗ Belum tepat. Jawaban: <b>${scrCur.w}</b>`;Sound.wrong();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,-1,`Jawaban benar: ${scrCur.w}`,'Glosarium Sejarah Hindu-Buddha',val)}
+  if(ok){scrScore++;$('#scrScore').textContent=scrScore+' / 15';fb.className='fb center show good';fb.innerHTML=`✓ <b>Tepat!</b> Jawabannya <b>${scrCur.w}</b>. +100 poin!`;Sound.correct();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,0,`Jawaban benar: ${scrCur.w}`,'Glosarium');const dots=$$('#scrProg .scramble-dot');if(dots[scrIdx])dots[scrIdx].classList.add('ok')}
+  else{fb.className='fb center show bad';fb.innerHTML=`✗ Belum tepat. Jawaban: <b>${scrCur.w}</b>`;Sound.wrong();pushReview(`Susun kata: "${scrCur.h}"`,[scrCur.w],0,-1,`Jawaban benar: ${scrCur.w}`,'Glosarium',val)}
   setTimeout(()=>{scrIdx++;loadScramble()},1800);
 }
 function skipScramble(){if(scrAnswered)return;scrAnswered=true;scrSkipped=true;stopScrWordTimer();const fb=$('#scrFb');fb.className='fb center show warn';fb.innerHTML=`⏭ Dilewati. Jawaban: <b>${scrCur.w}</b>`;Sound.tick();setTimeout(()=>{scrIdx++;loadScramble()},1400)}
@@ -1498,13 +1568,10 @@ function finishScramble(){
   markDone('scramble',{score:scrScore,total:15,acc:pct,noSkip:!scrSkipped});
   if(pct>=70){Sound.win();confetti()}else Sound.lose();
   showAchievement('scramble');
-  setTimeout(()=>modal(emoji,title,`Kamu menyusun ${scrScore} dari 15 kata sejarah dengan benar (${pct}%)!`,'Ahli Kata 🔤'),500);
+  setTimeout(()=>modal(emoji,title,`Kamu menyusun ${scrScore} dari 15 kata sejarah dengan benar (${pct}%)!`,null,null,null),500);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 7 : TEBAK EMOJI — 14 SOAL VISUAL UNIK
-   Fokus: IDENTIFIKASI peninggalan/peristiwa dari clue visual
-   ═══════════════════════════════════════════════════════════════ */
+/* GAME 6 : TEBAK EMOJI — 14 SOAL */
 const EMOJI_DATA=[
   {e:'📜🔱👑',h:'Tiang batu bertulis dari Kutai, sumber sejarah tertua Indonesia.',o:['Yupa','Ciaruteun','Tugu','Kedukan Bukit'],a:0,ex:'Yupa — 7 buah di Muara Kaman, Kaltim (400 M).'},
   {e:'🛕☸️🙏',h:'Candi Buddha terbesar dunia, 2.672 panel relief, 504 arca Buddha.',o:['Borobudur','Prambanan','Mendut','Kalasan'],a:0,ex:'Borobudur — Dinasti Syailendra abad ke-9 M. UNESCO 1991.'},
@@ -1549,8 +1616,8 @@ function ansEmoji(btn,correct){
   emoAnswered=true;clearInterval(emoTimerInt);
   $$('#emoOpts .emoji-opt').forEach(b=>b.disabled=true);
   const fb=$('#emoFb');
-  if(correct){btn.classList.add('ok');emoScore++;$('#emoScore').textContent=emoScore+' / 14';fb.className='fb show good';fb.innerHTML='✓ <b>Benar!</b> '+emoCur.ex;Sound.correct();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,0,emoCur.ex,'Glosarium Sejarah')}
-  else{btn.classList.add('no');$$('#emoOpts .emoji-opt').forEach(b=>{if(b.textContent.includes(emoCur.o[emoCur.a]))b.classList.add('ok')});fb.className='fb show bad';fb.innerHTML=`✗ Salah. Jawaban: <b>${emoCur.o[emoCur.a]}</b>. ${emoCur.ex}`;Sound.wrong();shakeScreen();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,-1,emoCur.ex,'Glosarium Sejarah',btn.textContent)}
+  if(correct){btn.classList.add('ok');emoScore++;$('#emoScore').textContent=emoScore+' / 14';fb.className='fb show good';fb.innerHTML='✓ <b>Benar!</b> '+emoCur.ex;Sound.correct();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,0,emoCur.ex,'Glosarium')}
+  else{btn.classList.add('no');$$('#emoOpts .emoji-opt').forEach(b=>{if(b.textContent.includes(emoCur.o[emoCur.a]))b.classList.add('ok')});fb.className='fb show bad';fb.innerHTML=`✗ Salah. Jawaban: <b>${emoCur.o[emoCur.a]}</b>. ${emoCur.ex}`;Sound.wrong();shakeScreen();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,-1,emoCur.ex,'Glosarium',btn.textContent)}
   setTimeout(()=>{emoIdx++;loadEmoji()},2200);
 }
 function timeUpEmoji(){
@@ -1558,7 +1625,7 @@ function timeUpEmoji(){
   emoAnswered=true;
   $$('#emoOpts .emoji-opt').forEach(b=>{b.disabled=true;if(b.textContent.includes(emoCur.o[emoCur.a]))b.classList.add('ok')});
   const fb=$('#emoFb');fb.className='fb show bad';fb.innerHTML=`⏱ Waktu habis! Jawaban: <b>${emoCur.o[emoCur.a]}</b>.`;
-  Sound.wrong();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,-1,emoCur.ex,'Glosarium Sejarah','(waktu habis)');
+  Sound.wrong();pushReview(`Tebak dari emoji ${emoCur.e}`,[emoCur.o[emoCur.a]],0,-1,emoCur.ex,'Glosarium','(waktu habis)');
   setTimeout(()=>{emoIdx++;loadEmoji()},2200);
 }
 function finishEmoji(){
@@ -1568,13 +1635,10 @@ function finishEmoji(){
   markDone('emoji',{score:emoScore,total:14,acc:pct});
   if(pct>=70){Sound.win();confetti()}else Sound.lose();
   showAchievement('emoji');
-  setTimeout(()=>modal(emoji,title,`Kamu menjawab benar ${emoScore} dari 14 emoji (${pct}%)!`,'Detektif Visual 😀'),500);
+  setTimeout(()=>modal(emoji,title,`Kamu menjawab benar ${emoScore} dari 14 emoji (${pct}%)!`,null,null,null),500);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GAME 8 : RODA TANTANGAN — BANK UNIK: 24 SOAL CEPAT
-   Fokus: SOAL SINGKAT dengan efek roda (bonus, ×2, ×3, JACKPOT)
-   ═══════════════════════════════════════════════════════════════ */
+/* GAME 7 : RODA TANTANGAN — 24 SOAL CEPAT */
 const FT_BANK=[
   {q:'Prasasti peninggalan Kutai:',o:['Yupa','Tugu','Ciaruteun','Talang Tuo'],a:0,e:'Yupa — 7 buah, sumber sejarah tertua.',s:'Prasasti Yupa',cat:'Fakta'},
   {q:'Candi Buddha terbesar dunia:',o:['Borobudur','Prambanan','Mendut','Pawon'],a:0,e:'Borobudur — 2.672 relief, UNESCO.',s:'UNESCO',cat:'Fakta'},
@@ -1617,12 +1681,10 @@ function pickFtQuestions(n){const picked=shuffle(FT_BANK).slice(0,Math.min(n,FT_
 function resetFortune(){
   ftSpins=0;ftPoints=0;ftCorrect=0;
   ftSession=pickFtQuestions(20);reviewData=[];hideDetail();
-  ftCanvas=$('#ftCanvas');
-  ftRotation=0;
+  ftCanvas=$('#ftCanvas');ftRotation=0;
   ftCanvas.style.transition='none';ftCanvas.style.transform='rotate(0deg)';void ftCanvas.offsetWidth;
   ftCanvas.style.transition='transform 3.8s cubic-bezier(.17,.67,.3,1)';
-  drawFortuneOnce();
-  updateFortuneStats();
+  drawFortuneOnce();updateFortuneStats();
   $('#ftStatus').classList.remove('show');$('#ftQuiz').classList.remove('show');
   $('#ftCenter').innerHTML='<i class="fas fa-dice"></i>PUTAR';
   $('#ftCenter').onclick=spinFortune;
@@ -1659,8 +1721,7 @@ function spinFortune(){
   let targetR=-90-(idx*segDeg+segDeg/2);
   targetR=((targetR%360)+360)%360;
   const curNorm=((ftRotation%360)+360)%360;
-  let delta=targetR-curNorm;
-  if(delta<0)delta+=360;
+  let delta=targetR-curNorm;if(delta<0)delta+=360;
   const turns=5+Math.floor(Math.random()*3);
   ftRotation+=turns*360+delta;
   ftCanvas.style.transform=`rotate(${ftRotation}deg)`;
@@ -1713,11 +1774,11 @@ function finishFortune(){
   const maxPts=12*500;
   const pct=Math.min(100,Math.round(ftPoints/maxPts*100));
   let emoji='🎲',title='Selesai!';
-  if(ftPoints>=2000){emoji='💎',title='JUTAWAN FORTUNE!'}else if(ftPoints>=1200){emoji='👑',title='Luar Biasa!'}else if(ftPoints>=700){emoji='🌟',title='Hebat!'}else if(ftPoints>=300){emoji='👍';title='Bagus!'}else{emoji='📚';title='Coba Lagi!'}
+  if(ftPoints>=2000){emoji='💎';title='JUTAWAN FORTUNE!'}else if(ftPoints>=1200){emoji='👑';title='Luar Biasa!'}else if(ftPoints>=700){emoji='🌟';title='Hebat!'}else if(ftPoints>=300){emoji='👍';title='Bagus!'}else{emoji='📚';title='Coba Lagi!'}
   markDone('fortune',{score:ftPoints,acc:pct});
   if(ftPoints>=600){Sound.win();confetti()}else Sound.lose();
   showAchievement('fortune');
-  setTimeout(()=>modal(emoji,title,`Total poinmu: ${ftPoints} (${ftCorrect} soal benar dari 12 putaran)!`,'Pemburu Fortune 🎲'),500);
+  setTimeout(()=>modal(emoji,title,`Total poinmu: ${ftPoints} (${ftCorrect} soal benar dari 12 putaran)!`,null,null,null),500);
 }
 
 /* KEYBOARD */
@@ -1732,7 +1793,7 @@ document.addEventListener('keydown',e=>{
     const detCols=activeGame.querySelectorAll('.det-col');
     if(woOpts[idx]){woOpts[idx].click();e.preventDefault()}
     else if(moOpts[idx]){moOpts[idx].click();e.preventDefault()}
-    else if(detCols[idx]&&(detSel||tlSel)){detCols[idx].click();e.preventDefault()}
+    else if(detCols[idx]&&klSel){detCols[idx].click();e.preventDefault()}
   }
   if(e.key==='Enter'||e.key===' '){
     const wc=$('#wCenter');const fc=$('#ftCenter');
