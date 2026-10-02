@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="format-detection" content="telephone=no"/>
-<meta name="description" content="MISI 1: Memahami Prinsip Ilmu Sejarah — Game pembelajaran interaktif Sejarah Kelas X Fase E."/>
+<meta name="description" content="MISI 1: Memahami Prinsip Ilmu Sejarah — Game pembelajaran interaktif Sejarah Kelas X Fase E. Tersinkronisasi dengan Modul Premium."/>
 <meta name="theme-color" content="#2563eb"/>
 <title>MISI 1 : Memahami Prinsip Ilmu Sejarah</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 /* ============================================================
-   RESET & ROOT — MOBILE FIRST
+   RESET & ROOT — MOBILE FIRST PREMIUM
    ============================================================ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -58,9 +58,6 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none}
 input,textarea,select{font-family:inherit;font-size:16px}
 img,canvas,svg{max-width:100%;height:auto}
 
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
 @keyframes gradFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @keyframes loadPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes loadSlide{0%{left:-40%}100%{left:100%}}
@@ -90,9 +87,6 @@ img,canvas,svg{max-width:100%;height:auto}
 @keyframes jjPulse{50%{transform:scale(1.02)}}
 @keyframes countdownShrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
-/* ============================================================
-   LOADING
-   ============================================================ */
 #loader{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:linear-gradient(160deg,#eef4ff,#f7f9ff 45%,#eaf1ff);transition:opacity .6s ease,visibility .6s ease;padding:20px}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .loader-logo{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:var(--grad-premium);background-size:300% 300%;animation:gradFlow 3s ease infinite,loadPulse 2s ease-in-out infinite;box-shadow:0 20px 50px rgba(37,99,235,.4);font-size:2rem;color:#fff;position:relative}
@@ -102,14 +96,8 @@ img,canvas,svg{max-width:100%;height:auto}
 .loader-bar::after{content:'';position:absolute;inset:0;width:40%;border-radius:99px;background:var(--grad-premium);background-size:300% 100%;animation:loadSlide 1.4s ease-in-out infinite,gradFlow 2s linear infinite}
 .loader-sub{font-size:.68rem;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;text-align:center}
 
-/* ============================================================
-   SCROLL BAR
-   ============================================================ */
 #scrollBar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:9999;background:var(--grad-premium);background-size:300% 100%;animation:gradFlow 3s linear infinite;box-shadow:0 0 14px rgba(37,99,235,.6);transition:width .15s linear;pointer-events:none}
 
-/* ============================================================
-   ORBS & AURORA
-   ============================================================ */
 .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-2;filter:blur(60px);opacity:.4;will-change:transform;animation:orbFloat 20s ease-in-out infinite}
 .orb.o1{width:280px;height:280px;background:radial-gradient(circle,#2563eb,transparent 70%);top:8%;left:-120px}
 .orb.o2{width:240px;height:240px;background:radial-gradient(circle,#06b6d4,transparent 70%);top:38%;right:-100px;animation-delay:-6s}
@@ -122,9 +110,6 @@ img,canvas,svg{max-width:100%;height:auto}
 #bgCanvas{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:2500}
 
-/* ============================================================
-   SCREEN LAYOUT — MOBILE FIRST
-   ============================================================ */
 .screen{
   display:none;
   min-height:100vh;
@@ -134,9 +119,6 @@ img,canvas,svg{max-width:100%;height:auto}
 }
 .screen.active{display:block;animation:screenIn .5s ease}
 
-/* ============================================================
-   TOPBAR — MOBILE OPTIMIZED
-   ============================================================ */
 .topbar{
   display:flex;justify-content:center;gap:6px;margin-bottom:10px;flex-wrap:wrap;
   padding-top:var(--safe-top);
@@ -153,9 +135,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .tb-btn i{font-size:.82rem}
 .tb-btn .count{background:rgba(245,158,11,.18);color:#b45309;padding:1px 6px;border-radius:10px;font-size:.64rem}
 
-/* ============================================================
-   HERO — MOBILE FIRST
-   ============================================================ */
 .hero{text-align:center;padding:14px 0 22px;position:relative}
 .hero-title{
   font-size:clamp(1.15rem,4.8vw,2.6rem);font-weight:800;line-height:1.15;letter-spacing:-.5px;
@@ -185,9 +164,6 @@ img,canvas,svg{max-width:100%;height:auto}
 }
 .stat-lbl{font-size:.68rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-top:5px}
 
-/* ============================================================
-   DAILY FACT
-   ============================================================ */
 .daily-fact{
   max-width:720px;margin:18px auto 0;padding:14px 16px;border-radius:16px;
   background:linear-gradient(135deg,rgba(254,243,199,.8),rgba(253,230,138,.55));
@@ -201,9 +177,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .daily-fact .txt{font-size:.8rem;color:#78350f;line-height:1.55;font-weight:500;position:relative}
 .daily-fact .txt b{color:#92400e;font-weight:800}
 
-/* ============================================================
-   PROGRESS
-   ============================================================ */
 .progress-wrap{
   max-width:560px;margin:20px auto 0;padding:14px 16px;
   background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -221,9 +194,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .reset-progress button{background:transparent;border:1.5px dashed rgba(37,99,235,.4);color:var(--blue);padding:8px 14px;border-radius:20px;font-size:.72rem;cursor:pointer;transition:all .3s;font-weight:700;font-family:inherit;min-height:40px}
 .reset-progress button:active{background:var(--blue);color:#fff;border-style:solid;border-color:var(--blue)}
 
-/* ============================================================
-   GAME GRID — MOBILE FIRST (1 col HP kecil, 2 col HP besar)
-   ============================================================ */
 .game-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
 .gc{
   position:relative;border-radius:18px;padding:20px 18px;
@@ -251,9 +221,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .gc-dif.med{background:rgba(245,158,11,.18);color:#b45309}
 .gc-dif.hard{background:rgba(239,68,68,.15);color:var(--red2)}
 
-/* ============================================================
-   GAME HEADER — MOBILE FIRST
-   ============================================================ */
 .gh{
   display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:14px;
   background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -278,9 +245,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .pill.cyan{background:linear-gradient(135deg,var(--cyan),var(--purple))}
 .pill.timer{background:linear-gradient(135deg,#2563eb,#3b82f6);font-variant-numeric:tabular-nums}
 
-/* ============================================================
-   INSTRUCTION — MOBILE FIRST
-   ============================================================ */
 .inst{
   padding:13px 14px;margin-bottom:16px;
   background:linear-gradient(115deg,rgba(239,246,255,.98),rgba(236,254,255,.95));
@@ -302,9 +266,6 @@ img,canvas,svg{max-width:100%;height:auto}
 }
 .btn-mini:active{background:var(--blue);color:#fff;border-color:var(--blue)}
 
-/* ============================================================
-   DETECTIVE BOARD — MOBILE FIRST (1 column)
-   ============================================================ */
 .det-board{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px}
 .det-col{
   padding:14px 12px;min-height:auto;
@@ -339,9 +300,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .det-col .src{margin-bottom:8px;cursor:default;font-size:.78rem;padding:8px 10px;text-align:left;justify-content:flex-start}
 .det-col .col-inner{display:flex;flex-direction:column;gap:6px}
 
-/* ============================================================
-   MATCHING GAME
-   ============================================================ */
 .lv-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px}
 .lv-tab{
   padding:12px 10px;border-radius:12px;background:#fff;
@@ -369,9 +327,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .mi.done::after{content:'✓';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:800;font-size:1.05rem;animation:popCheck .4s var(--ease)}
 .mi.err{animation:shake .4s;border-color:var(--red);background:rgba(239,68,68,.1)}
 
-/* ============================================================
-   DETAIL PANEL — MOBILE FIRST (bottom sheet)
-   ============================================================ */
 .detail-panel{
   position:fixed;bottom:0;left:0;right:0;
   transform:translateY(110%);
@@ -407,9 +362,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .detail-panel .countdown .fill{height:100%;width:100%;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));transform-origin:left;transform:scaleX(0);display:none}
 .detail-panel.auto .countdown .fill{display:block;animation:countdownShrink 3s linear forwards}
 
-/* ============================================================
-   WHEEL — MOBILE FIRST
-   ============================================================ */
 .ww{display:flex;flex-direction:column;align-items:center;gap:18px}
 .wh{position:relative;width:min(340px,88vw);height:min(340px,88vw)}
 .wpointer{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:2rem;color:var(--blue);z-index:10;filter:drop-shadow(0 6px 14px rgba(37,99,235,.4));animation:pointerBob 1.5s ease-in-out infinite}
@@ -458,9 +410,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .wq-actions.show{display:flex;animation:explainIn .5s var(--ease)}
 .wq-actions .btn{width:100%;justify-content:center}
 
-/* ============================================================
-   MILLIONAIRE — MOBILE FIRST
-   ============================================================ */
 .ml{display:grid;grid-template-columns:1fr;gap:16px}
 .mtree{
   display:flex;flex-direction:row;gap:6px;padding:10px;
@@ -508,9 +457,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .ll:active:not(:disabled){transform:scale(.95)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-/* ============================================================
-   MODAL — BOTTOM SHEET ON MOBILE
-   ============================================================ */
 .modal{
   position:fixed;inset:0;background:rgba(15,42,110,.55);display:none;justify-content:center;align-items:flex-end;
   z-index:2000;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:0;
@@ -560,9 +506,6 @@ img,canvas,svg{max-width:100%;height:auto}
 #mNextBtn{animation:nextPulse 1.6s ease-in-out infinite;font-size:.9rem;padding:15px 24px}
 #mNextBtn[hidden]{display:none!important}
 
-/* ============================================================
-   REVIEW
-   ============================================================ */
 .rv-list{text-align:left;max-height:55vh;overflow-y:auto;padding:2px;margin-bottom:14px;flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch}
 .rv-item{padding:12px 14px;border-radius:12px;margin-bottom:9px;background:#f8fbff;border:1.5px solid rgba(37,99,235,.15);font-size:.8rem}
 .rv-item.ok{border-left:4px solid var(--green);background:rgba(16,185,129,.05)}
@@ -575,9 +518,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .rv-item .re b{color:var(--blue)}
 .rv-item .src{font-size:.68rem;color:var(--muted);font-style:italic;margin-top:5px;padding-top:5px;border-top:1px dashed rgba(37,99,235,.1);word-break:break-word}
 
-/* ============================================================
-   ACHIEVEMENTS
-   ============================================================ */
 .ach-grid{display:grid;grid-template-columns:1fr;gap:10px;text-align:left;flex:1 1 auto;min-height:0;overflow-y:auto;margin-bottom:6px;-webkit-overflow-scrolling:touch}
 .ach{padding:14px 12px;border-radius:13px;background:#f8fbff;border:1.5px solid rgba(37,99,235,.15);display:flex;gap:10px;align-items:center;transition:all .3s}
 .ach.unlocked{background:linear-gradient(135deg,rgba(254,243,199,.6),rgba(253,230,138,.4));border-color:rgba(217,119,6,.4);box-shadow:0 6px 18px rgba(217,119,6,.1);position:relative;overflow:hidden}
@@ -587,9 +527,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .ach .ds{font-size:.68rem;color:var(--muted);line-height:1.35;margin-top:3px}
 .ach.unlocked .nm{color:#b45309}
 
-/* ============================================================
-   GLOSSARY
-   ============================================================ */
 .gl-list{text-align:left;max-height:60vh;overflow-y:auto;padding:2px;flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch}
 .gl-item{padding:12px 13px;border-radius:12px;margin-bottom:9px;background:#f8fbff;border:1px solid rgba(37,99,235,.15);transition:all .25s}
 .gl-item .term{font-weight:900;color:var(--blue);font-size:.85rem;margin-bottom:5px;display:flex;align-items:center;gap:6px;line-height:1.25}
@@ -597,9 +534,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .gl-item .def{font-size:.78rem;color:var(--muted2);line-height:1.55;word-break:break-word}
 .gl-item .def b{color:var(--ink2);font-weight:700}
 
-/* ============================================================
-   NOTIFICATIONS
-   ============================================================ */
 .nf{
   position:fixed;top:calc(16px + var(--safe-top));left:50%;
   transform:translateX(-50%) translateY(-140px);
@@ -633,9 +567,6 @@ img,canvas,svg{max-width:100%;height:auto}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan),var(--purple));border-radius:8px}
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .footer{margin-top:32px;padding:18px 14px calc(18px + var(--safe-bottom));text-align:center;font-size:.72rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.15);position:relative;z-index:1}
 .footer .sch{font-weight:900;color:var(--blue);letter-spacing:1.5px;font-size:.76rem;margin-bottom:6px;line-height:1.3}
 .credit-wrap{
@@ -660,9 +591,6 @@ img,canvas,svg{max-width:100%;height:auto}
 .footer .credo{margin-top:10px;font-size:.68rem;font-style:italic;color:var(--muted);opacity:.85}
 .footer b{color:var(--ink2)}
 
-/* ============================================================
-   GAME 6 — JEJAK SEJARAWAN
-   ============================================================ */
 .jj-stats{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px}
 .jj-stat{
   padding:12px 14px;background:var(--card);
@@ -734,16 +662,12 @@ img,canvas,svg{max-width:100%;height:auto}
 .jj-score-card .sc-val{font-size:1.4rem;font-weight:900;color:var(--blue);line-height:1}
 .jj-score-card .sc-lbl{font-size:.66rem;color:var(--muted);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-top:5px}
 
-/* ============================================================
-   RIPPLE
-   ============================================================ */
 .ripple{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.8),rgba(255,255,255,0) 70%);transform:scale(0);animation:rippleAnim .7s ease-out;z-index:1}
 
 /* ============================================================
-   MEDIA QUERIES — MOBILE-FIRST (UPWARD)
+   MEDIA QUERIES — FULL RESPONSIVE
    ============================================================ */
-
-/* HP Sedang (≥ 400px) — 2 kolom untuk grid */
+@media(min-width:360px){.game-grid{grid-template-columns:1fr}}
 @media(min-width:400px){
   .game-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .gc{padding:16px 14px;min-height:170px;border-radius:16px}
@@ -762,8 +686,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .ach-grid{grid-template-columns:repeat(2,1fr)}
   .lls{grid-template-columns:repeat(3,1fr)}
 }
-
-/* HP Besar (≥ 540px) */
 @media(min-width:540px){
   .topbar{justify-content:flex-end}
   .hero-stats{grid-template-columns:repeat(4,1fr);gap:14px}
@@ -789,8 +711,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .jj-rank-banner .rk-txt{text-align:left}
   .jj-choice{padding:16px}
 }
-
-/* Tablet (≥ 768px) */
 @media(min-width:768px){
   html{font-size:17px}
   .screen{padding:calc(20px + var(--safe-top)) 22px calc(50px + var(--safe-bottom))}
@@ -862,8 +782,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .credit-wrap .name{font-size:1.25rem}
   .footer .credo{font-size:.72rem}
 }
-
-/* Desktop (≥ 1024px) */
 @media(min-width:1024px){
   html{font-size:16px}
   .screen{max-width:1180px;padding:90px 26px 70px}
@@ -877,8 +795,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .wh{width:min(460px,90vw);height:min(460px,90vw)}
   .ml{grid-template-columns:1fr 230px;gap:22px}
 }
-
-/* Desktop Besar (≥ 1440px) */
 @media(min-width:1440px){
   html{font-size:17px}
   .screen{max-width:1380px}
@@ -887,8 +803,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .gc h3{font-size:1.15rem}
   .gc-icon{font-size:2.7rem}
 }
-
-/* Ultrawide (≥ 1920px) */
 @media(min-width:1920px){
   html{font-size:18px}
   .screen{max-width:1600px;padding:100px 40px 90px}
@@ -896,8 +810,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .modal-box{max-width:720px}
   .modal-box.wide{max-width:980px}
 }
-
-/* HP Sangat Kecil (≤ 340px) */
 @media(max-width:340px){
   html{font-size:14px}
   .screen{padding:calc(14px + var(--safe-top)) 10px calc(24px + var(--safe-bottom))}
@@ -911,7 +823,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .gc{padding:14px 12px;min-height:140px}
   .gc h3{font-size:.82rem}
   .gc p{font-size:.68rem}
-  .hunt-grid{grid-template-columns:repeat(2,1fr)}
   .icon-btn{width:38px;height:38px;min-width:38px;font-size:.82rem}
   .pill{padding:7px 10px;font-size:.66rem}
   .src{padding:11px 12px;font-size:.78rem;min-height:48px}
@@ -924,8 +835,6 @@ img,canvas,svg{max-width:100%;height:auto}
   .modal-emoji{font-size:2.4rem}
   .modal-box h2{font-size:.95rem}
 }
-
-/* Landscape HP (tinggi ≤ 520px) */
 @media(max-height:520px) and (orientation:landscape){
   .screen{padding:calc(52px + var(--safe-top)) 12px calc(20px + var(--safe-bottom))}
   .topbar{top:calc(4px + var(--safe-top))}
@@ -980,16 +889,12 @@ img,canvas,svg{max-width:100%;height:auto}
   .jj-stat{padding:9px 11px}
   .footer{margin-top:20px;padding:12px 12px calc(12px + var(--safe-bottom))}
 }
-
-/* Landscape HP sangat pendek (≤ 400px height) */
 @media(max-height:400px) and (orientation:landscape){
   .screen{padding:calc(46px + var(--safe-top)) 12px calc(16px + var(--safe-bottom))}
   .inst{display:none}
   .mtree{flex-direction:row;overflow-x:auto}
   .wh{width:min(240px,50vw);height:min(240px,50vw)}
 }
-
-/* Foldable sangat sempit (≤ 320px) */
 @media(max-width:320px){
   .topbar{gap:4px}
   .tb-btn{padding:6px 8px;font-size:.62rem;min-height:34px}
@@ -998,17 +903,9 @@ img,canvas,svg{max-width:100%;height:auto}
   .game-grid{grid-template-columns:1fr}
   .gc{padding:12px 12px;min-height:130px}
 }
-
-/* ============================================================
-   PREFERS-REDUCED-MOTION
-   ============================================================ */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
-
-/* ============================================================
-   PRINT
-   ============================================================ */
 @media print{
   .aurora,.orb,#bgCanvas,#confetti,#loader,#scrollBar,.topbar,.footer,.modal,.ach-toast,.nf{display:none!important}
   body{background:#fff}
@@ -1017,7 +914,6 @@ img,canvas,svg{max-width:100%;height:auto}
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
 <div id="loader" aria-hidden="true">
   <div class="loader-logo"><i class="fas fa-scroll"></i></div>
   <div class="loader-title">MISI 1 · ILMU SEJARAH</div>
@@ -1025,14 +921,9 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="loader-sub">Memuat Pengalaman Premium</div>
 </div>
 
-<!-- SCROLL PROGRESS -->
 <div id="scrollBar"></div>
-
 <div class="aurora"></div>
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
-<div class="orb o4"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div>
 <canvas id="bgCanvas"></canvas>
 <canvas id="confetti"></canvas>
 
@@ -1046,12 +937,12 @@ img,canvas,svg{max-width:100%;height:auto}
     <button class="tb-btn" onclick="toggleMotion()" id="motionBtn" aria-label="Animasi"><i class="fas fa-wand-magic-sparkles"></i><span class="txt">Animasi</span></button>
   </div>
   <div class="hero">
-    <h1 class="hero-title">MISI 1 : MEMAHAMI PRINSIP ILMU SEJARAH<span>Game Pembelajaran Interaktif</span></h1>
-    <p class="hero-sub">Belajar memahami prinsip ilmu sejarah kelas X dengan 6 game interaktif yang seru dan mendidik.</p>
-    <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian Pembelajaran:</b> Peserta didik mampu memahami konsep dasar ilmu sejarah, sumber sejarah, serta cara berpikir sejarah (kronologis, diakronik, sinkronik, periodik) untuk menganalisis peristiwa masa lalu.</span></div>
+    <h1 class="hero-title">MISI 1 : MEMAHAMI PRINSIP ILMU SEJARAH<span>Game Pembelajaran Interaktif · Tersinkronisasi Modul Premium</span></h1>
+    <p class="hero-sub">Belajar prinsip ilmu sejarah kelas X dengan 6 game interaktif. Materi telah disinkronkan dengan Modul Premium — setiap game punya bank soal unik yang tidak tumpang tindih.</p>
+    <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian Pembelajaran:</b> Peserta didik mampu memahami konsep dasar ilmu sejarah, sumber sejarah, serta cara berpikir sejarah (diakronik, sinkronik, periodik, kronologis) untuk menganalisis peristiwa masa lalu.</span></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Games</div></div>
-      <div class="stat"><div class="stat-num">150+</div><div class="stat-lbl">Konten</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-lbl">Konten</div></div>
       <div class="stat"><div class="stat-num" id="hsAch">0</div><div class="stat-lbl">Pencapaian</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">Fun</div></div>
     </div>
@@ -1071,40 +962,40 @@ img,canvas,svg{max-width:100%;height:auto}
     </div>
   </div>
   <div class="game-grid">
-    <div class="gc" data-game="detektif" data-tilt tabindex="0" role="button" aria-label="Detektif Sumber Sejarah">
+    <div class="gc" data-game="detektif" tabindex="0" role="button" aria-label="Detektif Sumber Sejarah">
       <span class="gc-dif easy">MUDAH</span>
       <i class="fas fa-search gc-icon"></i>
-      <h3>Detektif Sumber Sejarah</h3><p>Klasifikasi 27 sumber ke kategori Tertulis, Lisan, atau Benda.</p>
+      <h3>Detektif Sumber Sejarah</h3><p>Klasifikasi 27 sumber ke Tertulis, Lisan, atau Benda — sinkron dengan modul.</p>
       <span class="gc-tag">Investigasi</span>
     </div>
-    <div class="gc" data-game="timeline" data-tilt tabindex="0" role="button" aria-label="Penjelajah Waktu Sejarah">
+    <div class="gc" data-game="timeline" tabindex="0" role="button" aria-label="Penjelajah Waktu Sejarah">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-hourglass-half gc-icon"></i>
-      <h3>Penjelajah Waktu Sejarah</h3><p>Diakronik, Sinkronik, Periodik, Kronologis — 20 kartu.</p>
+      <h3>Penjelajah Waktu Sejarah</h3><p>Diakronik, Sinkronik, Periodik, Kronologis — 20 kartu konsep waktu.</p>
       <span class="gc-tag">Konsep Waktu</span>
     </div>
-    <div class="gc" data-game="histo" data-tilt tabindex="0" role="button" aria-label="Misi Ilmu Sejarah">
+    <div class="gc" data-game="histo" tabindex="0" role="button" aria-label="Misi Ilmu Sejarah">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-map-location-dot gc-icon"></i>
-      <h3>Misi Ilmu Sejarah</h3><p>5 level petualangan + penjelasan akademik lengkap.</p>
+      <h3>Misi Ilmu Sejarah</h3><p>5 level: Etimologi, Tokoh, Hakikat, Guna, Metode + Ilmu Bantu &amp; Historiografi.</p>
       <span class="gc-tag">Adventure</span>
     </div>
-    <div class="gc" data-game="wheel" data-tilt tabindex="0" role="button" aria-label="Roda Prinsip Sejarah">
+    <div class="gc" data-game="wheel" tabindex="0" role="button" aria-label="Roda Prinsip Sejarah">
       <span class="gc-dif easy">MUDAH</span>
       <i class="fas fa-dharmachakra gc-icon"></i>
-      <h3>Roda Prinsip Sejarah</h3><p>15 soal acak dari 40 bank soal + sumber referensi.</p>
-      <span class="gc-tag">Luck & Skill</span>
+      <h3>Roda Prinsip Sejarah</h3><p>15 soal acak dari Bank A (Etimologi · Tokoh · Hakikat · Guna).</p>
+      <span class="gc-tag">Luck &amp; Skill</span>
     </div>
-    <div class="gc" data-game="millionaire" data-tilt tabindex="0" role="button" aria-label="Jutawan Sejarah">
+    <div class="gc" data-game="millionaire" tabindex="0" role="button" aria-label="Jutawan Sejarah">
       <span class="gc-dif hard">TANTANGAN</span>
       <i class="fas fa-crown gc-icon"></i>
-      <h3>Jutawan Sejarah</h3><p>15 soal acak, salah tetap lanjut, 3 bantuan tersedia.</p>
+      <h3>Jutawan Sejarah</h3><p>15 soal acak dari Bank B (Sumber · Metode · Ilmu Bantu · Historiografi).</p>
       <span class="gc-tag">Quiz Show</span>
     </div>
-    <div class="gc" data-game="jejak" data-tilt tabindex="0" role="button" aria-label="Jejak Sejarawan">
+    <div class="gc" data-game="jejak" tabindex="0" role="button" aria-label="Jejak Sejarawan">
       <span class="gc-dif med">SEDANG</span>
       <i class="fas fa-compass gc-icon"></i>
-      <h3>Jejak Sejarawan</h3><p>10 dilema acak dari bank 20 dilema etika &amp; keputusan sejarawan.</p>
+      <h3>Jejak Sejarawan</h3><p>10 dilema acak dari 20 dilema etika &amp; keputusan sejarawan.</p>
       <span class="gc-tag">Decision</span>
     </div>
   </div>
@@ -1120,16 +1011,16 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- GAME 1: DETEKTIF -->
+<!-- GAME 1 -->
 <div id="gameDetektif" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
     <h2>Detektif Sumber Sejarah<small><i class="fas fa-search"></i> Game 01 · Klasifikasi Sumber</small></h2>
     <span class="pill" id="detScore">0 / 27</span>
     <span class="pill timer" id="detTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu sumber di bawah, lalu klik salah satu dari <strong>3 kategori</strong> (Tertulis / Lisan / Benda). Ada <strong>27 sumber sejarah</strong>. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori dengan cepat.
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu sumber di bawah, lalu klik salah satu dari <strong>3 kategori</strong> (Tertulis / Lisan / Benda). Ada <strong>27 sumber sejarah</strong> yang sinkron dengan modul. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> untuk pilih kategori dengan cepat.
     <button class="btn-mini" onclick="resetDet()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
   <div class="det-board">
     <div class="det-col" data-cat="tertulis"><h4><span class="emoji">📄</span>Tertulis</h4><div class="col-inner"></div></div>
@@ -1139,16 +1030,16 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="det-pool" id="detPool"></div>
 </div>
 
-<!-- GAME 2: PENJELAJAH WAKTU -->
+<!-- GAME 2 -->
 <div id="gameTimeline" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
     <h2>Penjelajah Waktu Sejarah<small><i class="fas fa-hourglass-half"></i> Game 02 · Konsep Waktu</small></h2>
     <span class="pill" id="tlScore">0 / 20</span>
     <span class="pill timer" id="tlTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu ciri-ciri, lalu pilih kategori: <strong>Diakronik / Sinkronik / Periodik / Kronologis</strong>. Ada <strong>20 kartu</strong>. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih kategori dengan cepat.
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik kartu ciri-ciri, lalu pilih kategori: <strong>Diakronik / Sinkronik / Periodik / Kronologis</strong>. Ada <strong>20 kartu</strong> yang sinkron dengan modul. Tekan <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> untuk pilih kategori dengan cepat.
     <button class="btn-mini" onclick="resetTL()"><i class="fas fa-rotate"></i> Ulangi</button></div></div>
   <div class="det-board mj-det-board">
     <div class="det-col" data-cat="diakronik"><h4><span class="emoji">📜</span>Diakronik</h4><div class="col-inner"></div></div>
@@ -1159,11 +1050,11 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="det-pool" id="tlPool"></div>
 </div>
 
-<!-- GAME 3: MISI ILMU SEJARAH -->
+<!-- GAME 3 -->
 <div id="gameHisto" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
     <h2>Misi Ilmu Sejarah<small><i class="fas fa-map-location-dot"></i> Game 03 · 5 Level</small></h2>
     <span class="pill cyan" id="hxLv">Level 1 / 5</span>
     <span class="pill timer" id="hxTimer">00:00</span>
@@ -1173,16 +1064,16 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="mg"><div class="mc" id="hxL"></div><div class="mc" id="hxR"></div></div>
 </div>
 
-<!-- GAME 4: RODA PRINSIP SEJARAH -->
+<!-- GAME 4 -->
 <div id="gameWheel" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
-    <h2>Roda Prinsip Sejarah<small><i class="fas fa-dharmachakra"></i> Game 04 · 15 Soal Acak</small></h2>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
+    <h2>Roda Prinsip Sejarah<small><i class="fas fa-dharmachakra"></i> Game 04 · Bank A (40 Soal)</small></h2>
     <span class="pill" id="whScore">Soal 0 / 15</span>
     <span class="pill timer" id="whTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik tombol <strong>PUTAR</strong> di tengah roda. Jawab pertanyaan, baca penjelasan akademik + sumber referensi, lalu tekan <strong>PUTAR</strong> lagi. Bank <strong>40 soal</strong>, diambil 15 acak! Tekan <kbd>1</kbd>–<kbd>4</kbd> untuk jawaban, <kbd>Enter</kbd> untuk memutar roda.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Klik <strong>PUTAR</strong> di tengah roda. Soal diambil dari <strong>Bank A</strong> (Etimologi · Tokoh · Hakikat · Guna · M-R-Waktu). Sistem <strong>anti-repetisi</strong> — soal tidak akan berulang sampai bank habis! Tekan <kbd>1</kbd>–<kbd>4</kbd> untuk jawaban, <kbd>Enter</kbd> untuk memutar roda.</div></div>
   <div class="ww">
     <div class="wh">
       <div class="wpointer"><i class="fas fa-caret-down"></i></div>
@@ -1193,22 +1084,22 @@ img,canvas,svg{max-width:100%;height:auto}
       <div class="cat" id="wCat"></div>
       <div class="q" id="wText"></div>
       <div class="wo" id="wOpts"></div>
-      <div class="wq-explain" id="wExplain"><div class="lbl"><i class="fas fa-lightbulb"></i> Penjelasan & Sumber</div><div class="txt" id="wExplainTxt"></div><div class="src" id="wExplainSrc"></div></div>
+      <div class="wq-explain" id="wExplain"><div class="lbl"><i class="fas fa-lightbulb"></i> Penjelasan &amp; Sumber</div><div class="txt" id="wExplainTxt"></div><div class="src" id="wExplainSrc"></div></div>
       <div class="wq-actions" id="wActions"><button class="btn cyan" onclick="hideQ()"><i class="fas fa-dharmachakra"></i> Lanjut Tekan PUTAR</button></div>
     </div>
   </div>
 </div>
 
-<!-- GAME 5: JUTAWAN SEJARAH -->
+<!-- GAME 5 -->
 <div id="gameMillionaire" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
-    <h2>Jutawan Sejarah<small><i class="fas fa-crown"></i> Game 05 · 15 Soal Acak</small></h2>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
+    <h2>Jutawan Sejarah<small><i class="fas fa-crown"></i> Game 05 · Bank B (40 Soal)</small></h2>
     <span class="pill" id="mlScore">1 / 15</span>
     <span class="pill timer" id="mlTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Jawab 15 soal dari <strong>bank 40 soal acak</strong>. Jika salah, kamu <strong>tetap lanjut</strong>. 3 bantuan tersedia: <strong>50:50</strong>, <strong>Tanya Audien</strong>, dan <strong>Telepon</strong>. Tekan <kbd>1</kbd>–<kbd>4</kbd> untuk pilih jawaban.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Jawab 15 soal dari <strong>Bank B</strong> (Sumber · Metode · Ilmu Bantu · Historiografi · Ruang Lingkup). Sistem <strong>anti-repetisi</strong> aktif. Jika salah, tetap lanjut. 3 bantuan: <strong>50:50</strong>, <strong>Tanya Audien</strong>, <strong>Telepon</strong>. Tekan <kbd>1</kbd>–<kbd>4</kbd>.</div></div>
   <div class="ml">
     <div>
       <div class="mq"><div class="n" id="mlN">Pertanyaan 1 · 100 poin</div><div class="q" id="mlQ">Memuat...</div></div>
@@ -1223,16 +1114,16 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- GAME 6: JEJAK SEJARAWAN -->
+<!-- GAME 6 -->
 <div id="gameJejak" class="screen">
   <div class="gh">
-    <button class="icon-btn home" onclick="goHome()" title="Home" aria-label="Home"><i class="fas fa-home"></i></button>
-    <button class="icon-btn" onclick="backMenu()" title="Menu" aria-label="Menu"><i class="fas fa-arrow-left"></i></button>
+    <button class="icon-btn home" onclick="goHome()" title="Home"><i class="fas fa-home"></i></button>
+    <button class="icon-btn" onclick="backMenu()" title="Menu"><i class="fas fa-arrow-left"></i></button>
     <h2>Jejak Sejarawan<small><i class="fas fa-compass"></i> Game 06 · Dilema &amp; Keputusan</small></h2>
     <span class="pill" id="jjProgress">Kartu 0 / 10</span>
     <span class="pill timer" id="jjTimer">00:00</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Kamu berperan sebagai <strong>sejarawan muda</strong>. Setiap sesi menyajikan <strong>10 dilema acak dari bank 20 dilema</strong>. Pilih keputusan dengan menekan <kbd>1</kbd> atau <kbd>2</kbd>, lalu tekan <kbd>Enter</kbd> untuk lanjut. Keputusanmu mempengaruhi <strong>Ketelitian</strong>, <strong>Objektivitas</strong>, dan <strong>Empati</strong>. <strong>Skor akhir</strong> dihitung dari <strong>jumlah keputusan tepat</strong>.</div></div>
+  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Kamu berperan sebagai <strong>sejarawan muda</strong>. Setiap sesi menyajikan <strong>10 dilema acak dari bank 20 dilema</strong>. Pilih keputusan dengan menekan <kbd>1</kbd> atau <kbd>2</kbd>, lalu tekan <kbd>Enter</kbd> untuk lanjut. Keputusanmu mempengaruhi <strong>Ketelitian</strong>, <strong>Objektivitas</strong>, dan <strong>Empati</strong>.</div></div>
   <div class="jj-stats">
     <div class="jj-stat" id="jjStatKet">
       <div class="jj-stat-header"><span class="ic"><i class="fas fa-microscope"></i> Ketelitian</span><span class="jj-stat-val" id="jjValKet">50</span></div>
@@ -1268,7 +1159,6 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- DETAIL PANEL -->
 <div class="detail-panel" id="detailPanel">
   <button class="close-btn" onclick="hideDetail()" aria-label="Tutup">✕</button>
   <div class="hd">
@@ -1281,7 +1171,6 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="countdown"><div class="fill" id="dpCountdown"></div></div>
 </div>
 
-<!-- MODAL UTAMA -->
 <div class="modal" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-emoji" id="mEmoji">🎉</div>
@@ -1298,7 +1187,6 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- MODAL ACHIEVEMENTS -->
 <div class="modal" id="achModal" role="dialog" aria-modal="true">
   <div class="modal-box wide">
     <div class="modal-emoji">🏆</div>
@@ -1309,18 +1197,16 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- MODAL GLOSSARY -->
 <div class="modal" id="glModal" role="dialog" aria-modal="true">
   <div class="modal-box wide">
     <div class="modal-emoji">📚</div>
     <h2>Glosarium Ilmu Sejarah</h2>
-    <p>Istilah penting dalam kajian ilmu sejarah & historiografi.</p>
+    <p>Istilah penting dalam kajian ilmu sejarah &amp; historiografi — sinkron dengan modul.</p>
     <div class="gl-list" id="glList"></div>
     <div class="modal-actions" style="margin-top:14px"><button class="btn" onclick="closeGloss()"><i class="fas fa-check"></i> Tutup</button></div>
   </div>
 </div>
 
-<!-- MODAL REVIEW -->
 <div class="modal" id="rvModal" role="dialog" aria-modal="true">
   <div class="modal-box wide">
     <div class="modal-emoji">📋</div>
@@ -1331,7 +1217,6 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
 </div>
 
-<!-- ACHIEVEMENT TOAST -->
 <div class="ach-toast" id="achToast" role="status">
   <div class="icn" id="achIcn">🏅</div>
   <div class="ttl" id="achTtl">ACHIEVEMENT UNLOCKED</div>
@@ -1345,32 +1230,17 @@ img,canvas,svg{max-width:100%;height:auto}
 'use strict';
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
-/* =========================================================
-   LOADING SCREEN
-   ========================================================= */
-window.addEventListener('load',()=>{
-  setTimeout(()=>{ document.getElementById('loader')?.classList.add('hide'); },600);
-});
+window.addEventListener('load',()=>{ setTimeout(()=>{ document.getElementById('loader')?.classList.add('hide'); },600); });
 
-/* =========================================================
-   SCROLL PROGRESS
-   ========================================================= */
 (function(){
   const bar=document.getElementById('scrollBar');
   if(!bar) return;
-  function update(){
-    const h=document.documentElement.scrollHeight-window.innerHeight;
-    const pct=h>0?(window.scrollY/h)*100:0;
-    bar.style.width=Math.min(pct,100)+'%';
-  }
+  function update(){ const h=document.documentElement.scrollHeight-window.innerHeight; const pct=h>0?(window.scrollY/h)*100:0; bar.style.width=Math.min(pct,100)+'%'; }
   window.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
   update();
 })();
 
-/* =========================================================
-   RIPPLE
-   ========================================================= */
 function attachRipple(el){
   if(el.dataset.rippleBound)return;
   el.dataset.rippleBound='1';
@@ -1378,13 +1248,11 @@ function attachRipple(el){
     if(document.body.classList.contains('reduce-motion')) return;
     const r=this.getBoundingClientRect();
     const size=Math.max(r.width,r.height);
-    const x=e.clientX-r.left-size/2;
-    const y=e.clientY-r.top-size/2;
+    const x=e.clientX-r.left-size/2, y=e.clientY-r.top-size/2;
     const ripple=document.createElement('span');
     ripple.className='ripple';
     ripple.style.width=ripple.style.height=size+'px';
-    ripple.style.left=x+'px';
-    ripple.style.top=y+'px';
+    ripple.style.left=x+'px'; ripple.style.top=y+'px';
     if(getComputedStyle(this).position==='static') this.style.position='relative';
     if(getComputedStyle(this).overflow!=='hidden') this.style.overflow='hidden';
     this.appendChild(ripple);
@@ -1395,9 +1263,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   $$('.btn,.tb-btn,.gc,.src,.mi,.wo button,.mo button,.jj-choice,.icon-btn,.ll,.lv-tab,.wcenter,.jj-next button').forEach(attachRipple);
 });
 
-/* =========================================================
-   MAGNETIC HOVER (Desktop only)
-   ========================================================= */
 (function(){
   if(window.matchMedia('(hover: none)').matches) return;
   $$('.gc').forEach(card=>{
@@ -1405,8 +1270,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(document.body.classList.contains('reduce-motion')) return;
       const r=card.getBoundingClientRect();
       const x=e.clientX-r.left,y=e.clientY-r.top;
-      card.style.setProperty('--mx',x+'px');
-      card.style.setProperty('--my',y+'px');
+      card.style.setProperty('--mx',x+'px'); card.style.setProperty('--my',y+'px');
       const rx=((y-r.height/2)/(r.height/2))*-5;
       const ry=((x-r.width/2)/(r.width/2))*5;
       card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.01)`;
@@ -1415,9 +1279,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 })();
 
-/* =========================================================
-   SOUND ENGINE
-   ========================================================= */
 const Sound = {
   ctx:null, enabled:true,
   init(){ if(!this.ctx){ try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ this.enabled=false; } } },
@@ -1445,32 +1306,21 @@ const Sound = {
   ach(){ [880,1047,1319].forEach((f,i)=>this.beep(f,0.18,'triangle',0.13,i*0.08)); }
 };
 
-/* =========================================================
-   UTIL
-   ========================================================= */
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function fmtTime(s){const m=Math.floor(s/60),r=s%60;return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0')}
 
-/* =========================================================
-   TIMER
-   ========================================================= */
 let timerInt=null, timerSec=0, timerId=null;
 function startTimer(el){
   stopTimer();
   timerSec=0; timerId=el;
   if(el&&$(el)) $(el).textContent='00:00';
-  timerInt=setInterval(()=>{
-    timerSec++;
-    if(timerId&&$(timerId)) $(timerId).textContent=fmtTime(timerSec);
-  },1000);
+  timerInt=setInterval(()=>{ timerSec++; if(timerId&&$(timerId)) $(timerId).textContent=fmtTime(timerSec); },1000);
 }
 function stopTimer(){ if(timerInt){ clearInterval(timerInt); timerInt=null; } }
 
-/* =========================================================
-   PROGRESS
-   ========================================================= */
-const KEY='histoexplorer_premium_v2';
-const ACH_KEY='histoexplorer_ach_v2';
+const KEY='histoexplorer_premium_v3';
+const ACH_KEY='histoexplorer_ach_v3';
+const SEEN_KEY='histoexplorer_seen_v3';
 const TOTAL=6;
 function loadProgress(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
 function saveProgress(p){ try{ localStorage.setItem(KEY,JSON.stringify(p)); }catch(e){} }
@@ -1483,7 +1333,7 @@ function markDone(id,d={}){
 }
 function resetProgress(){
   if(!confirm('Reset semua progress belajar dan pencapaian?')) return;
-  try{ localStorage.removeItem(KEY); localStorage.removeItem(ACH_KEY); }catch(e){}
+  try{ localStorage.removeItem(KEY); localStorage.removeItem(ACH_KEY); localStorage.removeItem(SEEN_KEY); }catch(e){}
   updateMenu(); renderAch();
   notif('Progress direset!','gold');
 }
@@ -1497,9 +1347,33 @@ function updateMenu(){
   if($('#progFill')) $('#progFill').style.width=(done/TOTAL*100)+'%';
 }
 
-/* =========================================================
-   ACHIEVEMENTS
-   ========================================================= */
+/* ANTI-REPETISI — track soal yang sudah dilihat */
+function loadSeen(){ try{ return JSON.parse(localStorage.getItem(SEEN_KEY))||{roda:[],jutawan:[]}; }catch(e){ return {roda:[],jutawan:[]}; } }
+function saveSeen(s){ try{ localStorage.setItem(SEEN_KEY,JSON.stringify(s)); }catch(e){} }
+function markSeen(bank,id){
+  const s=loadSeen();
+  if(!s[bank]) s[bank]=[];
+  if(!s[bank].includes(id)) s[bank].push(id);
+  // Kalau sudah >= 80% bank, reset (supaya bisa main lagi)
+  const bankLen = bank==='roda' ? BANK_A.length : BANK_B.length;
+  if(s[bank].length >= Math.floor(bankLen*0.8)){
+    s[bank]=[]; // reset
+  }
+  saveSeen(s);
+}
+function pickQuestionsAntiRepeat(bank, bankName, n){
+  const seen = loadSeen()[bankName] || [];
+  const unseen = bank.filter(q => !seen.includes(q.id));
+  const pool = unseen.length >= n ? unseen : bank;
+  const picked = shuffle(pool).slice(0, Math.min(n, pool.length));
+  return picked.map(item=>{
+    const correctText=item.o[item.a];
+    const shuffledOpts=shuffle(item.o);
+    const newA=shuffledOpts.indexOf(correctText);
+    return{...item,o:shuffledOpts,a:newA};
+  });
+}
+
 const ACHS=[
   {id:'first_step',icon:'🎯',name:'Langkah Pertama',desc:'Selesaikan 1 game'},
   {id:'perfect',icon:'💯',name:'Sempurna',desc:'Akurasi 100% dalam 1 game'},
@@ -1531,10 +1405,7 @@ function checkAchievements(gameId,d={}){
   if((d.acc===100)||(d.score===27&&gameId==='detektif')||(d.score===15&&gameId==='wheel')) unlockAch('perfect');
   if(timerSec>0&&timerSec<120&&(d.acc>=70||d.score>=10)) unlockAch('speedrun');
   const accs=Object.values(p).filter(x=>x.done&&x.acc!==undefined).map(x=>x.acc);
-  if(accs.length>=3){
-    const avg=accs.reduce((a,b)=>a+b,0)/accs.length;
-    if(avg>=80) unlockAch('scholar');
-  }
+  if(accs.length>=3){ const avg=accs.reduce((a,b)=>a+b,0)/accs.length; if(avg>=80) unlockAch('scholar'); }
 }
 function renderAch(){
   const a=loadAch();
@@ -1542,10 +1413,7 @@ function renderAch(){
   if(!grid) return;
   grid.innerHTML=ACHS.map(ac=>{
     const unlocked=!!a[ac.id];
-    return `<div class="ach ${unlocked?'unlocked':''}">
-      <div class="ic">${ac.icon}</div>
-      <div><div class="nm">${ac.name}</div><div class="ds">${ac.desc}</div></div>
-    </div>`;
+    return `<div class="ach ${unlocked?'unlocked':''}"><div class="ic">${ac.icon}</div><div><div class="nm">${ac.name}</div><div class="ds">${ac.desc}</div></div></div>`;
   }).join('');
   const count=ACHS.filter(x=>a[x.id]).length;
   if($('#achCount')) $('#achCount').textContent=`${count}/${ACHS.length}`;
@@ -1554,11 +1422,9 @@ function renderAch(){
 function openAch(){ Sound.click(); renderAch(); $('#achModal').classList.add('on'); }
 function closeAch(){ $('#achModal').classList.remove('on'); }
 
-/* =========================================================
-   GLOSSARY
-   ========================================================= */
 const GLOSSARY=[
-  {t:'Sejarah',d:'Ilmu yang mempelajari peristiwa masa lalu manusia beserta makna dan pengaruhnya. Berasal dari Arab <b>syajaratun</b> (pohon), Yunani <b>historia</b> (penyelidikan), Jerman <b>geschichte</b> (kejadian).'},
+  {t:'Sejarah',d:'Ilmu yang mempelajari peristiwa masa lalu manusia beserta makna & pengaruhnya. Dari Arab <b>syajaratun</b> (pohon), Yunani <b>historia</b> (penyelidikan), Jerman <b>geschichte</b> (kejadian).'},
+  {t:'Syajaratun',d:'Kata Arab yang berarti <b>pohon</b>; metafora sejarah sebagai silsilah yang terus tumbuh (akar, batang, cabang, ranting).'},
   {t:'Historiografi',d:'Penulisan sejarah; juga merujuk pada hasil karya tulis sejarah.'},
   {t:'Heuristik',d:'Tahap mengumpulkan sumber sejarah (dari kata Yunani <b>heuriskein</b> = mencari).'},
   {t:'Kritik Eksternal',d:'Menguji <b>keaslian fisik</b> sumber: bahan, tinta, tanda tangan, tahun pembuatan.'},
@@ -1569,6 +1435,9 @@ const GLOSSARY=[
   {t:'Sinkronik',d:'Berpikir sejarah secara <b>meluas dalam waktu</b>.'},
   {t:'Periodisasi',d:'Pembagian waktu sejarah menjadi periode-periode/zaman.'},
   {t:'Kronologis',d:'Berpikir sejarah berdasarkan <b>urutan waktu</b>.'},
+  {t:'Manusia',d:'Pelaku utama sejarah. Tanpa manusia tidak ada sejarah.'},
+  {t:'Ruang',d:'Dimensi spasial sejarah — tempat terjadinya peristiwa.'},
+  {t:'Waktu',d:'Dimensi temporal sejarah — kapan peristiwa terjadi.'},
   {t:'Sumber Primer',d:'Sumber yang berasal dari masa, pelaku, atau saksi langsung peristiwa.'},
   {t:'Sumber Sekunder',d:'Sumber yang disusun berdasarkan pengolahan sumber lain.'},
   {t:'Sumber Tertulis',d:'Sumber berupa tulisan: prasasti, naskah, arsip, surat kabar, dokumen.'},
@@ -1580,15 +1449,16 @@ const GLOSSARY=[
   {t:'Kuntowijoyo',d:'(1943–2005) Sejarawan Indonesia, penulis <b>Pengantar Ilmu Sejarah</b>.'},
   {t:'R. Moh. Ali',d:'Sejarawan Indonesia yang menegaskan makna terpenting sejarah adalah <b>perubahan</b>.'},
   {t:'R.G. Collingwood',d:'(1889–1943) Filsuf Inggris, penulis <b>The Idea of History</b>.'},
-  {t:'Manusia',d:'Pelaku utama sejarah. Tanpa manusia tidak ada sejarah.'},
-  {t:'Ruang',d:'Dimensi spasial sejarah — tempat terjadinya peristiwa.'},
-  {t:'Waktu',d:'Dimensi temporal sejarah — kapan peristiwa terjadi.'},
-  {t:'Perubahan',d:'Ciri utama sejarah menurut R. Moh. Ali.'},
-  {t:'Keberlanjutan',d:'Unsur masa lalu yang terus berlanjut hingga kini.'},
-  {t:'Guna Rekreatif',d:'Sejarah sebagai hiburan yang mendidik.'},
-  {t:'Guna Edukatif',d:'Sejarah sebagai guru kehidupan.'},
-  {t:'Guna Inspiratif',d:'Sejarah membangkitkan semangat dan dorongan untuk berkarya.'},
-  {t:'Guna Instruktif',d:'Sejarah memberikan panduan dan arahan praktis.'}
+  {t:'Paleografi',d:'Ilmu bantu tentang <b>tulisan kuno</b> (naskah/prasasti).'},
+  {t:'Epigrafi',d:'Ilmu bantu tentang <b>prasasti</b> (tulisan pada batu/logam).'},
+  {t:'Ikonografi',d:'Ilmu bantu tentang <b>makna gambar & simbol</b> (relief, lukisan).'},
+  {t:'Numismatik',d:'Ilmu bantu tentang <b>mata uang kuno</b>.'},
+  {t:'Sigillografi',d:'Ilmu bantu tentang <b>segel & stempel</b> untuk verifikasi dokumen.'},
+  {t:'Genealogi',d:'Ilmu bantu tentang <b>silsilah keluarga</b>.'},
+  {t:'Historiografi Tradisional',d:'Penulisan sejarah bercorak <b>istana-sentris</b>, bercampur mitos.'},
+  {t:'Historiografi Kolonial',d:'Penulisan sejarah dari sudut pandang <b>penjajah Belanda</b>.'},
+  {t:'Historiografi Nasional',d:'Penulisan sejarah dari perspektif <b>Indonesia-sentris</b>.'},
+  {t:'Historiografi Modern',d:'Penulisan sejarah dengan pendekatan <b>kritis & multidisipliner</b>.'}
 ];
 function openGloss(){
   Sound.click();
@@ -1597,9 +1467,6 @@ function openGloss(){
 }
 function closeGloss(){ $('#glModal').classList.remove('on'); }
 
-/* =========================================================
-   REVIEW
-   ========================================================= */
 let reviewData=[];
 function pushReview(q,opts,correctIdx,chosenIdx,explanation,source){
   reviewData.push({q,opts,correctIdx,chosenIdx,explanation,source});
@@ -1622,9 +1489,6 @@ function openReview(){
 }
 function closeReview(){ $('#rvModal').classList.remove('on'); }
 
-/* =========================================================
-   DAILY FACT
-   ========================================================= */
 const FACTS=[
   'Kata <b>sejarah</b> berasal dari bahasa Arab <b>syajaratun</b> (شجرة) yang berarti "pohon".',
   '<b>Herodotus</b> (484–425 SM) dijuluki <b>"The Father of History"</b>.',
@@ -1633,7 +1497,9 @@ const FACTS=[
   '<b>Kuntowijoyo</b> menekankan sejarah sebagai <b>rekonstruksi</b>.',
   'Berpikir <b>diakronik</b> = memanjang dalam waktu. <b>Sinkronik</b> = meluas dalam waktu.',
   'Metode sejarah: <b>heuristik → kritik → interpretasi → historiografi</b>.',
-  'Sumber sejarah: <b>tertulis, lisan, benda, audiovisual</b>.'
+  'Sumber sejarah: <b>tertulis, lisan, benda, audiovisual</b>.',
+  'Ilmu bantu: <b>Paleografi, Epigrafi, Ikonografi, Numismatik, Sigillografi, Genealogi</b>.',
+  'Historiografi: <b>Tradisional, Kolonial, Nasional, Modern</b>.'
 ];
 function updateDailyFact(){
   const d=new Date();
@@ -1641,9 +1507,6 @@ function updateDailyFact(){
   $('#dailyText').innerHTML=FACTS[idx];
 }
 
-/* =========================================================
-   SETTINGS
-   ========================================================= */
 function toggleSound(){
   Sound.enabled=!Sound.enabled;
   const btn=$('#soundBtn');
@@ -1659,9 +1522,6 @@ function toggleMotion(){
   notif(on?'✨ Animasi aktif':'🕊️ Mode tenang','gold');
 }
 
-/* =========================================================
-   BG PARTICLES
-   ========================================================= */
 (function(){
   const cv=$('#bgCanvas'),ctx=cv.getContext('2d');
   let w,h,parts=[];
@@ -1739,28 +1599,21 @@ function showDetail(left, right, text, src, autoCloseMs){
   const panel = $('#detailPanel');
   const hint = $('#dpHint');
   panel.classList.remove('auto');
-
   $('#dpPair').innerHTML=`<span class="chip">${left}</span><span class="arrow"><i class="fas fa-arrow-right"></i></span><span class="chip r">${right}</span>`;
   $('#dpText').textContent=text;
   $('#dpSrc').innerHTML=src?`📖 Sumber: ${src}`:'';
   panel.classList.add('show');
-
   if(autoCloseMs && autoCloseMs > 0){
     const fill = $('#dpCountdown');
-    fill.style.animation='none';
-    void fill.offsetWidth;
-    fill.style.animation='';
+    fill.style.animation='none'; void fill.offsetWidth; fill.style.animation='';
     panel.classList.add('auto');
     detailTimer = setTimeout(()=>{ hideDetail(); }, autoCloseMs);
-  } else {
-    hint.innerHTML = `<i class="fas fa-lock"></i> Tahan terbuka · klik ✕`;
-  }
+  } else { hint.innerHTML = `<i class="fas fa-lock"></i> Tahan terbuka · klik ✕`; }
 }
 function hideDetail(){
   if(detailTimer){ clearTimeout(detailTimer); detailTimer = null; }
   const panel = $('#detailPanel');
-  panel.classList.remove('show');
-  panel.classList.remove('auto');
+  panel.classList.remove('show'); panel.classList.remove('auto');
 }
 
 document.querySelectorAll('.gc').forEach(c=>{
@@ -1804,20 +1657,20 @@ function showAchievement(id){
 }
 
 /* =========================================================
-   GAME 1: DETEKTIF
+   GAME 1: DETEKTIF SUMBER SEJARAH (27 kartu)
    ========================================================= */
 const DET_OPTS=['Tertulis','Lisan','Benda'];
 const detData=[
   {id:1,t:'Teks Proklamasi',c:'tertulis',e:'Naskah Proklamasi Kemerdekaan 17 Agustus 1945 — dokumen tertulis paling penting dalam sejarah Indonesia modern.',s:'Arsip Nasional RI'},
-  {id:2,t:'Prasasti Kedukan Bukit',c:'tertulis',e:'Prasasti dari Kerajaan Sriwijaya (683 M) — bukti tertulis awal kerajaan maritim Sriwijaya di Sumatera Selatan.',s:'Museum Nasional Indonesia'},
-  {id:3,t:'Surat Kabar 1945',c:'tertulis',e:'Koran masa revolusi kemerdekaan — sumber tertulis periode 1945-1949 yang merekam peristiwa secara kontemporer.',s:'Perpustakaan Nasional RI'},
-  {id:4,t:'Arsip VOC',c:'tertulis',e:'Dokumen-dokumen Vereenigde Oostindische Compagnie (1602-1799) — sumber utama sejarah kolonial Indonesia.',s:'Arsip Nasional RI, Jakarta'},
+  {id:2,t:'Prasasti Kedukan Bukit',c:'tertulis',e:'Prasasti dari Kerajaan Sriwijaya (683 M) — bukti tertulis awal kerajaan maritim Sriwijaya.',s:'Museum Nasional Indonesia'},
+  {id:3,t:'Surat Kabar 1945',c:'tertulis',e:'Koran masa revolusi kemerdekaan — sumber tertulis periode 1945-1949 yang merekam peristiwa kontemporer.',s:'Perpustakaan Nasional RI'},
+  {id:4,t:'Arsip VOC',c:'tertulis',e:'Dokumen-dokumen VOC (1602-1799) — sumber utama sejarah kolonial Indonesia.',s:'Arsip Nasional RI'},
   {id:5,t:'Naskah Kuno',c:'tertulis',e:'Manuskrip kuno berbahasa Jawa Kuno, Melayu, atau Sanskerta — sumber tertulis peradaban klasik Nusantara.',s:'Perpustakaan Nasional RI'},
-  {id:6,t:'Surat Resmi Pemerintah',c:'tertulis',e:'Dokumen administrasi pemerintahan — merekam kebijakan, keputusan, dan tata kelola negara.',s:'Arsip Nasional RI'},
+  {id:6,t:'Surat Resmi Pemerintah',c:'tertulis',e:'Dokumen administrasi pemerintahan — merekam kebijakan, keputusan, tata kelola negara.',s:'Arsip Nasional RI'},
   {id:7,t:'Catatan Harian Tokoh',c:'tertulis',e:'Diari/buku harian tokoh sejarah — sumber primer tertulis yang merekam pengalaman personal.',s:'Koleksi pribadi/museum'},
   {id:8,t:'Buku Induk Sekolah',c:'tertulis',e:'Dokumen sekolah yang mencatat siswa, guru, dan kegiatan — sumber tertulis institusional.',s:'Arsip sekolah'},
   {id:9,t:'Piagam Penghargaan',c:'tertulis',e:'Dokumen resmi pemberian penghargaan — sumber tertulis yang merekam prestasi & pengakuan.',s:'Arsip institusi'},
-  {id:10,t:'Wawancara Veteran',c:'lisan',e:'Wawancara dengan pelaku/saksi langsung — sumber primer LISAN. Kredibilitas perlu diuji dengan sumber lain.',s:'Metode oral history (sejarah lisan)'},
+  {id:10,t:'Wawancara Veteran',c:'lisan',e:'Wawancara dengan pelaku/saksi langsung — sumber primer LISAN. Kredibilitas perlu diuji dengan sumber lain.',s:'Metode oral history'},
   {id:11,t:'Cerita Rakyat',c:'lisan',e:'Folklore yang diturunkan mulut ke mulut — sumber lisan yang menyimpan nilai budaya & memori kolektif.',s:'Kajian folklore Indonesia'},
   {id:12,t:'Kesaksian Saksi',c:'lisan',e:'Testimoni saksi mata peristiwa — sumber lisan primer yang penting dalam rekonstruksi sejarah.',s:'Metode wawancara sejarah'},
   {id:13,t:'Dongeng Daerah',c:'lisan',e:'Cerita rakyat fantastis — sumber lisan yang mencerminkan worldview & nilai masyarakat.',s:'Kajian sastra lisan'},
@@ -1827,11 +1680,11 @@ const detData=[
   {id:17,t:'Ceramah Sesepuh',c:'lisan',e:'Penuturan tokoh senior masyarakat — sumber lisan dari kearifan lokal dan memori kolektif.',s:'Metode oral history'},
   {id:18,t:'Kisah Mulut ke Mulut',c:'lisan',e:'Informasi yang beredar lisan — sumber lisan yang harus dikritisi karena rawan distorsi.',s:'Kritik sumber lisan'},
   {id:19,t:'Candi Borobudur',c:'benda',e:'Candi Buddha abad ke-8-9 M — sumber BENDA monumental, bukti kejayaan Dinasti Syailendra.',s:'UNESCO World Heritage (1991)'},
-  {id:20,t:'Arca Kuno',c:'benda',e:'Patung dewa/raja dari batu — sumber benda yang merekam seni, agama, dan kekuasaan kuno.',s:'Museum Nasional Indonesia'},
+  {id:20,t:'Arca Kuno',c:'benda',e:'Patung dewa/raja dari batu — sumber benda yang merekam seni, agama, kekuasaan kuno.',s:'Museum Nasional Indonesia'},
   {id:21,t:'Fosil Manusia Purba',c:'benda',e:'Sisa makhluk hidup membatu — sumber benda utama untuk rekonstruksi masa praaksara.',s:'Sangiran, Trinil, Liang Bua'},
-  {id:22,t:'Mata Uang Kuno',c:'benda',e:'Koin dari masa lampau — sumber benda yang merekam ekonomi, perdagangan, dan kekuasaan.',s:'Museum Bank Indonesia'},
+  {id:22,t:'Mata Uang Kuno',c:'benda',e:'Koin dari masa lampau — sumber benda yang merekam ekonomi, perdagangan, kekuasaan.',s:'Museum Bank Indonesia'},
   {id:23,t:'Prasasti Batu',c:'benda',e:'Tulisan pada batu — sumber BENDA sekaligus sumber TERTULIS. Contoh: Prasasti Yupa Kutai.',s:'Museum Nasional Indonesia'},
-  {id:24,t:'Senjata Tradisional',c:'benda',e:'Keris, tombak, pedang — sumber benda yang merekam teknologi, seni, dan budaya perang.',s:'Museum Nasional Indonesia'},
+  {id:24,t:'Senjata Tradisional',c:'benda',e:'Keris, tombak, pedang — sumber benda yang merekam teknologi, seni, budaya perang.',s:'Museum Nasional Indonesia'},
   {id:25,t:'Perhiasan Kuno',c:'benda',e:'Emas, perunggu, manik-manik — sumber benda yang mencerminkan status sosial & estetika.',s:'Museum Nasional Indonesia'},
   {id:26,t:'Alat Rumah Tangga Kuno',c:'benda',e:'Gerabah, tempayan, alat masak — sumber benda yang merekam kehidupan sehari-hari.',s:'Museum Nasional Indonesia'},
   {id:27,t:'Bangunan Bersejarah',c:'benda',e:'Istana, benteng, masjid kuno — sumber benda monumental yang merekam arsitektur & kekuasaan.',s:'Cagar Budaya Nasional'}
@@ -1843,11 +1696,8 @@ function resetDet(){
   const pool=$('#detPool');pool.innerHTML='';
   shuffle(detData).forEach(d=>{
     const el=document.createElement('div');
-    el.className='src';el.textContent=d.t;el.dataset.cat=d.c;
-    el.dataset.id=d.id;
-    el.onclick=()=>selDet(el);
-    attachRipple(el);
-    pool.appendChild(el);
+    el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.id=d.id;
+    el.onclick=()=>selDet(el);attachRipple(el);pool.appendChild(el);
   });
   $$('#gameDetektif .det-col .col-inner').forEach(c=>c.innerHTML='');
   $$('#gameDetektif .det-col').forEach(c=>{c.onclick=()=>dropDet(c)});
@@ -1873,13 +1723,7 @@ function dropDet(col){
     setTimeout(()=>$('#detScore').classList.remove('pulse'),600);
     notif('✓ Benar!','ok');
     Sound.correct();
-    pushReview(
-      `"${c.textContent}" termasuk sumber...`,
-      DET_OPTS,
-      DET_OPTS.indexOf(want),
-      DET_OPTS.indexOf(cat),
-      data.e, data.s
-    );
+    pushReview(`"${c.textContent}" termasuk sumber...`,DET_OPTS,DET_OPTS.indexOf(want),DET_OPTS.indexOf(cat),data.e,data.s);
     showDetail(c.textContent,cat.toUpperCase(),data.e,data.s);
     if(detOk===detData.length){
       setTimeout(()=>{
@@ -1897,7 +1741,7 @@ function dropDet(col){
 }
 
 /* =========================================================
-   GAME 2: PENJELAJAH WAKTU
+   GAME 2: PENJELAJAH WAKTU (20 kartu)
    ========================================================= */
 const TL_OPTS=['Diakronik','Sinkronik','Periodik','Kronologis'];
 const tlData=[
@@ -1930,9 +1774,7 @@ function resetTL(){
   shuffle(tlData).forEach(d=>{
     const el=document.createElement('div');
     el.className='src';el.textContent=d.t;el.dataset.cat=d.c;el.dataset.id=d.id;
-    el.onclick=()=>selTL(el);
-    attachRipple(el);
-    pool.appendChild(el);
+    el.onclick=()=>selTL(el);attachRipple(el);pool.appendChild(el);
   });
   $$('#gameTimeline .det-col .col-inner').forEach(c=>c.innerHTML='');
   $$('#gameTimeline .det-col').forEach(c=>{c.onclick=()=>dropTL(c)});
@@ -1956,16 +1798,8 @@ function dropTL(col){
     $('#tlScore').textContent=tlOk+' / 20';
     $('#tlScore').classList.add('pulse');
     setTimeout(()=>$('#tlScore').classList.remove('pulse'),600);
-    notif('✓ Benar!','ok');
-    Sound.correct();
-    pushReview(
-      `"${c.textContent}" termasuk konsep...`,
-      TL_OPTS,
-      TL_OPTS.indexOf(want),
-      TL_OPTS.indexOf(cat),
-      data.e,
-      'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)'
-    );
+    notif('✓ Benar!','ok'); Sound.correct();
+    pushReview(`"${c.textContent}" termasuk konsep...`,TL_OPTS,TL_OPTS.indexOf(want),TL_OPTS.indexOf(cat),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)');
     showDetail(c.textContent,cat.toUpperCase(),data.e,'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)',3000);
     if(tlOk===tlData.length){
       setTimeout(()=>{
@@ -1976,14 +1810,13 @@ function dropTL(col){
     }
   } else {
     c.classList.remove('sel');c.classList.add('no');tlSel=null;
-    notif('✗ Salah kategori!','no');
-    Sound.wrong();shakeScreen();
+    notif('✗ Salah kategori!','no'); Sound.wrong();shakeScreen();
     setTimeout(()=>c.classList.remove('no'),500);
   }
 }
 
 /* =========================================================
-   GAME 3: MISI ILMU SEJARAH
+   GAME 3: MISI ILMU SEJARAH (5 LEVEL)
    ========================================================= */
 const hxLvData=[
   {n:'Akar Kata',i:'Cocokkan kata dengan <strong>arti & asal bahasanya</strong>!',
@@ -1992,8 +1825,7 @@ const hxLvData=[
     {l:'Historia',r:'Yunani — Penyelidikan',info:'"Historia" (Yunani) berarti "penyelidikan". Herodotus menggunakan istilah ini untuk karyanya.',src:'Herodotus, Historia (abad ke-5 SM)'},
     {l:'Geschichte',r:'Jerman — Kejadian',info:'"Geschichte" (Jerman) berarti "sesuatu yang telah terjadi".',src:'Leopold von Ranke (1795-1886)'},
     {l:'History',r:'Inggris — Sejarah',info:'"History" (Inggris) berasal dari bahasa Yunani "historia".',src:'R.G. Collingwood, The Idea of History (1946)'},
-    {l:'Chronos',r:'Yunani — Waktu',info:'"Chronos" (Yunani) berarti "waktu". Akar kata kronologi.',src:'Aristoteles, Physica'},
-    {l:'Tempus',r:'Latin — Waktu',info:'"Tempus" (Latin) berarti "waktu".',src:'Marcus Terentius Varro (116-27 SM)'}
+    {l:'Chronos',r:'Yunani — Waktu',info:'"Chronos" (Yunani) berarti "waktu". Akar kata kronologi.',src:'Aristoteles, Physica'}
    ]},
   {n:'Tokoh Misteri',i:'Cocokkan <strong>tokoh</strong> dengan julukan atau karyanya!',
    p:[
@@ -2022,14 +1854,16 @@ const hxLvData=[
     {l:'Reflektif',r:'Merenungkan kesalahan masa lalu',info:'Guna REFLEKTIF — cermin untuk MERENUNG.',src:'George Santayana'},
     {l:'Kolektif',r:'Memperkuat identitas bangsa',info:'Guna KOLEKTIF — memperkuat IDENTITAS bangsa.',src:'Benedict Anderson (1983)'}
    ]},
-  {n:'Metode Sejarah',i:'Cocokkan <strong>tahap metode</strong> dengan aktivitasnya!',
+  {n:'Metode & Ilmu Bantu',i:'Cocokkan <strong>tahap metode / ilmu bantu</strong> dengan fungsinya!',
    p:[
     {l:'Heuristik',r:'Mengumpulkan sumber sejarah',info:'HEURISTIK — mencari & mengumpulkan SUMBER SEJARAH.',src:'Kuntowijoyo, Metodologi Sejarah (2003)'},
     {l:'Kritik Eksternal',r:'Menguji keaslian fisik sumber',info:'KRITIK EKSTERNAL — menguji KEASLIAN fisik sumber.',src:'Louis Gottschalk (1950)'},
     {l:'Kritik Internal',r:'Menguji kredibilitas isi sumber',info:'KRITIK INTERNAL — menguji KREDIBILITAS isi sumber.',src:'Louis Gottschalk (1950)'},
-    {l:'Interpretasi',r:'Menafsirkan fakta & makna',info:'INTERPRETASI — MENAFSIRKAN fakta untuk menemukan makna.',src:'Kuntowijoyo (2003)'},
-    {l:'Historiografi',r:'Penulisan sejarah akhir',info:'HISTORIOGRAFI — PENYAJIAN hasil penelitian dalam tulisan.',src:'Sartono Kartodirdjo (1982)'},
-    {l:'Kausalitas',r:'Hubungan sebab-akibat',info:'KAUSALITAS — prinsip HUBUNGAN SEBAB-AKIBAT.',src:'R.G. Collingwood (1946)'}
+    {l:'Paleografi',r:'Membaca tulisan kuno',info:'PALEOGRAFI — ilmu bantu membaca TULISAN KUNO (naskah/prasasti).',src:'Ilmu Bantu Sejarah'},
+    {l:'Epigrafi',r:'Mengkaji prasasti',info:'EPIGRAFI — ilmu bantu mengkaji PRASASTI (tulisan pada batu/logam).',src:'Ilmu Bantu Sejarah'},
+    {l:'Numismatik',r:'Mengkaji mata uang kuno',info:'NUMISMATIK — ilmu bantu mengkaji MATA UANG KUNO.',src:'Ilmu Bantu Sejarah'},
+    {l:'Historiografi Tradisional',r:'Bercorak istana-sentris',info:'HISTORIOGRAFI TRADISIONAL — bercorak ISTANA-SENTRIS, bercampur mitos.',src:'Babad Tanah Jawi'},
+    {l:'Historiografi Nasional',r:'Bercorak Indonesia-sentris',info:'HISTORIOGRAFI NASIONAL — bercorak INDONESIA-SENTRIS.',src:'Sejarah Nasional Indonesia (SNI)'}
    ]}
 ];
 let hxLv=0,hxSel={l:null,r:null},hxOk=0,hxUnlock=1;
@@ -2050,7 +1884,7 @@ function renderHxTabs(){
 }
 function loadHx(i){
   const lv=hxLvData[i];
-  $('#hxLv').textContent=`Level ${i+1} / 5`;
+  $('#hxLv').textContent=`Level ${i+1} / ${hxLvData.length}`;
   $('#hxInst').innerHTML=`<i class="fas fa-circle-info"></i><div>${lv.i}</div>`;
   hxSel={l:null,r:null};hxOk=0;
   const L=$('#hxL'),R=$('#hxR');L.innerHTML='';R.innerHTML='';
@@ -2096,68 +1930,111 @@ function lvDone(){
     markDone('histo',{score:hxOk});
     Sound.win();confetti();showAchievement('histo');
     const list=lv.p.map(p=>({t:`${p.l} ➜ ${p.r}`,d:p.info+(p.src?`<br><i style="color:#94a3b8;font-size:.85em">📖 ${p.src}</i>`:'')}));
-    setTimeout(()=>modal('🏆','Misi Selesai!',`Selamat! Kamu menuntaskan seluruh 5 level dalam ${fmtTime(timerSec)}!`,'Petualang Sejati 🗺️',list),1500);
+    setTimeout(()=>modal('🏆','Misi Selesai!',`Selamat! Kamu menuntaskan seluruh ${hxLvData.length} level dalam ${fmtTime(timerSec)}!`,'Petualang Sejati 🗺️',list),1500);
   }
 }
 function hxNextLevel(){closeModal();hxLv++;renderHxTabs();loadHx(hxLv);}
 
 /* =========================================================
-   BANK 40 SOAL
+   BANK A — 40 SOAL UNTUK RODA PRINSIP
+   (Etimologi · Tokoh · Hakikat · Guna · M-R-Waktu)
    ========================================================= */
-const BANK=[
-  {q:'Kata "sejarah" dalam bahasa Arab berasal dari kata...',o:['Historia','Syajaratun','Geschichte','Chronos'],a:1,e:'Kata "sejarah" dari bahasa Arab "Syajaratun" (شجرة) berarti "pohon".',cat:'Etimologi',s:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)'},
-  {q:'"Historia" dari bahasa Yunani berarti...',o:['Pohon','Penyelidikan','Kejadian','Silsilah'],a:1,e:'"Historia" (Yunani) berarti "penyelidikan".',cat:'Etimologi',s:'Herodotus, Historia'},
-  {q:'"Geschichte" dari bahasa Jerman berarti...',o:['Pohon','Cerita','Kejadian','Silsilah'],a:2,e:'"Geschichte" (Jerman) berarti "sesuatu yang telah terjadi".',cat:'Etimologi',s:'Leopold von Ranke'},
-  {q:'Kata "History" berasal dari bahasa...',o:['Arab','Yunani','Jerman','Inggris'],a:1,e:'"History" (Inggris) berasal dari Yunani "historia".',cat:'Etimologi',s:'Oxford English Dictionary'},
-  {q:'"Chronos" dalam bahasa Yunani berarti...',o:['Pohon','Waktu','Cerita','Perang'],a:1,e:'"Chronos" berarti "waktu".',cat:'Etimologi',s:'Aristoteles, Physica'},
-  {q:'Tokoh yang dijuluki "The Father of History" adalah...',o:['Aristoteles','Herodotus','Ibnu Khaldun','Kuntowijoyo'],a:1,e:'Herodotus menulis "Historia" tentang Perang Yunani-Persia.',cat:'Tokoh',s:'Herodotus, Historia'},
-  {q:'Penulis kitab "Muqaddimah" adalah...',o:['Herodotus','Ibnu Khaldun','R. Moh. Ali','Collingwood'],a:1,e:'Ibnu Khaldun — Bapak Sosiologi & Historiografi.',cat:'Tokoh',s:'Ibnu Khaldun, Muqaddimah (1377)'},
-  {q:'Yang menekankan sejarah = perubahan adalah...',o:['Aristoteles','Mohammad Yamin','R. Moh. Ali','Kuntowijoyo'],a:2,e:'R. Moh. Ali — makna terpenting sejarah adalah "perubahan".',cat:'Tokoh',s:'R. Moh. Ali (1963)'},
-  {q:'Menurut Kuntowijoyo, sejarah adalah...',o:['Catatan peradaban','Silsilah keluarga','Rekonstruksi masa lalu','Jumlah perubahan'],a:2,e:'Kuntowijoyo — sejarah = rekonstruksi.',cat:'Tokoh',s:'Kuntowijoyo (1995)'},
-  {q:'Menurut R.G. Collingwood, sejarah adalah...',o:['Catatan peradaban','Silsilah keluarga','Penyelidikan kembali pemikiran manusia','Jumlah perubahan'],a:2,e:'Collingwood — penyelidikan kembali pemikiran manusia.',cat:'Tokoh',s:'R.G. Collingwood (1946)'},
-  {q:'Menurut Aristoteles, sejarah disusun dalam bentuk...',o:['Narasi bebas','Kronologi','Silsilah','Mitos'],a:1,e:'Aristoteles — sejarah disusun kronologis.',cat:'Tokoh',s:'Aristoteles, Poetica'},
-  {q:'Buku "Pengantar Ilmu Sejarah" karya...',o:['Herodotus','R. Moh. Ali','Kuntowijoyo','Ibnu Khaldun'],a:2,e:'Kuntowijoyo (1995).',cat:'Tokoh',s:'Kuntowijoyo (1995)'},
-  {q:'Dimensi hakikat "kejadian nyata, unik, abadi" adalah...',o:['Kisah','Seni','Peristiwa','Ilmu'],a:2,e:'PERISTIWA — kejadian nyata, unik, abadi.',cat:'Hakikat',s:'Kuntowijoyo (1995)'},
-  {q:'Hakikat yang butuh imajinasi & kreativitas adalah...',o:['Peristiwa','Seni','Kisah','Ilmu'],a:1,e:'SENI — butuh imajinasi & kreativitas.',cat:'Hakikat',s:'R.G. Collingwood (1946)'},
-  {q:'Hakikat sebagai disiplin ilmiah dengan metode disebut...',o:['Peristiwa','Kisah','Seni','Ilmu'],a:3,e:'ILMU — kajian sistematis.',cat:'Hakikat',s:'Kuntowijoyo (2003)'},
-  {q:'Sejarah sebagai narasi yang menghidupkan pelaku disebut...',o:['Kisah','Seni','Ilmu','Peristiwa'],a:0,e:'KISAH — narasi menghidupkan pelaku.',cat:'Hakikat',s:'Peter Gay (1974)'},
-  {q:'Guna sejarah sebagai "guru kehidupan" bersifat...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:1,e:'EDUKATIF — guru kehidupan.',cat:'Guna',s:'Sartono Kartodirdjo (1982)'},
-  {q:'Menonton film sejarah termasuk guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:0,e:'REKREATIF — hiburan mendidik.',cat:'Guna',s:'Kuntowijoyo (1995)'},
-  {q:'Sumpah Pemuda menginspirasi persatuan adalah guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:2,e:'INSPIRATIF — membangkitkan semangat.',cat:'Guna',s:'M.C. Ricklefs (2008)'},
-  {q:'Sejarah sebagai panduan praktis disebut guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:3,e:'INSTRUKTIF — panduan praktis.',cat:'Guna',s:'Kuntowijoyo (1995)'},
-  {q:'Wawancara saksi mata termasuk sumber...',o:['Primer & lisan','Sekunder & tertulis','Benda','Audiovisual'],a:0,e:'PRIMER dari pelaku/saksi. LISAN melalui penuturan.',cat:'Sumber',s:'Louis Gottschalk (1950)'},
-  {q:'Candi Borobudur termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:2,e:'Candi = sumber BENDA.',cat:'Sumber',s:'UNESCO (1991)'},
-  {q:'Buku pelajaran sejarah termasuk sumber...',o:['Primer','Sekunder','Benda','Asli'],a:1,e:'SEKUNDER — berdasarkan sumber lain.',cat:'Sumber',s:'Kuntowijoyo (2003)'},
-  {q:'Sumber dari masa/pelaku/saksi langsung disebut...',o:['Primer','Sekunder','Tersier','Asli'],a:0,e:'Sumber PRIMER.',cat:'Sumber',s:'Louis Gottschalk (1950)'},
-  {q:'Prasasti termasuk contoh sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:0,e:'Prasasti = TERTULIS.',cat:'Sumber',s:'Museum Nasional'},
-  {q:'Rekaman video kegiatan termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:3,e:'AUDIOVISUAL.',cat:'Sumber',s:'Kuntowijoyo (2003)'},
-  {q:'Mata uang kuno termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:2,e:'BENDA.',cat:'Sumber',s:'Museum Bank Indonesia'},
-  {q:'Berpikir memanjang dalam waktu disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:1,e:'DIAKRONIK — memanjang waktu.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Berpikir meluas dalam waktu disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:0,e:'SINKRONIK — meluas waktu.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Pembagian zaman sejarah disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:2,e:'PERIODIK.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Urutan peristiwa dari awal ke akhir disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:3,e:'KRONOLOGIS.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Pelaku utama dalam sejarah adalah...',o:['Tuhan','Manusia','Alam','Hewan'],a:1,e:'MANUSIA.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Dimensi tempat peristiwa disebut...',o:['Waktu','Ruang','Manusia','Peristiwa'],a:1,e:'RUANG.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Periodisasi sejarah bagian dimensi...',o:['Manusia','Ruang','Waktu','Peristiwa'],a:2,e:'WAKTU.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
-  {q:'Tahap mengumpulkan sumber sejarah disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:0,e:'HEURISTIK.',cat:'Metode',s:'Kuntowijoyo (2003)'},
-  {q:'Tahap menguji keaslian sumber disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:1,e:'KRITIK.',cat:'Metode',s:'Louis Gottschalk (1950)'},
-  {q:'Tahap penulisan sejarah disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:3,e:'HISTORIOGRAFI.',cat:'Metode',s:'Sartono Kartodirdjo (1982)'},
-  {q:'Menafsirkan fakta & makna termasuk tahap...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:2,e:'INTERPRETASI.',cat:'Metode',s:'Kuntowijoyo (2003)'},
-  {q:'Menguji keaslian fisik sumber termasuk...',o:['Kritik Eksternal','Kritik Internal','Heuristik','Historiografi'],a:0,e:'KRITIK EKSTERNAL.',cat:'Metode',s:'Louis Gottschalk (1950)'},
-  {q:'Menguji kredibilitas isi sumber termasuk...',o:['Kritik Eksternal','Kritik Internal','Heuristik','Historiografi'],a:1,e:'KRITIK INTERNAL.',cat:'Metode',s:'Louis Gottschalk (1950)'}
+const BANK_A=[
+  {id:'a01',q:'Kata "sejarah" dalam bahasa Arab berasal dari kata...',o:['Historia','Syajaratun','Geschichte','Chronos'],a:1,e:'Kata "sejarah" dari bahasa Arab "Syajaratun" (شجرة) berarti "pohon".',cat:'Etimologi',s:'Kuntowijoyo, Pengantar Ilmu Sejarah (1995)'},
+  {id:'a02',q:'"Historia" dari bahasa Yunani berarti...',o:['Pohon','Penyelidikan','Kejadian','Silsilah'],a:1,e:'"Historia" (Yunani) berarti "penyelidikan".',cat:'Etimologi',s:'Herodotus, Historia'},
+  {id:'a03',q:'"Geschichte" dari bahasa Jerman berarti...',o:['Pohon','Cerita','Kejadian','Silsilah'],a:2,e:'"Geschichte" (Jerman) berarti "sesuatu yang telah terjadi".',cat:'Etimologi',s:'Leopold von Ranke'},
+  {id:'a04',q:'Kata "History" berasal dari bahasa...',o:['Arab','Yunani','Jerman','Inggris'],a:1,e:'"History" (Inggris) berasal dari Yunani "historia".',cat:'Etimologi',s:'Oxford English Dictionary'},
+  {id:'a05',q:'"Chronos" dalam bahasa Yunani berarti...',o:['Pohon','Waktu','Cerita','Perang'],a:1,e:'"Chronos" berarti "waktu".',cat:'Etimologi',s:'Aristoteles, Physica'},
+  {id:'a06',q:'Makna Syajaratun sebagai "pohon" mengandung arti...',o:['Sejarah hanya sekali', 'Silsilah & keterhubungan generasi', 'Peristiwa alam', 'Kekuasaan raja'],a:1,e:'Syajaratun menekankan sejarah sebagai SILSILAH yang terus tumbuh.',cat:'Etimologi',s:'Kuntowijoyo (1995)'},
+  {id:'a07',q:'Tokoh yang dijuluki "The Father of History" adalah...',o:['Aristoteles','Herodotus','Ibnu Khaldun','Kuntowijoyo'],a:1,e:'Herodotus menulis "Historia" tentang Perang Yunani-Persia.',cat:'Tokoh',s:'Herodotus, Historia'},
+  {id:'a08',q:'Penulis kitab "Muqaddimah" adalah...',o:['Herodotus','Ibnu Khaldun','R. Moh. Ali','Collingwood'],a:1,e:'Ibnu Khaldun — Bapak Sosiologi & Historiografi.',cat:'Tokoh',s:'Ibnu Khaldun, Muqaddimah (1377)'},
+  {id:'a09',q:'Yang menekankan sejarah = perubahan adalah...',o:['Aristoteles','Mohammad Yamin','R. Moh. Ali','Kuntowijoyo'],a:2,e:'R. Moh. Ali — makna terpenting sejarah adalah "perubahan".',cat:'Tokoh',s:'R. Moh. Ali (1963)'},
+  {id:'a10',q:'Menurut Kuntowijoyo, sejarah adalah...',o:['Catatan peradaban','Silsilah keluarga','Rekonstruksi masa lalu','Jumlah perubahan'],a:2,e:'Kuntowijoyo — sejarah = rekonstruksi.',cat:'Tokoh',s:'Kuntowijoyo (1995)'},
+  {id:'a11',q:'Menurut R.G. Collingwood, sejarah adalah...',o:['Catatan peradaban','Silsilah keluarga','Penyelidikan kembali pemikiran manusia','Jumlah perubahan'],a:2,e:'Collingwood — penyelidikan kembali pemikiran manusia.',cat:'Tokoh',s:'R.G. Collingwood (1946)'},
+  {id:'a12',q:'Menurut Aristoteles, sejarah disusun dalam bentuk...',o:['Narasi bebas','Kronologi','Silsilah','Mitos'],a:1,e:'Aristoteles — sejarah disusun kronologis.',cat:'Tokoh',s:'Aristoteles, Poetica'},
+  {id:'a13',q:'Menurut Mohammad Yamin, sejarah harus berdasarkan...',o:['Mitos','Fakta & penyelidikan','Legenda','Mimpi'],a:1,e:'M. Yamin — ilmu pengetahuan yang disusun dari hasil penyelidikan & dapat dibuktikan faktanya.',cat:'Tokoh',s:'Mohammad Yamin'},
+  {id:'a14',q:'Buku "Pengantar Ilmu Sejarah" karya...',o:['Herodotus','R. Moh. Ali','Kuntowijoyo','Ibnu Khaldun'],a:2,e:'Kuntowijoyo (1995).',cat:'Tokoh',s:'Kuntowijoyo (1995)'},
+  {id:'a15',q:'Penyusun Kamus Umum Bahasa Indonesia adalah...',o:['Kuntowijoyo','Poerwodarminta','R. Moh. Ali','Yamin'],a:1,e:'W.J.S. Poerwodarminta — penyusun KUBI (1953).',cat:'Tokoh',s:'W.J.S. Poerwodarminta (1953)'},
+  {id:'a16',q:'Dimensi hakikat "kejadian nyata, unik, abadi" adalah...',o:['Kisah','Seni','Peristiwa','Ilmu'],a:2,e:'PERISTIWA — kejadian nyata, unik, abadi.',cat:'Hakikat',s:'Kuntowijoyo (1995)'},
+  {id:'a17',q:'Hakikat yang butuh imajinasi & kreativitas adalah...',o:['Peristiwa','Seni','Kisah','Ilmu'],a:1,e:'SENI — butuh imajinasi & kreativitas.',cat:'Hakikat',s:'R.G. Collingwood (1946)'},
+  {id:'a18',q:'Hakikat sebagai disiplin ilmiah dengan metode disebut...',o:['Peristiwa','Kisah','Seni','Ilmu'],a:3,e:'ILMU — kajian sistematis.',cat:'Hakikat',s:'Kuntowijoyo (2003)'},
+  {id:'a19',q:'Sejarah sebagai narasi yang menghidupkan pelaku disebut...',o:['Kisah','Seni','Ilmu','Peristiwa'],a:0,e:'KISAH — narasi menghidupkan pelaku.',cat:'Hakikat',s:'Peter Gay (1974)'},
+  {id:'a20',q:'Hakikat sejarah sebagai "rekonstruksi" dikemukakan oleh...',o:['Herodotus','Kuntowijoyo','Aristoteles','Yamin'],a:1,e:'Kuntowijoyo — sejarah = rekonstruksi (membangun kembali masa lalu).',cat:'Hakikat',s:'Kuntowijoyo (1995)'},
+  {id:'a21',q:'Guna sejarah sebagai "guru kehidupan" bersifat...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:1,e:'EDUKATIF — guru kehidupan.',cat:'Guna',s:'Sartono Kartodirdjo (1982)'},
+  {id:'a22',q:'Menonton film sejarah termasuk guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:0,e:'REKREATIF — hiburan mendidik.',cat:'Guna',s:'Kuntowijoyo (1995)'},
+  {id:'a23',q:'Sumpah Pemuda menginspirasi persatuan adalah guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:2,e:'INSPIRATIF — membangkitkan semangat.',cat:'Guna',s:'M.C. Ricklefs (2008)'},
+  {id:'a24',q:'Sejarah sebagai panduan praktis disebut guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:3,e:'INSTRUKTIF — panduan praktis.',cat:'Guna',s:'Kuntowijoyo (1995)'},
+  {id:'a25',q:'"Histories make men wise" merupakan ungkapan tentang guna...',o:['Rekreatif','Edukatif','Inspiratif','Instruktif'],a:1,e:'EDUKATIF — membuat manusia bijaksana.',cat:'Guna',s:'Francis Bacon'},
+  {id:'a26',q:'Pelaku utama dalam sejarah adalah...',o:['Tuhan','Manusia','Alam','Hewan'],a:1,e:'MANUSIA — pelaku & pencipta sejarah.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a27',q:'Dimensi tempat terjadinya peristiwa disebut...',o:['Waktu','Ruang','Manusia','Peristiwa'],a:1,e:'RUANG — dimensi spasial.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a28',q:'Dimensi "kapan peristiwa terjadi" disebut...',o:['Ruang','Waktu','Manusia','Peristiwa'],a:1,e:'WAKTU — dimensi temporal.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a29',q:'Periodisasi sejarah merupakan bagian dari dimensi...',o:['Manusia','Ruang','Waktu','Peristiwa'],a:2,e:'WAKTU — periodisasi = pembagian waktu.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a30',q:'Ketiga elemen fundamental sejarah adalah...',o:['Api, air, angin','Manusia, ruang, waktu','Uang, kuasa, tahta','Dewa, raja, rakyat'],a:1,e:'MANUSIA, RUANG, WAKTU — tiga elemen fundamental.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a31',q:'Sejarah sebagai peristiwa bersifat...',o:['Subjektif','Unik & abadi','Fiktif','Spekulatif'],a:1,e:'UNIK (hanya sekali) & ABADI (tetap dikenang).',cat:'Hakikat',s:'Kuntowijoyo (1995)'},
+  {id:'a32',q:'Definisi "sejarah = ilmu pengetahuan yang disusun atas hasil penyelidikan" dikemukakan oleh...',o:['Yamin','Herodotus','Aristoteles','Ranke'],a:0,e:'Mohammad Yamin — menekankan FAKTA yang dapat dibuktikan.',cat:'Tokoh',s:'Mohammad Yamin'},
+  {id:'a33',q:'Guna sejarah yang bersifat KOLEKTIF adalah...',o:['Menghibur diri','Memperkuat identitas bangsa','Menghafal tahun','Mengumpulkan artefak'],a:1,e:'KOLEKTIF — memperkuat identitas bangsa (Benedict Anderson, 1983).',cat:'Guna',s:'Benedict Anderson (1983)'},
+  {id:'a34',q:'Menurut Poerwodarminta, salah satu arti sejarah adalah...',o:['Kejadian yang benar-benar terjadi di masa lampau','Peristiwa fiktif','Khayalan','Mitos'],a:0,e:'Menurut Poerwodarminta: kejadian yang benar-benar terjadi di masa lampau.',cat:'Tokoh',s:'W.J.S. Poerwodarminta (1953)'},
+  {id:'a35',q:'Sejarah sebagai "kisah" menekankan pada...',o:['Angka tahun','Pelaku & pengalamannya','Benda kuno','Peta lokasi'],a:1,e:'KISAH — narasi dengan PELAKU beserta pengalaman.',cat:'Hakikat',s:'Peter Gay (1974)'},
+  {id:'a36',q:'Guna sejarah yang menjadikan sejarah sebagai cermin untuk merenung adalah...',o:['Rekreatif','Edukatif','Reflektif','Instruktif'],a:2,e:'REFLEKTIF — cermin untuk merenung (George Santayana).',cat:'Guna',s:'George Santayana'},
+  {id:'a37',q:'Menurut R. Moh. Ali, sejarah terdiri dari 3 pengertian utama. Salah satunya adalah...',o:['Jumlah perubahan di kenyataan sekitar','Mimpi kolektif','Cerita dewa','Ramalan'],a:0,e:'1) Jumlah perubahan di kenyataan sekitar 2) Cerita tentang perubahan 3) Ilmu yang menyelidiki perubahan.',cat:'Tokoh',s:'R. Moh. Ali (1963)'},
+  {id:'a38',q:'Sejarah dikatakan sebagai "Ilmu" karena...',o:['Banyak hafalan','Menggunakan metode ilmiah yang sistematis','Berisi ramalan','Berisi dongeng'],a:1,e:'ILMU — karena menggunakan metode ilmiah: heuristik, kritik, interpretasi, historiografi.',cat:'Hakikat',s:'Kuntowijoyo (2003)'},
+  {id:'a39',q:'Contoh dimensi RUANG dalam sejarah adalah...',o:['Letak Indonesia di jalur perdagangan','Kemerdekaan 1945','Proklamasi 17 Agustus','Sumpah Pemuda 1928'],a:0,e:'RUANG = lokasi geografis. Contoh: letak Indonesia di jalur perdagangan internasional.',cat:'M-R-Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'a40',q:'Ungkapan "sejarah sebagai pohon" mengajarkan bahwa sejarah...',o:['Berdiri sendiri','Terhubung antara masa lalu, kini, & masa depan','Statis','Tidak berubah'],a:1,e:'Syajaratun — sejarah seperti pohon yang terus terhubung.',cat:'Etimologi',s:'Kuntowijoyo (1995)'}
 ];
-function pickQuestions(n){
-  const picked=shuffle(BANK).slice(0,Math.min(n,BANK.length));
-  return picked.map(item=>{
-    const correctText=item.o[item.a];
-    const shuffledOpts=shuffle(item.o);
-    const newA=shuffledOpts.indexOf(correctText);
-    return{...item,o:shuffledOpts,a:newA};
-  });
-}
 
 /* =========================================================
-   GAME 4: RODA PUTAR
+   BANK B — 40 SOAL UNTUK JUTAWAN
+   (Sumber · Metode · Ilmu Bantu · Historiografi · Ruang Lingkup)
+   ========================================================= */
+const BANK_B=[
+  {id:'b01',q:'Wawancara saksi mata termasuk sumber...',o:['Primer & lisan','Sekunder & tertulis','Benda','Audiovisual'],a:0,e:'PRIMER dari pelaku/saksi. LISAN melalui penuturan.',cat:'Sumber',s:'Louis Gottschalk (1950)'},
+  {id:'b02',q:'Candi Borobudur termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:2,e:'Candi = sumber BENDA.',cat:'Sumber',s:'UNESCO (1991)'},
+  {id:'b03',q:'Buku pelajaran sejarah termasuk sumber...',o:['Primer','Sekunder','Benda','Asli'],a:1,e:'SEKUNDER — berdasarkan sumber lain.',cat:'Sumber',s:'Kuntowijoyo (2003)'},
+  {id:'b04',q:'Sumber dari masa/pelaku/saksi langsung disebut...',o:['Primer','Sekunder','Tersier','Asli'],a:0,e:'Sumber PRIMER.',cat:'Sumber',s:'Louis Gottschalk (1950)'},
+  {id:'b05',q:'Prasasti termasuk contoh sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:0,e:'Prasasti = TERTULIS (tulisan pada batu).',cat:'Sumber',s:'Museum Nasional'},
+  {id:'b06',q:'Rekaman video kegiatan termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:3,e:'AUDIOVISUAL.',cat:'Sumber',s:'Kuntowijoyo (2003)'},
+  {id:'b07',q:'Mata uang kuno termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:2,e:'BENDA.',cat:'Sumber',s:'Museum Bank Indonesia'},
+  {id:'b08',q:'Cerita rakyat termasuk sumber...',o:['Tertulis','Lisan','Benda','Audiovisual'],a:1,e:'LISAN — diturunkan mulut ke mulut.',cat:'Sumber',s:'Kajian folklore Indonesia'},
+  {id:'b09',q:'Contoh sumber primer untuk mempelajari Proklamasi adalah...',o:['Buku sejarah','Teks Proklamasi asli','Artikel','Ensiklopedia'],a:1,e:'Teks Proklamasi asli = sumber PRIMER.',cat:'Sumber',s:'Arsip Nasional RI'},
+  {id:'b10',q:'Perbedaan utama sumber primer & sekunder terletak pada...',o:['Bentuk fisik','Keterlibatan langsung dengan peristiwa','Tempat penyimpanan','Bahasa'],a:1,e:'Keterlibatan LANGSUNG dengan peristiwa.',cat:'Sumber',s:'Louis Gottschalk (1950)'},
+  {id:'b11',q:'Berpikir memanjang dalam waktu disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:1,e:'DIAKRONIK — memanjang waktu.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'b12',q:'Berpikir meluas dalam waktu disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:0,e:'SINKRONIK — meluas waktu.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'b13',q:'Pembagian zaman sejarah disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:2,e:'PERIODIK.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'b14',q:'Urutan peristiwa dari awal ke akhir disebut...',o:['Sinkronik','Diakronik','Periodik','Kronologis'],a:3,e:'KRONOLOGIS.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'b15',q:'Menganalisis kondisi ekonomi Indonesia tahun 1998 termasuk cara berpikir...',o:['Diakronik','Sinkronik','Kronologis','Periodik'],a:1,e:'SINKRONIK — analisis satu kurun waktu.',cat:'Konsep Waktu',s:'Kuntowijoyo (1995)'},
+  {id:'b16',q:'Tahap mengumpulkan sumber sejarah disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:0,e:'HEURISTIK.',cat:'Metode',s:'Kuntowijoyo (2003)'},
+  {id:'b17',q:'Tahap menguji keaslian sumber disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:1,e:'KRITIK.',cat:'Metode',s:'Louis Gottschalk (1950)'},
+  {id:'b18',q:'Tahap penulisan sejarah disebut...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:3,e:'HISTORIOGRAFI.',cat:'Metode',s:'Sartono Kartodirdjo (1982)'},
+  {id:'b19',q:'Menafsirkan fakta & makna termasuk tahap...',o:['Heuristik','Kritik','Interpretasi','Historiografi'],a:2,e:'INTERPRETASI.',cat:'Metode',s:'Kuntowijoyo (2003)'},
+  {id:'b20',q:'Menguji keaslian fisik sumber termasuk...',o:['Kritik Eksternal','Kritik Internal','Heuristik','Historiografi'],a:0,e:'KRITIK EKSTERNAL.',cat:'Metode',s:'Louis Gottschalk (1950)'},
+  {id:'b21',q:'Menguji kredibilitas isi sumber termasuk...',o:['Kritik Eksternal','Kritik Internal','Heuristik','Historiografi'],a:1,e:'KRITIK INTERNAL.',cat:'Metode',s:'Louis Gottschalk (1950)'},
+  {id:'b22',q:'Prinsip sebab-akibat dalam sejarah disebut...',o:['Kausalitas','Kronologi','Sinkronik','Interpretasi'],a:0,e:'KAUSALITAS — sebab-akibat.',cat:'Metode',s:'R.G. Collingwood (1946)'},
+  {id:'b23',q:'Ilmu bantu sejarah tentang tulisan kuno disebut...',o:['Paleografi','Epigrafi','Numismatik','Genealogi'],a:0,e:'PALEOGRAFI — tulisan kuno.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b24',q:'Ilmu bantu sejarah tentang prasasti disebut...',o:['Paleografi','Epigrafi','Numismatik','Genealogi'],a:1,e:'EPIGRAFI — prasasti.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b25',q:'Ilmu bantu sejarah tentang mata uang kuno disebut...',o:['Paleografi','Epigrafi','Numismatik','Genealogi'],a:2,e:'NUMISMATIK — mata uang kuno.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b26',q:'Ilmu bantu sejarah tentang silsilah keluarga disebut...',o:['Paleografi','Epigrafi','Numismatik','Genealogi'],a:3,e:'GENEALOGI — silsilah keluarga.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b27',q:'Ilmu bantu sejarah tentang segel & stempel disebut...',o:['Paleografi','Sigillografi','Numismatik','Ikonografi'],a:1,e:'SIGILLOGRAFI — segel & stempel.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b28',q:'Ilmu bantu sejarah tentang makna gambar & simbol disebut...',o:['Paleografi','Epigrafi','Ikonografi','Numismatik'],a:2,e:'IKONOGRAFI — makna gambar & simbol.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b29',q:'Ilmu bantu sejarah tentang urutan waktu disebut...',o:['Kronologi','Paleografi','Genealogi','Sigillografi'],a:0,e:'KRONOLOGI — urutan waktu.',cat:'Ilmu Bantu',s:'Ilmu Bantu Sejarah'},
+  {id:'b30',q:'Historiografi yang bercorak istana-sentris & bercampur mitos disebut...',o:['Tradisional','Kolonial','Nasional','Modern'],a:0,e:'HISTORIOGRAFI TRADISIONAL.',cat:'Historiografi',s:'Babad Tanah Jawi'},
+  {id:'b31',q:'Historiografi yang ditulis dari sudut pandang penjajah Belanda disebut...',o:['Tradisional','Kolonial','Nasional','Modern'],a:1,e:'HISTORIOGRAFI KOLONIAL — Neerlando-sentris.',cat:'Historiografi',s:'Sejarah Kolonial Hindia-Belanda'},
+  {id:'b32',q:'Historiografi yang bercorak Indonesia-sentris disebut...',o:['Tradisional','Kolonial','Nasional','Modern'],a:2,e:'HISTORIOGRAFI NASIONAL.',cat:'Historiografi',s:'Sejarah Nasional Indonesia (SNI)'},
+  {id:'b33',q:'Historiografi dengan pendekatan kritis & multidisipliner disebut...',o:['Tradisional','Kolonial','Nasional','Modern'],a:3,e:'HISTORIOGRAFI MODERN.',cat:'Historiografi',s:'Kuntowijoyo (2003)'},
+  {id:'b34',q:'Contoh historiografi tradisional adalah...',o:['Babad Tanah Jawi','Sejarah Nasional Indonesia','Buku pelajaran modern','Jurnal ilmiah'],a:0,e:'BABAD TANAH JAWI — istana-sentris.',cat:'Historiografi',s:'Sastra Jawa'},
+  {id:'b35',q:'Kajian tentang peristiwa di tingkat desa/kota disebut sejarah...',o:['Lokal','Nasional','Regional','Global'],a:0,e:'SEJARAH LOKAL.',cat:'Ruang Lingkup',s:'Sartono Kartodirdjo (1982)'},
+  {id:'b36',q:'Kajian tentang peristiwa yang membentuk bangsa disebut sejarah...',o:['Lokal','Nasional','Regional','Global'],a:1,e:'SEJARAH NASIONAL.',cat:'Ruang Lingkup',s:'Sartono Kartodirdjo (1982)'},
+  {id:'b37',q:'Kajian tentang peristiwa kawasan Asia Tenggara disebut sejarah...',o:['Lokal','Nasional','Regional','Global'],a:2,e:'SEJARAH REGIONAL.',cat:'Ruang Lingkup',s:'Sartono Kartodirdjo (1982)'},
+  {id:'b38',q:'Kajian tentang Perang Dingin yang berdampak dunia disebut sejarah...',o:['Lokal','Nasional','Regional','Global'],a:3,e:'SEJARAH GLOBAL.',cat:'Ruang Lingkup',s:'Sartono Kartodirdjo (1982)'},
+  {id:'b39',q:'Sejarah politik, ekonomi, sosial, budaya termasuk pembagian sejarah berdasarkan...',o:['Waktu','Tema','Wilayah','Pelaku'],a:1,e:'Berdasarkan TEMA.',cat:'Ruang Lingkup',s:'Kuntowijoyo (1995)'},
+  {id:'b40',q:'Berikut ini yang BUKAN termasuk sumber sekunder adalah...',o:['Buku pelajaran','Artikel sejarah','Dokumen asli','Ensiklopedia'],a:2,e:'DOKUMEN ASLI = sumber PRIMER, bukan sekunder.',cat:'Sumber',s:'Louis Gottschalk (1950)'}
+];
+
+/* Fungsi pengambilan soal dengan anti-repetisi */
+function pickFromBankA(n){ return pickQuestionsAntiRepeat(BANK_A,'roda',n); }
+function pickFromBankB(n){ return pickQuestionsAntiRepeat(BANK_B,'jutawan',n); }
+
+/* =========================================================
+   GAME 4: RODA PUTAR — BANK A
    ========================================================= */
 const WHEEL_TOTAL=15;
 let wRot=0,wSpin=false,wCtx,wCanvas,wAnswered=0,wCorrect=0,wSession=[];
@@ -2165,7 +2042,9 @@ function initWheel(){
   wCanvas=$('#wCanvas');wCtx=wCanvas.getContext('2d');
   drawWheel();
   wAnswered=0;wCorrect=0;
-  wSession=pickQuestions(WHEEL_TOTAL);
+  wSession=pickFromBankA(WHEEL_TOTAL);
+  // tandai sebagai seen saat dipilih
+  wSession.forEach(q => markSeen('roda', q.id));
   reviewData=[];hideDetail();
   updateWheelScore();hideQ();
   const c=$('#wCenter');c.textContent='PUTAR';c.onclick=spin;
@@ -2175,7 +2054,7 @@ function updateWheelScore(){$('#whScore').textContent=`Soal ${wAnswered} / ${WHE
 function drawWheel(){
   const ctx=wCtx,cv=wCanvas,cx=cv.width/2,cy=cv.height/2;
   const r=Math.min(cx,cy)-16,n=8,sa=(Math.PI*2)/n;
-  const cats=['Etimologi','Tokoh','Hakikat','Guna','Sumber','Konsep Waktu','M-R-Waktu','Metode'];
+  const cats=['Etimologi','Tokoh','Hakikat','Guna','M-R-Waktu','Ilmu Bantu','Historiografi','Ruang Lingkup'];
   const colors=['#3b82f6','#06b6d4','#8b5cf6','#f59e0b','#2563eb','#a78bfa','#22d3ee','#fbbf24'];
   ctx.clearRect(0,0,cv.width,cv.height);
   ctx.beginPath();ctx.arc(cx,cy,r+12,0,6.28);ctx.strokeStyle='rgba(37,99,235,.3)';ctx.lineWidth=4;ctx.stroke();
@@ -2189,8 +2068,7 @@ function drawWheel(){
     ctx.shadowColor='rgba(15,42,110,.45)';ctx.shadowBlur=6;ctx.shadowOffsetY=2;
     ctx.fillStyle='#fff';
     ctx.font='800 22px "Plus Jakarta Sans","Segoe UI",sans-serif';
-    ctx.fillText(name,r-30,0);
-    ctx.restore();
+    ctx.fillText(name,r-30,0); ctx.restore();
   });
   ctx.beginPath();ctx.arc(cx,cy,50,0,6.28);ctx.fillStyle='#2563eb';ctx.fill();
   ctx.lineWidth=5;ctx.strokeStyle='#fff';ctx.stroke();
@@ -2220,8 +2098,7 @@ function showQ(){
     const btn=document.createElement('button');
     btn.innerHTML=`<strong style="color:var(--blue)">${String.fromCharCode(65+i)}.</strong> ${o}`;
     btn.onclick=()=>ansW(i,btn);
-    attachRipple(btn);
-    b.appendChild(btn);
+    attachRipple(btn); b.appendChild(btn);
   });
   $('#wExplain').classList.remove('show');
   $('#wActions').classList.remove('show');
@@ -2269,14 +2146,15 @@ function ansW(i,btn){
 function hideQ(){$('#wQ').classList.remove('show');$('#wExplain').classList.remove('show');$('#wActions').classList.remove('show')}
 
 /* =========================================================
-   GAME 5: JUTAWAN
+   GAME 5: JUTAWAN — BANK B
    ========================================================= */
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
 let mlCur=0,mlLL={fifty:true,ask:true,phone:true},mlCorrectCount=0,mlSession=[];
 function initMl(){
   mlCur=0;mlLL={fifty:true,ask:true,phone:true};mlCorrectCount=0;
-  mlSession=pickQuestions(MIL_TOTAL);
+  mlSession=pickFromBankB(MIL_TOTAL);
+  mlSession.forEach(q => markSeen('jutawan', q.id));
   reviewData=[];hideDetail();
   ['ll1','ll2','ll3'].forEach(id=>{$(`#${id}`).disabled=false;$(`#${id}`).style.opacity=1});
   renderTree();loadMl();
@@ -2318,8 +2196,7 @@ function loadMl(){
     const b=document.createElement('button');
     b.innerHTML=`<span class="l">${String.fromCharCode(65+i)}.</span> ${t}`;
     b.onclick=()=>ansMl(i,b);
-    attachRipple(b);
-    o.appendChild(b);
+    attachRipple(b); o.appendChild(b);
   });
   renderTree();
 }
@@ -2342,8 +2219,7 @@ function useLL(t){
   if(t==='fifty'){
     [0,1,2,3].filter(i=>i!==ok).sort(()=>Math.random()-.5).slice(0,2).forEach(i=>opts[i].classList.add('elim'));
     notif('50:50 digunakan!','gold');
-  }
-  else if(t==='ask'){notif(`Audien memilih jawaban ${String.fromCharCode(65+ok)}`,'gold')}
+  } else if(t==='ask'){notif(`Audien memilih jawaban ${String.fromCharCode(65+ok)}`,'gold')}
   else{
     const sure=Math.random()>0.15;
     const pick=sure?ok:[0,1,2,3].filter(i=>i!==ok)[Math.floor(Math.random()*3)];
@@ -2352,12 +2228,11 @@ function useLL(t){
 }
 
 /* =========================================================
-   GAME 6 — JEJAK SEJARAWAN
+   GAME 6 — JEJAK SEJARAWAN (20 DILEMA)
    ========================================================= */
 const JJ_TOTAL=10;
 let jjIdx=0, jjStats={ket:50,obj:50,emp:50}, jjPicked=false;
-let jjSession=[];
-let jjGoodCount=0;
+let jjSession=[]; let jjGoodCount=0;
 
 const jjData=[
   {icon:'📜',title:'Arsip Berdebu di Loteng Museum',text:'Kamu menemukan tumpukan surat tua di loteng museum daerah. Banyak yang sudah lapuk.',
@@ -2476,7 +2351,6 @@ function pickJj(which){
   A.disabled=true; B.disabled=true;
   const chosenEl=which==='a'?A:B;
   const otherEl =which==='a'?B:A;
-
   if(choice.good){
     chosenEl.classList.add('picked-good');
     Sound.correct();
@@ -2486,12 +2360,10 @@ function pickJj(which){
     otherEl.classList.add('reveal-correct');
     Sound.soft();
   }
-
   jjStats.ket=Math.max(0,Math.min(100,jjStats.ket+(choice.d.ket||0)));
   jjStats.obj=Math.max(0,Math.min(100,jjStats.obj+(choice.d.obj||0)));
   jjStats.emp=Math.max(0,Math.min(100,jjStats.emp+(choice.d.emp||0)));
   updateJjStats();
-
   $('#jjFeedbackTxt').innerHTML=choice.fb;
   const deltas=[];
   const labels={ket:'Ketelitian',obj:'Objektivitas',emp:'Empati'};
@@ -2508,7 +2380,6 @@ function pickJj(which){
   $('#jjSrc').innerHTML=choice.src?`📖 Sumber: ${choice.src}`:'';
   $('#jjFeedback').classList.add('show');
   setTimeout(()=>$('#jjNextWrap').classList.add('show'),300);
-
   pushReview(
     `Dilema ${jjIdx+1}: ${d.title}`,
     [d.a.txt.replace(/&amp;/g,'&'), d.b.txt.replace(/&amp;/g,'&')],
@@ -2519,33 +2390,24 @@ function pickJj(which){
   );
 }
 function nextJj(){
-  if(jjIdx<JJ_TOTAL-1){
-    jjIdx++;
-    renderJj();
-    window.scrollTo({top:0,behavior:'smooth'});
-  } else {
-    jjFinish();
-  }
+  if(jjIdx<JJ_TOTAL-1){ jjIdx++; renderJj(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { jjFinish(); }
 }
 function jjFinish(){
   stopTimer();
   const score = Math.round((jjGoodCount / JJ_TOTAL) * 100);
-
   let rankIcon='🚀', rankName='AWAL YANG BAIK', rankSub='Terus belajar & berlatih';
   if(score===100){ rankIcon='🌟'; rankName='LUAR BIASA'; rankSub='Semua keputusan tepat'; }
   else if(score>=80){ rankIcon='🏆'; rankName='SANGAT BAIK'; rankSub='Hampir sempurna'; }
   else if(score>=60){ rankIcon='👍'; rankName='BAIK'; rankSub='Sebagian besar tepat'; }
   else if(score>=40){ rankIcon='📚'; rankName='CUKUP BAIK'; rankSub='Sudah ada kemajuan'; }
   else if(score>=20){ rankIcon='🌱'; rankName='BERKEMBANG'; rankSub='Sedang tumbuh'; }
-
   markDone('jejak',{score:score,acc:score});
   if(score>=60){ Sound.win(); confetti(); } else { Sound.land(); }
   showAchievement('jejak');
-
   const stats=[['Ketelitian',jjStats.ket],['Objektivitas',jjStats.obj],['Empati',jjStats.emp]];
   stats.sort((a,b)=>b[1]-a[1]);
   const dominan=stats[0][0];
-
   const summary=`
     <div class="jj-rank-banner">
       <div class="rk-icon">${rankIcon}</div>
@@ -2562,18 +2424,13 @@ function jjFinish(){
     <p style="font-size:.85rem;color:var(--muted)">Setiap keputusan adalah pembelajaran berharga.</p>
     <p style="font-size:.78rem;color:var(--muted);margin-top:6px">🔄 <i>Buka lagi untuk menghadapi kombinasi dilema yang berbeda!</i></p>
   `;
-
   setTimeout(()=>modal(rankIcon, 'PERJALANAN SELESAI', summary, rankName), 500);
 }
 
-/* =========================================================
-   KEYBOARD SHORTCUTS
-   ========================================================= */
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeModal();hideDetail();closeAch();closeGloss();closeReview()}
   const activeGame=document.querySelector('.screen.active');
   if(!activeGame||activeGame.id==='mainMenu')return;
-
   if(activeGame.id==='gameJejak'){
     if((e.key==='1'||e.key==='2')&&!jjPicked){
       const btn=e.key==='1'?$('#jjChoiceA'):$('#jjChoiceB');
@@ -2584,7 +2441,6 @@ document.addEventListener('keydown',e=>{
     }
     return;
   }
-
   if(['1','2','3','4'].includes(e.key)){
     const idx=parseInt(e.key)-1;
     const woOpts=activeGame.querySelectorAll('#wOpts button:not(:disabled)');
@@ -2602,9 +2458,6 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-/* =========================================================
-   RESTORE SETTINGS
-   ========================================================= */
 try{
   if(localStorage.getItem('pq2_sound')==='0'){
     Sound.enabled=false;
@@ -2613,14 +2466,10 @@ try{
   if(localStorage.getItem('pq2_motion')==='0'){document.body.classList.add('reduce-motion')}
 }catch(e){}
 
-/* =========================================================
-   INIT
-   ========================================================= */
 updateMenu();
 updateDailyFact();
 renderAch();
 
-/* Re-attach ripple saat DOM berubah */
 (function(){
   const observer=new MutationObserver(()=>{
     $$('.btn:not([data-ripple-bound]),.tb-btn:not([data-ripple-bound]),.gc:not([data-ripple-bound]),.src:not([data-ripple-bound]),.mi:not([data-ripple-bound]),.wo button:not([data-ripple-bound]),.mo button:not([data-ripple-bound]),.jj-choice:not([data-ripple-bound]),.icon-btn:not([data-ripple-bound]),.ll:not([data-ripple-bound]),.lv-tab:not([data-ripple-bound]),.wcenter:not([data-ripple-bound]),.jj-next button:not([data-ripple-bound])').forEach(el=>{
@@ -2630,15 +2479,7 @@ renderAch();
   observer.observe(document.body,{childList:true,subtree:true});
 })();
 
-/* Prevent iOS zoom on focus */
-document.addEventListener('focusin',e=>{
-  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
-});
-
-/* Handle viewport height dinamis untuk HP */
-function setVH(){
-  document.documentElement.style.setProperty('--vh',(window.innerHeight*0.01)+'px');
-}
+function setVH(){ document.documentElement.style.setProperty('--vh',(window.innerHeight*0.01)+'px'); }
 setVH();
 window.addEventListener('resize',setVH);
 window.addEventListener('orientationchange',()=>setTimeout(setVH,200));
