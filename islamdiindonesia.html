@@ -2508,9 +2508,23 @@ function parseYear(y){
 
 function loadOrdPack(){
   if(!ordActive)return;
-  if(ordCurrent>=ordSession.length){finishOrd();return}
+  // Jika sudah selesai semua paket
+  if(ordCurrent>=ordSession.length){
+    finishOrd();
+    return;
+  }
+  
   const pack=ordSession[ordCurrent];
-  ordSelected=null;ordAnswered=false;
+  
+  // ⚡ RESET STATE PENTING
+  ordSelected=null;
+  ordAnswered=false;
+  
+  // ⚡ RESET TIMER: hentikan dulu, lalu mulai ulang
+  stopCountdown();
+  countSec=90; // reset langsung
+  
+  // Update UI header
   $('#ordRound').textContent=`Paket ${ordCurrent+1}/${ordSession.length}`;
   $('#ordPackIcon').textContent=pack.icon;
   $('#ordPackTitle').textContent=pack.title;
@@ -2520,7 +2534,13 @@ function loadOrdPack(){
   $('#ordFb').textContent='';
   $('#ordCheckBtn').disabled=false;
   $('#ordCheckBtn').innerHTML='<i class="fas fa-check-circle"></i> Periksa Urutan';
-
+  
+  // Reset tombol hint untuk paket baru
+  $('#ordHintBtn').disabled=false;
+  $('#ordHintBtn').innerHTML='<i class="fas fa-lightbulb"></i> Bantuan (3x)';
+  ordHintsLeft=3;
+  
+  // Bangun kartu
   const shuffled=shuffle([...pack.cards]);
   const container=$('#ordTimeline');
   container.innerHTML='';
@@ -2541,6 +2561,8 @@ function loadOrdPack(){
     el.onclick=()=>selectOrdCard(el);
     container.appendChild(el);
   });
+  
+  // ⚡ MULAI TIMER BARU
   startCountdown('#ordTimer',90,()=>ordTimeOut(),10);
 }
 
@@ -2591,49 +2613,44 @@ function selectOrdCard(el){
 function hintOrd(){
   if(!ordActive||ordAnswered||ordHintsLeft<=0)return;
   const pack=ordSession[ordCurrent];
-  const cards=[...$('#ordTimeline').children];
+  if(!pack)return;
+  
+  const container=$('#ordTimeline');
+  const cards=[...container.children];
   const sorted=[...pack.cards].sort((a,b)=>parseYear(a.year)-parseYear(b.year));
-  // Temukan kartu yang salah posisi, taruh di posisi benar
-  let fixedAny=false;
-  // Lock yang sudah benar
+  
+  // Lock kartu yang sudah benar posisinya
   cards.forEach((c,i)=>{
     if(c.dataset.event===sorted[i].event){
-      if(!c.classList.contains('correct')){
-        c.classList.add('correct');
-        c.classList.add('disabled');
-      }
+      c.classList.add('correct');
+      c.classList.add('disabled');
     }
   });
-  // Cari kartu pertama yang salah posisi
+  
+  // Cari kartu yang salah posisi
+  let targetCard=null;
   for(let i=0;i<cards.length;i++){
     if(cards[i].dataset.event!==sorted[i].event && !cards[i].classList.contains('correct')){
-      // Cari kartu yang seharusnya di posisi i
-      const targetEvent=sorted[i].event;
-      const targetCard=cards.find(c=>c.dataset.event===targetEvent);
-      if(targetCard&&targetCard!==cards[i]){
-        // Swap
-        const container=$('#ordTimeline');
-        const nodeA=cards[i];
-        const nodeB=targetCard;
-        const tempNext=nodeA.nextSibling;
-        container.insertBefore(nodeB,nodeA);
-        if(tempNext===nodeB)container.insertBefore(nodeA,nodeB.nextSibling);
-        else container.insertBefore(nodeA,tempNext);
-      }
-      // Lock kartu target
-      targetCard.classList.add('correct');
-      targetCard.classList.add('disabled');
-      fixedAny=true;
+      targetCard=cards.find(c=>c.dataset.event===sorted[i].event && !c.classList.contains('correct'));
       break;
     }
   }
-  [...$('#ordTimeline').children].forEach((c,i)=>{
+  
+  if(targetCard){
+    targetCard.classList.add('correct');
+    targetCard.classList.add('disabled');
+  }
+  
+  // Update nomor urut
+  [...container.children].forEach((c,i)=>{
     const n=c.querySelector('.ord-num');
     if(n)n.textContent=i+1;
   });
+  
   ordHintsLeft--;
   notif(`💡 Bantuan digunakan (${ordHintsLeft} tersisa)`,'gold');
   Sound.beep(500,.15,'triangle',.1);
+  
   if(ordHintsLeft<=0){
     $('#ordHintBtn').disabled=true;
     $('#ordHintBtn').innerHTML='<i class="fas fa-lightbulb"></i> Habis';
@@ -2677,7 +2694,7 @@ function checkOrd(){
   ordTotalCards+=cards.length;
   updateOrdProgress();
 
-  if(allCorrect){
+ if(allCorrect){
     ordAnswered=true;
     const bonusHints=ordHintsLeft*50;
     const comboMult=Combo.multiplier;
@@ -2695,19 +2712,58 @@ function checkOrd(){
 
     const list=sorted.map(c=>({t:`${c.year} — ${c.event}`,d:`${c.info}<br><i style="color:#94a3b8;font-size:.85em">📖 ${c.src}</i>`}));
 
+    // ⚡ Gunakan setTimeout agar animasi kartu selesai dulu
     setTimeout(()=>{
+      // Jika ini paket terakhir
       if(ordCurrent>=ordSession.length-1){
         finishOrd();
-      }else{
-        modal('🎯','Paket Selesai!',`Urutan <b>${pack.title}</b> benar! +${pts} poin. Lanjut ke paket berikutnya?`,'Ahli Kronologi 🎯',list);
-        const next=$('#mNextBtn');
-        next.hidden=false;
-        next.innerHTML='<i class="fas fa-arrow-right"></i> Lanjut Paket';
-        next.onclick=()=>{closeModal();ordCurrent++;loadOrdPack()};
-        $('#mRetryBtn').hidden=true;
-        $('#mReviewBtn').style.display='none';
+        return;
+      }
+      
+      // Tampilkan modal
+      modal('🎯','Paket Selesai!',`Urutan <b>${pack.title}</b> benar! +${pts} poin. Lanjut ke paket berikutnya?`,'Ahli Kronologi 🎯',list);
+      
+      // ⚡ AMBIL TOMBOL LANJUT & SET HANDLER BARU
+      const next=$('#mNextBtn');
+      next.hidden=false;
+      next.innerHTML='<i class="fas fa-arrow-right"></i> Lanjut Paket';
+      $('#mRetryBtn').hidden=true;
+      $('#mReviewBtn').style.display='none';
+      
+      // ⚡ HAPUS HANDLER LAMA, PASANG HANDLER BARU
+      // (clone node untuk clear semua event listener)
+      const nextClone=next.cloneNode(true);
+      next.parentNode.replaceChild(nextClone,next);
+      nextClone.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        closeModal();
+        // ⚡ Delay sedikit agar modal selesai closing
+        setTimeout(()=>{
+          ordCurrent++;
+          loadOrdPack();
+        },350);
+      };
+      
+      // ⚡ BONUS: Aktifkan tombol lain yang tidak terpakai
+      // Tombol "Selesai" juga harus bisa lanjut
+      const selesaiBtn=document.querySelector('#modal .modal-actions .btn:not(.ghost):not(.green):not(.gold)');
+      if(selesaiBtn){
+        // Clone untuk clear handler
+        const selesaiClone=selesaiBtn.cloneNode(true);
+        selesaiBtn.parentNode.replaceChild(selesaiClone,selesaiBtn);
+        selesaiClone.onclick=function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          closeModal();
+          setTimeout(()=>{
+            ordCurrent++;
+            loadOrdPack();
+          },350);
+        };
       }
     },1200);
+  }
   }else{
     ordLives--;
     $('#ordLives').textContent='❤'.repeat(Math.max(0,ordLives));
@@ -2738,17 +2794,37 @@ function checkOrd(){
 }
 
 function finishOrd(){
-  if(!ordActive)return;ordActive=false;
+  if(!ordActive)return;
+  ordActive=false;
   stopCountdown();
+  
   const totalPts=ordSession.length*200;
   const acc=Math.round(ordScore/totalPts*100);
   const finalAcc=ordTotalCards>0?Math.round(ordTotalCorrect/ordTotalCards*100):acc;
+  
   markDone('memory',{score:ordScore,acc:finalAcc,maxCombo:Combo.max});
-  Sound.win();confetti();
+  Sound.win();
+  confetti();
   showAchievement('memory');
+  
   setTimeout(()=>{
-    modal('🏆','AHLI KRONOLOGI!',`Semua ${ordSession.length} paket selesai! Skor: ${ordScore} · Akurasi: ${finalAcc}%`,'Ahli Kronologi 🎯');
+    modal('🏆','AHLI KRONOLOGI!',
+      `Semua ${ordSession.length} paket selesai! Skor: ${ordScore} · Akurasi: ${finalAcc}%`,
+      'Ahli Kronologi 🎯');
     $('#mRetryBtn').hidden=false;
+    
+    // ⚡ Pastikan tombol Selesai mengarah ke goHome
+    const selesaiBtn=document.querySelector('#modal .modal-actions .btn:not(.ghost):not(.green):not(.gold):not(.btn.green):not(.btn.gold)');
+    if(selesaiBtn){
+      const clone=selesaiBtn.cloneNode(true);
+      selesaiBtn.parentNode.replaceChild(clone,selesaiBtn);
+      clone.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        closeModal();
+        goHome();
+      };
+    }
   },600);
 }
 
