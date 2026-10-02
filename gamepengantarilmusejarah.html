@@ -570,24 +570,17 @@ img,canvas,svg{max-width:100%;height:auto}
 .footer{margin-top:32px;padding:18px 14px calc(18px + var(--safe-bottom));text-align:center;font-size:.72rem;color:var(--muted);border-top:1px solid rgba(37,99,235,.15);position:relative;z-index:1}
 .footer .sch{font-weight:900;color:var(--blue);letter-spacing:1.5px;font-size:.76rem;margin-bottom:6px;line-height:1.3}
 .credit-wrap{
-  margin-top:12px;display:inline-flex;flex-direction:column;align-items:center;gap:5px;
-  padding:12px 18px;border-radius:16px;position:relative;
+  margin-top:12px;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;
+  padding:8px 16px;border-radius:14px;position:relative;
   background:linear-gradient(135deg,rgba(15,42,110,.06),rgba(6,182,212,.06) 45%,rgba(245,158,11,.08));
   border:1.5px solid rgba(37,99,235,.2);
   box-shadow:0 10px 30px -10px rgba(15,42,110,.25);max-width:100%;
 }
-.credit-wrap .lbl{font-size:.58rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
-.credit-wrap .lbl i{color:var(--amber)}
 .credit-wrap .name{
-  font-size:1.05rem;font-weight:900;letter-spacing:1.2px;line-height:1.15;
-  background:linear-gradient(100deg,#8a5a12 0%,#d4a017 20%,#ffe98a 42%,#f5c542 55%,#b8860b 72%,#8a5a12 100%);
-  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 2px 4px rgba(138,90,18,.35));
-  animation:nameShine 5s linear infinite;padding:0 4px;
+  font-size:.68rem;font-weight:800;letter-spacing:.8px;line-height:1.15;
+  color:#1e3a8a;
+  padding:0 2px;
 }
-@keyframes nameShine{0%{background-position:100% 0}100%{background-position:-100% 0}}
-.credit-wrap .school{font-size:.72rem;font-weight:700;font-style:italic;letter-spacing:1.5px;color:transparent;background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;display:inline-flex;align-items:center;gap:5px}
-.credit-wrap .school i{font-style:normal;font-size:.68rem;color:var(--cyan);-webkit-text-fill-color:var(--cyan)}
 .footer .credo{margin-top:10px;font-size:.68rem;font-style:italic;color:var(--muted);opacity:.85}
 .footer b{color:var(--ink2)}
 
@@ -778,8 +771,8 @@ img,canvas,svg{max-width:100%;height:auto}
   .jj-score-card{grid-template-columns:1fr 1fr}
   .footer{margin-top:40px;padding:22px 16px calc(22px + var(--safe-bottom))}
   .footer .sch{font-size:.84rem;letter-spacing:2px}
-  .credit-wrap{padding:13px 24px}
-  .credit-wrap .name{font-size:1.25rem}
+  .credit-wrap{padding:9px 20px}
+  .credit-wrap .name{font-size:.72rem}
   .footer .credo{font-size:.72rem}
 }
 @media(min-width:1024px){
@@ -938,7 +931,7 @@ img,canvas,svg{max-width:100%;height:auto}
   </div>
   <div class="hero">
     <h1 class="hero-title">MISI 1 : MEMAHAMI PRINSIP ILMU SEJARAH<span>Game Pembelajaran Interaktif · Tersinkronisasi Modul Premium</span></h1>
-    <p class="hero-sub">Belajar prinsip ilmu sejarah kelas X dengan 6 game interaktif. Materi telah disinkronkan dengan Modul Premium — setiap game punya bank soal unik yang tidak tumpang tindih.</p>
+    <p class="hero-sub">Belajar prinsip ilmu sejarah kelas X dengan 6 game interaktif.</p>
     <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian Pembelajaran:</b> Peserta didik mampu memahami konsep dasar ilmu sejarah, sumber sejarah, serta cara berpikir sejarah (diakronik, sinkronik, periodik, kronologis) untuk menganalisis peristiwa masa lalu.</span></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Games</div></div>
@@ -1003,9 +996,7 @@ img,canvas,svg{max-width:100%;height:auto}
   <div class="footer">
     <div class="sch">📜 SEJARAH KELAS X · FASE E · KURIKULUM MERDEKA</div>
     <div class="credit-wrap">
-      <div class="lbl"><i class="fas fa-award"></i> CREATED BY</div>
-      <div class="name">SYAHRANI, S.Pd</div>
-      <div class="school"><i class="fas fa-school"></i> SMAN 3 KASONGAN</div>
+      <div class="name">CREATED BY SYAHRANI, S.Pd</div>
     </div>
     <div class="credo">"Sejarah adalah guru kehidupan — belajar dari masa lalu untuk membangun masa depan."</div>
   </div>
