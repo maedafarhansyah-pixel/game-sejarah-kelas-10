@@ -13,9 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-/* ============================================================
-   CORE STYLES — ANTI-PUSING EDITION
-   ============================================================ */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --maroon:#1e4d8c;--maroon2:#2563eb;--maroon3:#3b82f6;
@@ -55,7 +52,6 @@ button{touch-action:manipulation}
 @keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.6}}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 @keyframes glowPulse{0%,100%{box-shadow:0 0 0 rgba(37,99,235,.3)}50%{box-shadow:0 0 40px rgba(37,99,235,.65)}}
-@keyframes colorFlash{0%,100%{background-color:rgba(16,185,129,0)}50%{background-color:rgba(16,185,129,.15)}}
 @keyframes correctPop{0%{transform:scale(1)}45%{transform:scale(1.03)}100%{transform:scale(1)}}
 @keyframes optPop{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 @keyframes modalIn{0%{opacity:0;transform:scale(.92)}100%{opacity:1;transform:scale(1)}}
@@ -631,10 +627,8 @@ button{touch-action:manipulation}
 </head>
 <body>
 
-<!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<!-- FLOATING ORBS -->
 <div class="orbs-bg" aria-hidden="true"><span></span><span></span><span></span></div>
 
 <div class="top-controls">
@@ -651,7 +645,6 @@ button{touch-action:manipulation}
 <canvas id="bgCanvas"></canvas>
 <canvas id="confetti"></canvas>
 
-<!-- MAIN MENU -->
 <div id="mainMenu" class="screen active">
   <div class="hero">
     <div class="hero-badge">
@@ -777,7 +770,6 @@ button{touch-action:manipulation}
   </div>
 </div>
 
-<!-- G1 -->
 <div id="gameG1" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -815,7 +807,6 @@ button{touch-action:manipulation}
   </div>
 </div>
 
-<!-- G2 -->
 <div id="gameG2" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -845,7 +836,6 @@ button{touch-action:manipulation}
   <div class="hunt-grid" id="g2Grid"></div>
 </div>
 
-<!-- G3 -->
 <div id="gameG3" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -885,7 +875,6 @@ button{touch-action:manipulation}
   </div>
 </div>
 
-<!-- G4 -->
 <div id="gameG4" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -925,7 +914,6 @@ button{touch-action:manipulation}
   </div>
 </div>
 
-<!-- G5 -->
 <div id="gameG5" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -961,7 +949,6 @@ button{touch-action:manipulation}
   </div>
 </div>
 
-<!-- G6 -->
 <div id="gameG6" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -1010,7 +997,6 @@ button{touch-action:manipulation}
   <div class="log" id="g6Log" style="margin-top:12px">Tekan <b>KOCOK DADU</b> untuk memulai petualanganmu!</div>
 </div>
 
-<!-- G7 -->
 <div id="gameG7" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()" aria-label="Home"><i class="fas fa-home"></i></button>
@@ -1103,13 +1089,11 @@ button{touch-action:manipulation}
   <div id="g7ResultWrap" class="g7-wrap" style="display:none"></div>
 </div>
 
-<!-- PERSISTENT UI -->
 <div class="pops" id="pops"></div>
 <div class="banner" id="banner"></div>
 <div class="flash" id="flash"></div>
 <div class="confetti" id="confetti"></div>
 
-<!-- MODAL UTAMA -->
 <div class="modal" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-emoji" id="mEmoji">🎉</div>
@@ -1169,7 +1153,6 @@ const rnd=n=>Math.random()*n|0;
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
 function fmtTime(s){const m=Math.floor(s/60),r=s%60;return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0');}
 
-/* ============ EFEK WARNA — PARTICLE, FLOAT TEXT, SPARKLE ============ */
 function particleBurst(x, y, count, colors, spread){
   count = count || 16;
   colors = colors || ['#2563eb','#06b6d4','#fbbf24','#10b981','#ec4899'];
@@ -1225,7 +1208,6 @@ function floatText(text, x, y, color, size){
   setTimeout(()=>t.remove(), 1250);
 }
 
-/* ============ DADU ============ */
 function updateDiceHalf(){
   const w=document.querySelector('.dice-wrapper');if(!w)return;
   const size=w.getBoundingClientRect().width;
@@ -1234,7 +1216,6 @@ function updateDiceHalf(){
 }
 window.addEventListener('resize',updateDiceHalf);
 
-/* ============ TIMER BELAJAR ============ */
 let learnTimerInt=null, learnSec=0, learnEl=null;
 function startLearnTimer(el){
   stopLearnTimer();learnSec=0;learnEl=el;
@@ -1243,7 +1224,6 @@ function startLearnTimer(el){
 }
 function stopLearnTimer(){if(learnTimerInt){clearInterval(learnTimerInt);learnTimerInt=null;}}
 
-/* ============ SOUND ENGINE ============ */
 let audioCtx=null,muted=false;
 function initAudio(){try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();}catch(e){}}
 function toggleMute(){muted=!muted;const btn=document.getElementById('audioToggle');btn.innerHTML=muted?'<i class="fas fa-volume-xmark"></i>':'<i class="fas fa-volume-high"></i>';btn.classList.toggle('muted',muted);try{localStorage.setItem('pq3_sound',muted?'0':'1')}catch(e){}notif(muted?'🔇 Suara dimatikan':'🔊 Suara diaktifkan');}
@@ -1255,7 +1235,6 @@ function sfxVictory(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.1
 function sfxGold(){[1200,1600,2000].forEach((f,i)=>setTimeout(()=>beep(f,.1,'sine',.05),i*70));}
 function sfxAch(){[880,1047,1319].forEach((f,i)=>setTimeout(()=>beep(f,.18,'triangle',.13),i*80));}
 
-/* ============ FULLSCREEN ============ */
 function fsElement(){const d=document;return d.fullscreenElement||d.webkitFullscreenElement||d.webkitCurrentFullScreenElement||d.mozFullScreenElement||d.msFullscreenElement||null;}
 let fakeFsActive=false;
 function toggleFullscreen(e){
@@ -1271,7 +1250,6 @@ function enterFakeFullscreen(){fakeFsActive=true;document.body.classList.add('fa
 function updateFsIcon(){const btn=document.getElementById('fsToggle');if(!btn)return;const isFs=!!fsElement()||fakeFsActive;btn.innerHTML=isFs?'<i class="fas fa-compress"></i>':'<i class="fas fa-expand"></i>';btn.classList.toggle('active',isFs);}
 ['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange'].forEach(ev=>document.addEventListener(ev,()=>{updateFsIcon();setTimeout(updateDiceHalf,100);}));
 
-/* ============ PROGRESS ============ */
 const KEY='histoexplorer_misi2_v2';
 const ACH_KEY='histoexplorer_misi2_ach_v2';
 const SEEN_KEY='histoexplorer_seen_v4';
@@ -1299,7 +1277,6 @@ function updateMenu(){
   document.getElementById('progFill').style.width=(done/TOTAL*100)+'%';
 }
 
-/* ============ ACHIEVEMENTS ============ */
 const ACHS=[
   {id:'first_step',icn:'🎯',ttl:'Langkah Pertama',sub:'Selesaikan 1 game'},
   {id:'explorer',icn:'🧭',ttl:'Penjelajah Sejarah',sub:'Selesaikan 4 game'},
@@ -1341,7 +1318,6 @@ function renderAch(){
 function openAch(){sfxClick();renderAch();document.getElementById('achModal').classList.add('on');}
 function closeAch(){document.getElementById('achModal').classList.remove('on');}
 
-/* ============ GLOSSARY (EXTENDED) ============ */
 const GLOSSARY=[
   {t:'Sejarah',d:'Ilmu yang mempelajari peristiwa masa lalu manusia beserta makna & pengaruhnya.'},
   {t:'Metode Sejarah',d:'Prosedur sistematis: <b>heuristik → kritik → interpretasi → historiografi</b>.'},
@@ -1408,7 +1384,6 @@ const GLOSSARY=[
 function openGloss(){sfxClick();document.getElementById('glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term"><i class="fas fa-bookmark"></i>${g.t}</div><div class="def">${g.d}</div></div>`).join('');document.getElementById('glModal').classList.add('on');}
 function closeGloss(){document.getElementById('glModal').classList.remove('on');}
 
-/* ============ DAILY FACT ============ */
 const FACTS=[
   'Metode sejarah terdiri dari 4 tahap: <b>heuristik → kritik → interpretasi → historiografi</b>.',
   '<b>Heuristik</b> dari bahasa Yunani <b>heuriskein</b> = "mencari". Sejarawan seperti detektif berburu petunjuk!',
@@ -1439,7 +1414,6 @@ function toggleMotion(){
   notif(on?'✨ Animasi aktif':'🕊️ Mode tenang','gold');
 }
 
-/* ============ REVIEW SYSTEM ============ */
 let reviewData=[];
 function pushReview(q,opts,correctIdx,chosenIdx,explanation,source){
   reviewData.push({q,opts,correctIdx,chosenIdx,explanation,source});
@@ -1462,7 +1436,6 @@ function openReview(){
 }
 function closeReview(){document.getElementById('rvModal').classList.remove('on');}
 
-/* ============ BACKGROUND CANVAS ============ */
 (function(){
   const cv=document.getElementById('bgCanvas'),ctx=cv.getContext('2d');
   let w,h,parts=[];
@@ -1554,7 +1527,6 @@ document.querySelectorAll('.gc').forEach(c=>{
 });
 function stopAll(){if(g1.timer)clearInterval(g1.timer);if(g2.timer)clearInterval(g2.timer);if(g4.timer)clearInterval(g4.timer);if(g6.iv)clearInterval(g6.iv);stopLearnTimer();}
 
-/* ============ SEEN / RANDOMIZATION ============ */
 function loadSeen(){try{return JSON.parse(localStorage.getItem(SEEN_KEY))||{};}catch(e){return{};}}
 function saveSeen(s){try{localStorage.setItem(SEEN_KEY,JSON.stringify(s));}catch(e){}}
 function markSeen(game,ids){const s=loadSeen();const cur=new Set(s[game]||[]);ids.forEach(i=>cur.add(i));s[game]=[...cur];if(s[game].length>500)s[game]=s[game].slice(-250);saveSeen(s);}
@@ -2222,7 +2194,6 @@ const G6_QS=[
   {q:'Menyusun narasi sejarah yang menarik berarti…',o:['Menambah fiksi','Menyajikan fakta dengan alur & konteks','Memperpanjang','Menyulitkan'],a:1,s:'Historiografi.'}
 ];
 const g6={pos:0,score:0,right:0,rolls:0,rolling:false,finished:false,pool:[],iv:null,accX:0,accY:0};
-
 const DICE_FACE_ROTATIONS = {1:{x:0,y:0},2:{x:-90,y:0},3:{x:0,y:-90},4:{x:0,y:90},5:{x:90,y:0},6:{x:0,y:180}};
 
 function g6Start(){
@@ -2778,7 +2749,6 @@ function g7QuizClose(){
   sfxClick();
 }
 
-/* ============ KEYBOARD SHORTCUTS ============ */
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeModal();closeAch();closeGloss();closeReview();if(fakeFsActive){document.body.classList.remove('fake-fs');fakeFsActive=false;updateFsIcon();}return;}
   if((e.key==='f'||e.key==='F')&&!e.ctrlKey&&!e.metaKey&&!e.altKey){const tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;toggleFullscreen(e);return;}
@@ -2794,20 +2764,15 @@ document.addEventListener('keydown',e=>{
   if(active.id==='gameG6'&&(e.key===' '||e.key==='Enter')){const dice=document.getElementById('g6Dice');if(document.activeElement===dice){e.preventDefault();g6Roll();}}
 });
 
-/* ============ RESTORE SETTINGS ============ */
 try{
   if(localStorage.getItem('pq3_sound')==='0'){muted=true;document.getElementById('audioToggle').innerHTML='<i class="fas fa-volume-xmark"></i>';document.getElementById('audioToggle').classList.add('muted');}
   if(localStorage.getItem('pq3_motion')==='0'){document.body.classList.add('reduce-motion');}
 }catch(e){}
 
-/* =========================================================
-   ========== EFEK RINGAN (TANPA CURSOR, TANPA ROTASI) =====
-   ========================================================= */
 (function premiumEffects(){
   'use strict';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 1. SCROLL PROGRESS + TOPBAR AUTO-HIDE ---------- */
   const progress = document.getElementById('scrollProgress');
   const topCtl = document.querySelector('.top-controls');
   if (progress) {
@@ -2831,7 +2796,6 @@ try{
     }, { passive: true });
   }
 
-  /* ---------- 2. RIPPLE EFFECT ---------- */
   const rippleSelector = '.gc, .btn, .pill.btn-like, .btn-mini, .tb-btn, .icon-btn, .choice, .opt, .g7-choice, .g7-btn, .g7-continue, .tool, .order-item, .hunt-tile, .tile, .g7-quiz-opt, .reset-progress button';
   document.addEventListener('click', (e) => {
     const el = e.target.closest(rippleSelector);
@@ -2853,7 +2817,6 @@ try{
     setTimeout(() => ripple.remove(), 720);
   });
 
-  /* ---------- 3. SPOTLIGHT ON GAME CARDS (efek warna saja) ---------- */
   document.querySelectorAll('.gc').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
       const r = card.getBoundingClientRect();
@@ -2868,7 +2831,6 @@ try{
     });
   });
 
-  /* ---------- 4. REVEAL ON SCROLL (fade saja) ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
     const revealEls = document.querySelectorAll('.hero, .game-grid > .gc, .footer');
     const io = new IntersectionObserver((entries) => {
@@ -2890,20 +2852,17 @@ try{
     });
   }
 
-  /* ---------- 5. VIEWPORT HEIGHT FIX (mobile) ---------- */
   function setVH() { document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px'); }
   setVH();
   window.addEventListener('resize', setVH);
   window.addEventListener('orientationchange', () => setTimeout(setVH, 200));
 })();
 
-/* ============ INIT ============ */
 updateMenu();
 updateDailyFact();
 renderAch();
 updateFsIcon();
 
-// Auto-detect OS-level reduced motion
 try{
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(prefersReduced && !localStorage.getItem('pq3_motion')){
