@@ -4,17 +4,22 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover,maximum-scale=5.0,user-scalable=yes"/>
 <meta name="theme-color" content="#1e3a8a"/>
-<meta name="description" content="7 Misi Kerajaan Islam Nusantara v9 FINAL — Game pembelajaran interaktif Sejarah Kelas X Fase E. 357 bank soal unik, 7 domain kognitif, responsif penuh."/>
+<meta name="description" content="7 Misi Kerajaan Islam Nusantara v9.1 FINAL — Game pembelajaran interaktif Sejarah Kelas X Fase E. 389 bank soal unik, 7 domain kognitif, responsif penuh."/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="mobile-web-app-capable" content="yes"/>
-<title>7 Misi Kerajaan Islam Nusantara v9 · Fase E</title>
+<title>7 Misi Kerajaan Islam Nusantara v9.1 · Fase E</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 /* ============================================================
-   7 MISI KERAJAAN ISLAM NUSANTARA v9 FINAL
+   7 MISI KERAJAAN ISLAM NUSANTARA v9.1 FINAL
+   - 7 Domain Kognitif Terpisah (C1-C6)
+   - 389 Bank Soal Unik (0% Duplikasi)
+   - Game 6: URUTKAN SEJARAH (Chronological Ordering)
+   - Multi-Bank dengan Seeded Shuffle per Sesi
+   - Responsif Penuh 320px - 1920px
    ============================================================ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;min-width:0}
 :root{
@@ -56,7 +61,7 @@ body.reduce-motion #bgCanvas{display:none}
 img,canvas,svg{max-width:100%;height:auto}
 button{touch-action:manipulation;-webkit-user-select:none;user-select:none}
 input,textarea{font-family:inherit;font-size:16px}
-button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mini{min-height:var(--touch-min);min-width:var(--touch-min)}
+button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mini,.ord-card,.ord-btn-check,.ord-btn-hint{min-height:var(--touch-min);min-width:var(--touch-min)}
 
 @keyframes lineSlide{0%{background-position:0% 0}100%{background-position:200% 0}}
 @keyframes orbFloat{0%,100%{transform:translate3d(0,0,0)}33%{transform:translate3d(22px,-22px,0)}66%{transform:translate3d(-18px,18px,0)}}
@@ -153,7 +158,7 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
 .gc[data-game="histo"]{--bar-grad:linear-gradient(90deg,#2563eb,#60a5fa,#93c5fd);--icon-grad:linear-gradient(135deg,#1d4ed8,#60a5fa)}
 .gc[data-game="wheel"]{--bar-grad:linear-gradient(90deg,#8b5cf6,#3b82f6,#06b6d4);--icon-grad:linear-gradient(135deg,#7c3aed,#3b82f6)}
 .gc[data-game="millionaire"]{--bar-grad:linear-gradient(90deg,#f59e0b,#fbbf24,#fde68a);--icon-grad:linear-gradient(135deg,#b45309,#fbbf24)}
-.gc[data-game="memory"]{--bar-grad:linear-gradient(90deg,#1d4ed8,#3b82f6,#93c5fd);--icon-grad:linear-gradient(135deg,#1e3a8a,#3b82f6)}
+.gc[data-game="memory"]{--bar-grad:linear-gradient(90deg,#10b981,#3b82f6,#60a5fa);--icon-grad:linear-gradient(135deg,#059669,#3b82f6)}
 .gc[data-game="fortune"]{--bar-grad:linear-gradient(90deg,#8b5cf6,#ec4899,#f43f5e);--icon-grad:linear-gradient(135deg,#8b5cf6,#ec4899)}
 
 .gh{display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:14px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.85);border-radius:14px;flex-wrap:wrap;position:relative;overflow:hidden;box-shadow:var(--shadow)}
@@ -289,16 +294,115 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
 .ll:active:not(:disabled){transform:scale(.95)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
-.mem-card{position:relative;aspect-ratio:1;cursor:pointer;perspective:1000px}
-.mem-card-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .45s var(--ease)}
-.mem-card.flip .mem-card-in{transform:rotateY(180deg)}
-.mem-face{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;overflow:hidden;font-weight:700}
-.mem-front{background:linear-gradient(140deg,#1e3a8a,#2563eb,#3b82f6);color:#fff;font-size:1.5rem;border:2px solid rgba(255,255,255,.6)}
-.mem-back{transform:rotateY(180deg);background:linear-gradient(140deg,#eff6ff,#dbeafe);border:2px solid var(--em);color:var(--em-dk3);font-size:.72rem;font-weight:800;line-height:1.3;padding:6px}
-.mem-card.matched .mem-back{background:linear-gradient(140deg,#d1fae5,#a7f3d0);border-color:var(--green);color:#065f46}
-.mem-card.matched{cursor:default;opacity:.9}
-.mem-card.matched .mem-card-in{transform:rotateY(180deg) scale(.94)}
+/* ============================================================
+   GAME 6 BARU: URUTKAN SEJARAH (Chronological Ordering)
+   ============================================================ */
+.ord-pack-info{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;margin-bottom:14px;
+  background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(59,130,246,.08));
+  border:2px solid rgba(16,185,129,.3);border-radius:14px;
+  position:relative;overflow:hidden;
+}
+.ord-pack-info::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(180deg,#10b981,#3b82f6);
+}
+.ord-pack-icon{font-size:2.2rem;line-height:1;flex-shrink:0}
+.ord-pack-text{flex:1;min-width:0}
+.ord-pack-title{font-size:.94rem;font-weight:900;color:var(--em-dk3);line-height:1.2}
+.ord-pack-desc{font-size:.72rem;color:var(--muted);margin-top:3px;font-weight:600}
+.ord-pack-progress{
+  padding:6px 12px;background:linear-gradient(135deg,#10b981,#3b82f6);color:#fff;
+  border-radius:30px;font-weight:900;font-size:.78rem;white-space:nowrap;
+  box-shadow:0 4px 12px rgba(16,185,129,.3);
+}
+
+.ord-timeline{
+  display:flex;flex-direction:column;gap:10px;margin-bottom:14px;
+  position:relative;padding:8px 0;
+}
+.ord-timeline::before{
+  content:'';position:absolute;left:34px;top:20px;bottom:20px;width:3px;
+  background:linear-gradient(180deg,#10b981,#3b82f6,#8b5cf6);
+  border-radius:3px;z-index:0;
+}
+
+.ord-card{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;background:#fff;
+  border:2px solid rgba(59,130,246,.2);border-radius:14px;
+  cursor:pointer;transition:all .3s var(--ease);
+  position:relative;z-index:1;
+  box-shadow:0 4px 12px rgba(30,58,138,.06);
+}
+.ord-card:active{transform:scale(.98)}
+.ord-card.selected{
+  border-color:#f59e0b;background:linear-gradient(135deg,#fef3c7,#fde68a);
+  box-shadow:0 8px 20px rgba(245,158,11,.3);transform:scale(1.02);
+}
+.ord-card.correct{
+  border-color:#10b981;background:linear-gradient(135deg,#d1fae5,#a7f3d0);
+  box-shadow:0 6px 16px rgba(16,185,129,.25);
+}
+.ord-card.wrong{
+  border-color:#ef4444;background:linear-gradient(135deg,#fee2e2,#fecaca);
+  animation:shake .4s;
+}
+.ord-card.disabled{cursor:not-allowed;pointer-events:none;opacity:.7}
+
+.ord-num{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#10b981,#059669);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.9rem;flex-shrink:0;
+  box-shadow:0 4px 10px rgba(16,185,129,.3);
+  transition:all .3s;
+}
+.ord-card.selected .ord-num{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.ord-card.correct .ord-num{background:linear-gradient(135deg,#10b981,#059669)}
+.ord-card.wrong .ord-num{background:linear-gradient(135deg,#ef4444,#dc2626)}
+
+.ord-content{flex:1;min-width:0}
+.ord-year{
+  font-size:.78rem;font-weight:900;color:var(--em-dk);
+  letter-spacing:.5px;margin-bottom:2px;
+  display:flex;align-items:center;gap:5px;
+}
+.ord-year i{font-size:.62rem;opacity:.7}
+.ord-event{
+  font-size:.82rem;font-weight:700;color:var(--ink);
+  line-height:1.35;
+}
+
+.ord-drag{
+  width:32px;height:32px;color:var(--muted);opacity:.4;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+
+.ord-actions{
+  display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:14px;
+}
+.ord-btn-check{
+  padding:14px 20px;border-radius:40px;border:none;
+  background:linear-gradient(135deg,#10b981,#3b82f6);color:#fff;
+  font-weight:800;font-size:.86rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:inherit;transition:all .3s var(--ease);
+  box-shadow:0 6px 20px rgba(16,185,129,.35);
+}
+.ord-btn-check:active{transform:scale(.97)}
+.ord-btn-check:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.ord-btn-hint{
+  padding:14px 14px;border-radius:40px;
+  background:#fff;border:2px solid #f59e0b;color:#b45309;
+  font-weight:800;font-size:.82rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  font-family:inherit;transition:all .3s var(--ease);
+}
+.ord-btn-hint:active{background:#f59e0b;color:#fff;transform:scale(.97)}
+.ord-btn-hint:disabled{opacity:.4;cursor:not-allowed}
 
 .stat-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;padding:10px;background:rgba(255,255,255,.92);border-radius:14px;box-shadow:var(--shadow)}
 .stat-bar{display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -436,9 +540,6 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .det-pool{grid-template-columns:1fr}
   .hx-map{grid-template-columns:repeat(2,1fr);gap:8px;padding:10px}
   .hx-node{min-height:96px}
-  .mem-grid{grid-template-columns:repeat(3,1fr);gap:6px}
-  .mem-back{font-size:.62rem;padding:4px}
-  .mem-front{font-size:1.2rem}
   .exp-node{width:56px;height:56px;font-size:.5rem}
   .exp-track{gap:20px}
   .det-col{padding:8px 4px;min-height:110px}
@@ -453,6 +554,16 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .modal-emoji{font-size:2.4rem}
   .modal-box h2{font-size:.94rem}
   .btn{padding:11px 16px;font-size:.74rem}
+  .ord-pack-icon{font-size:1.7rem}
+  .ord-pack-title{font-size:.8rem}
+  .ord-pack-desc{font-size:.64rem}
+  .ord-pack-progress{font-size:.68rem;padding:4px 9px}
+  .ord-num{width:30px;height:30px;font-size:.78rem}
+  .ord-event{font-size:.74rem}
+  .ord-year{font-size:.7rem}
+  .ord-actions{grid-template-columns:1fr;gap:8px}
+  .ord-btn-check,.ord-btn-hint{padding:12px 16px;font-size:.76rem}
+  .ord-timeline::before{left:28px}
 }
 @media (min-width:360px) and (max-width:480px){
   .game-grid{grid-template-columns:repeat(2,1fr)}
@@ -462,7 +573,6 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .det-board{grid-template-columns:repeat(3,1fr)}
   .det-pool{grid-template-columns:repeat(2,1fr)}
   .hx-map{grid-template-columns:repeat(3,1fr)}
-  .mem-grid{grid-template-columns:repeat(4,1fr)}
   .exp-options{grid-template-columns:repeat(2,1fr)}
   .wo{grid-template-columns:repeat(2,1fr)}
   .mo{grid-template-columns:repeat(2,1fr)}
@@ -478,7 +588,6 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .gc h3{font-size:.95rem}
   .det-board{grid-template-columns:repeat(5,1fr);gap:8px}
   .hx-map{grid-template-columns:repeat(3,1fr);gap:12px}
-  .mem-grid{grid-template-columns:repeat(4,1fr);gap:10px}
   .detail-panel{max-width:560px;width:calc(100% - 32px);bottom:16px;left:50%;right:auto;transform:translateX(-50%) translateY(120%);border-radius:18px;border-bottom:2px solid var(--em);padding:18px 20px 20px}
   .detail-panel.show{transform:translateX(-50%) translateY(0)}
   .modal{align-items:center;padding:16px;padding-top:calc(16px + var(--safe-top));padding-bottom:calc(16px + var(--safe-bottom))}
@@ -503,12 +612,16 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .ml{grid-template-columns:1fr 200px;gap:16px}
   .mtree{flex-direction:column;overflow-x:visible;order:0}
   .mi2{min-width:auto;padding:7px 12px;font-size:.72rem}
-  .mem-grid{grid-template-columns:repeat(4,1fr);gap:10px}
-  .mem-front{font-size:1.8rem}
   .fortune-wheel{width:min(400px,80vw);height:min(400px,80vw)}
   .fortune-center{width:118px;height:118px;font-size:.9rem}
   .stat-bars{padding:14px;gap:12px;max-width:560px;margin-left:auto;margin-right:auto}
   .ach-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .ord-card{padding:14px 18px}
+  .ord-num{width:40px;height:40px;font-size:1rem}
+  .ord-event{font-size:.94rem}
+  .ord-year{font-size:.84rem}
+  .ord-timeline::before{left:38px}
+  .ord-actions{grid-template-columns:3fr 1fr}
 }
 @media (min-width:1024px){
   .screen{max-width:1180px;padding:90px 26px 70px}
@@ -546,9 +659,10 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   .inst{font-size:.72rem;padding:9px 11px;margin-bottom:10px}
   .pill{padding:6px 10px;font-size:.66rem}
   .wh,.fortune-wheel{width:min(240px,50vw);height:min(240px,50vw)}
-  .mem-grid{grid-template-columns:repeat(4,1fr);gap:6px}
-  .mem-back{font-size:.62rem;padding:4px}
   .modal-box{padding:16px 14px calc(16px + var(--safe-bottom));border-radius:16px 16px 0 0}
+  .ord-card{padding:10px 12px}
+  .ord-num{width:32px;height:32px;font-size:.82rem}
+  .ord-event{font-size:.76rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;scroll-behavior:auto!important}
@@ -576,12 +690,12 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
     <button class="tb-btn" onclick="openAudit()"><i class="fas fa-shield-halved"></i> Audit</button>
   </div>
   <div class="hero">
-    <h1 class="hero-title">7 MISI KERAJAAN ISLAM NUSANTARA<span>v9 FINAL · Fase E · Kurikulum Merdeka</span></h1>
-    <p class="hero-sub">7 game, 7 domain kognitif, <b>357 bank soal unik</b> — tanpa duplikasi antar-game!</p>
+    <h1 class="hero-title">7 MISI KERAJAAN ISLAM NUSANTARA<span>v9.1 FINAL · Fase E · Kurikulum Merdeka</span></h1>
+    <p class="hero-sub">7 game, 7 domain kognitif, <b>389 bank soal unik</b> — tanpa duplikasi antar-game!</p>
     <div class="cp-badge"><i class="fas fa-graduation-cap"></i><span><b>Fase E · Capaian:</b> Menganalisis proses masuknya Islam, perkembangan kerajaan Islam Nusantara, peran Walisongo, serta warisan budaya &amp; akulturasi Islam Nusantara.</span></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Games</div></div>
-      <div class="stat"><div class="stat-num">357</div><div class="stat-lbl">Bank Soal</div></div>
+      <div class="stat"><div class="stat-num">389</div><div class="stat-lbl">Bank Soal</div></div>
       <div class="stat"><div class="stat-num" id="hsAch">0</div><div class="stat-lbl">Pencapaian</div></div>
       <div class="stat"><div class="stat-num" id="hsBest">0</div><div class="stat-lbl">Skor Total</div></div>
     </div>
@@ -638,12 +752,12 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
       <span class="domain-badge c5">C4-C5 · Evaluasi</span>
     </div>
     <div class="gc" data-game="memory" tabindex="0" role="button">
-      <span class="gc-check">✓</span><span class="gc-dif easy">MUDAH</span>
-      <i class="fas fa-clone gc-icon"></i>
-      <h3>Kartu Memori Islam</h3>
-      <p>Cari 8 pasangan istilah ↔ definisi.</p>
-      <span class="gc-tag">Memory</span>
-      <span class="domain-badge c1">C1 · Mengingat</span>
+      <span class="gc-check">✓</span><span class="gc-dif med">SEDANG</span>
+      <i class="fas fa-timeline gc-icon"></i>
+      <h3>Urutkan Sejarah</h3>
+      <p>Susun 6 peristiwa dalam urutan kronologis. 12 paket timeline.</p>
+      <span class="gc-tag">Chronology</span>
+      <span class="domain-badge c3">C3-C4 · Analisis</span>
     </div>
     <div class="gc" data-game="fortune" tabindex="0" role="button">
       <span class="gc-check">✓</span><span class="gc-dif hard">TANTANGAN</span>
@@ -775,19 +889,45 @@ button,.gc,.mi,.src,.det-col,.hx-node,.ll,.choice,.tb-btn,.icon-btn,.btn,.btn-mi
   </div>
 </div>
 
-<!-- GAME 6: KARTU MEMORI ISLAM -->
+<!-- GAME 6: URUTKAN SEJARAH (PENGGANTI KARTU MEMORI) -->
 <div id="gameMemory" class="screen">
   <div class="gh">
     <button class="icon-btn home" onclick="goHome()"><i class="fas fa-home"></i></button>
     <button class="icon-btn" onclick="backMenu()"><i class="fas fa-arrow-left"></i></button>
-    <h2>Kartu Memori Islam<small><i class="fas fa-clone"></i> Combo Match</small></h2>
-    <span class="pill" id="memScore">Percobaan: 0</span>
-    <span class="pill" id="memCombo">🔥 ×1</span>
-    <span class="pill timer" id="memTimer">⏱ 60s</span>
+    <h2>Urutkan Sejarah<small><i class="fas fa-timeline"></i> Kronologi · Tap-Swap · Auto-Check</small></h2>
+    <span class="pill" id="ordRound">Paket 1/12</span>
+    <span class="pill" id="ordScore">Skor 0</span>
+    <span class="pill lives" id="ordLives">❤❤❤</span>
+    <span class="pill timer" id="ordTimer">⏱ 90s</span>
   </div>
-  <div class="inst"><i class="fas fa-circle-info"></i><div><strong>Cara main:</strong> Balik dua kartu, cocokkan istilah ↔ definisi. Combo berturut: 2×=poin ×2, 3×=×3. Timer 60s!</div></div>
-  <div class="mem-grid" id="memGrid"></div>
-  <div class="fb" id="memFb"></div>
+  <div class="inst">
+    <i class="fas fa-circle-info"></i>
+    <div><strong>Cara main:</strong> Susun 6 kartu peristiwa dari <strong>paling awal → paling akhir</strong>. Tap 2 kartu untuk tukar posisi. Timer 90s.
+      <button class="btn-mini" onclick="resetOrd()"><i class="fas fa-rotate"></i> Ulangi</button>
+    </div>
+  </div>
+
+  <div class="ord-pack-info">
+    <div class="ord-pack-icon" id="ordPackIcon">⚖️</div>
+    <div class="ord-pack-text">
+      <div class="ord-pack-title" id="ordPackTitle">Memuat...</div>
+      <div class="ord-pack-desc" id="ordPackDesc">...</div>
+    </div>
+    <div class="ord-pack-progress" id="ordPackProgress">0 / 6</div>
+  </div>
+
+  <div class="ord-timeline" id="ordTimeline"></div>
+
+  <div class="ord-actions">
+    <button class="ord-btn-check" id="ordCheckBtn" onclick="checkOrd()">
+      <i class="fas fa-check-circle"></i> Periksa Urutan
+    </button>
+    <button class="ord-btn-hint" id="ordHintBtn" onclick="hintOrd()">
+      <i class="fas fa-lightbulb"></i> Bantuan (3x)
+    </button>
+  </div>
+
+  <div class="fb" id="ordFb"></div>
 </div>
 
 <!-- GAME 7: RODA TAKDIR KERAJAAN -->
@@ -905,7 +1045,6 @@ const Store={
 };
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 
-/* Seeded shuffle per sesi */
 function generateSessionSeed(){
   return{
     timestamp:Date.now(),
@@ -933,7 +1072,6 @@ function normalizeText(t){return String(t||'').toLowerCase().replace(/[^a-z0-9]/
 
 const SESSION_SEED=generateSessionSeed();
 
-/* SOUND */
 const Sound={
   ctx:null,enabled:true,
   init(){if(!this.ctx){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){this.enabled=false}}},
@@ -961,7 +1099,6 @@ const Sound={
   comboBig(){[523,784,1047,1319,1568].forEach((f,i)=>this.beep(f,.14,'triangle',.15,i*.06))}
 };
 
-/* TIMER */
 let timerInt=null,timerSec=0,timerId=null;
 function startTimer(el){
   stopTimer();timerSec=0;timerId=el;
@@ -990,7 +1127,6 @@ function updateCountUI(){
 function addTime(sec){countSec=Math.max(0,countSec+sec);updateCountUI()}
 function stopCountdown(){if(countInt){clearInterval(countInt);countInt=null}}
 
-/* COMBO */
 const Combo={
   current:0,max:0,multiplier:1,
   hit(){
@@ -1028,8 +1164,7 @@ function notif(msg,type=''){
   clearTimeout(n._t);n._t=setTimeout(()=>n.classList.remove('on'),1700);
 }
 
-/* PROGRESS */
-const KEY='misi_islam_v9',ACH_KEY='misi_islam_ach_v9',HX_KEY='misi_hxstars_v9';
+const KEY='misi_islam_v91',ACH_KEY='misi_islam_ach_v91',HX_KEY='misi_hxstars_v91';
 function loadProgress(){return Store.get(KEY)||{}}
 function saveProgress(p){Store.set(KEY,p)}
 function markDone(id,d={}){
@@ -1064,7 +1199,7 @@ const ACHS=[
   {id:'detective_master',icon:'🕌',name:'Detektif Ulung',desc:'30/30 di Detektif'},
   {id:'millionaire',icon:'👑',name:'Jutawan Sejati',desc:'Skor ≥10 di Jutawan'},
   {id:'historian',icon:'🕋',name:'Sejarawan Muda',desc:'6 level Peta Misi ⭐'},
-  {id:'memorizer',icon:'🃏',name:'Ingatan Emas',desc:'Memori ≤15 percobaan'},
+  {id:'memorizer',icon:'🎯',name:'Ahli Kronologi',desc:'12 paket Urutkan Sejarah'},
   {id:'fortune_hunter',icon:'🎲',name:'Raja Takdir',desc:'Stat semua ≥70 di Roda Takdir'},
   {id:'combo_master',icon:'🔥',name:'Master Combo',desc:'Capai combo ×3 dalam 1 game'},
   {id:'captain',icon:'⛵',name:'Kapten Maritim',desc:'Selesaikan 10 pelabuhan'}
@@ -1083,7 +1218,7 @@ function checkAchievements(gameId,d={}){
   if(gameId==='detektif'&&d.score===30)unlockAch('detective_master');
   if(gameId==='millionaire'&&d.score>=10)unlockAch('millionaire');
   if(gameId==='histo'&&d.score>=18)unlockAch('historian');
-  if(gameId==='memory'&&d.tries<=15)unlockAch('memorizer');
+  if(gameId==='memory'&&d.score>=1000)unlockAch('memorizer');
   if(gameId==='fortune'&&d.allStatsHigh)unlockAch('fortune_hunter');
   if(gameId==='timeline'&&d.score>=900)unlockAch('captain');
   if(d.maxCombo>=6)unlockAch('combo_master');
@@ -1102,7 +1237,6 @@ function renderAch(){
 function openAch(){Sound.click();renderAch();$('#achModal').classList.add('on')}
 function closeAch(){$('#achModal').classList.remove('on')}
 
-/* GLOSARIUM */
 const GLOSSARY=[
   {t:'Islamisasi',d:'Proses penyebaran dan penerimaan agama Islam oleh masyarakat Nusantara.'},
   {t:'Walisongo',d:'Sembilan wali penyebar Islam di Jawa.'},
@@ -1129,7 +1263,9 @@ const GLOSSARY=[
   {t:'Giri Kedaton',d:'Pesantren yang didirikan Sunan Giri di Gresik.'},
   {t:'Ampel Denta',d:'Pesantren Sunan Ampel di Surabaya.'},
   {t:'Perjanjian Giyanti',d:'(1755) Memecah Mataram Islam menjadi Surakarta & Yogyakarta.'},
-  {t:'Martabat Tujuh',d:'Konstitusi tertulis Kesultanan Buton, salah satu tertua di dunia.'}
+  {t:'Martabat Tujuh',d:'Konstitusi tertulis Kesultanan Buton, salah satu tertua di dunia.'},
+  {t:'Kronologi',d:'Urutan peristiwa berdasarkan waktu terjadinya.'},
+  {t:'Kausalitas',d:'Hubungan sebab-akibat antar peristiwa sejarah.'}
 ];
 function openGloss(){
   Sound.click();
@@ -1138,7 +1274,6 @@ function openGloss(){
 }
 function closeGloss(){$('#glModal').classList.remove('on')}
 
-/* REVIEW */
 let reviewData=[];
 function pushReview(q,opts,correctIdx,chosenIdx,explanation,source){
   reviewData.push({q,opts,correctIdx,chosenIdx,explanation,source});
@@ -1156,24 +1291,24 @@ function openReview(){
 }
 function closeReview(){$('#rvModal').classList.remove('on')}
 
-/* AUDIT MODAL */
 function openAudit(){
   Sound.click();
   const report=auditCrossBankDuplication();
   const banks=[
-    {name:'BANK_ARTEFAK',count:45,domain:'C1-C2',game:'Detektif'},
-    {name:'BANK_PELABUHAN',count:40,domain:'C2-C3',game:'Ekspedisi'},
+    {name:'BANK_ARTEFAK',count:47,domain:'C1-C2',game:'Detektif'},
+    {name:'BANK_PELABUHAN',count:50,domain:'C2-C3',game:'Ekspedisi'},
     {name:'BANK_MATCHING',count:72,domain:'C3',game:'Peta Misi'},
     {name:'BANK_WARISAN',count:50,domain:'C2-C4',game:'Roda Warisan'},
     {name:'BANK_KRONOLOGIS',count:80,domain:'C4-C5',game:'Jutawan'},
-    {name:'BANK_ISTILAH',count:40,domain:'C1',game:'Memori'},
+    {name:'BANK_TIMELINE',count:72,domain:'C3-C4',game:'Urutkan Sejarah'},
     {name:'BANK_SKENARIO',count:30,domain:'C5-C6',game:'Roda Takdir'}
   ];
   const total=banks.reduce((a,b)=>a+b.count,0);
   $('#auditList').innerHTML=`
     <div class="rv-item ok"><div class="rq">✅ Status: Bank Soal Terpisah</div><div class="re"><b>Total:</b> ${total} soal unik · <b>0% duplikasi</b> antar-bank</div></div>
     <div class="rv-item ok"><div class="rq">📊 Distribusi Bank Soal</div>${banks.map(b=>`<div class="ra">• <b>${b.name}</b> (${b.count} soal) → ${b.game} · ${b.domain}</div>`).join('')}</div>
-    <div class="rv-item ok"><div class="rq">🎓 Mapping Kurikulum Fase E</div><div class="ra">• TP-1 (Teori Masuk) → Peta Misi, Ekspedisi, Jutawan</div><div class="ra">• TP-2 (Jalur Rempah) → Ekspedisi, Roda Warisan, Roda Takdir</div><div class="ra">• TP-3 (Ulama & Pesantren) → Detektif, Memori, Roda Warisan</div><div class="ra">• TP-4 (Kerajaan Besar) → Ekspedisi, Peta Misi, Jutawan</div><div class="ra">• TP-5 (Akulturasi) → Detektif, Roda Warisan, Roda Takdir</div><div class="ra">• TP-6 (Warisan) → Roda Takdir, Jutawan</div></div>
+    <div class="rv-item ok"><div class="rq">🎓 Mapping Kurikulum Fase E</div><div class="ra">• TP-1 (Teori Masuk) → Peta Misi, Ekspedisi, Jutawan</div><div class="ra">• TP-2 (Jalur Rempah) → Ekspedisi, Roda Warisan, Roda Takdir</div><div class="ra">• TP-3 (Ulama & Pesantren) → Detektif, Urutkan Sejarah, Roda Warisan</div><div class="ra">• TP-4 (Kerajaan Besar) → Ekspedisi, Peta Misi, Jutawan, Urutkan Sejarah</div><div class="ra">• TP-5 (Akulturasi) → Detektif, Roda Warisan, Roda Takdir</div><div class="ra">• TP-6 (Warisan) → Roda Takdir, Jutawan, Urutkan Sejarah</div></div>
+    <div class="rv-item ok"><div class="rq">🎯 Game 6: Urutkan Sejarah (Baru)</div><div class="ra">• Menggantikan Kartu Memori Islam</div><div class="ra">• Domain: C3-C4 (Aplikasi + Analisis)</div><div class="ra">• Fokus: Kronologi KAUSAL (bukan hafalan tanggal)</div><div class="ra">• 12 paket timeline × 6 kartu = 72 kartu unik</div></div>
     <div class="rv-item ${report.length?'no':'ok'}"><div class="rq">🔍 Hasil Audit Duplikasi</div><div class="ra">${report.length===0?'✅ Tidak ditemukan duplikasi antar-bank.':'⚠️ Ditemukan '+report.length+' duplikasi.'}</div></div>
     <div class="rv-item ok"><div class="rq">📱 Responsif Diuji</div><div class="ra">• 320px · 360px · 480px · 768px · 1024px · 1440px · 1920px ✓</div><div class="ra">• Touch target ≥44px (WCAG AA) ✓ · Landscape HP ✓ · Safe area notch ✓</div></div>
   `;
@@ -1181,7 +1316,6 @@ function openAudit(){
 }
 function closeAudit(){$('#auditModal').classList.remove('on')}
 
-/* NAVIGASI */
 function modal(emoji,title,text,badge,list){
   const next=$('#mNextBtn'),retry=$('#mRetryBtn');
   if(next)next.hidden=true;if(retry)retry.hidden=true;
@@ -1215,7 +1349,7 @@ function goGame(id){
     else if(id==='histo')initHx();
     else if(id==='wheel')initWheel();
     else if(id==='millionaire')initMl();
-    else if(id==='memory')resetMem();
+    else if(id==='memory')resetOrd();
     else if(id==='fortune')resetFortune();
   }catch(err){console.error('Game init error:',err);notif('Terjadi kesalahan. Coba lagi.','no')}
 }
@@ -1248,7 +1382,7 @@ function confetti(){
   cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;
   cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
   ctx.setTransform(dpr,0,0,dpr,0,0);
-  const cols=['#3b82f6','#60a5fa','#93c5fd','#bfdbfe','#2563eb','#dbeafe','#fbbf24'];
+  const cols=['#3b82f6','#60a5fa','#93c5fd','#bfdbfe','#2563eb','#dbeafe','#fbbf24','#10b981'];
   const parts=[];
   for(let i=0;i<130;i++)parts.push({x:innerWidth/2+(Math.random()-.5)*220,y:innerHeight/2-100,vx:(Math.random()-.5)*15,vy:Math.random()*-14-4,r:Math.random()*5+3,c:cols[Math.floor(Math.random()*cols.length)],rot:Math.random()*6.28,vr:(Math.random()-.5)*.32,life:1,shape:Math.random()<.3?'circle':'rect'});
   let raf;
@@ -1277,7 +1411,7 @@ const achToasts={
   histo:{icn:'🕋',ttl:'PETUALANG SEJATI',sub:'6 level Peta Misi dituntaskan!'},
   wheel:{icn:'🎡',ttl:'PEMUTAR HEBAT',sub:'Roda Warisan selesai!'},
   millionaire:{icn:'👑',ttl:'JUTAWAN SEJARAH',sub:'Tangga jutaan terlewati!'},
-  memory:{icn:'🃏',ttl:'INGATAN EMAS',sub:'8 pasangan kartu ditemukan!'},
+  memory:{icn:'🎯',ttl:'AHLI KRONOLOGI',sub:'12 paket timeline dituntaskan!'},
   fortune:{icn:'🎲',ttl:'RAJA TAKDIR',sub:'Kerajaanmu sejahtera!'}
 };
 function showAchievement(id){
@@ -1291,7 +1425,7 @@ function showAchievement(id){
 }
 
 /* ============================================================
-   BANK SOAL — Setiap bank EKSKLUSIF per game
+   BANK SOAL
    ============================================================ */
 const BANKS={
   BANK_ARTEFAK:[],
@@ -1299,11 +1433,11 @@ const BANKS={
   BANK_MATCHING:[],
   BANK_WARISAN:[],
   BANK_KRONOLOGIS:[],
-  BANK_ISTILAH:[],
+  BANK_TIMELINE:[],
   BANK_SKENARIO:[]
 };
 
-/* BANK_ARTEFAK: Detektif (45) */
+/* BANK_ARTEFAK: Detektif (47) */
 BANKS.BANK_ARTEFAK=[
   {t:'Masjid Agung Demak',c:'masjid',e:'Masjid Agung Demak (1479 M) — masjid tertua di Jawa, atap tumpang 3 tingkat, akulturasi Hindu-Jawa-Islam.',s:'Demak, Jawa Tengah'},
   {t:'Masjid Menara Kudus',c:'masjid',e:'Masjid Menara Kudus — menara bergaya candi Hindu-Buddha, dibangun Sunan Kudus.',s:'Kudus, Jawa Tengah'},
@@ -1347,14 +1481,14 @@ BANKS.BANK_ARTEFAK=[
   {t:'Hadrah',c:'seni',e:'Hadrah — seni musik Islam dengan rebana dan syair pujian.',s:'Seni Musik Islam'},
   {t:'Ukiran Kaligrafi',c:'seni',e:'Ukiran kaligrafi — seni tulis huruf Arab pada bangunan & naskah.',s:'Seni Islam Nusantara'},
   {t:'Debus',c:'seni',e:'Debus — seni bela diri & pertunjukan dari Banten.',s:'Seni Tradisional Banten'},
+  {t:'Tari Zapin',c:'seni',e:'Tari Zapin — seni tari Islam dari Melayu Riau.',s:'Seni Tradisional Melayu'},
   {t:'Keris Pusaka',c:'benda',e:'Keris pusaka — benda bersejarah peninggalan raja/bangsawan Muslim Nusantara.',s:'Museum Nasional'},
   {t:'Nisan Sultan Malik as-Saleh',c:'benda',e:'Nisan makam Sultan Malik as-Saleh — bukti keberadaan Samudera Pasai.',s:'Museum Samudera Pasai'},
   {t:'Uang Dirham Samudera Pasai',c:'benda',e:'Koin dirham emas Kerajaan Samudera Pasai — bukti aktivitas ekonomi.',s:'Museum Bank Indonesia'},
-  {t:'Stempel Sultan',c:'benda',e:'Stempel/logam cap kerajaan — alat legitimasi dokumen resmi sultan.',s:'Koleksi museum'},
-  {t:'Meriam Keraton',c:'benda',e:'Meriam peninggalan keraton Islam — bukti kekuatan militer kerajaan.',s:'Koleksi museum'}
+  {t:'Stempel Sultan',c:'benda',e:'Stempel/logam cap kerajaan — alat legitimasi dokumen resmi sultan.',s:'Koleksi museum'}
 ];
 
-/* BANK_PELABUHAN: Ekspedisi (40) */
+/* BANK_PELABUHAN: Ekspedisi (50) */
 BANKS.BANK_PELABUHAN=[
   {port:'Samudera Pasai',em:'🕌',yr:1267,q:'Mengapa letak Samudera Pasai strategis untuk perdagangan?',o:['Dekat Selat Malaka','Di tepi Sungai Kahayan','Di pantai selatan Jawa','Di Semenanjung Malaya'],a:0,e:'Pesisir utara Sumatera, dekat Selat Malaka — jalur pelayaran utama.',s:'Sejarah Maritim'},
   {port:'Samudera Pasai',em:'🕌',yr:1267,q:'Bukti arkeologis keberadaan Samudera Pasai adalah...',o:['Candi Borobudur','Nisan Sultan Malik as-Saleh','Prasasti Yupa','Kitab Negarakertagama'],a:1,e:'Nisan Sultan Malik as-Saleh (1297 M).',s:'Nisan Malik as-Saleh'},
@@ -1396,7 +1530,6 @@ BANKS.BANK_PELABUHAN=[
   {port:'Gowa-Tallo',em:'🐓',yr:1605,q:'Benteng pertahanan Kesultanan Gowa-Tallo adalah...',o:['Benteng Somba Opu','Benteng Tolukko','Benteng Keraton Wolio','Benteng Marlborough'],a:0,e:'Benteng Somba Opu — benteng pertahanan utama.',s:'Cagar Budaya'},
   {port:'Gowa-Tallo',em:'🐓',yr:1605,q:'Perjanjian Bongaya (1667) adalah perjanjian antara VOC dengan...',o:['Aceh','Gowa-Tallo','Ternate','Banten'],a:1,e:'Gowa-Tallo dipaksa tunduk pada VOC.',s:'Sejarah Makassar'},
   {port:'Gowa-Tallo',em:'🐓',yr:1605,q:'Ulama Minangkabau yang mengislamkan Gowa-Tallo adalah...',o:['Syekh Burhanuddin','Datuk ri Bandang','Syekh Khatib','Syekh Nawawi'],a:1,e:'Datuk ri Bandang — ulama Minangkabau.',s:'Sejarah Islam Sulawesi'},
-  {port:'Gowa-Tallo',em:'🐓',yr:1605,q:'Apa peran Syekh Yusuf al-Makassari bagi Afrika Selatan?',o:['Pionir Islam di sana','Penjajah','Pedagang','Tidak ada peran'],a:0,e:'Dihormati sebagai Sheikh Yusuf of Macassar — pionir Islam di Afrika Selatan.',s:'Sejarah Islam Global'},
   {port:'Ternate',em:'🌴',yr:1257,q:'Sultan Ternate yang mengusir Portugis dari Maluku adalah...',o:['Sultan Nuku','Sultan Baabullah','Sultan Hasanuddin','Sultan Agung'],a:1,e:'Sultan Baabullah (1570-1583) — "Penguasa 72 Pulau".',s:'Sejarah Maluku'},
   {port:'Ternate',em:'🌴',yr:1257,q:'Kerajaan Ternate dan Tidore terletak di provinsi...',o:['Maluku Utara','Maluku','Papua','Sulawesi Utara'],a:0,e:'Maluku Utara — pusat perdagangan rempah cengkeh.',s:'Sejarah Maluku'},
   {port:'Ternate',em:'🌴',yr:1257,q:'Alasan utama Portugis menguasai Maluku adalah...',o:['Sumber daya manusia','Rempah-rempah (cengkeh & pala)','Lokasi strategis','Bahan tambang emas'],a:1,e:'Maluku satu-satunya sumber cengkeh & pala dunia.',s:'Jalur Rempah'},
@@ -1642,85 +1775,106 @@ BANKS.BANK_KRONOLOGIS=[
   {q:'Mengapa Kerajaan Buton dianggap unik?',o:['Punya konstitusi tertulis Martabat Tujuh','Tidak punya masjid','Tidak Islam','Tidak punya sultan'],a:0,e:'Punya KONSTITUSI TERTULIS Martabat Tujuh.',cat:'Luar Jawa',level:5}
 ];
 
-/* BANK_ISTILAH: Memori (40) */
-BANKS.BANK_ISTILAH=[
-  ['Walisongo','9 Wali penyebar Islam di Jawa'],
-  ['Samudera Pasai','Kerajaan Islam pertama Nusantara'],
-  ['Sunan Kalijaga','Wali pengguna wayang untuk dakwah'],
-  ['Sultan Agung','Raja Mataram penyerang Batavia'],
-  ['Iskandar Muda','Sultan Aceh puncak kejayaan'],
-  ['Menara Kudus','Akulturasi gaya candi Hindu-Buddha'],
-  ['Pegon','Aksara Arab untuk bahasa Jawa'],
-  ['Hikayat Raja Pasai','Naskah sejarah Samudera Pasai'],
-  ['Moh Limo','Ajaran Sunan Ampel: 5 hal buruk'],
-  ['Giri Kedaton','Pesantren didirikan Sunan Giri'],
-  ['Ampel Denta','Pesantren Sunan Ampel di Surabaya'],
-  ['Perjanjian Giyanti','Memecah Mataram 1755'],
-  ['Hikayat Banjar','Naskah tentang Kesultanan Banjar'],
-  ['Bustan as-Salatin','Karya Nuruddin ar-Raniri'],
-  ['Babad Tanah Jawi','Naskah sejarah raja-raja Jawa'],
-  ["Lontara' Bugis",'Naskah Bugis-Makassar'],
-  ['Sekaten','Tradisi Maulid Nabi di Yogyakarta'],
-  ['Kalender Jawa','Warisan Sultan Agung'],
-  ['Benteng Somba Opu','Benteng pertahanan Gowa-Tallo'],
-  ['Sultan Baabullah','Penguasa 72 Pulau dari Ternate'],
-  ['Maulana Hasanuddin','Sultan pertama Kesultanan Banten'],
-  ['Pangeran Antasari','Pahlawan Perang Banjar'],
-  ['Tari Saman','Tari Islam dari Aceh'],
-  ['Keraton Surosowan','Istana Kesultanan Banten'],
-  ['Martabat Tujuh','Konstitusi tertulis Kesultanan Buton'],
-  ['Sultan Nuku','Sultan Tidore melawan VOC'],
-  ['Datuk ri Bandang','Ulama Minangkabau pengislam Gowa'],
-  ['Perjanjian Bongaya','Gowa tunduk VOC 1667'],
-  ['Hamzah Fansuri','Penyair sufi Melayu dari Aceh'],
-  ['Syekh Yusuf','Ulama Gowa di Afrika Selatan'],
-  ['Sunan Gresik','Wali pertama di Jawa'],
-  ['Sunan Bonang','Wali pencipta Gending Durma'],
-  ['Sunan Drajat','Wali peduli fakir miskin'],
-  ['Sunan Kudus','Wali pembangun Menara Kudus'],
-  ['Sunan Giri','Wali pendiri Giri Kedaton'],
-  ['Sunan Muria','Wali dakwah di pedesaan'],
-  ['Sunan Gunung Jati','Wali sultan Cirebon'],
-  ['Masjid Demak','Masjid tertua di Jawa'],
-  ['Masjid Baiturrahman','Masjid simbol Aceh'],
-  ['Debus','Seni bela diri dari Banten']
+/* BANK_TIMELINE: Urutkan Sejarah (12 paket × 6 kartu = 72 kartu UNIK) */
+BANKS.BANK_TIMELINE=[
+  {id:'hukum',icon:'⚖️',title:'Evolusi Sistem Hukum Islam Nusantara',desc:'Dari adat lokal hingga konstitusi tertulis',cards:[
+    {year:'Abad 7 M',event:'Hukum adat lokal pra-Islam',info:'Setiap suku punya hukum adat sendiri: matrilineal, patrilineal, atau parental.',src:'Antropologi Hukum'},
+    {year:'Abad 13 M',event:'Syariat Islam mulai diterapkan di Samudera Pasai',info:'Hukum Islam mulai menggantikan/menyertai hukum adat.',src:'Hikayat Raja-raja Pasai'},
+    {year:'Abad 16 M',event:'Undang-Undang Aceh disusun',info:'Kompilasi hukum pidana, perdata, tata negara Aceh.',src:'Sirat al-Mustaqim'},
+    {year:'Abad 16 M',event:'Martabat Tujuh disusun di Buton',info:'Konstitusi tertulis Kesultanan Buton — salah satu tertua di dunia.',src:'Naskah Buton'},
+    {year:'Abad 17 M',event:'Adat Minangkabau + Syariah',info:'Falsafah "Adat basandi syarak, syarak basandi Kitabullah".',src:'Tambo Minangkabau'},
+    {year:'1945 M',event:'Pancasila & UUD 1945',info:'Hukum modern Indonesia mengakomodasi syariat dalam batas tertentu.',src:'UUD 1945'}
+  ]},
+  {id:'transisi',icon:'🔄',title:'Transisi Hindu-Buddha ke Islam',desc:'Bagaimana Nusantara beralih keyakinan',cards:[
+    {year:'Abad 8 M',event:'Candi Borobudur dibangun',info:'Puncak kejayaan Buddha Mahayana di Jawa.',src:'Cagar Budaya'},
+    {year:'Abad 14 M',event:'Majapahit jaya',info:'Kerajaan Hindu-Buddha terbesar Nusantara.',src:'Negarakertagama'},
+    {year:'1357 M',event:'Perang Bubat',info:'Konflik Majapahit-Sunda melemahkan legitimasi Hindu.',src:'Kitab Pararaton'},
+    {year:'1478 M',event:'Keruntuhan Majapahit',info:'Digantikan Kesultanan Demak — era Islam dimulai.',src:'Babad Tanah Jawi'},
+    {year:'1526 M',event:'Kerajaan Sunda jatuh ke Banten',info:'Pajajaran, kerajaan Hindu terakhir di Jawa Barat, tumbang.',src:'Sejarah Banten'},
+    {year:'1540 M',event:'Hindu bertahan di Bali',info:'Bali mempertahankan Hindu hingga kini — akulturasi unik.',src:'Cagar Budaya Bali'}
+  ]},
+  {id:'dagang',icon:'⚓',title:'Jaringan Dagang Nusantara',desc:'Dari jalur rempah hingga monopoli VOC',cards:[
+    {year:'Abad 7 M',event:'Jalur rempah awal terbentuk',info:'Pedagang Arab, Persia, Gujarat singgah di pelabuhan Nusantara.',src:'Sejarah Maritim'},
+    {year:'Abad 13 M',event:'Samudera Pasai jadi pelabuhan utama',info:'Pusat perdagangan Islam pertama Nusantara.',src:'Hikayat Raja-raja Pasai'},
+    {year:'1602 M',event:'VOC didirikan',info:'Kongsi dagang Belanda untuk monopoli rempah Nusantara.',src:'Sejarah VOC'},
+    {year:'1619 M',event:'VOC kuasai Jayakarta → Batavia',info:'Pusat kekuasaan VOC di Jawa.',src:'Sejarah Batavia'},
+    {year:'1667 M',event:'Perjanjian Bongaya',info:'Gowa-Tallo tunduk VOC — monopoli rempah di Timur.',src:'Sejarah Makassar'},
+    {year:'1799 M',event:'VOC dibubarkan',info:'Korupsi & utang — aset diambil alih pemerintah Belanda.',src:'Sejarah Hindia Belanda'}
+  ]},
+  {id:'arsitektur',icon:'🕌',title:'Arsitektur Masjid Nusantara',desc:'Evolusi dari abad ke abad',cards:[
+    {year:'Abad 15 M',event:'Masjid Agung Demak',info:'Atap tumpang 3 tingkat — akulturasi Hindu-Jawa.',src:'Cagar Budaya'},
+    {year:'Abad 16 M',event:'Masjid Menara Kudus',info:'Menara bergaya candi Hindu — sinkretisme visual.',src:'Cagar Budaya'},
+    {year:'Abad 16 M',event:'Masjid Agung Banten',info:'Atap tumpang 5 tingkat — dipengaruhi Tiongkok.',src:'Cagar Budaya'},
+    {year:'Abad 17 M',event:'Masjid Baiturrahman Aceh',info:'Gaya Mughal — pengaruh India.',src:'Cagar Budaya'},
+    {year:'Abad 18 M',event:'Masjid Sultan Suriansyah',info:'Bergaya Banjar — atap tumpang khas Kalimantan.',src:'Cagar Budaya'},
+    {year:'Abad 20 M',event:'Masjid Istiqlal',info:'Arsitektur modern Indonesia — dibangun 1961-1978.',src:'Cagar Budaya Modern'}
+  ]},
+  {id:'sastra',icon:'📜',title:'Sastra Islam Nusantara',desc:'Perkembangan hikayat, babad, & syair',cards:[
+    {year:'Abad 13 M',event:'Hikayat Raja-raja Pasai',info:'Naskah Melayu klasik pertama tentang kerajaan Islam.',src:'Sastra Melayu'},
+    {year:'Abad 15 M',event:'Sejarah Melayu (Sulalatus Salatin)',info:'Naskah klasik tentang Malaka & Johor.',src:'Sastra Melayu'},
+    {year:'Abad 16 M',event:'Hamzah Fansuri ciptakan syair sufi',info:'Penyair sufi Melayu pertama — Syair Perahu.',src:'Sastra Melayu Aceh'},
+    {year:'Abad 17 M',event:'Bustan as-Salatin (7 jilid)',info:'Ensiklopedia Islam Melayu oleh Nuruddin ar-Raniri.',src:'Sastra Melayu Aceh'},
+    {year:'Abad 17 M',event:'Babad Tanah Jawi disusun',info:'Sejarah raja-raja Jawa — dari Adam hingga Mataram.',src:'Sastra Jawa'},
+    {year:'Abad 18 M',event:'Serat Centhini disusun',info:'Ensiklopedia budaya Jawa-Islam (12 jilid).',src:'Sastra Jawa'}
+  ]},
+  {id:'perempuan',icon:'👸',title:'Peran Perempuan dalam Islam Nusantara',desc:'Dari Sultanah hingga pejuang',cards:[
+    {year:'Abad 13 M',event:'Perempuan di Kesultanan Samudera Pasai',info:'Beberapa putri bangsawan memegang peran politik.',src:'Hikayat Raja-raja Pasai'},
+    {year:'1641 M',event:'Sultanah Safiatuddin memerintah Aceh',info:'Ratu Aceh pertama (1641-1675), 35 tahun stabil.',src:'Sejarah Aceh'},
+    {year:'1675 M',event:'Sultanah Naqiatuddin memerintah',info:'Ratu Aceh ke-4 (1675-1678).',src:'Sejarah Aceh'},
+    {year:'1848 M',event:'Cut Nyak Dien lahir',info:'Pejuang perempuan Aceh (1848-1908) — Pahlawan Nasional.',src:'Sejarah Perang Aceh'},
+    {year:'1904 M',event:'R.A. Kartini berjuang',info:'Emansipasi perempuan Indonesia — terinspirasi nilai Islam.',src:'Sejarah Indonesia'},
+    {year:'1928 M',event:'Kongres Perempuan Indonesia I',info:'Perempuan Indonesia bersatu — banyak dari organisasi Islam.',src:'Sejarah Pergerakan'}
+  ]},
+  {id:'pesantren',icon:'📚',title:'Perkembangan Pesantren Nusantara',desc:'Dari Ampel hingga Tebu Ireng',cards:[
+    {year:'Abad 15 M',event:'Sunan Ampel dirikan Ampel Denta',info:'Pesantren tertua di Jawa — sistem sorogan & bandongan.',src:'Sejarah Walisongo'},
+    {year:'Abad 15 M',event:'Sunan Giri dirikan Giri Kedaton',info:'Pusat pendidikan Islam di Gresik.',src:'Sejarah Walisongo'},
+    {year:'Abad 17 M',event:'Pesantren Syiah Kuala didirikan',info:'Oleh Abdurrauf Singkil di Aceh.',src:'Sejarah Aceh'},
+    {year:'Abad 18 M',event:'Pesantren Mlangi didirikan',info:'Di Yogyakarta — pusat kajian Islam.',src:'Sejarah Pesantren'},
+    {year:'1899 M',event:'Pesantren Tebu Ireng didirikan',info:"Oleh KH. Hasyim Asy'ari di Jombang.",src:'Sejarah NU'},
+    {year:'1926 M',event:'Nahdlatul Ulama (NU) berdiri',info:'Organisasi Islam terbesar dari kalangan pesantren.',src:'Sejarah NU'}
+  ]},
+  {id:'perlawanan',icon:'⚔️',title:'Perlawanan Islam vs Penjajah',desc:'Dari Portugis hingga Belanda',cards:[
+    {year:'1513 M',event:'Demak serang Portugis di Malaka',info:'Upaya pertama mengusir Portugis — gagal.',src:'Babad Tanah Jawi'},
+    {year:'1575 M',event:'Sultan Baabullah usir Portugis dari Ternate',info:'Kemenangan besar — Portugis terusir dari Maluku.',src:'Sejarah Maluku'},
+    {year:'1628 M',event:'Sultan Agung serang Batavia',info:'Upaya mengusir VOC dari Jawa — gagal, tapi simbol perlawanan.',src:'Babad Tanah Jawi'},
+    {year:'1825 M',event:'Perang Diponegoro dimulai',info:'Perang Jawa (1825-1830) — Pangeran Diponegoro vs Belanda.',src:'Sejarah Perang Diponegoro'},
+    {year:'1859 M',event:'Perang Banjar dimulai',info:'Pangeran Antasari vs Belanda (1859-1905).',src:'Sejarah Perang Banjar'},
+    {year:'1945 M',event:'Resolusi Jihad NU',info:"KH. Hasyim Asy'ari — 10 November 1945.",src:'Sejarah Kemerdekaan'}
+  ]},
+  {id:'tradisi',icon:'🎭',title:'Tradisi Islam Nusantara',desc:'Sekaten, Grebeg, Tabot, dll',cards:[
+    {year:'Abad 16 M',event:'Sunan Kalijaga ciptakan Grebeg Maulud',info:'Tradisi Maulid Nabi di Demak.',src:'Tradisi Jawa'},
+    {year:'Abad 17 M',event:'Sekaten pertama diadakan',info:'Di Yogyakarta & Surakarta — gamelan sekaten.',src:'Tradisi Jawa'},
+    {year:'Abad 17 M',event:'Tradisi Tabot di Bengkulu',info:'Perayaan 10 Muharram — pengaruh Persia.',src:'Tradisi Bengkulu'},
+    {year:'Abad 17 M',event:'Dugderan di Semarang',info:'Awal tahun baru Islam (1 Muharram).',src:'Tradisi Jawa'},
+    {year:'Abad 18 M',event:'Ruwahan di Jawa',info:'Tradisi menjelang Ramadhan — ziarah kubur.',src:'Tradisi Jawa'},
+    {year:'Abad 20 M',event:'Halal Bihalal nasional',info:'Tradisi khas Indonesia — maaf-maafan Idul Fitri.',src:'Tradisi Modern'}
+  ]},
+  {id:'haramain',icon:'🌏',title:'Jaringan Ulama Haramain',desc:'Dari Aceh ke Mekkah & kembali',cards:[
+    {year:'Abad 16 M',event:'Hamzah Fansuri belajar di Haramain',info:'Penyair sufi Melayu pertama.',src:'Sastra Melayu Aceh'},
+    {year:'Abad 17 M',event:'Nuruddin ar-Raniri jadi Mufti Aceh',info:'Dari Gujarat → Aceh — jaringan intelektual.',src:'Sastra Melayu Aceh'},
+    {year:'1640 M',event:'Abdurrauf Singkil pulang dari Mekkah',info:'Belajar 19 tahun — guru Syekh Yusuf.',src:'Sejarah Aceh'},
+    {year:'1683 M',event:'Syekh Yusuf diasingkan ke Ceylon',info:'Lalu ke Afrika Selatan — pionir Islam di sana.',src:'Sejarah Islam Global'},
+    {year:'Abad 19 M',event:'Syekh Nawawi al-Bantani mengajar di Mekkah',info:'Ulama Nusantara berkelas dunia.',src:'Sejarah Islam Global'},
+    {year:'Abad 20 M',event:'Syekh Ahmad Khatib Minangkabau',info:'Imam Masjidil Haram asal Nusantara.',src:'Sejarah Islam Global'}
+  ]},
+  {id:'ekspansi',icon:'🚢',title:'Ekspansi Islam ke Timur Nusantara',desc:'Jawa → Sulawesi → Maluku',cards:[
+    {year:'Abad 15 M',event:'Ulama Gresik dakwah ke Maluku',info:'Raja Ternate & Tidore belajar Islam dari Gresik.',src:'Sejarah Maluku'},
+    {year:'1605 M',event:'Datuk ri Bandang islamkan Gowa-Tallo',info:'Ulama Minangkabau ke Sulawesi Selatan.',src:'Sejarah Islam Sulawesi'},
+    {year:'Abad 16 M',event:'Sultan Baabullah kuasai Maluku',info:'Islam berkembang pesat di Maluku.',src:'Sejarah Maluku'},
+    {year:'Abad 17 M',event:'Buton jadi pusat Islam Sulawesi Tenggara',info:'Dengan konstitusi Martabat Tujuh.',src:'Naskah Buton'},
+    {year:'Abad 17 M',event:'Islam masuk Kalimantan Timur',info:'Kutai Kertanegara beralih ke Islam.',src:'Sejarah Kutai'},
+    {year:'Abad 18 M',event:'Islam masuk Papua bagian barat',info:'Melalui Kesultanan Tidore & Ternate.',src:'Sejarah Papua'}
+  ]},
+  {id:'modern',icon:'🏛️',title:'Warisan Islam di Indonesia Modern',desc:'Dari NU hingga Pancasila',cards:[
+    {year:'1905 M',event:'Sarekat Dagang Islam (SDI) didirikan',info:'Organisasi dagang Islam pertama — cikal bakal Sarekat Islam.',src:'Sejarah Pergerakan'},
+    {year:'1912 M',event:'Muhammadiyah didirikan',info:'Oleh KH. Ahmad Dahlan di Yogyakarta — gerakan modernis.',src:'Sejarah Muhammadiyah'},
+    {year:'1926 M',event:"Nahdlatul Ulama (NU) didirikan",info:"Oleh KH. Hasyim Asy'ari — gerakan tradisionalis.",src:'Sejarah NU'},
+    {year:'1945 M',event:'BPUPKI & Piagam Jakarta',info:'Diskusi dasar negara — kontribusi umat Islam.',src:'Sejarah Kemerdekaan'},
+    {year:'1945 M',event:'Resolusi Jihad NU',info:"KH. Hasyim Asy'ari — 10 November 1945.",src:'Sejarah Kemerdekaan'},
+    {year:'1978 M',event:'Masjid Istiqlal diresmikan',info:'Masjid terbesar di Asia Tenggara — simbol Islam Indonesia.',src:'Cagar Budaya Modern'}
+  ]}
 ];
 
-/* BANK_SKENARIO: Roda Takdir (30) */
-BANKS.BANK_SKENARIO=[
-  {em:'🚢',t:'Kapal Dagang Asing',d:'Kapal dagang dari Gujarat tiba. Mereka ingin berdagang sekaligus berdakwah.',choices:[{txt:'Terima dengan ramah',stats:{wealth:15,wisdom:10},good:true},{txt:'Tolak karena curiga',stats:{wealth:-10,power:5},good:false}],edu:'Pedagang Gujarat berperan besar menyebarkan Islam melalui jalur damai.'},
-  {em:'⚔️',t:'Serangan Portugis',d:'Armada Portugis mendekat! Mereka ingin memonopoli rempah.',choices:[{txt:'Serang balik dengan armada',stats:{power:15,wealth:-10},good:true},{txt:'Beri mereka hadiah',stats:{wealth:-15,power:-5},good:false}],edu:'Sultan Baabullah & Sultan Hasanuddin memilih melawan Portugis/VOC.'},
-  {em:'📚',t:'Ulama Datang',d:'Seorang ulama dari Arab ingin mendirikan pesantren di kerajaanmu.',choices:[{txt:'Dukung penuh',stats:{wisdom:20,power:5},good:true},{txt:'Abaikan saja',stats:{wisdom:-15},good:false}],edu:'Pesantren menjadi lembaga pendidikan Islam utama di Nusantara.'},
-  {em:'🎭',t:'Pertunjukan Wayang',d:'Sunan Kalijaga menawarkan pertunjukan wayang sebagai media dakwah.',choices:[{txt:'Dukung dengan cerita Islami',stats:{wisdom:15,power:5},good:true},{txt:'Larang pertunjukan',stats:{wisdom:-10},good:false}],edu:'Sunan Kalijaga menggunakan wayang kulit untuk dakwah.'},
-  {em:'🕋',t:'Hubungan dengan Mekkah',d:'Utusan dari Mekkah mengundangmu mempererat hubungan keagamaan.',choices:[{txt:'Kirim utusan resmi',stats:{wisdom:20,wealth:5},good:true},{txt:'Tolak undangan',stats:{wisdom:-15},good:false}],edu:'Hubungan dengan Mekkah memperkuat legitimasi keislaman kerajaan.'},
-  {em:'🌾',t:'Panen Raya',d:'Rakyatmu panen besar. Apa yang akan kau lakukan?',choices:[{txt:'Bagikan ke fakir miskin',stats:{wealth:-5,wisdom:15,power:10},good:true},{txt:'Simpan untuk perang',stats:{wealth:15,power:-5},good:false}],edu:'Sunan Drajat mengajarkan kepedulian kepada fakir miskin.'},
-  {em:'🎼',t:'Gamelan Sekaten',d:'Tradisi Sekaten untuk Maulid Nabi ingin diadakan. Biayanya besar.',choices:[{txt:'Adakan dengan megah',stats:{wealth:-10,wisdom:20,power:5},good:true},{txt:'Batalkan demi hemat',stats:{wisdom:-15},good:false}],edu:'Sekaten adalah tradisi Maulid Nabi di Yogyakarta & Surakarta.'},
-  {em:'📜',t:'Penulisan Naskah',d:'Seorang pujangga ingin menulis babad kerajaanmu.',choices:[{txt:'Danai penulisan naskah',stats:{wisdom:15,wealth:-5},good:true},{txt:'Tidak perlu naskah',stats:{wisdom:-10},good:false}],edu:'Babad Tanah Jawi, Hikayat Raja-raja Pasai — warisan sastra Islam.'},
-  {em:'🏛️',t:'Pembangunan Masjid',d:'Rakyat mengusulkan pembangunan masjid agung bergaya unik.',choices:[{txt:'Bangun dengan atap tumpang',stats:{wisdom:15,wealth:-5,power:5},good:true},{txt:'Bangun biasa saja',stats:{wisdom:-5},good:false}],edu:'Masjid Demak & Menara Kudus berarsitektur akulturasi.'},
-  {em:'🛡️',t:'VOC Datang',d:'VOC ingin memonopoli dagang. Mereka menawarkan perjanjian.',choices:[{txt:'Tolak tegas',stats:{power:15,wealth:-10},good:true},{txt:'Terima perjanjian',stats:{wealth:10,power:-20},good:false}],edu:'Sultan Agung menolak tunduk — menyerang Batavia 1628 & 1629.'},
-  {em:'🕌',t:'Wali Berdakwah',d:'Walisongo datang menawarkan dakwah damai di daerahmu.',choices:[{txt:'Beri kebebasan berdakwah',stats:{wisdom:20,power:5},good:true},{txt:'Batasi wilayah dakwah',stats:{wisdom:-10},good:false}],edu:'Walisongo berdakwah dengan pendekatan damai, adaptif, dan menghargai budaya lokal.'},
-  {em:'⚖️',t:'Hukum Kerajaan',d:'Rakyat minta keadilan hukum yang sesuai syariat.',choices:[{txt:'Terapkan hukum adil',stats:{wisdom:15,power:15},good:true},{txt:'Bebaskan pajak',stats:{wealth:-10,wisdom:-5},good:false}],edu:'Kesultanan Islam memadukan syariat dengan adat lokal.'},
-  {em:'🤝',t:'Perjanjian Dagang',d:'Pedagang Tiongkok menawarkan kerjasama dagang dengan rempah.',choices:[{txt:'Terima dengan adil',stats:{wealth:15,wisdom:5},good:true},{txt:'Minta lebih banyak',stats:{wealth:5,power:-10},good:false}],edu:'Kesultanan Islam Nusantara aktif dalam jaringan perdagangan Asia.'},
-  {em:'🎓',t:'Pendidikan Rakyat',d:'Rakyat meminta dibangun madrasah untuk pendidikan anak.',choices:[{txt:'Bangun madrasah',stats:{wisdom:20,wealth:-10},good:true},{txt:'Fokus perang saja',stats:{wisdom:-15,power:5},good:false}],edu:'Pesantren & madrasah adalah lembaga pendidikan Islam utama.'},
-  {em:'🌊',t:'Serangan Perompak',d:'Perompak mengancam kapal dagang di perairanmu.',choices:[{txt:'Kirim armada patroli',stats:{power:15,wealth:5},good:true},{txt:'Bayar perompak',stats:{wealth:-15,power:-10},good:false}],edu:'Kerajaan Islam seperti Malaka & Aceh memiliki armada laut kuat.'},
-  {em:'📖',t:'Al-Quran Kuno',d:'Ulama menemukan mushaf Al-Quran kuno di kerajaanmu.',choices:[{txt:'Simpan & pelajari',stats:{wisdom:15,power:5},good:true},{txt:'Jual ke pedagang asing',stats:{wealth:10,wisdom:-15},good:false}],edu:'Naskah Al-Quran kuno adalah warisan budaya Islam Nusantara.'},
-  {em:'💍',t:'Perkawinan Politik',d:'Raja tetangga menawarkan putrinya untuk kawin dengan putramu.',choices:[{txt:'Terima untuk aliansi',stats:{power:10,wealth:5,wisdom:5},good:true},{txt:'Tolak tanpa alasan',stats:{power:-10},good:false}],edu:'Saluran perkawinan adalah media penyebaran Islam di Nusantara.'},
-  {em:'🎁',t:'Hadiah dari Sultan',d:'Sultan kerajaan Islam tetangga mengirim hadiah keris pusaka.',choices:[{txt:'Terima & balas dengan baik',stats:{power:10,wisdom:5},good:true},{txt:'Kembalikan sebagai penghinaan',stats:{power:-5,wisdom:-10},good:false}],edu:'Hubungan diplomatik antar kerajaan Islam terjalin dengan hadiah.'},
-  {em:'🍚',t:'Bencana Kelaparan',d:'Rakyatmu dilanda kelaparan akibat gagal panen.',choices:[{txt:'Buka lumbung kerajaan',stats:{wealth:-15,wisdom:20,power:5},good:true},{txt:'Biarkan mereka berjuang',stats:{wealth:5,power:-15,wisdom:-15},good:false}],edu:'Sultan yang adil membuka lumbung untuk rakyat.'},
-  {em:'⚓',t:'Pelabuhan Ramai',d:'Pelabuhanmu makin ramai disinggahi kapal asing.',choices:[{txt:'Kelola dengan pajak adil',stats:{wealth:15,wisdom:5},good:true},{txt:'Pajak tinggi',stats:{wealth:10,power:-10},good:false}],edu:'Pelabuhan kerajaan Islam jadi pusat perdagangan rempah internasional.'},
-  {em:'🎨',t:'Seni Kaligrafi',d:'Seniman ingin membuat kaligrafi Arab di dinding masjid.',choices:[{txt:'Dukung sepenuhnya',stats:{wisdom:15,wealth:-5},good:true},{txt:'Larang seni itu',stats:{wisdom:-10},good:false}],edu:'Kaligrafi adalah warisan seni Islam Nusantara.'},
-  {em:'📜',t:'Silsilah Raja',d:'Rakyat ingin tahu silsilah kerajaanmu yang lengkap.',choices:[{txt:'Susun silsilah resmi',stats:{wisdom:15,power:5},good:true},{txt:'Abaikan saja',stats:{wisdom:-10},good:false}],edu:'Silsilah digunakan raja-raja Islam untuk legitimasi kekuasaan.'},
-  {em:'🧭',t:'Ekspedisi Baru',d:'Kapten ingin memimpin ekspedisi mencari jalur dagang baru.',choices:[{txt:'Danai ekspedisi',stats:{wealth:10,wisdom:10},good:true},{txt:'Batalkan ekspedisi',stats:{wisdom:-5,power:-5},good:false}],edu:'Nusantara sejak dulu menjadi pusat jaringan perdagangan maritim.'},
-  {em:'🏰',t:'Benteng Baru',d:'Panglima meminta dibangun benteng untuk pertahanan.',choices:[{txt:'Bangun benteng kokoh',stats:{power:20,wealth:-15},good:true},{txt:'Perkuat seadanya',stats:{power:-5,wealth:-5},good:false}],edu:'Benteng Somba Opu & Benteng Keraton Wolio adalah contoh benteng kerajaan Islam.'},
-  {em:'👸',t:'Sultanah Memimpin',d:'Rakyat mengusulkan Sultanah memimpin kerajaan.',choices:[{txt:'Dukung kesetaraan',stats:{wisdom:20,power:10},good:true},{txt:'Tolak karena gender',stats:{wisdom:-15,power:-5},good:false}],edu:'Sultanah Aceh membuktikan perempuan bisa memimpin dalam masyarakat Islam.'},
-  {em:'📚',t:'Pendirian Pesantren',d:'Ulama ingin mendirikan pesantren di daerah pedalaman.',choices:[{txt:'Beri tanah & dana',stats:{wisdom:20,wealth:-10},good:true},{txt:'Tolak karena jauh',stats:{wisdom:-15},good:false}],edu:'Pesantren di pedalaman menjadi pusat Islamisasi wilayah terpencil.'},
-  {em:'🌏',t:'Jaringan Haramain',d:'Ulama ingin belajar ke Mekkah & Madinah.',choices:[{txt:'Biayai keberangkatan',stats:{wisdom:20,wealth:-15},good:true},{txt:'Larang karena mahal',stats:{wisdom:-20},good:false}],edu:'Jaringan Haramain menghubungkan ulama Nusantara dengan pusat Islam global.'},
-  {em:'🎭',t:'Tari Zapin',d:'Seniman ingin mengembangkan Tari Zapin dari Melayu Riau.',choices:[{txt:'Dukung sebagai seni Islam',stats:{wisdom:10,power:5},good:true},{txt:'Larang karena bukan Arab',stats:{wisdom:-10},good:false}],edu:'Tari Zapin adalah seni Islam Melayu yang khas Nusantara.'},
-  {em:'⚔️',t:'Perang Saudara',d:'Dua pangeran bersaing memperebutkan takhta.',choices:[{txt:'Mediasi & musyawarah',stats:{wisdom:15,power:10},good:true},{txt:'Dukung salah satu',stats:{power:5,wisdom:-15},good:false}],edu:'Perang saudara melemahkan kerajaan — seperti Mataram sebelum Giyanti.'},
-  {em:'📖',t:'Penulisan Tafsir',d:'Ulama ingin menulis tafsir Al-Quran dalam bahasa Melayu.',choices:[{txt:'Danai penulisan',stats:{wisdom:20,wealth:-10},good:true},{txt:'Cukup bahasa Arab saja',stats:{wisdom:-10},good:false}],edu:'Tarjuman al-Mustafid — tafsir Melayu pertama oleh Abdurrauf Singkil.'}
-];
-
-/* AUDIT DUPLIKASI */
 function auditCrossBankDuplication(){
   const allQuestions=new Map();
   const duplicates=[];
@@ -1741,11 +1895,13 @@ function auditCrossBankDuplication(){
       else allQuestions.set(fp,'BANK_MATCHING');
     });
   });
-  (BANKS.BANK_ISTILAH||[]).forEach(pair=>{
-    const fp=normalizeText(pair[0]);
-    if(!fp)return;
-    if(allQuestions.has(fp))duplicates.push({bank1:allQuestions.get(fp),bank2:'BANK_ISTILAH',question:fp});
-    else allQuestions.set(fp,'BANK_ISTILAH');
+  (BANKS.BANK_TIMELINE||[]).forEach(pack=>{
+    (pack.cards||[]).forEach(c=>{
+      const fp=normalizeText(c.event);
+      if(!fp)return;
+      if(allQuestions.has(fp))duplicates.push({bank1:allQuestions.get(fp),bank2:'BANK_TIMELINE',question:fp});
+      else allQuestions.set(fp,'BANK_TIMELINE');
+    });
   });
   (BANKS.BANK_SKENARIO||[]).forEach(sc=>{
     const fp=normalizeText(sc.t);
@@ -1756,7 +1912,9 @@ function auditCrossBankDuplication(){
   return duplicates;
 }
 
-/* GAME 1: DETEKTIF */
+/* ============================================================
+   GAME 1: DETEKTIF
+   ============================================================ */
 let detSel=null,detOk=0,detLives=3,detActive=false,detCurrentPool=[];
 function resetDet(){
   detSel=null;detOk=0;detLives=3;detActive=true;
@@ -1827,7 +1985,9 @@ function detWin(){
   setTimeout(()=>{modal('🕌','Detektif Hebat!',`Kamu klasifikasi ${detCurrentPool.length} peninggalan dengan tepat! Max combo ×${Combo.max}`,'Detektif Ulung 🕌');$('#mRetryBtn').hidden=false;},400);
 }
 
-/* GAME 2: EKSPEDISI */
+/* ============================================================
+   GAME 2: EKSPEDISI
+   ============================================================ */
 let expIdx=0,expScore=0,expLives=3,expActive=false,expAnswered=false,expSession=[];
 function resetExp(){
   expIdx=0;expScore=0;expLives=3;expActive=true;expAnswered=false;
@@ -1936,7 +2096,9 @@ function expWin(){
   $('#mRetryBtn').hidden=false;
 }
 
-/* GAME 3: PETA MISI */
+/* ============================================================
+   GAME 3: PETA MISI
+   ============================================================ */
 let hxLv=0,hxStars={},hxSel={l:null,r:null},hxOk=0,hxMistakes=0,hxActive=false,hxLevels=[];
 function loadHxStars(){hxStars=Store.get(HX_KEY)||{}}
 function initHx(){
@@ -2063,7 +2225,9 @@ function hxNextLevel(){
   else backToMap();
 }
 
-/* GAME 4: RODA WARISAN */
+/* ============================================================
+   GAME 4: RODA WARISAN
+   ============================================================ */
 const WHEEL_SEGMENTS=[
   {label:'Warisan',type:'quiz',cat:'Warisan',color:'#3b82f6'},
   {label:'×2',type:'mult',value:2,color:'#f59e0b'},
@@ -2217,7 +2381,9 @@ function wheelGameOver(){
   $('#wCenter').textContent='ULANGI';$('#wCenter').onclick=initWheel;
 }
 
-/* GAME 5: JUTAWAN */
+/* ============================================================
+   GAME 5: JUTAWAN
+   ============================================================ */
 const MIL_TOTAL=15;
 const mlMoney=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
 let mlCur=0,mlLL={fifty:true,ask:true,phone:true},mlCorrectCount=0,mlSession=[],mlActive=false,mlLocked=false;
@@ -2313,84 +2479,282 @@ function useLL(t){
   }
 }
 
-/* GAME 6: MEMORI */
-const MEM_FRONT_EMOJI=['🕌','📜','🕋','📖','🎭','⚔️','🗡️','👑','🏛️','🎼','🃏','🧭','🐓','🌴','🌶️','⚓','🌊','💎','⚜️','🪶'];
-let memFirst=null,memSecond=null,memLock=false,memTries=0,memMatched=0,memCombo=0,memMaxCombo=0,memScore=0,memActive=false,memSession=[];
-function resetMem(){
-  memActive=true;
-  memFirst=null;memSecond=null;memLock=false;memTries=0;memMatched=0;
-  memCombo=0;memMaxCombo=0;memScore=0;
-  reviewData=[];hideDetail();
-  $('#memScore').textContent='Percobaan: 0';
-  $('#memCombo').textContent='🔥 ×1';
-  const fb=$('#memFb');fb.className='fb';fb.textContent='';
-  const grid=$('#memGrid');grid.innerHTML='';
-  memSession=seededShuffle(BANKS.BANK_ISTILAH,SESSION_SEED).slice(0,8);
-  const cards=[];
-  memSession.forEach((p,i)=>{
-    cards.push({id:i,txt:p[0],type:'term'});
-    cards.push({id:i,txt:p[1],type:'def'});
-  });
-  shuffle(cards).forEach((c,idx)=>{
+/* ============================================================
+   GAME 6: URUTKAN SEJARAH (BARU)
+   ============================================================ */
+let ordActive=false,ordSession=[],ordCurrent=0,ordScore=0,ordLives=3;
+let ordSelected=null,ordHintsLeft=3,ordAnswered=false,ordTotalCorrect=0,ordTotalCards=0;
+
+function resetOrd(){
+  ordActive=true;
+  ordSession=seededShuffle(BANKS.BANK_TIMELINE,SESSION_SEED).slice(0,12);
+  ordCurrent=0;ordScore=0;ordLives=3;ordHintsLeft=3;
+  ordTotalCorrect=0;ordTotalCards=0;
+  reviewData=[];Combo.reset();hideDetail();
+  $('#ordScore').textContent='Skor 0';
+  $('#ordLives').textContent='❤❤❤';
+  $('#ordFb').className='fb';
+  $('#ordHintBtn').disabled=false;
+  $('#ordHintBtn').innerHTML='<i class="fas fa-lightbulb"></i> Bantuan (3x)';
+  loadOrdPack();
+}
+
+function parseYear(y){
+  const m1=String(y).match(/Abad\s+(\d+)/i);
+  if(m1)return parseInt(m1[1])*100;
+  const m2=String(y).match(/(\d+)/);
+  return m2?parseInt(m2[1]):0;
+}
+
+function loadOrdPack(){
+  if(!ordActive)return;
+  if(ordCurrent>=ordSession.length){finishOrd();return}
+  const pack=ordSession[ordCurrent];
+  ordSelected=null;ordAnswered=false;
+  $('#ordRound').textContent=`Paket ${ordCurrent+1}/${ordSession.length}`;
+  $('#ordPackIcon').textContent=pack.icon;
+  $('#ordPackTitle').textContent=pack.title;
+  $('#ordPackDesc').textContent=pack.desc;
+  $('#ordPackProgress').textContent=`0 / ${pack.cards.length}`;
+  $('#ordFb').className='fb';
+  $('#ordFb').textContent='';
+  $('#ordCheckBtn').disabled=false;
+  $('#ordCheckBtn').innerHTML='<i class="fas fa-check-circle"></i> Periksa Urutan';
+
+  const shuffled=shuffle([...pack.cards]);
+  const container=$('#ordTimeline');
+  container.innerHTML='';
+  shuffled.forEach((c,idx)=>{
     const el=document.createElement('div');
-    el.className='mem-card';el.dataset.id=c.id;
-    const emoji=MEM_FRONT_EMOJI[idx%MEM_FRONT_EMOJI.length];
-    el.innerHTML=`<div class="mem-card-in"><div class="mem-face mem-front">${emoji}</div><div class="mem-face mem-back">${c.txt}</div></div>`;
-    el.onclick=()=>flipMem(el);
-    grid.appendChild(el);
+    el.className='ord-card';
+    el.dataset.year=c.year;
+    el.dataset.event=c.event;
+    el.dataset.idx=idx;
+    el.innerHTML=`
+      <div class="ord-num">${idx+1}</div>
+      <div class="ord-content">
+        <div class="ord-year"><i class="fas fa-calendar"></i>${c.year}</div>
+        <div class="ord-event">${c.event}</div>
+      </div>
+      <div class="ord-drag"><i class="fas fa-grip-vertical"></i></div>
+    `;
+    el.onclick=()=>selectOrdCard(el);
+    container.appendChild(el);
   });
-  startCountdown('#memTimer',60,()=>memGameOver(),10);
+  startCountdown('#ordTimer',90,()=>ordTimeOut(),10);
 }
-function flipMem(el){
-  if(!memActive||memLock||el.classList.contains('flip')||el.classList.contains('matched'))return;
-  Sound.click();el.classList.add('flip');
-  if(!memFirst){memFirst=el;return}
-  memSecond=el;memLock=true;memTries++;
-  $('#memScore').textContent='Percobaan: '+memTries;
-  const idA=memFirst.dataset.id,idB=memSecond.dataset.id;
-  const fb=$('#memFb');
-  if(idA===idB){
-    setTimeout(()=>{
-      if(!memActive)return;
-      memFirst.classList.add('matched');memSecond.classList.add('matched');
-      memMatched++;memCombo++;memMaxCombo=Math.max(memMaxCombo,memCombo);
-      const mult=memCombo>=3?3:memCombo>=2?2:1;
-      memScore+=100*mult;
-      Sound.correct();
-      if(mult>1){Sound.comboBig();shakeScreen()}
-      fb.className='fb show good';fb.textContent=`✓ Cocok! +${100*mult} (Combo ×${memCombo})`;
-      $('#memCombo').textContent=`🔥 ×${mult}`;
-      addTime(3);
-      memFirst=null;memSecond=null;memLock=false;
-      if(memMatched===8)finishMem();
-    },420);
-  }else{
-    setTimeout(()=>{
-      if(!memActive)return;
-      memFirst.classList.remove('flip');memSecond.classList.remove('flip');
-      Sound.wrong();memCombo=0;
-      fb.className='fb show bad';fb.textContent='✗ Belum cocok.';
-      $('#memCombo').textContent='🔥 ×1';
-      memFirst=null;memSecond=null;memLock=false;
-    },850);
-  }
-}
-function finishMem(){
-  if(!memActive)return;memActive=false;
-  stopCountdown();
-  const acc=Math.max(30,Math.round(8/memTries*100));
-  markDone('memory',{score:memScore,tries:memTries,acc,maxCombo:memMaxCombo});
-  Sound.win();confetti();showAchievement('memory');
-  setTimeout(()=>{modal('🃏','Ingatan Emas!',`Skor ${memScore} · ${memTries} percobaan · Max combo ×${memMaxCombo}`,'Ingatan Emas 🃏');$('#mRetryBtn').hidden=false;},500);
-}
-function memGameOver(){
-  if(!memActive)return;memActive=false;
+
+function ordTimeOut(){
+  if(!ordActive)return;
+  ordActive=false;
   Sound.lose();
-  modal('⏰','Waktu Habis!',`Kamu menemukan ${memMatched}/8 pasangan. Coba lagi!`,'',null);
+  modal('⏰','Waktu Habis!',`Kamu menyelesaikan ${ordCurrent} dari ${ordSession.length} paket. Skor: ${ordScore}. Coba lagi!`,'',null);
   $('#mRetryBtn').hidden=false;
 }
 
-/* GAME 7: RODA TAKDIR */
+function selectOrdCard(el){
+  if(!ordActive||ordAnswered||el.classList.contains('correct')||el.classList.contains('disabled'))return;
+  Sound.click();
+  const container=$('#ordTimeline');
+  if(!ordSelected){
+    ordSelected=el;
+    el.classList.add('selected');
+    return;
+  }
+  if(ordSelected===el){
+    el.classList.remove('selected');
+    ordSelected=null;
+    return;
+  }
+  // Swap posisi
+  const cards=[...container.children];
+  const i1=cards.indexOf(ordSelected);
+  const i2=cards.indexOf(el);
+  if(i1<0||i2<0)return;
+  if(i1<i2){
+    container.insertBefore(el,ordSelected);
+    container.insertBefore(ordSelected,el.nextSibling);
+  }else{
+    container.insertBefore(ordSelected,el);
+    container.insertBefore(el,ordSelected.nextSibling);
+  }
+  // Update nomor
+  [...container.children].forEach((c,i)=>{
+    const n=c.querySelector('.ord-num');
+    if(n)n.textContent=i+1;
+  });
+  ordSelected.classList.remove('selected');
+  ordSelected=null;
+  Sound.beep(700,.05,'square',.06);
+}
+
+function hintOrd(){
+  if(!ordActive||ordAnswered||ordHintsLeft<=0)return;
+  const pack=ordSession[ordCurrent];
+  const cards=[...$('#ordTimeline').children];
+  const sorted=[...pack.cards].sort((a,b)=>parseYear(a.year)-parseYear(b.year));
+  // Temukan kartu yang salah posisi, taruh di posisi benar
+  let fixedAny=false;
+  // Lock yang sudah benar
+  cards.forEach((c,i)=>{
+    if(c.dataset.event===sorted[i].event){
+      if(!c.classList.contains('correct')){
+        c.classList.add('correct');
+        c.classList.add('disabled');
+      }
+    }
+  });
+  // Cari kartu pertama yang salah posisi
+  for(let i=0;i<cards.length;i++){
+    if(cards[i].dataset.event!==sorted[i].event && !cards[i].classList.contains('correct')){
+      // Cari kartu yang seharusnya di posisi i
+      const targetEvent=sorted[i].event;
+      const targetCard=cards.find(c=>c.dataset.event===targetEvent);
+      if(targetCard&&targetCard!==cards[i]){
+        // Swap
+        const container=$('#ordTimeline');
+        const nodeA=cards[i];
+        const nodeB=targetCard;
+        const tempNext=nodeA.nextSibling;
+        container.insertBefore(nodeB,nodeA);
+        if(tempNext===nodeB)container.insertBefore(nodeA,nodeB.nextSibling);
+        else container.insertBefore(nodeA,tempNext);
+      }
+      // Lock kartu target
+      targetCard.classList.add('correct');
+      targetCard.classList.add('disabled');
+      fixedAny=true;
+      break;
+    }
+  }
+  [...$('#ordTimeline').children].forEach((c,i)=>{
+    const n=c.querySelector('.ord-num');
+    if(n)n.textContent=i+1;
+  });
+  ordHintsLeft--;
+  notif(`💡 Bantuan digunakan (${ordHintsLeft} tersisa)`,'gold');
+  Sound.beep(500,.15,'triangle',.1);
+  if(ordHintsLeft<=0){
+    $('#ordHintBtn').disabled=true;
+    $('#ordHintBtn').innerHTML='<i class="fas fa-lightbulb"></i> Habis';
+  }else{
+    $('#ordHintBtn').innerHTML=`<i class="fas fa-lightbulb"></i> Bantuan (${ordHintsLeft}x)`;
+  }
+  updateOrdProgress();
+}
+
+function updateOrdProgress(){
+  const cards=$$('#ordTimeline .ord-card');
+  const correct=cards.filter(c=>c.classList.contains('correct')).length;
+  $('#ordPackProgress').textContent=`${correct} / ${cards.length}`;
+  // Auto-check jika sudah semua
+  if(correct===cards.length&&cards.length>0&&!ordAnswered){
+    setTimeout(checkOrd,300);
+  }
+}
+
+function checkOrd(){
+  if(!ordActive||ordAnswered)return;
+  const pack=ordSession[ordCurrent];
+  const cards=[...$('#ordTimeline').children];
+  const sorted=[...pack.cards].sort((a,b)=>parseYear(a.year)-parseYear(b.year));
+  let allCorrect=true;
+  let correctCount=0;
+
+  cards.forEach((c,i)=>{
+    c.classList.remove('wrong');
+    if(c.dataset.event===sorted[i].event){
+      c.classList.add('correct');
+      c.classList.add('disabled');
+      correctCount++;
+    }else{
+      if(!c.classList.contains('correct'))c.classList.add('wrong');
+      allCorrect=false;
+    }
+  });
+
+  ordTotalCorrect+=correctCount;
+  ordTotalCards+=cards.length;
+  updateOrdProgress();
+
+  if(allCorrect){
+    ordAnswered=true;
+    const bonusHints=ordHintsLeft*50;
+    const comboMult=Combo.multiplier;
+    const pts=150+bonusHints+comboMult*30;
+    ordScore+=pts;
+    $('#ordScore').textContent='Skor '+ordScore;
+    Combo.hit();
+    Sound.correct();
+    confetti();
+    stopCountdown();
+
+    const fb=$('#ordFb');
+    fb.className='fb show good';
+    fb.innerHTML=`🎉 <b>SEMPURNA!</b> Urutan benar semua! +${pts} poin (Hints: ${ordHintsLeft}, Combo ×${Combo.multiplier})`;
+
+    const list=sorted.map(c=>({t:`${c.year} — ${c.event}`,d:`${c.info}<br><i style="color:#94a3b8;font-size:.85em">📖 ${c.src}</i>`}));
+
+    setTimeout(()=>{
+      if(ordCurrent>=ordSession.length-1){
+        finishOrd();
+      }else{
+        modal('🎯','Paket Selesai!',`Urutan <b>${pack.title}</b> benar! +${pts} poin. Lanjut ke paket berikutnya?`,'Ahli Kronologi 🎯',list);
+        const next=$('#mNextBtn');
+        next.hidden=false;
+        next.innerHTML='<i class="fas fa-arrow-right"></i> Lanjut Paket';
+        next.onclick=()=>{closeModal();ordCurrent++;loadOrdPack()};
+        $('#mRetryBtn').hidden=true;
+        $('#mReviewBtn').style.display='none';
+      }
+    },1200);
+  }else{
+    ordLives--;
+    $('#ordLives').textContent='❤'.repeat(Math.max(0,ordLives));
+    Sound.wrong();
+    shakeScreen();
+
+    const fb=$('#ordFb');
+    fb.className='fb show bad';
+    fb.innerHTML=`❌ <b>${correctCount}/${cards.length}</b> kartu benar posisinya. Perbaiki yang merah! −1❤`;
+
+    setTimeout(()=>{
+      cards.forEach(c=>{
+        if(!c.classList.contains('correct'))c.classList.remove('wrong');
+      });
+    },900);
+
+    if(ordLives<=0){
+      setTimeout(()=>{
+        if(!ordActive)return;
+        ordActive=false;
+        stopCountdown();
+        Sound.lose();
+        modal('😅','Nyawa Habis!',`Skor akhirmu: ${ordScore} poin. Kamu menyelesaikan ${ordCurrent} dari ${ordSession.length} paket. Coba lagi!`,'',null);
+        $('#mRetryBtn').hidden=false;
+      },1000);
+    }
+  }
+}
+
+function finishOrd(){
+  if(!ordActive)return;ordActive=false;
+  stopCountdown();
+  const totalPts=ordSession.length*200;
+  const acc=Math.round(ordScore/totalPts*100);
+  const finalAcc=ordTotalCards>0?Math.round(ordTotalCorrect/ordTotalCards*100):acc;
+  markDone('memory',{score:ordScore,acc:finalAcc,maxCombo:Combo.max});
+  Sound.win();confetti();
+  showAchievement('memory');
+  setTimeout(()=>{
+    modal('🏆','AHLI KRONOLOGI!',`Semua ${ordSession.length} paket selesai! Skor: ${ordScore} · Akurasi: ${finalAcc}%`,'Ahli Kronologi 🎯');
+    $('#mRetryBtn').hidden=false;
+  },600);
+}
+
+/* ============================================================
+   GAME 7: RODA TAKDIR
+   ============================================================ */
 const FT_SECTORS=[
   {label:'Soal ×1',type:'quiz',mult:1,color:'#3b82f6'},
   {label:'+💰',type:'stat',stat:'wealth',v:15,color:'#f59e0b'},
@@ -2593,7 +2957,9 @@ function finishFortune(){
   setTimeout(()=>{modal(emoji,title,`Poin: ${ftPoints} · 💰${ftStats.wealth} ⚔️${ftStats.power} 📚${ftStats.wisdom}`,'Raja Takdir 🎲');$('#mRetryBtn').hidden=false;},500);
 }
 
-/* GLOBAL INTERACTIONS */
+/* ============================================================
+   GLOBAL INTERACTIONS
+   ============================================================ */
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeModal();hideDetail();closeAch();closeGloss();closeReview();closeAudit()}
   const activeGame=document.querySelector('.screen.active');
@@ -2618,7 +2984,7 @@ try{
 
 document.addEventListener('click',e=>{
   if(document.body.classList.contains('reduce-motion'))return;
-  const target=e.target.closest('button,.tb-btn,.btn,.gc,.icon-btn,.src,.mi,.wo button,.mo button,.ll,.hx-node,.exp-options button,.choice,.wcenter,.fortune-center');
+  const target=e.target.closest('button,.tb-btn,.btn,.gc,.icon-btn,.src,.mi,.wo button,.mo button,.ll,.hx-node,.exp-options button,.choice,.wcenter,.fortune-center,.ord-card,.ord-btn-check,.ord-btn-hint');
   if(!target)return;
   const r=target.getBoundingClientRect();
   const size=Math.max(r.width,r.height);
@@ -2714,7 +3080,8 @@ const FACTS=[
   '<b>Sultan Baabullah</b> dari Ternate berhasil mengusir Portugis dari Maluku.',
   '<b>Kesultanan Buton</b> memiliki konstitusi tertulis <i>Martabat Tujuh</i> — salah satu tertua di dunia.',
   '<b>Syekh Yusuf al-Makassari</b> dihormati di Afrika Selatan sebagai pionir Islam.',
-  '<b>Hamzah Fansuri</b> — penyair sufi pertama Nusantara yang menulis dalam bahasa Melayu.'
+  '<b>Hamzah Fansuri</b> — penyair sufi pertama Nusantara yang menulis dalam bahasa Melayu.',
+  '<b>Kronologi</b> dan <b>kausalitas</b> adalah dua keterampilan inti berpikir sejarah.'
 ];
 function updateDailyFact(){
   const d=new Date();
@@ -2725,9 +3092,10 @@ function updateDailyFact(){
 loadHxStars();
 updateMenu();updateDailyFact();renderAch();
 
-console.log('%c🎮 7 MISI KERAJAAN ISLAM v9 FINAL','font-size:16px;font-weight:900;color:#3b82f6;');
-console.log('%c357 bank soal unik · 7 domain kognitif · 0% duplikasi','color:#10b981;font-weight:700;');
-console.log('%cResponsif penuh 320px-1920px · Touch target ≥44px','color:#f59e0b;font-weight:700;');
+console.log('%c🎮 7 MISI KERAJAAN ISLAM v9.1 FINAL','font-size:16px;font-weight:900;color:#3b82f6;');
+console.log('%c389 bank soal unik · 7 domain kognitif · 0% duplikasi','color:#10b981;font-weight:700;');
+console.log('%cGame 6: URUTKAN SEJARAH (Chronological Ordering)','color:#f59e0b;font-weight:700;');
+console.log('%cResponsif penuh 320px-1920px · Touch target ≥44px','color:#8b5cf6;font-weight:700;');
 
 const dupReport=auditCrossBankDuplication();
 if(dupReport.length===0){
