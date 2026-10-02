@@ -72,14 +72,12 @@ input,textarea{font-family:inherit;font-size:16px}
 @keyframes bounceIn{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
 @keyframes mboxIn{0%{opacity:0;transform:scale(.85) translateY(20px)}100%{opacity:1;transform:none}}
 
-/* Wrapper */
 .wrap{max-width:1080px;margin:0 auto;
   padding:calc(14px + var(--safe-top)) 12px calc(48px + var(--safe-bottom));
   position:relative;z-index:1;}
 .screen{display:none;animation:fadeUp .45s var(--ease)}
 .screen.on{display:block}
 
-/* Topbar */
 .topbar{display:flex;justify-content:center;gap:6px;margin-bottom:8px;flex-wrap:wrap}
 .tb-btn{padding:8px 11px;border-radius:99px;background:#fff;border:1.5px solid var(--line);
   color:var(--muted2);font-size:.68rem;font-weight:800;cursor:pointer;
@@ -88,7 +86,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .tb-btn:active{background:var(--brand);color:#fff;border-color:var(--brand);transform:scale(.97)}
 .tb-btn i{font-size:.82rem}
 
-/* Hub */
 .hub{text-align:center;padding:12px 4px 8px}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:99px;
   background:linear-gradient(135deg,rgba(2,132,199,.10),rgba(37,99,235,.06));
@@ -110,7 +107,6 @@ input,textarea{font-family:inherit;font-size:16px}
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .hs .l{font-size:.6rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:4px}
 
-/* Daily Fact */
 .daily-fact{margin:16px auto 0;max-width:720px;padding:12px 14px;border-radius:14px;
   background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid rgba(217,119,6,.28);
   display:flex;gap:10px;align-items:flex-start;text-align:left;
@@ -121,7 +117,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .daily-fact .txt{font-size:.76rem;color:#78350f;line-height:1.55;font-weight:500}
 .daily-fact .txt b{color:var(--orange-dark);font-weight:800}
 
-/* Progress */
 .prog-wrap{max-width:560px;margin:16px auto 0;padding:12px 14px;border-radius:14px;
   background:#fff;border:1.5px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
 .prog-info{display:flex;justify-content:space-between;font-size:.76rem;font-weight:800;margin-bottom:8px;gap:8px;flex-wrap:wrap}
@@ -136,7 +131,6 @@ input,textarea{font-family:inherit;font-size:16px}
   letter-spacing:.8px;transition:background .25s, border-style .25s;min-height:40px}
 .reset-btn:active{background:rgba(225,29,72,.08);border-style:solid}
 
-/* Grid & Cards */
 .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
 .card{position:relative;padding:16px 15px;border-radius:14px;cursor:pointer;
   background:linear-gradient(160deg,#e8f1ff 0%,#d6e5fb 55%,#c5dbf8 100%);
@@ -177,7 +171,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .card .dif.med{background:rgba(217,119,6,.15);color:#b45309}
 .card .dif.hard{background:rgba(225,29,72,.15);color:#be123c}
 
-/* Game Header */
 .gh{display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:14px;
   border-radius:12px;flex-wrap:wrap;background:#fff;
   border:1.5px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.06)}
@@ -196,7 +189,6 @@ input,textarea{font-family:inherit;font-size:16px}
   display:inline-flex;align-items:center}
 .pill.timer{background:linear-gradient(135deg,#0369a1,#075985);font-variant-numeric:tabular-nums}
 
-/* Stats */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .stat{padding:10px 6px;border-radius:11px;text-align:center;background:#fff;
   border:1px solid var(--line);box-shadow:0 4px 14px rgba(15,23,42,.04)}
@@ -205,7 +197,6 @@ input,textarea{font-family:inherit;font-size:16px}
   background:linear-gradient(135deg,#0284c7,#2563eb);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.15}
 
-/* Instruction */
 .inst{padding:12px 14px;margin-bottom:14px;border-radius:11px;
   background:linear-gradient(135deg,rgba(2,132,199,.07),rgba(226,237,255,.55));
   border-left:4px solid var(--brand);font-size:.76rem;color:var(--muted2);line-height:1.6}
@@ -214,7 +205,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .inst kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;
   padding:1px 6px;border-radius:5px;font-size:.68rem;font-weight:800;color:var(--primary-dark);font-family:inherit;margin:0 2px}
 
-/* Buttons */
 .btn{padding:12px 20px;border-radius:11px;border:none;cursor:pointer;
   font-weight:900;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;
   background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;
@@ -227,7 +217,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .btn.ghost{background:#fff;border:1.5px solid rgba(37,99,235,.35);color:var(--primary-dark);box-shadow:none}
 .btn.ghost:active{background:rgba(37,99,235,.08)}
 
-/* WHEEL */
 .wheel-stage{position:relative;width:min(340px,88vw);aspect-ratio:1;margin:12px auto}
 .wheel-canvas{width:100%;height:100%;border-radius:50%;
   filter:drop-shadow(0 16px 34px rgba(2,132,199,.20)) drop-shadow(0 0 18px rgba(56,189,248,.18));
@@ -254,7 +243,6 @@ input,textarea{font-family:inherit;font-size:16px}
   box-shadow:0 8px 24px rgba(15,23,42,.18),inset 0 1px 0 rgba(255,255,255,.2)}
 .cat-badge .e{font-size:1.2em}
 
-/* Qbox */
 .qbox{padding:16px 14px;border-radius:14px;margin-bottom:12px;background:#fff;
   border:1.5px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
 .qbox .qn{font-size:.62rem;letter-spacing:1.6px;color:var(--brand-dark);font-weight:900;
@@ -288,7 +276,6 @@ input,textarea{font-family:inherit;font-size:16px}
   color:#075985;font-weight:700;font-size:.74rem}
 .fb .src{margin-top:6px;font-size:.66rem;color:var(--muted);font-style:italic}
 
-/* DETEKTIF */
 .det-card{padding:20px 14px;border-radius:16px;text-align:center;margin:12px 0;
   background:linear-gradient(135deg,#ffffff,#f6faff);
   border:2px solid rgba(2,132,199,.22);
@@ -311,7 +298,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .dcat.ok{background:rgba(5,150,105,.12);border-color:var(--green-dark);animation:flash .5s}
 .dcat.no{background:rgba(225,29,72,.10);border-color:var(--pink-dark);animation:shake .4s}
 
-/* KRONOLOGI */
 .kr-q{padding:14px 16px;border-radius:12px;margin-bottom:12px;background:#fff;
   border:1.5px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.05)}
 .kr-q .qt{font-size:.86rem;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:4px}
@@ -334,7 +320,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .kr-item:active:not(:disabled){transform:scale(.96)}
 .kr-item:disabled{opacity:.3;cursor:not-allowed;transform:none}
 
-/* PETUALANGAN */
 .pet-progress{display:flex;gap:5px;margin-bottom:12px}
 .pet-dot{flex:1;height:7px;border-radius:7px;background:rgba(37,99,235,.14);transition:background .4s, box-shadow .4s}
 .pet-dot.cur{background:linear-gradient(90deg,var(--brand),var(--brand-deep));box-shadow:0 0 12px rgba(2,132,199,.45)}
@@ -356,7 +341,6 @@ input,textarea{font-family:inherit;font-size:16px}
   font-size:.74rem;color:var(--teal-dark);font-weight:600;line-height:1.5}
 .pet-read .source{margin-top:6px;font-size:.62rem;color:var(--muted);font-style:italic;text-align:right}
 
-/* JUTAWAN */
 .jw-layout{display:grid;grid-template-columns:1fr;gap:12px}
 .jw-q{padding:18px 14px;border-radius:14px;text-align:center;margin-bottom:12px;
   background:linear-gradient(135deg,rgba(2,132,199,.09),rgba(37,99,235,.05));
@@ -387,7 +371,6 @@ input,textarea{font-family:inherit;font-size:16px}
 .ll:active:not(:disabled){transform:scale(.94)}
 .ll:disabled{opacity:.3;cursor:not-allowed}
 
-/* MODAL */
 .modal{position:fixed;inset:0;background:rgba(240,246,255,.85);backdrop-filter:blur(12px);
   display:none;align-items:flex-end;justify-content:center;padding:0;z-index:2000}
 .modal.on{display:flex;animation:fadeIn .3s}
@@ -470,9 +453,6 @@ input,textarea{font-family:inherit;font-size:16px}
 ::-webkit-scrollbar-track{background:#eef2f7}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7dd3fc,#3b82f6);border-radius:7px}
 
-/* ═══════════════════════════════════════════════════════════
-   FULL RESPONSIVE — 320px s.d. 4K
-   ═══════════════════════════════════════════════════════════ */
 @media(min-width:400px){
   .grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .card{padding:14px 13px}
@@ -831,7 +811,7 @@ input,textarea{font-family:inherit;font-size:16px}
     <div class="cp"><i class="fas fa-graduation-cap"></i> Capaian: Memahami konsep dasar praaksara & menganalisis sumber arkeologis secara kritis</div>
     <div class="hub-stats">
       <div class="hs"><div class="n">5</div><div class="l">Games</div></div>
-      <div class="hs"><div class="n">280+</div><div class="l">Bank Soal</div></div>
+      <div class="hs"><div class="n">320+</div><div class="l">Bank Soal</div></div>
       <div class="hs"><div class="n" id="hsAch">0</div><div class="l">Pencapaian</div></div>
       <div class="hs"><div class="n">∞</div><div class="l">Belajar Seru</div></div>
     </div>
@@ -853,7 +833,7 @@ input,textarea{font-family:inherit;font-size:16px}
       <span class="card-check">✓</span><span class="ico">🎡</span>
       <div class="meta"><span class="dif">MUDAH</span></div>
       <h3>Kuis Roda Berputar</h3>
-      <p>Putar roda, jawab soal pilihan ganda dari 9 kategori praaksara. Bank soal 70!</p>
+      <p>Putar roda, jawab soal pilihan ganda dari 9 kategori praaksara. Bank soal 80!</p>
       <span class="tag">Kuis Umum · C1–C2</span>
     </div>
     <div class="card" data-g="detektif" tabindex="0" role="button">
@@ -896,7 +876,7 @@ input,textarea{font-family:inherit;font-size:16px}
 <div id="g-wheel" class="screen">
   <div class="gh">
     <button class="icon-btn" onclick="goHome()" aria-label="Beranda"><i class="fas fa-home"></i></button>
-    <h2>Kuis Roda Berputar<small>Kuis Umum · Bank A (70 soal) · C1–C2</small></h2>
+    <h2>Kuis Roda Berputar<small>Kuis Umum · Bank A (80 soal) · C1–C2</small></h2>
     <span class="pill" id="whPill">Putaran 1 / 12</span>
     <span class="pill timer" id="whTimer">00:00</span>
   </div>
@@ -933,7 +913,7 @@ input,textarea{font-family:inherit;font-size:16px}
 <div id="g-detektif" class="screen">
   <div class="gh">
     <button class="icon-btn" onclick="goHome()" aria-label="Beranda"><i class="fas fa-home"></i></button>
-    <h2>Detektif Sumber<small>Klasifikasi · Bank B (44 item) · C2–C3</small></h2>
+    <h2>Detektif Sumber<small>Klasifikasi · Bank B (54 item) · C2–C3</small></h2>
     <span class="pill" id="detPill">0 / 24</span>
     <span class="pill timer" id="detTimer">00:00</span>
   </div>
@@ -964,7 +944,7 @@ input,textarea{font-family:inherit;font-size:16px}
 <div id="g-kronologi" class="screen">
   <div class="gh">
     <button class="icon-btn" onclick="goHome()" aria-label="Beranda"><i class="fas fa-home"></i></button>
-    <h2>Kronologi Zaman<small>Berpikir Kronologis · Bank C (10 ronde) · C3–C4</small></h2>
+    <h2>Kronologi Zaman<small>Berpikir Kronologis · Bank C (15 ronde) · C3–C4</small></h2>
     <span class="pill" id="krPill">Babak 1 / 6</span>
     <span class="pill timer" id="krTimer">00:00</span>
   </div>
@@ -986,7 +966,7 @@ input,textarea{font-family:inherit;font-size:16px}
 <div id="g-petualangan" class="screen">
   <div class="gh">
     <button class="icon-btn" onclick="goHome()" aria-label="Beranda"><i class="fas fa-home"></i></button>
-    <h2>Petualangan 5 Zaman<small>Baca + Refleksi · Bank D · C2–C3</small></h2>
+    <h2>Petualangan 5 Zaman<small>Baca + Refleksi · Bank D (50 soal) · C2–C3</small></h2>
     <span class="pill" id="petPill">Level 1 / 5</span>
     <span class="pill timer" id="petTimer">00:00</span>
   </div>
@@ -1001,7 +981,7 @@ input,textarea{font-family:inherit;font-size:16px}
     <div id="petText">Memuat materi...</div>
   </div>
   <div class="qbox">
-    <div class="qn" id="petQn">SOAL 1 / 6</div>
+    <div class="qn" id="petQn">SOAL 1 / 10</div>
     <div class="qt" id="petQt">...</div>
     <div class="opts" id="petOpts"></div>
     <div class="fb" id="petFb"></div>
@@ -1015,7 +995,7 @@ input,textarea{font-family:inherit;font-size:16px}
 <div id="g-jutawan" class="screen">
   <div class="gh">
     <button class="icon-btn" onclick="goHome()" aria-label="Beranda"><i class="fas fa-home"></i></button>
-    <h2>Jutawan Praaksara<small>Quiz Show · Bank E (70 soal) · C4–C5</small></h2>
+    <h2>Jutawan Praaksara<small>Quiz Show · Bank E (80 soal) · C4–C5</small></h2>
     <span class="pill" id="jwPill">Soal 1 / 15</span>
     <span class="pill timer" id="jwTimer">00:00</span>
   </div>
@@ -1083,7 +1063,6 @@ input,textarea{font-family:inherit;font-size:16px}
 const $ = id => document.getElementById(id);
 const $$ = s => document.querySelectorAll(s);
 
-/* AUDIO */
 const Sound = {
   ctx:null, enabled:true,
   init(){ if(!this.ctx){ try{ this.ctx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ this.enabled=false; } } },
@@ -1137,7 +1116,6 @@ function startTimer(el){ stopTimer(); timerSec=0; timerId=el; if(el)$(el).textCo
   timerInt=setInterval(()=>{ timerSec++; if(timerId)$(timerId).textContent=fmtTime(timerSec); },1000); }
 function stopTimer(){ if(timerInt){ clearInterval(timerInt); timerInt=null; } }
 
-/* PROGRESS STORAGE — v2 dengan versioning */
 const VERSION = 'v2';
 const KEY = 'praaksara_quest_' + VERSION;
 const ACH_KEY = 'praaksara_ach_' + VERSION;
@@ -1160,7 +1138,6 @@ function updateHub(){
   $('progFill').style.width=(done/TOTAL*100)+'%';
 }
 
-/* ANTI-REPETISI — setiap game punya pool terpisah */
 function loadSeen(){ try{ return JSON.parse(localStorage.getItem(SEEN_KEY))||{}; }catch(e){ return {}; } }
 function saveSeen(s){ try{ localStorage.setItem(SEEN_KEY,JSON.stringify(s)); }catch(e){} }
 function markSeen(game,ids){
@@ -1180,9 +1157,14 @@ function pickFresh(pool,n,game,idFn){
   markSeen(game,picked.map(idFn));
   return picked;
 }
-function shuffleOpts(q){ if(!q||!q.o) return q; const c=q.o[q.a]; const n=shuffle(q.o); return {...q,o:n,a:n.indexOf(c)}; }
+/* SHUFFLE OPTIONS — kunci utama agar jawaban tidak selalu A */
+function shuffleOpts(q){ 
+  if(!q||!q.o) return q; 
+  const c=q.o[q.a]; 
+  const n=shuffle(q.o); 
+  return {...q,o:n,a:n.indexOf(c)}; 
+}
 
-/* ACHIEVEMENTS */
 const ACHS=[
   {id:'first_step',icon:'🎯',name:'Langkah Pertama',desc:'Selesaikan 1 game'},
   {id:'perfect',icon:'💯',name:'Sempurna',desc:'Skor akurasi 100%'},
@@ -1221,7 +1203,6 @@ function renderAch(){
 }
 function openAch(){ Sound.click(); renderAch(); $('achModal').classList.add('on'); }
 
-/* GLOSSARY — dari modul */
 const GLOSSARY=[
   {t:'Praaksara',d:'Masa sebelum manusia mengenal tulisan. Sinonim: nirleka.'},
   {t:'Prasejarah',d:'Istilah alternatif; secara harfiah "sebelum sejarah". Dalam modul ini istilah praaksara lebih diutamakan.'},
@@ -1261,7 +1242,6 @@ const GLOSSARY=[
 ];
 function openGloss(){ Sound.click(); $('glList').innerHTML=GLOSSARY.map(g=>`<div class="gl-item"><div class="term">${g.t}</div><div class="def">${g.d}</div></div>`).join(''); $('glModal').classList.add('on'); }
 
-/* DAILY FACT */
 const FACTS=[
   'Situs <b>Sangiran</b> diakui UNESCO sebagai Warisan Budaya Dunia pada <b>1996</b> — menyimpan 100+ fosil manusia purba.',
   'Lukisan cap tangan di gua <b>Leang-Leang</b>, Sulawesi Selatan berusia ± <b>40.000 tahun</b> — salah satu yang tertua di dunia.',
@@ -1296,7 +1276,6 @@ function toggleMotion(){
   toast(on?'✨ Animasi aktif':'🕊️ Mode tenang','gold');
 }
 
-/* REVIEW */
 let reviewData=[];
 function pushReview(q,opts,ci,cho,ex,src){ reviewData.push({q,opts,correctIdx:ci,chosenIdx:cho,explanation:ex,source:src}); }
 function openReview(){
@@ -1315,7 +1294,6 @@ function openReview(){
   $('rvModal').classList.add('on');
 }
 
-/* CONFETTI */
 function confetti(duration=2600){
   if(document.body.classList.contains('reduce-motion')) return;
   const c=$('confetti'); const ctx=c.getContext('2d');
@@ -1338,9 +1316,6 @@ function confetti(duration=2600){
   })(t0);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   KATEGORI RODA
-   ═══════════════════════════════════════════════════════════ */
 const CATS=[
   {id:'konsep',name:'Konsep Praaksara',short:'KONSEP',icon:'📜',color:'#38bdf8'},
   {id:'manusia',name:'Manusia Purba',short:'MANUSIA',icon:'🦴',color:'#22d3ee'},
@@ -1354,96 +1329,106 @@ const CATS=[
 ];
 
 /* ═══════════════════════════════════════════════════════════
-   BANK A — 70 SOAL RODA (Konsep & Definisi Dasar)
+   BANK A — 80 SOAL RODA
+   Jawaban bervariasi (a:0..3) + shuffleOpts saat tampil
    ═══════════════════════════════════════════════════════════ */
 const BANK_A=[
-  // KONSEP (8)
+  // KONSEP (10)
   {id:'A01',c:'konsep',q:'Istilah "praaksara" secara etimologis berasal dari kata...',o:['pra (sebelum) + aksara (tulisan)','pra (masa) + aksara (batu)','pra (kuno) + aksara (ilmu)','pra (masyarakat) + aksara (budaya)'],a:0,e:'"Pra" = sebelum, "aksara" = tulisan.',k:'Praaksara = sebelum mengenal tulisan.'},
-  {id:'A02',c:'konsep',q:'Perbedaan utama antara praaksara dan prasejarah terletak pada...',o:['Ada tidaknya sumber tertulis','Jumlah penduduk','Letak geografis','Jenis makanan'],a:0,e:'Praaksara menekankan belum adanya aksara.',k:'Fokus: sumber tertulis.'},
-  {id:'A03',c:'konsep',q:'Cara utama merekonstruksi kehidupan praaksara adalah melalui...',o:['Data arkeologis (fosil, artefak, situs)','Buku-buku kuno','Lukisan Renaissance','Catatan pedagang Arab'],a:0,e:'Karena belum ada tulisan, arkeologi jadi kunci utama.',k:'Arkeologi = kunci utama.'},
-  {id:'A04',c:'konsep',q:'Prasasti Yupa di Kutai (abad ke-4 M) menandai...',o:['Berakhirnya masa praaksara di Indonesia','Mulainya zaman Neolitikum','Datangnya Proto Melayu','Penemuan perunggu pertama'],a:0,e:'Yupa = bukti tertulis tertua.',k:'Yupa = batas awal masa sejarah.'},
+  {id:'A02',c:'konsep',q:'Perbedaan utama antara praaksara dan prasejarah terletak pada...',o:['Jumlah penduduk','Ada tidaknya sumber tertulis','Letak geografis','Jenis makanan'],a:1,e:'Praaksara menekankan belum adanya aksara.',k:'Fokus: sumber tertulis.'},
+  {id:'A03',c:'konsep',q:'Cara utama merekonstruksi kehidupan praaksara adalah melalui...',o:['Buku-buku kuno','Lukisan Renaissance','Data arkeologis (fosil, artefak, situs)','Catatan pedagang Arab'],a:2,e:'Karena belum ada tulisan, arkeologi jadi kunci utama.',k:'Arkeologi = kunci utama.'},
+  {id:'A04',c:'konsep',q:'Prasasti Yupa di Kutai (abad ke-4 M) menandai...',o:['Mulainya zaman Neolitikum','Datangnya Proto Melayu','Penemuan perunggu pertama','Berakhirnya masa praaksara di Indonesia'],a:3,e:'Yupa = bukti tertulis tertua.',k:'Yupa = batas awal masa sejarah.'},
   {id:'A05',c:'konsep',q:'Pembabakan zaman praaksara Indonesia didasarkan pada...',o:['Bahan pembuat alat (batu → logam)','Jumlah penduduk','Wilayah geografis','Sistem kepercayaan'],a:0,e:'Periodisasi didasarkan pada teknologi alat.',k:'Dasar = teknologi alat.'},
-  {id:'A06',c:'konsep',q:'Zaman praaksara di Indonesia diperkirakan berlangsung hingga...',o:['Abad ke-4 M','Abad ke-1 M','Abad ke-10 M','Abad ke-13 M'],a:0,e:'Berakhir dengan Prasasti Yupa Kutai (abad ke-4 M).',k:'Berakhir abad ke-4 M.'},
-  {id:'A07',c:'konsep',q:'Kata "nirleka" memiliki arti sama dengan...',o:['Praaksara','Prasasti','Arkeologi','Fosil'],a:0,e:'Nirleka = tanpa tulisan = praaksara.',k:'Nirleka = praaksara.'},
-  {id:'A08',c:'konsep',q:'Mengapa masa praaksara sangat panjang dibanding masa sejarah?',o:['Karena manusia butuh waktu lama untuk mengenal tulisan','Karena tidak ada manusia','Karena tidak ada makanan','Karena iklim ekstrem'],a:0,e:'Manusia memerlukan ribuan tahun untuk menemukan sistem tulisan.',k:'Praaksara = ± 99% sejarah manusia.'},
-  // MANUSIA PURBA (10)
-  {id:'A09',c:'manusia',q:'Pithecanthropus erectus ditemukan oleh Eugene Dubois di...',o:['Trinil, Ngawi (Jawa Timur)','Sangiran, Sragen','Liang Bua, Flores','Wajak, Tulungagung'],a:0,e:'Dubois menemukan di Trinil tahun 1891-1893.',k:'Trinil = Dubois (1891).'},
-  {id:'A10',c:'manusia',q:'Manusia purba rahang & gigi sangat besar dari Sangiran adalah...',o:['Meganthropus paleojavanicus','Pithecanthropus erectus','Homo floresiensis','Homo wajakensis'],a:0,e:'Meganthropus paleojavanicus, von Koenigswald (1941).',k:'Meganthropus = rahang besar.'},
-  {id:'A11',c:'manusia',q:'Homo floresiensis dari Liang Bua (2003) dijuluki...',o:['Hobbit karena tubuh kerdil','Java Man','Manusia Raksasa','Manusia Bijaksana'],a:0,e:'Tinggi hanya ± 1 meter, dijuluki "Hobbit".',k:'Homo floresiensis = Hobbit.'},
-  {id:'A12',c:'manusia',q:'Homo soloensis ditemukan di Ngandong, Blora, oleh...',o:['von Koenigswald, Oppenoorth, dan ter Haar','Eugene Dubois','van Rietschoten','Teuku Jacob'],a:0,e:'Homo soloensis ditemukan 1931-1933 di Ngandong.',k:'Homo soloensis = Ngandong.'},
-  {id:'A13',c:'manusia',q:'Manusia praaksara Indonesia yang dianggap nenek moyang Homo sapiens awal adalah...',o:['Homo wajakensis','Pithecanthropus erectus','Meganthropus','Homo floresiensis'],a:0,e:'Homo wajakensis (Wajak, Tulungagung, 1889).',k:'Homo wajakensis = sapiens awal.'},
-  {id:'A14',c:'manusia',q:'Nama Pithecanthropus erectus secara harfiah berarti...',o:['Manusia kera yang berdiri tegak','Manusia kera raksasa','Manusia pintar','Kera besar'],a:0,e:'Pithecos = kera, anthropos = manusia, erectus = berdiri tegak.',k:'Pithecanthropus = manusia kera berdiri.'},
-  {id:'A15',c:'manusia',q:'Fosil manusia purba pertama di Indonesia ditemukan di situs...',o:['Trinil','Sangiran','Ngandong','Wajak'],a:0,e:'Trinil = penemuan Pithecanthropus erectus (1891).',k:'Trinil = fosil pertama.'},
-  {id:'A16',c:'manusia',q:'Ras manusia purba Australomelanesid dicirikan dengan...',o:['Kulit gelap, rambut keriting, tubuh tegap','Kulit kuning, mata sipit','Kulit putih, rambut pirang','Kulit sawo matang, rambut lurus'],a:0,e:'Australomelanesid = ciri Melanesia.',k:'Australomelanesid = kulit gelap & keriting.'},
-  {id:'A17',c:'manusia',q:'Etnis Jawa, Sunda, dan Bugis merupakan keturunan ras...',o:['Mongolid (Austronesia)','Australomelanesid','Melanesoid','Kaukasoid'],a:0,e:'Ras Mongolid = Austronesia dari Asia Timur.',k:'Mongolid = Austronesia.'},
-  {id:'A18',c:'manusia',q:'Nenek moyang suku-suku Papua dan Melanesia adalah ras...',o:['Australomelanesid','Mongolid','Kaukasoid','Negroid Afrika'],a:0,e:'Australomelanesid = nenek moyang Papua & Melanesia.',k:'Australomelanesid = Papua.'},
-  // PALEO-MESO (10)
-  {id:'A19',c:'paleo',q:'Alat khas kebudayaan Pacitan pada masa Paleolitikum adalah...',o:['Kapak genggam (chopper)','Kapak persegi','Nekara','Menhir'],a:0,e:'Kebudayaan Pacitan menghasilkan kapak genggam.',k:'Pacitan = chopper.'},
-  {id:'A20',c:'paleo',q:'Kebudayaan Ngandong menghasilkan alat dari...',o:['Tulang dan tanduk hewan','Batu yang sudah dipoles','Logam perunggu','Kerang laut'],a:0,e:'Kebudayaan Ngandong = alat tulang & tanduk.',k:'Ngandong = alat tulang.'},
-  {id:'A21',c:'paleo',q:'Pola hidup utama manusia Paleolitikum adalah...',o:['Berburu & meramu (food gathering)','Bercocok tanam','Beternak','Berdagang'],a:0,e:'Food gathering = nomaden.',k:'Paleolitikum = food gathering.'},
-  {id:'A22',c:'paleo',q:'Tumpukan kulit kerang sisa makanan manusia Mesolitikum disebut...',o:['Kjokkenmoddinger','Abris sous roche','Sarkofagus','Punden berundak'],a:0,e:'Kjokkenmoddinger = "sampah dapur" kerang.',k:'Kjokkenmoddinger = sampah dapur.'},
-  {id:'A23',c:'paleo',q:'Lukisan cap tangan di dinding gua peninggalan Mesolitikum banyak ditemukan di...',o:['Leang-Leang, Sulawesi Selatan','Sangiran, Jawa Tengah','Trinil, Jawa Timur','Gunung Padang, Jawa Barat'],a:0,e:'Leang-Leang di Maros, Sulawesi Selatan.',k:'Leang-Leang = cap tangan.'},
-  {id:'A24',c:'paleo',q:'Abris sous roche adalah...',o:['Gua ceruk tempat tinggal','Meja batu','Alat batu','Gendang perunggu'],a:0,e:'Abris sous roche = gua ceruk tempat tinggal.',k:'Abris sous roche = gua ceruk.'},
-  {id:'A25',c:'paleo',q:'Manusia pendukung kebudayaan Mesolitikum di Indonesia adalah...',o:['Papua-Melanesoid','Proto Melayu','Pithecanthropus','Homo sapiens modern'],a:0,e:'Papua-Melanesoid = pendukung Mesolitikum.',k:'Papua-Melanesoid = Mesolitikum.'},
-  {id:'A26',c:'paleo',q:'Kebudayaan Bacson-Hoabinh menghasilkan alat khas berupa...',o:['Kapak sumatra (kapak pendek)','Kapak persegi','Nekara','Menhir'],a:0,e:'Bacson-Hoabinh = kapak sumatra & alat batu dipangkas.',k:'Bacson-Hoabinh = kapak sumatra.'},
-  {id:'A27',c:'paleo',q:'Kapak sumatra dari kebudayaan Bacson-Hoabinh banyak ditemukan di...',o:['Sumatera, Jawa, Kalimantan','Papua & Maluku','Bali & Nusa Tenggara','Sulawesi Utara'],a:0,e:'Kapak sumatra tersebar di Sumatera, Jawa, Kalimantan.',k:'Kapak sumatra = S, J, K.'},
-  {id:'A28',c:'paleo',q:'Alat serpih (flakes) pada masa Paleolitikum berfungsi untuk...',o:['Menguliti & memotong','Upacara','Perhiasan','Senjata perang besar'],a:0,e:'Flakes = alat potong & penguliti.',k:'Flakes = alat potong.'},
-  // NEOLITIKUM (10)
-  {id:'A29',c:'neo',q:'Revolusi Neolitikum ditandai dengan perubahan pola hidup dari...',o:['Food gathering → food producing','Batu → logam','Nomaden → berburu','Hutan → gua'],a:0,e:'Manusia mulai menghasilkan makanan sendiri.',k:'Neolitikum = food producing.'},
-  {id:'A30',c:'neo',q:'Alat khas zaman Neolitikum yang banyak ditemukan di Indonesia timur adalah...',o:['Kapak lonjong','Kapak genggam','Nekara','Flakes'],a:0,e:'Kapak lonjong banyak ditemukan di Indonesia timur.',k:'Kapak lonjong = Indonesia timur.'},
-  {id:'A31',c:'neo',q:'Manusia pendukung kebudayaan Neolitikum di Indonesia adalah...',o:['Proto Melayu (Melayu Tua)','Papua-Melanesoid','Pithecanthropus','Homo soloensis'],a:0,e:'Proto Melayu datang sekitar 1500 SM.',k:'Proto Melayu = Neolitikum.'},
-  {id:'A32',c:'neo',q:'Proses penjinakan hewan liar untuk dipelihara disebut...',o:['Domestikasi','Akulturasi','Adaptasi','Asimilasi'],a:0,e:'Domestikasi = penjinakan hewan & tumbuhan.',k:'Domestikasi = penjinakan.'},
-  {id:'A33',c:'neo',q:'Salah satu dampak revolusi Neolitikum pada struktur sosial adalah...',o:['Muncul kepala suku & desa permanen','Hidup kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi'],a:0,e:'Kehidupan menetap memunculkan desa & kepala suku.',k:'Neolitikum = desa permanen.'},
-  {id:'A34',c:'neo',q:'Kapak persegi pada masa Neolitikum berfungsi untuk...',o:['Membuka lahan pertanian','Memotong kayu bakar','Menangkap ikan','Membuat perhiasan'],a:0,e:'Kapak persegi = membuka lahan pertanian.',k:'Kapak persegi = membuka lahan.'},
-  {id:'A35',c:'neo',q:'Zaman Neolitikum di Indonesia berlangsung sekitar tahun...',o:['4000-2000 SM','10.000-4.000 SM','1,8 juta-10.000 SM','500 SM-500 M'],a:0,e:'Neolitikum Indonesia sekitar 4000-2000 SM.',k:'Neolitikum = 4000-2000 SM.'},
-  {id:'A36',c:'neo',q:'Tembikar/gerabah mulai dikenal pada masa...',o:['Neolitikum','Paleolitikum','Mesolitikum','Perundagian'],a:0,e:'Tembikar muncul pertama pada masa Neolitikum.',k:'Tembikar = Neolitikum.'},
-  {id:'A37',c:'neo',q:'Manusia mulai hidup menetap pertama kali pada masa...',o:['Neolitikum','Paleolitikum','Mesolitikum','Megalitikum akhir'],a:0,e:'Kehidupan menetap dimulai pada masa Neolitikum.',k:'Menetap = Neolitikum.'},
-  {id:'A38',c:'neo',q:'Peralihan ke bercocok tanam didorong oleh...',o:['Akhir zaman es & hewan besar mulai punah','Bencana banjir besar','Serangan bangsa luar','Wabah penyakit'],a:0,e:'Akhir zaman es = pemicu revolusi Neolitikum.',k:'Akhir zaman es = pemicu.'},
-  // MEGALITIKUM (8)
-  {id:'A39',c:'mega',q:'Tugu batu besar untuk memperingati arwah leluhur disebut...',o:['Menhir','Dolmen','Sarkofagus','Punden berundak'],a:0,e:'Menhir = tugu batu berdiri tegak.',k:'Menhir = tugu batu.'},
-  {id:'A40',c:'mega',q:'Meja batu besar untuk meletakkan sesajen disebut...',o:['Dolmen','Menhir','Sarkofagus','Waruga'],a:0,e:'Dolmen = meja batu sesajen.',k:'Dolmen = meja sesajen.'},
-  {id:'A41',c:'mega',q:'Peti jenazah dari batu yang banyak ditemukan di Bali adalah...',o:['Sarkofagus','Dolmen','Menhir','Punden'],a:0,e:'Sarkofagus = peti jenazah batu.',k:'Sarkofagus = peti batu.'},
-  {id:'A42',c:'mega',q:'Bangunan batu bertingkat untuk pemujaan arwah leluhur yang jadi dasar arsitektur candi adalah...',o:['Punden berundak','Menhir','Dolmen','Waruga'],a:0,e:'Punden berundak = dasar arsitektur candi.',k:'Punden berundak → candi.'},
-  {id:'A43',c:'mega',q:'Situs megalitikum terbesar di Asia Tenggara di Cianjur, Jawa Barat adalah...',o:['Gunung Padang','Lore Lindu','Pasemah','Sangiran'],a:0,e:'Gunung Padang = megalit terbesar di Asia Tenggara.',k:'Gunung Padang = megalit terbesar.'},
-  {id:'A44',c:'mega',q:'Waruga (kubur batu berbentuk kubus) banyak ditemukan di...',o:['Minahasa, Sulawesi Utara','Alor, NTT','Bali','Pasemah, Sumatera'],a:0,e:'Waruga = khas Minahasa, Sulawesi Utara.',k:'Waruga = Minahasa.'},
-  {id:'A45',c:'mega',q:'Zaman Megalitikum artinya zaman batu...',o:['Besar','Kecil','Tua','Muda'],a:0,e:'Mega = besar, lithos = batu.',k:'Megalitikum = batu besar.'},
-  {id:'A46',c:'mega',q:'Situs megalitikum Pasemah di Sumatera Selatan terkenal dengan...',o:['Patung megalitik manusia & gajah','Kapak persegi','Nekara perunggu','Fosil manusia purba'],a:0,e:'Pasemah = patung batu naturalistis.',k:'Pasemah = patung naturalistis.'},
-  // LOGAM (8)
-  {id:'A47',c:'logam',q:'Indonesia tidak mengalami zaman tembaga karena...',o:['Tidak ditemukan artefak tembaga','Tidak ada tambang tembaga','Tembaga belum dikenal','Terlalu keras'],a:0,e:'Belum ditemukan artefak tembaga di Indonesia.',k:'Indonesia: perunggu → besi.'},
-  {id:'A48',c:'logam',q:'Gendang perunggu besar untuk upacara mendatangkan hujan disebut...',o:['Nekara','Moko','Kapak corong','Bejana'],a:0,e:'Nekara = gendang perunggu Dong Son.',k:'Nekara = gendang perunggu.'},
-  {id:'A49',c:'logam',q:'Benda perunggu berbentuk gendang kecil dari Alor, NTT adalah...',o:['Moko','Nekara','Kapak corong','Bejana'],a:0,e:'Moko = gendang perunggu kecil dari Alor.',k:'Moko = Alor.'},
-  {id:'A50',c:'logam',q:'Teknik pembuatan logam dengan model lilin yang dilapisi tanah liat disebut...',o:['A cire perdue','Bivalve','Tempa','Cor langsung'],a:0,e:'A cire perdue = cetak lilin.',k:'A cire perdue = cetak lilin.'},
-  {id:'A51',c:'logam',q:'Ciri utama kehidupan masa Perundagian adalah...',o:['Spesialisasi kerja','Hidup nomaden','Belum mengenal api','Belum ada kepercayaan'],a:0,e:'Masa Perundagian = spesialisasi kerja.',k:'Perundagian = spesialisasi.'},
-  {id:'A52',c:'logam',q:'Zaman Logam di Indonesia berlangsung sekitar tahun...',o:['500 SM – 500 M','4.000-2.000 SM','10.000-4.000 SM','1,8 juta-10.000 SM'],a:0,e:'Zaman Logam Indonesia sekitar 500 SM – 500 M.',k:'Logam = 500 SM - 500 M.'},
-  {id:'A53',c:'logam',q:'Teknik cetak perunggu menggunakan dua bagian cetakan disebut...',o:['Bivalve','A cire perdue','Tempa','Cetak langsung'],a:0,e:'Bivalve = cetak dua bagian.',k:'Bivalve = cetak dua sisi.'},
-  {id:'A54',c:'logam',q:'Nekara terbesar di dunia ditemukan di...',o:['Pejeng, Bali','Alor, NTT','Makassar','Palembang'],a:0,e:'Nekara Pejeng (Bali) = terbesar di dunia.',k:'Pejeng = nekara terbesar.'},
-  // SITUS (6)
-  {id:'A55',c:'situs',q:'Situs manusia purba terbesar di Indonesia, UNESCO 1996, adalah...',o:['Sangiran','Trinil','Liang Bua','Wajak'],a:0,e:'Sangiran = UNESCO 1996.',k:'Sangiran = UNESCO.'},
-  {id:'A56',c:'situs',q:'Situs lukisan gua tertua di Indonesia (usia ± 40.000 tahun) berada di...',o:['Leang-Leang, Sulawesi Selatan','Liang Bua, Flores','Gunung Padang, Cianjur','Pasemah, Sumatera Selatan'],a:0,e:'Leang-Leang = lukisan cap tangan tertua.',k:'Leang-Leang = lukisan tertua.'},
-  {id:'A57',c:'situs',q:'Situs Liang Bua terletak di provinsi...',o:['Nusa Tenggara Timur (Flores)','Jawa Tengah','Sulawesi Selatan','Sumatera Selatan'],a:0,e:'Liang Bua = Flores, NTT.',k:'Liang Bua = Flores.'},
-  {id:'A58',c:'situs',q:'Situs Trinil terletak di kabupaten...',o:['Ngawi, Jawa Timur','Sragen, Jawa Tengah','Blora, Jawa Tengah','Tulungagung, Jawa Timur'],a:0,e:'Trinil = Ngawi, Jawa Timur.',k:'Trinil = Ngawi.'},
-  {id:'A59',c:'situs',q:'Situs Sangiran terletak di kabupaten...',o:['Sragen, Jawa Tengah','Ngawi, Jawa Timur','Blora, Jawa Tengah','Wonogiri, Jawa Tengah'],a:0,e:'Sangiran = Sragen, Jawa Tengah.',k:'Sangiran = Sragen.'},
-  {id:'A60',c:'situs',q:'Sungai di Kalteng yang berperan sebagai jalur persebaran manusia purba adalah...',o:['Sungai Katingan','Sungai Musi','Sungai Kapuas','Sungai Barito'],a:0,e:'Sungai Katingan = jalur alami migrasi purba ke pedalaman Kalteng.',k:'Katingan = jalur alami.'},
-  // SOSIAL (5)
-  {id:'A61',c:'sosial',q:'Kepercayaan bahwa benda memiliki roh disebut...',o:['Animisme','Dinamisme','Totemisme','Politeisme'],a:0,e:'Animisme = benda punya roh.',k:'Animisme = roh pada benda.'},
-  {id:'A62',c:'sosial',q:'Kepercayaan bahwa benda memiliki kekuatan gaib disebut...',o:['Dinamisme','Animisme','Fetisisme','Monoteisme'],a:0,e:'Dinamisme = kekuatan gaib.',k:'Dinamisme = kekuatan gaib.'},
-  {id:'A63',c:'sosial',q:'Kepercayaan bahwa kelompok punya hubungan khusus dengan hewan/tumbuhan disebut...',o:['Totemisme','Animisme','Dinamisme','Politeisme'],a:0,e:'Totemisme = hewan/tumbuhan totem.',k:'Totemisme = totem.'},
-  {id:'A64',c:'sosial',q:'Bukti kepercayaan praaksara akan kehidupan setelah mati adalah...',o:['Bekal kubur di makam','Lukisan gua','Alat batu','Tembikar'],a:0,e:'Bekal kubur = kepercayaan afterlife.',k:'Bekal kubur = afterlife.'},
-  {id:'A65',c:'sosial',q:'Perdagangan pada masa praaksara dilakukan dengan cara...',o:['Barter (tukar barang)','Uang logam','Kartu kredit','Sistem kredit'],a:0,e:'Sebelum ada uang, perdagangan = barter.',k:'Praaksara = barter.'},
-  // WARISAN (5)
-  {id:'A66',c:'warisan',q:'Nilai praaksara yang masih hidup dalam masyarakat Indonesia adalah...',o:['Gotong royong & musyawarah','Sistem kasta','Feodalisme','Monopoli dagang'],a:0,e:'Gotong royong = warisan praaksara.',k:'Gotong royong = warisan.'},
-  {id:'A67',c:'warisan',q:'Tradisi sedekah laut merupakan warisan kepercayaan...',o:['Animisme','Monoteisme','Politeisme Yunani','Ateisme'],a:0,e:'Sedekah laut = bentuk animisme.',k:'Sedekah laut = animisme.'},
-  {id:'A68',c:'warisan',q:'Punden berundak menjadi dasar arsitektur...',o:['Candi seperti Borobudur','Rumah adat','Jembatan','Benteng'],a:0,e:'Punden berundak → candi Hindu-Buddha.',k:'Punden → candi.'},
-  {id:'A69',c:'warisan',q:'Budaya bercocok tanam yang kita miliki saat ini adalah warisan dari masa...',o:['Neolitikum','Paleolitikum','Mesolitikum','Megalitikum'],a:0,e:'Bercocok tanam mulai masa Neolitikum.',k:'Bercocok tanam = Neolitikum.'},
-  {id:'A70',c:'warisan',q:'Perahu bercadik yang masih ada hingga kini adalah warisan teknologi dari...',o:['Masa praaksara (nenek moyang pelaut)','Zaman Hindu-Buddha','Zaman kolonial','Zaman modern'],a:0,e:'Perahu bercadik = warisan teknologi maritim praaksara.',k:'Bercadik = warisan praaksara.'}
+  {id:'A06',c:'konsep',q:'Zaman praaksara di Indonesia diperkirakan berlangsung hingga...',o:['Abad ke-1 M','Abad ke-4 M','Abad ke-10 M','Abad ke-13 M'],a:1,e:'Berakhir dengan Prasasti Yupa Kutai (abad ke-4 M).',k:'Berakhir abad ke-4 M.'},
+  {id:'A07',c:'konsep',q:'Kata "nirleka" memiliki arti sama dengan...',o:['Prasasti','Arkeologi','Praaksara','Fosil'],a:2,e:'Nirleka = tanpa tulisan = praaksara.',k:'Nirleka = praaksara.'},
+  {id:'A08',c:'konsep',q:'Mengapa masa praaksara sangat panjang dibanding masa sejarah?',o:['Karena tidak ada manusia','Karena tidak ada makanan','Karena iklim ekstrem','Karena manusia butuh waktu lama untuk mengenal tulisan'],a:3,e:'Manusia memerlukan ribuan tahun untuk menemukan sistem tulisan.',k:'Praaksara = ± 99% sejarah manusia.'},
+  {id:'A09',c:'konsep',q:'Bukti utama kehidupan praaksara di Indonesia adalah...',o:['Fosil & artefak arkeologis','Naskah kuno','Prasasti Hindu','Catatan pedagang'],a:0,e:'Fosil + artefak = bukti utama praaksara.',k:'Fosil + artefak = bukti praaksara.'},
+  {id:'A10',c:'konsep',q:'Urutan metode arkeologi yang benar adalah...',o:['Interpretasi → ekskavasi → analisis','Ekskavasi → analisis → interpretasi','Analisis → ekskavasi → publikasi','Publikasi → analisis → ekskavasi'],a:1,e:'Ekskavasi dulu, analisis, baru interpretasi.',k:'Metode arkeologi: ekskavasi → analisis → interpretasi.'},
+  // MANUSIA PURBA (12)
+  {id:'A11',c:'manusia',q:'Pithecanthropus erectus ditemukan oleh Eugene Dubois di...',o:['Trinil, Ngawi (Jawa Timur)','Sangiran, Sragen','Liang Bua, Flores','Wajak, Tulungagung'],a:0,e:'Dubois menemukan di Trinil tahun 1891-1893.',k:'Trinil = Dubois (1891).'},
+  {id:'A12',c:'manusia',q:'Manusia purba rahang & gigi sangat besar dari Sangiran adalah...',o:['Pithecanthropus erectus','Meganthropus paleojavanicus','Homo floresiensis','Homo wajakensis'],a:1,e:'Meganthropus paleojavanicus, von Koenigswald (1941).',k:'Meganthropus = rahang besar.'},
+  {id:'A13',c:'manusia',q:'Homo floresiensis dari Liang Bua (2003) dijuluki...',o:['Java Man','Manusia Raksasa','Hobbit karena tubuh kerdil','Manusia Bijaksana'],a:2,e:'Tinggi hanya ± 1 meter, dijuluki "Hobbit".',k:'Homo floresiensis = Hobbit.'},
+  {id:'A14',c:'manusia',q:'Homo soloensis ditemukan di Ngandong, Blora, oleh...',o:['Eugene Dubois','van Rietschoten','Teuku Jacob','von Koenigswald, Oppenoorth, dan ter Haar'],a:3,e:'Homo soloensis ditemukan 1931-1933 di Ngandong.',k:'Homo soloensis = Ngandong.'},
+  {id:'A15',c:'manusia',q:'Manusia praaksara Indonesia yang dianggap nenek moyang Homo sapiens awal adalah...',o:['Homo wajakensis','Pithecanthropus erectus','Meganthropus','Homo floresiensis'],a:0,e:'Homo wajakensis (Wajak, Tulungagung, 1889).',k:'Homo wajakensis = sapiens awal.'},
+  {id:'A16',c:'manusia',q:'Nama Pithecanthropus erectus secara harfiah berarti...',o:['Manusia kera raksasa','Manusia kera yang berdiri tegak','Manusia pintar','Kera besar'],a:1,e:'Pithecos = kera, anthropos = manusia, erectus = berdiri tegak.',k:'Pithecanthropus = manusia kera berdiri.'},
+  {id:'A17',c:'manusia',q:'Fosil manusia purba pertama di Indonesia ditemukan di situs...',o:['Sangiran','Ngandong','Trinil','Wajak'],a:2,e:'Trinil = penemuan Pithecanthropus erectus (1891).',k:'Trinil = fosil pertama.'},
+  {id:'A18',c:'manusia',q:'Ras manusia purba Australomelanesid dicirikan dengan...',o:['Kulit kuning, mata sipit','Kulit putih, rambut pirang','Kulit sawo matang, rambut lurus','Kulit gelap, rambut keriting, tubuh tegap'],a:3,e:'Australomelanesid = ciri Melanesia.',k:'Australomelanesid = kulit gelap & keriting.'},
+  {id:'A19',c:'manusia',q:'Etnis Jawa, Sunda, dan Bugis merupakan keturunan ras...',o:['Mongolid (Austronesia)','Australomelanesid','Melanesoid','Kaukasoid'],a:0,e:'Ras Mongolid = Austronesia dari Asia Timur.',k:'Mongolid = Austronesia.'},
+  {id:'A20',c:'manusia',q:'Nenek moyang suku-suku Papua dan Melanesia adalah ras...',o:['Mongolid','Australomelanesid','Kaukasoid','Negroid Afrika'],a:1,e:'Australomelanesid = nenek moyang Papua & Melanesia.',k:'Australomelanesid = Papua.'},
+  {id:'A21',c:'manusia',q:'Volume otak Homo soloensis berkisar...',o:['500-700 cc','750-900 cc','1000-1300 cc','1500-1800 cc'],a:2,e:'Homo soloensis: 1000-1300 cc, mendekati manusia modern.',k:'Homo soloensis = 1000-1300 cc.'},
+  {id:'A22',c:'manusia',q:'Fosil manusia purba di Indonesia paling banyak ditemukan di...',o:['Sumatera','Kalimantan','Papua','Jawa (Sangiran, Trinil, Ngandong)'],a:3,e:'Jawa = pusat temuan fosil manusia purba.',k:'Jawa = pusat temuan fosil.'},
+  // PALEO-MESO (12)
+  {id:'A23',c:'paleo',q:'Alat khas kebudayaan Pacitan pada masa Paleolitikum adalah...',o:['Kapak genggam (chopper)','Kapak persegi','Nekara','Menhir'],a:0,e:'Kebudayaan Pacitan menghasilkan kapak genggam.',k:'Pacitan = chopper.'},
+  {id:'A24',c:'paleo',q:'Kebudayaan Ngandong menghasilkan alat dari...',o:['Batu yang sudah dipoles','Tulang dan tanduk hewan','Logam perunggu','Kerang laut'],a:1,e:'Kebudayaan Ngandong = alat tulang & tanduk.',k:'Ngandong = alat tulang.'},
+  {id:'A25',c:'paleo',q:'Pola hidup utama manusia Paleolitikum adalah...',o:['Bercocok tanam','Beternak','Berburu & meramu (food gathering)','Berdagang'],a:2,e:'Food gathering = nomaden.',k:'Paleolitikum = food gathering.'},
+  {id:'A26',c:'paleo',q:'Tumpukan kulit kerang sisa makanan manusia Mesolitikum disebut...',o:['Abris sous roche','Sarkofagus','Punden berundak','Kjokkenmoddinger'],a:3,e:'Kjokkenmoddinger = "sampah dapur" kerang.',k:'Kjokkenmoddinger = sampah dapur.'},
+  {id:'A27',c:'paleo',q:'Lukisan cap tangan di dinding gua peninggalan Mesolitikum banyak ditemukan di...',o:['Leang-Leang, Sulawesi Selatan','Sangiran, Jawa Tengah','Trinil, Jawa Timur','Gunung Padang, Jawa Barat'],a:0,e:'Leang-Leang di Maros, Sulawesi Selatan.',k:'Leang-Leang = cap tangan.'},
+  {id:'A28',c:'paleo',q:'Abris sous roche adalah...',o:['Meja batu','Gua ceruk tempat tinggal','Alat batu','Gendang perunggu'],a:1,e:'Abris sous roche = gua ceruk tempat tinggal.',k:'Abris sous roche = gua ceruk.'},
+  {id:'A29',c:'paleo',q:'Manusia pendukung kebudayaan Mesolitikum di Indonesia adalah...',o:['Proto Melayu','Pithecanthropus','Papua-Melanesoid','Homo sapiens modern'],a:2,e:'Papua-Melanesoid = pendukung Mesolitikum.',k:'Papua-Melanesoid = Mesolitikum.'},
+  {id:'A30',c:'paleo',q:'Kebudayaan Bacson-Hoabinh menghasilkan alat khas berupa...',o:['Kapak persegi','Nekara','Menhir','Kapak sumatra (kapak pendek)'],a:3,e:'Bacson-Hoabinh = kapak sumatra & alat batu dipangkas.',k:'Bacson-Hoabinh = kapak sumatra.'},
+  {id:'A31',c:'paleo',q:'Kapak sumatra dari kebudayaan Bacson-Hoabinh banyak ditemukan di...',o:['Sumatera, Jawa, Kalimantan','Papua & Maluku','Bali & Nusa Tenggara','Sulawesi Utara'],a:0,e:'Kapak sumatra tersebar di Sumatera, Jawa, Kalimantan.',k:'Kapak sumatra = S, J, K.'},
+  {id:'A32',c:'paleo',q:'Alat serpih (flakes) pada masa Paleolitikum berfungsi untuk...',o:['Upacara','Menguliti & memotong','Perhiasan','Senjata perang besar'],a:1,e:'Flakes = alat potong & penguliti.',k:'Flakes = alat potong.'},
+  {id:'A33',c:'paleo',q:'Manusia Mesolitikum tinggal di gua ceruk karena...',o:['Takut matahari','Dilarang kepala suku','Perlindungan dari cuaca & hewan buas','Kepercayaan'],a:2,e:'Gua = perlindungan dari cuaca & hewan buas.',k:'Gua = perlindungan.'},
+  {id:'A34',c:'paleo',q:'Bukti manusia Mesolitikum sudah mengenal seni adalah...',o:['Kapak genggam','Bekal kubur','Perhiasan emas','Lukisan cap tangan di gua'],a:3,e:'Lukisan cap tangan = ekspresi seni Mesolitikum.',k:'Lukisan gua = seni Mesolitikum.'},
+  // NEOLITIKUM (12)
+  {id:'A35',c:'neo',q:'Revolusi Neolitikum ditandai dengan perubahan pola hidup dari...',o:['Food gathering → food producing','Batu → logam','Nomaden → berburu','Hutan → gua'],a:0,e:'Manusia mulai menghasilkan makanan sendiri.',k:'Neolitikum = food producing.'},
+  {id:'A36',c:'neo',q:'Alat khas zaman Neolitikum yang banyak ditemukan di Indonesia timur adalah...',o:['Kapak genggam','Kapak lonjong','Nekara','Flakes'],a:1,e:'Kapak lonjong banyak ditemukan di Indonesia timur.',k:'Kapak lonjong = Indonesia timur.'},
+  {id:'A37',c:'neo',q:'Manusia pendukung kebudayaan Neolitikum di Indonesia adalah...',o:['Papua-Melanesoid','Pithecanthropus','Proto Melayu (Melayu Tua)','Homo soloensis'],a:2,e:'Proto Melayu datang sekitar 1500 SM.',k:'Proto Melayu = Neolitikum.'},
+  {id:'A38',c:'neo',q:'Proses penjinakan hewan liar untuk dipelihara disebut...',o:['Akulturasi','Adaptasi','Asimilasi','Domestikasi'],a:3,e:'Domestikasi = penjinakan hewan & tumbuhan.',k:'Domestikasi = penjinakan.'},
+  {id:'A39',c:'neo',q:'Salah satu dampak revolusi Neolitikum pada struktur sosial adalah...',o:['Muncul kepala suku & desa permanen','Hidup kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi'],a:0,e:'Kehidupan menetap memunculkan desa & kepala suku.',k:'Neolitikum = desa permanen.'},
+  {id:'A40',c:'neo',q:'Kapak persegi pada masa Neolitikum berfungsi untuk...',o:['Memotong kayu bakar','Membuka lahan pertanian','Menangkap ikan','Membuat perhiasan'],a:1,e:'Kapak persegi = membuka lahan pertanian.',k:'Kapak persegi = membuka lahan.'},
+  {id:'A41',c:'neo',q:'Zaman Neolitikum di Indonesia berlangsung sekitar tahun...',o:['10.000-4.000 SM','1,8 juta-10.000 SM','4000-2000 SM','500 SM-500 M'],a:2,e:'Neolitikum Indonesia sekitar 4000-2000 SM.',k:'Neolitikum = 4000-2000 SM.'},
+  {id:'A42',c:'neo',q:'Tembikar/gerabah mulai dikenal pada masa...',o:['Paleolitikum','Mesolitikum','Perundagian','Neolitikum'],a:3,e:'Tembikar muncul pertama pada masa Neolitikum.',k:'Tembikar = Neolitikum.'},
+  {id:'A43',c:'neo',q:'Manusia mulai hidup menetap pertama kali pada masa...',o:['Neolitikum','Paleolitikum','Mesolitikum','Megalitikum akhir'],a:0,e:'Kehidupan menetap dimulai pada masa Neolitikum.',k:'Menetap = Neolitikum.'},
+  {id:'A44',c:'neo',q:'Peralihan ke bercocok tanam didorong oleh...',o:['Bencana banjir besar','Akhir zaman es & hewan besar mulai punah','Serangan bangsa luar','Wabah penyakit'],a:1,e:'Akhir zaman es = pemicu revolusi Neolitikum.',k:'Akhir zaman es = pemicu.'},
+  {id:'A45',c:'neo',q:'Bukti bahwa manusia Neolitikum sudah mengenal kepercayaan adalah...',o:['Kapak persegi','Tembikar','Bekal kubur di makam','Gerabah'],a:2,e:'Bekal kubur = kepercayaan afterlife.',k:'Bekal kubur = bukti kepercayaan.'},
+  {id:'A46',c:'neo',q:'Yang BUKAN ciri zaman Neolitikum adalah...',o:['Food producing','Kapak persegi & lonjong','Hidup menetap','Food gathering nomaden'],a:3,e:'Food gathering nomaden = ciri Paleolitikum.',k:'Food gathering = Paleolitikum.'},
+  // MEGALITIKUM (10)
+  {id:'A47',c:'mega',q:'Tugu batu besar untuk memperingati arwah leluhur disebut...',o:['Menhir','Dolmen','Sarkofagus','Punden berundak'],a:0,e:'Menhir = tugu batu berdiri tegak.',k:'Menhir = tugu batu.'},
+  {id:'A48',c:'mega',q:'Meja batu besar untuk meletakkan sesajen disebut...',o:['Menhir','Dolmen','Sarkofagus','Waruga'],a:1,e:'Dolmen = meja batu sesajen.',k:'Dolmen = meja sesajen.'},
+  {id:'A49',c:'mega',q:'Peti jenazah dari batu yang banyak ditemukan di Bali adalah...',o:['Dolmen','Menhir','Sarkofagus','Punden'],a:2,e:'Sarkofagus = peti jenazah batu.',k:'Sarkofagus = peti batu.'},
+  {id:'A50',c:'mega',q:'Bangunan batu bertingkat untuk pemujaan arwah leluhur yang jadi dasar arsitektur candi adalah...',o:['Menhir','Dolmen','Waruga','Punden berundak'],a:3,e:'Punden berundak = dasar arsitektur candi.',k:'Punden berundak → candi.'},
+  {id:'A51',c:'mega',q:'Situs megalitikum terbesar di Asia Tenggara di Cianjur, Jawa Barat adalah...',o:['Gunung Padang','Lore Lindu','Pasemah','Sangiran'],a:0,e:'Gunung Padang = megalit terbesar di Asia Tenggara.',k:'Gunung Padang = megalit terbesar.'},
+  {id:'A52',c:'mega',q:'Waruga (kubur batu berbentuk kubus) banyak ditemukan di...',o:['Alor, NTT','Minahasa, Sulawesi Utara','Bali','Pasemah, Sumatera'],a:1,e:'Waruga = khas Minahasa, Sulawesi Utara.',k:'Waruga = Minahasa.'},
+  {id:'A53',c:'mega',q:'Zaman Megalitikum artinya zaman batu...',o:['Kecil','Tua','Besar','Muda'],a:2,e:'Mega = besar, lithos = batu.',k:'Megalitikum = batu besar.'},
+  {id:'A54',c:'mega',q:'Situs megalitikum Pasemah di Sumatera Selatan terkenal dengan...',o:['Kapak persegi','Nekara perunggu','Fosil manusia purba','Patung megalitik manusia & gajah'],a:3,e:'Pasemah = patung batu naturalistis.',k:'Pasemah = patung naturalistis.'},
+  {id:'A55',c:'mega',q:'Fungsi utama bangunan megalitikum adalah...',o:['Pemujaan arwah leluhur','Alat perang','Alat pertanian','Tempat tinggal'],a:0,e:'Megalitikum = pemujaan leluhur.',k:'Megalitikum = pemujaan leluhur.'},
+  {id:'A56',c:'mega',q:'Yang BUKAN termasuk bangunan megalitikum adalah...',o:['Menhir','Nekara perunggu','Dolmen','Sarkofagus'],a:1,e:'Nekara = gendang perunggu, bukan megalitikum.',k:'Nekara = perunggu, bukan megalit.'},
+  // LOGAM (10)
+  {id:'A57',c:'logam',q:'Indonesia tidak mengalami zaman tembaga karena...',o:['Tidak ditemukan artefak tembaga','Tidak ada tambang tembaga','Tembaga belum dikenal','Terlalu keras'],a:0,e:'Belum ditemukan artefak tembaga di Indonesia.',k:'Indonesia: perunggu → besi.'},
+  {id:'A58',c:'logam',q:'Gendang perunggu besar untuk upacara mendatangkan hujan disebut...',o:['Moko','Nekara','Kapak corong','Bejana'],a:1,e:'Nekara = gendang perunggu Dong Son.',k:'Nekara = gendang perunggu.'},
+  {id:'A59',c:'logam',q:'Benda perunggu berbentuk gendang kecil dari Alor, NTT adalah...',o:['Nekara','Kapak corong','Moko','Bejana'],a:2,e:'Moko = gendang perunggu kecil dari Alor.',k:'Moko = Alor.'},
+  {id:'A60',c:'logam',q:'Teknik pembuatan logam dengan model lilin yang dilapisi tanah liat disebut...',o:['Bivalve','Tempa','Cor langsung','A cire perdue'],a:3,e:'A cire perdue = cetak lilin.',k:'A cire perdue = cetak lilin.'},
+  {id:'A61',c:'logam',q:'Ciri utama kehidupan masa Perundagian adalah...',o:['Spesialisasi kerja','Hidup nomaden','Belum mengenal api','Belum ada kepercayaan'],a:0,e:'Masa Perundagian = spesialisasi kerja.',k:'Perundagian = spesialisasi.'},
+  {id:'A62',c:'logam',q:'Zaman Logam di Indonesia berlangsung sekitar tahun...',o:['4.000-2.000 SM','500 SM – 500 M','10.000-4.000 SM','1,8 juta-10.000 SM'],a:1,e:'Zaman Logam Indonesia sekitar 500 SM – 500 M.',k:'Logam = 500 SM - 500 M.'},
+  {id:'A63',c:'logam',q:'Teknik cetak perunggu menggunakan dua bagian cetakan disebut...',o:['A cire perdue','Tempa','Bivalve','Cetak langsung'],a:2,e:'Bivalve = cetak dua bagian.',k:'Bivalve = cetak dua sisi.'},
+  {id:'A64',c:'logam',q:'Nekara terbesar di dunia ditemukan di...',o:['Alor, NTT','Makassar','Palembang','Pejeng, Bali'],a:3,e:'Nekara Pejeng (Bali) = terbesar di dunia.',k:'Pejeng = nekara terbesar.'},
+  {id:'A65',c:'logam',q:'Kapak corong pada masa Perundagian berfungsi sebagai...',o:['Alat upacara & simbol status','Alat pertanian','Senjata perang','Alat rumah tangga'],a:0,e:'Kapak corong = alat upacara & simbol status.',k:'Kapak corong = upacara.'},
+  {id:'A66',c:'logam',q:'Penyebaran budaya Dong Son ke Nusantara dibuktikan dengan temuan...',o:['Kapak persegi','Nekara perunggu','Menhir','Kapak genggam'],a:1,e:'Nekara = bukti pengaruh Dong Son di Nusantara.',k:'Dong Son = nekara.'},
+  // SITUS (8)
+  {id:'A67',c:'situs',q:'Situs manusia purba terbesar di Indonesia, UNESCO 1996, adalah...',o:['Trinil','Liang Bua','Sangiran','Wajak'],a:2,e:'Sangiran = UNESCO 1996.',k:'Sangiran = UNESCO.'},
+  {id:'A68',c:'situs',q:'Situs lukisan gua tertua di Indonesia (usia ± 40.000 tahun) berada di...',o:['Liang Bua, Flores','Gunung Padang, Cianjur','Pasemah, Sumatera Selatan','Leang-Leang, Sulawesi Selatan'],a:3,e:'Leang-Leang = lukisan cap tangan tertua.',k:'Leang-Leang = lukisan tertua.'},
+  {id:'A69',c:'situs',q:'Situs Liang Bua terletak di provinsi...',o:['Nusa Tenggara Timur (Flores)','Jawa Tengah','Sulawesi Selatan','Sumatera Selatan'],a:0,e:'Liang Bua = Flores, NTT.',k:'Liang Bua = Flores.'},
+  {id:'A70',c:'situs',q:'Situs Trinil terletak di kabupaten...',o:['Sragen, Jawa Tengah','Ngawi, Jawa Timur','Blora, Jawa Tengah','Tulungagung, Jawa Timur'],a:1,e:'Trinil = Ngawi, Jawa Timur.',k:'Trinil = Ngawi.'},
+  {id:'A71',c:'situs',q:'Situs Sangiran terletak di kabupaten...',o:['Ngawi, Jawa Timur','Blora, Jawa Tengah','Sragen, Jawa Tengah','Wonogiri, Jawa Tengah'],a:2,e:'Sangiran = Sragen, Jawa Tengah.',k:'Sangiran = Sragen.'},
+  {id:'A72',c:'situs',q:'Sungai di Kalteng yang berperan sebagai jalur persebaran manusia purba adalah...',o:['Sungai Musi','Sungai Kapuas','Sungai Barito','Sungai Katingan'],a:3,e:'Sungai Katingan = jalur alami migrasi purba ke pedalaman Kalteng.',k:'Katingan = jalur alami.'},
+  {id:'A73',c:'situs',q:'Situs Wajak terletak di kabupaten...',o:['Tulungagung, Jawa Timur','Sragen, Jawa Tengah','Ngawi, Jawa Timur','Blora, Jawa Tengah'],a:0,e:'Wajak = Tulungagung, Jawa Timur.',k:'Wajak = Tulungagung.'},
+  {id:'A74',c:'situs',q:'Situs megalitikum Lore Lindu terletak di...',o:['Sumatera Selatan','Sulawesi Tengah','Nusa Tenggara Timur','Jawa Barat'],a:1,e:'Lore Lindu = Sulawesi Tengah.',k:'Lore Lindu = Sulawesi Tengah.'},
+  // SOSIAL (4)
+  {id:'A75',c:'sosial',q:'Kepercayaan bahwa benda memiliki roh disebut...',o:['Dinamisme','Totemisme','Animisme','Politeisme'],a:2,e:'Animisme = benda punya roh.',k:'Animisme = roh pada benda.'},
+  {id:'A76',c:'sosial',q:'Kepercayaan bahwa benda memiliki kekuatan gaib disebut...',o:['Animisme','Fetisisme','Monoteisme','Dinamisme'],a:3,e:'Dinamisme = kekuatan gaib.',k:'Dinamisme = kekuatan gaib.'},
+  {id:'A77',c:'sosial',q:'Kepercayaan bahwa kelompok punya hubungan khusus dengan hewan/tumbuhan disebut...',o:['Totemisme','Animisme','Dinamisme','Politeisme'],a:0,e:'Totemisme = hewan/tumbuhan totem.',k:'Totemisme = totem.'},
+  {id:'A78',c:'sosial',q:'Bukti kepercayaan praaksara akan kehidupan setelah mati adalah...',o:['Lukisan gua','Bekal kubur di makam','Alat batu','Tembikar'],a:1,e:'Bekal kubur = kepercayaan afterlife.',k:'Bekal kubur = afterlife.'},
+  // WARISAN (2)
+  {id:'A79',c:'warisan',q:'Nilai praaksara yang masih hidup dalam masyarakat Indonesia adalah...',o:['Sistem kasta','Feodalisme','Gotong royong & musyawarah','Monopoli dagang'],a:2,e:'Gotong royong = warisan praaksara.',k:'Gotong royong = warisan.'},
+  {id:'A80',c:'warisan',q:'Tradisi sedekah laut merupakan warisan kepercayaan...',o:['Monoteisme','Politeisme Yunani','Ateisme','Animisme'],a:3,e:'Sedekah laut = bentuk animisme.',k:'Sedekah laut = animisme.'}
 ];
 function pickWheelQuestions(n){ return pickFresh(BANK_A, n, 'wheel', q=>q.id).map(shuffleOpts); }
 
 /* ═══════════════════════════════════════════════════════════
-   BANK B — DETEKTIF (44 item)
+   BANK B — 54 ITEM DETEKTIF (Klasifikasi — bukan multiple choice)
    ═══════════════════════════════════════════════════════════ */
 const BANK_B=[
-  // FOSIL (12)
   {id:'B01',n:'Fosil Pithecanthropus erectus',c:'fosil',e:'Ditemukan Eugene Dubois di Trinil (1891). Kini diklasifikasikan sebagai Homo erectus.'},
   {id:'B02',n:'Rahang & gigi Meganthropus',c:'fosil',e:'Fosil manusia purba rahang besar dari Sangiran (von Koenigswald, 1941).'},
   {id:'B03',n:'Tengkorak Homo soloensis',c:'fosil',e:'Fosil dari Ngandong, Blora. Volume otak 1000-1300 cc.'},
@@ -1456,41 +1441,48 @@ const BANK_B=[
   {id:'B10',n:'Fosil tengkorak Trinil 2',c:'fosil',e:'Temuan tengkorak Pithecanthropus erectus dari Trinil.'},
   {id:'B11',n:'Fosil tengkorak Homo erectus',c:'fosil',e:'Fosil manusia purba dari lapisan Pleistosen tengah.'},
   {id:'B12',n:'Fosil rahang Meganthropus paleojavanicus',c:'fosil',e:'Fosil rahang kuat dari Sangiran; status klasifikasi masih diperdebatkan.'},
-  // ARTEFAK (12)
-  {id:'B13',n:'Kapak genggam (chopper)',c:'artefak',e:'Alat Paleolitikum dari Pacitan untuk memotong daging & memecah tulang.'},
-  {id:'B14',n:'Kapak persegi',c:'artefak',e:'Alat Neolitikum yang diasah. Untuk membuka lahan pertanian.'},
-  {id:'B15',n:'Nekara perunggu',c:'artefak',e:'Gendang perunggu masa Perundagian untuk upacara & simbol status.'},
-  {id:'B16',n:'Menhir',c:'artefak',e:'Tugu batu Megalitikum untuk pemujaan arwah leluhur.'},
-  {id:'B17',n:'Mata panah batu',c:'artefak',e:'Alat berburu Mesolitikum yang dipasang pada kayu.'},
-  {id:'B18',n:'Sarkofagus',c:'artefak',e:'Peti jenazah batu dari Bali. Berhias ukiran wajah.'},
-  {id:'B19',n:'Dolmen',c:'artefak',e:'Meja batu Megalitikum untuk meletakkan sesajen.'},
-  {id:'B20',n:'Kapak lonjong',c:'artefak',e:'Alat Neolitikum dari Indonesia timur, untuk bercocok tanam.'},
-  {id:'B21',n:'Moko perunggu',c:'artefak',e:'Gendang perunggu kecil dari Alor, NTT. Pusaka suci.'},
-  {id:'B22',n:'Bejana perunggu',c:'artefak',e:'Wadah perunggu masa Perundagian untuk keperluan upacara.'},
-  {id:'B23',n:'Kapak corong',c:'artefak',e:'Kapak perunggu berbentuk corong — khas kebudayaan Dong Son.'},
-  {id:'B24',n:'Kapak sumatra (kapak pendek)',c:'artefak',e:'Alat batu Bacson-Hoabinh yang dipangkas pada satu/dua sisi.'},
-  // SITUS (10)
-  {id:'B25',n:'Sangiran, Jawa Tengah',c:'situs',e:'Situs manusia purba terbesar Indonesia. UNESCO 1996.'},
-  {id:'B26',n:'Trinil, Ngawi',c:'situs',e:'Lokasi penemuan Pithecanthropus erectus oleh Dubois (1891).'},
-  {id:'B27',n:'Liang Bua, Flores',c:'situs',e:'Situs penemuan Homo floresiensis (2003).'},
-  {id:'B28',n:'Gunung Padang, Cianjur',c:'situs',e:'Situs megalitikum terbesar di Asia Tenggara.'},
-  {id:'B29',n:'Leang-Leang, Sulawesi',c:'situs',e:'Situs lukisan gua & cap tangan tertua (± 40.000 tahun).'},
-  {id:'B30',n:'Pasemah, Sumatera Selatan',c:'situs',e:'Situs megalitikum dengan patung manusia & gajah.'},
-  {id:'B31',n:'Ngandong, Blora',c:'situs',e:'Situs penemuan Homo soloensis (1931-1933).'},
-  {id:'B32',n:'Wajak, Tulungagung',c:'situs',e:'Situs penemuan Homo wajakensis (1889).'},
-  {id:'B33',n:'Lore Lindu, Sulawesi Tengah',c:'situs',e:'Situs megalitikum dengan arca & kalamba batu.'},
-  {id:'B34',n:'Gilimanuk, Bali',c:'situs',e:'Situs kubur batu (sarkofagus) peninggalan megalitikum.'},
-  // ECOFACT (10)
-  {id:'B35',n:'Serbuk sari purba',c:'ecofact',e:'Sisa tumbuhan lampau — petunjuk iklim & jenis tanaman.'},
-  {id:'B36',n:'Tumpukan kulit kerang (kjokkenmoddinger)',c:'ecofact',e:'Sisa makanan manusia Mesolitikum.'},
-  {id:'B37',n:'Biji-bijian purba',c:'ecofact',e:'Sisa tanaman — bukti pola makan & awal pertanian.'},
-  {id:'B38',n:'Tulang hewan buruan',c:'ecofact',e:'Sisa tulang hewan yang dimakan manusia purba.'},
-  {id:'B39',n:'Arang sisa perapian',c:'ecofact',e:'Sisa pembakaran kuno. Berguna untuk penanggalan C-14.'},
-  {id:'B40',n:'Cangkang moluska purba',c:'ecofact',e:'Sisa cangkang menunjukkan lingkungan pesisir masa lalu.'},
-  {id:'B41',n:'Feses manusia purba (koprolit)',c:'ecofact',e:'Sisa pencernaan purba — petunjuk makanan & kesehatan.'},
-  {id:'B42',n:'Tanah endapan purba',c:'ecofact',e:'Lapisan tanah endapan yang menjadi petunjuk iklim.'},
-  {id:'B43',n:'Sisa tumbuhan terfosilkan',c:'ecofact',e:'Sisa tumbuhan yang mengeras — petunjuk flora masa lalu.'},
-  {id:'B44',n:'Fosil serbuk sari pinus',c:'ecofact',e:'Serbuk sari pinus purba — bukti iklim dingin masa lalu.'}
+  {id:'B13',n:'Fosil kerbau purba Bubalus',c:'fosil',e:'Sisa kerbau purba yang membatu — penanda lingkungan savana.'},
+  {id:'B14',n:'Fosil tengkorak Homo sapiens kuno',c:'fosil',e:'Tengkorak manusia modern awal dari lapisan Holosen.'},
+  {id:'B15',n:'Kapak genggam (chopper)',c:'artefak',e:'Alat Paleolitikum dari Pacitan untuk memotong daging & memecah tulang.'},
+  {id:'B16',n:'Kapak persegi',c:'artefak',e:'Alat Neolitikum yang diasah. Untuk membuka lahan pertanian.'},
+  {id:'B17',n:'Nekara perunggu',c:'artefak',e:'Gendang perunggu masa Perundagian untuk upacara & simbol status.'},
+  {id:'B18',n:'Menhir',c:'artefak',e:'Tugu batu Megalitikum untuk pemujaan arwah leluhur.'},
+  {id:'B19',n:'Mata panah batu',c:'artefak',e:'Alat berburu Mesolitikum yang dipasang pada kayu.'},
+  {id:'B20',n:'Sarkofagus',c:'artefak',e:'Peti jenazah batu dari Bali. Berhias ukiran wajah.'},
+  {id:'B21',n:'Dolmen',c:'artefak',e:'Meja batu Megalitikum untuk meletakkan sesajen.'},
+  {id:'B22',n:'Kapak lonjong',c:'artefak',e:'Alat Neolitikum dari Indonesia timur, untuk bercocok tanam.'},
+  {id:'B23',n:'Moko perunggu',c:'artefak',e:'Gendang perunggu kecil dari Alor, NTT. Pusaka suci.'},
+  {id:'B24',n:'Bejana perunggu',c:'artefak',e:'Wadah perunggu masa Perundagian untuk keperluan upacara.'},
+  {id:'B25',n:'Kapak corong',c:'artefak',e:'Kapak perunggu berbentuk corong — khas kebudayaan Dong Son.'},
+  {id:'B26',n:'Kapak sumatra (kapak pendek)',c:'artefak',e:'Alat batu Bacson-Hoabinh yang dipangkas pada satu/dua sisi.'},
+  {id:'B27',n:'Alat serpih (flakes)',c:'artefak',e:'Alat Paleolitikum kecil untuk menguliti & memotong.'},
+  {id:'B28',n:'Gelang batu & perhiasan',c:'artefak',e:'Perhiasan dari batu & kerang — penanda status sosial.'},
+  {id:'B29',n:'Punden berundak',c:'artefak',e:'Bangunan batu bertingkat Megalitikum, dasar arsitektur candi.'},
+  {id:'B30',n:'Arca batu megalitik',c:'artefak',e:'Patung batu leluhur, banyak di Pasemah & Lore Lindu.'},
+  {id:'B31',n:'Sangiran, Jawa Tengah',c:'situs',e:'Situs manusia purba terbesar Indonesia. UNESCO 1996.'},
+  {id:'B32',n:'Trinil, Ngawi',c:'situs',e:'Lokasi penemuan Pithecanthropus erectus oleh Dubois (1891).'},
+  {id:'B33',n:'Liang Bua, Flores',c:'situs',e:'Situs penemuan Homo floresiensis (2003).'},
+  {id:'B34',n:'Gunung Padang, Cianjur',c:'situs',e:'Situs megalitikum terbesar di Asia Tenggara.'},
+  {id:'B35',n:'Leang-Leang, Sulawesi',c:'situs',e:'Situs lukisan gua & cap tangan tertua (± 40.000 tahun).'},
+  {id:'B36',n:'Pasemah, Sumatera Selatan',c:'situs',e:'Situs megalitikum dengan patung manusia & gajah.'},
+  {id:'B37',n:'Ngandong, Blora',c:'situs',e:'Situs penemuan Homo soloensis (1931-1933).'},
+  {id:'B38',n:'Wajak, Tulungagung',c:'situs',e:'Situs penemuan Homo wajakensis (1889).'},
+  {id:'B39',n:'Lore Lindu, Sulawesi Tengah',c:'situs',e:'Situs megalitikum dengan arca & kalamba batu.'},
+  {id:'B40',n:'Gilimanuk, Bali',c:'situs',e:'Situs kubur batu (sarkofagus) peninggalan megalitikum.'},
+  {id:'B41',n:'DAS Sungai Katingan, Kalteng',c:'situs',e:'Jalur alami persebaran manusia purba dari pesisir ke pedalaman Kalteng.'},
+  {id:'B42',n:'Gua Niah, Sarawak',c:'situs',e:'Situs gua di Kalimantan utara — bukti hunian Homo sapiens awal.'},
+  {id:'B43',n:'Serbuk sari purba',c:'ecofact',e:'Sisa tumbuhan lampau — petunjuk iklim & jenis tanaman.'},
+  {id:'B44',n:'Tumpukan kulit kerang (kjokkenmoddinger)',c:'ecofact',e:'Sisa makanan manusia Mesolitikum.'},
+  {id:'B45',n:'Biji-bijian purba',c:'ecofact',e:'Sisa tanaman — bukti pola makan & awal pertanian.'},
+  {id:'B46',n:'Tulang hewan buruan',c:'ecofact',e:'Sisa tulang hewan yang dimakan manusia purba.'},
+  {id:'B47',n:'Arang sisa perapian',c:'ecofact',e:'Sisa pembakaran kuno. Berguna untuk penanggalan C-14.'},
+  {id:'B48',n:'Cangkang moluska purba',c:'ecofact',e:'Sisa cangkang menunjukkan lingkungan pesisir masa lalu.'},
+  {id:'B49',n:'Feses manusia purba (koprolit)',c:'ecofact',e:'Sisa pencernaan purba — petunjuk makanan & kesehatan.'},
+  {id:'B50',n:'Tanah endapan purba',c:'ecofact',e:'Lapisan tanah endapan yang menjadi petunjuk iklim.'},
+  {id:'B51',n:'Sisa tumbuhan terfosilkan',c:'ecofact',e:'Sisa tumbuhan yang mengeras — petunjuk flora masa lalu.'},
+  {id:'B52',n:'Fosil serbuk sari pinus',c:'ecofact',e:'Serbuk sari pinus purba — bukti iklim dingin masa lalu.'},
+  {id:'B53',n:'Sisa kerang laut & ikan',c:'ecofact',e:'Sisa makanan laut — petunjuk pola makan manusia pesisir.'},
+  {id:'B54',n:'Tanah gambut purba',c:'ecofact',e:'Tanah gambut yang mengandung sisa tumbuhan lama — petunjuk ekosistem rawa.'}
 ];
 let detState={};
 function initDetektif(){
@@ -1557,7 +1549,7 @@ function endDetektif(){
 }
 
 /* ═══════════════════════════════════════════════════════════
-   BANK C — KRONOLOGI (10 ronde)
+   BANK C — 15 RONDE KRONOLOGI (items tetap unik, diacak)
    ═══════════════════════════════════════════════════════════ */
 const BANK_C=[
   {id:'C01',qt:'Urutkan zaman praaksara dari paling TUA ke termuda!',
@@ -1579,7 +1571,17 @@ const BANK_C=[
   {id:'C09',qt:'Urutkan ras manusia purba dari gelombang migrasi paling awal!',
    items:['Australomelanesid','Mongolid (Austronesia)','Melanesoid (percampuran)']},
   {id:'C10',qt:'Urutkan kebudayaan dari paling tua ke termuda!',
-   items:['Bacson-Hoabinh (Mesolitikum)','Dong Son (Perundagian)','Sangiran (Pleistosen)','Liang Bua (Homo floresiensis)']}
+   items:['Bacson-Hoabinh (Mesolitikum)','Dong Son (Perundagian)','Sangiran (Pleistosen)','Liang Bua (Homo floresiensis)']},
+  {id:'C11',qt:'Urutkan alat berdasarkan BAHAN dari paling tua ke termuda!',
+   items:['Batu kasar (Paleolitikum)','Batu dipoles (Neolitikum)','Perunggu (Perundagian)','Besi (Perundagian akhir)']},
+  {id:'C12',qt:'Urutkan jenis manusia purba berdasarkan VOLUME OTAK dari terkecil ke terbesar!',
+   items:['Homo floresiensis (± 380 cc)','Meganthropus (± 750 cc)','Homo soloensis (± 1150 cc)','Homo sapiens (± 1400 cc)']},
+  {id:'C13',qt:'Urutkan tahapan kebudayaan berdasarkan POLA HIDUP dari paling awal!',
+   items:['Nomaden food gathering','Semi-nomaden tepi pantai','Menetap bercocok tanam','Perdagangan antar pulau']},
+  {id:'C14',qt:'Urutkan situs megalitikum dari paling tua ke termuda!',
+   items:['Gilimanuk (Bali)','Pasemah (Sumatera Selatan)','Lore Lindu (Sulawesi Tengah)','Gunung Padang (Cianjur)']},
+  {id:'C15',qt:'Urutkan tahapan teknologi dari paling sederhana ke paling maju!',
+   items:['Alat batu kasar','Alat batu halus (dipangkas)','Alat batu dipoles','Alat dari logam perunggu']}
 ];
 let krState={};
 function initKronologi(){
@@ -1650,7 +1652,8 @@ function endKronologi(){
 }
 
 /* ═══════════════════════════════════════════════════════════
-   BANK D — PETUALANGAN 5 ZAMAN (5 level × 6 soal)
+   BANK D — PETUALANGAN 5 ZAMAN (5 level × 10 soal = 50 soal)
+   Jawaban bervariasi (a:0..3) + WAJIB shuffleOpts saat init
    ═══════════════════════════════════════════════════════════ */
 const PET_LEVELS=[
   {e:'🪨',title:'Paleolitikum',sub:'ZAMAN BATU TUA (1,8 juta – 10.000 SM)',
@@ -1659,11 +1662,15 @@ const PET_LEVELS=[
    src:'R.P. Soejono (ed.), Sejarah Nasional Indonesia I',
    soal:[
      {q:'Ciri utama alat batu Paleolitikum?',o:['Masih kasar & sederhana','Sudah diasah halus','Terbuat dari logam','Berwarna cerah'],a:0,e:'Paleolitikum = batu tua, alatnya kasar.'},
-     {q:'Pola hidup manusia Paleolitikum?',o:['Nomaden & food gathering','Menetap & bercocok tanam','Berdagang di pelabuhan','Beternak hewan'],a:0,e:'Food gathering = berpindah-pindah.'},
-     {q:'Manusia purba pendukung Paleolitikum?',o:['Pithecanthropus erectus','Homo sapiens modern','Proto Melayu','Deutero Melayu'],a:0,e:'Pithecanthropus = pendukung Paleolitikum.'},
-     {q:'Kebudayaan Ngandong menghasilkan alat dari?',o:['Tulang & tanduk','Perunggu','Besi','Kerang'],a:0,e:'Ngandong = alat tulang & tanduk.'},
+     {q:'Pola hidup manusia Paleolitikum?',o:['Menetap & bercocok tanam','Nomaden & food gathering','Berdagang di pelabuhan','Beternak hewan'],a:1,e:'Food gathering = berpindah-pindah.'},
+     {q:'Manusia purba pendukung Paleolitikum?',o:['Homo sapiens modern','Proto Melayu','Pithecanthropus erectus','Deutero Melayu'],a:2,e:'Pithecanthropus = pendukung Paleolitikum.'},
+     {q:'Kebudayaan Ngandong menghasilkan alat dari?',o:['Perunggu','Besi','Kerang','Tulang & tanduk'],a:3,e:'Ngandong = alat tulang & tanduk.'},
      {q:'Alat Paleolitikum untuk memotong daging?',o:['Kapak genggam (chopper)','Kapak persegi','Nekara','Menhir'],a:0,e:'Chopper = kapak genggam Paleolitikum.'},
-     {q:'Situs penting Paleolitikum di Jawa Tengah?',o:['Sangiran','Gunung Padang','Lore Lindu','Gilimanuk'],a:0,e:'Sangiran = situs utama Paleolitikum.'}
+     {q:'Situs penting Paleolitikum di Jawa Tengah?',o:['Gunung Padang','Sangiran','Lore Lindu','Gilimanuk'],a:1,e:'Sangiran = situs utama Paleolitikum.'},
+     {q:'Zaman Paleolitikum berlangsung sekitar...',o:['4.000-2.000 SM','500 SM-500 M','1,8 juta-10.000 SM','10.000-4.000 SM'],a:2,e:'Paleolitikum = 1,8 juta-10.000 SM.'},
+     {q:'Manusia Paleolitikum hidup dalam kelompok...',o:['Besar beribu-ribu','Satu orang saja','Kerajaan kecil','Kecil & berpindah'],a:3,e:'Kelompok kecil & nomaden.'},
+     {q:'Alat serpih (flakes) berfungsi untuk...',o:['Menguliti & memotong','Upacara','Perhiasan','Senjata besar'],a:0,e:'Flakes = alat potong & penguliti.'},
+     {q:'Bukti manusia Paleolitikum sudah mengenal api?',o:['Kapak persegi','Arang & tulang terbakar di situs','Nekara','Menhir'],a:1,e:'Arang & tulang terbakar = bukti penggunaan api.'}
    ]},
   {e:'🏹',title:'Mesolitikum',sub:'ZAMAN BATU TENGAH (10.000 – 4.000 SM)',
    text:'<b>Mesolitikum</b> = masa peralihan. Manusia pendukung: <b>Papua-Melanesoid</b>. Alat batu mulai <b>lebih halus</b> — <b>mata panah</b>. Kehidupan <b>semi-nomaden</b>: tinggal sementara di tepi pantai & gua. Bukti khas: <b>Kjokkenmoddinger</b> (sampah dapur kerang, banyak di Sumatra Timur) & <b>Abris sous roche</b> (gua ceruk, Leang-Leang). Tradisi <b>lukisan gua</b> berupa cap tangan muncul. Kebudayaan <b>Bacson-Hoabinh</b> menghasilkan kapak sumatra.',
@@ -1671,11 +1678,15 @@ const PET_LEVELS=[
    src:'Simanjuntak, New Insights... (2018)',
    soal:[
      {q:'Kjokkenmoddinger adalah?',o:['Tumpukan kulit kerang (sampah dapur)','Alat batu panah','Gua tempat tinggal','Gendang perunggu'],a:0,e:'Kjokkenmoddinger = sampah dapur kerang.'},
-     {q:'Abris sous roche adalah?',o:['Gua ceruk tempat tinggal','Meja sesaji batu','Alat pertanian','Perhiasan kuningan'],a:0,e:'Abris sous roche = gua ceruk.'},
-     {q:'Situs lukisan gua terkenal di Sulawesi Selatan?',o:['Leang-Leang','Sangiran','Trinil','Gunung Padang'],a:0,e:'Leang-Leang di Maros = cap tangan.'},
-     {q:'Manusia pendukung Mesolitikum?',o:['Papua-Melanesoid','Proto Melayu','Pithecanthropus','Homo sapiens modern'],a:0,e:'Papua-Melanesoid = pendukung Mesolitikum.'},
+     {q:'Abris sous roche adalah?',o:['Meja sesaji batu','Gua ceruk tempat tinggal','Alat pertanian','Perhiasan kuningan'],a:1,e:'Abris sous roche = gua ceruk.'},
+     {q:'Situs lukisan gua terkenal di Sulawesi Selatan?',o:['Sangiran','Trinil','Leang-Leang','Gunung Padang'],a:2,e:'Leang-Leang di Maros = cap tangan.'},
+     {q:'Manusia pendukung Mesolitikum?',o:['Proto Melayu','Pithecanthropus','Homo sapiens modern','Papua-Melanesoid'],a:3,e:'Papua-Melanesoid = pendukung Mesolitikum.'},
      {q:'Alat khas Mesolitikum untuk berburu?',o:['Mata panah batu','Kapak persegi','Nekara','Menhir'],a:0,e:'Mata panah batu = alat berburu.'},
-     {q:'Kebudayaan Mesolitikum dari Vietnam Utara?',o:['Bacson-Hoabinh','Dong Son','Sa Hyunh','Lapita'],a:0,e:'Bacson-Hoabinh = kebudayaan Mesolitikum Vietnam.'}
+     {q:'Kebudayaan Mesolitikum dari Vietnam Utara?',o:['Dong Son','Bacson-Hoabinh','Sa Hyunh','Lapita'],a:1,e:'Bacson-Hoabinh = kebudayaan Mesolitikum Vietnam.'},
+     {q:'Zaman Mesolitikum berlangsung sekitar...',o:['1,8 juta-10.000 SM','500 SM-500 M','10.000-4.000 SM','4.000-2.000 SM'],a:2,e:'Mesolitikum = 10.000-4.000 SM.'},
+     {q:'Pola hidup manusia Mesolitikum?',o:['Menetap permanen','Food producing','Berdagang','Semi-nomaden (sementara)'],a:3,e:'Semi-nomaden = tinggal sementara.'},
+     {q:'Kapak sumatra dihasilkan oleh kebudayaan...',o:['Bacson-Hoabinh','Dong Son','Pacitan','Ngandong'],a:0,e:'Bacson-Hoabinh = kapak sumatra.'},
+     {q:'Bukti Mesolitikum sudah mengenal seni adalah...',o:['Tembikar','Lukisan cap tangan di gua','Nekara','Menhir'],a:1,e:'Lukisan cap tangan = ekspresi seni.'}
    ]},
   {e:'🌾',title:'Neolitikum',sub:'ZAMAN BATU MUDA (4.000 – 2.000 SM)',
    text:'<b>Neolitikum</b> = masa <b>Revolusi Neolitikum</b>: peralihan food gathering → <b>food producing</b>. Manusia mulai <b>bercocok tanam</b>, <b>beternak</b> (domestikasi), <b>hidup menetap</b> di desa. Alat batu <b>diasah & dipoles</b>: <b>kapak persegi</b> & <b>kapak lonjong</b>. Pendukung: <b>Proto Melayu</b> (Melayu Tua). Muncul <b>tembikar</b>, <b>kepala suku</b>, & kepemilikan tanah.',
@@ -1683,11 +1694,15 @@ const PET_LEVELS=[
    src:'Gordon Childe, Man Makes Himself (1936)',
    soal:[
      {q:'Revolusi Neolitikum ditandai dengan?',o:['Bercocok tanam (food producing)','Berburu & meramu','Nomaden','Membuat api'],a:0,e:'Food producing = menghasilkan makanan sendiri.'},
-     {q:'Alat khas zaman Neolitikum?',o:['Kapak persegi & lonjong','Kapak genggam','Mata panah','Nekara'],a:0,e:'Kapak persegi & lonjong = Neolitikum.'},
-     {q:'Manusia pendukung Neolitikum?',o:['Proto Melayu (Melayu Tua)','Papua-Melanesoid','Pithecanthropus','Meganthropus'],a:0,e:'Proto Melayu = pendukung Neolitikum.'},
-     {q:'Dampak kehidupan menetap Neolitikum?',o:['Muncul desa permanen & kepala suku','Kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi'],a:0,e:'Desa & kepala suku muncul.'},
+     {q:'Alat khas zaman Neolitikum?',o:['Kapak genggam','Kapak persegi & lonjong','Mata panah','Nekara'],a:1,e:'Kapak persegi & lonjong = Neolitikum.'},
+     {q:'Manusia pendukung Neolitikum?',o:['Papua-Melanesoid','Pithecanthropus','Proto Melayu (Melayu Tua)','Meganthropus'],a:2,e:'Proto Melayu = pendukung Neolitikum.'},
+     {q:'Dampak kehidupan menetap Neolitikum?',o:['Kembali nomaden','Hilangnya kepercayaan','Berkurangnya populasi','Muncul desa permanen & kepala suku'],a:3,e:'Desa & kepala suku muncul.'},
      {q:'Kapak lonjong banyak ditemukan di?',o:['Indonesia timur (Papua & Maluku)','Jawa Tengah','Sumatera Selatan','Madura'],a:0,e:'Kapak lonjong = Indonesia timur.'},
-     {q:'Tembikar/gerabah pertama muncul pada masa?',o:['Neolitikum','Paleolitikum','Mesolitikum','Perundagian'],a:0,e:'Tembikar = Neolitikum.'}
+     {q:'Tembikar/gerabah pertama muncul pada masa?',o:['Paleolitikum','Neolitikum','Mesolitikum','Perundagian'],a:1,e:'Tembikar = Neolitikum.'},
+     {q:'Zaman Neolitikum berlangsung sekitar...',o:['1,8 juta-10.000 SM','10.000-4.000 SM','4.000-2.000 SM','500 SM-500 M'],a:2,e:'Neolitikum = 4.000-2.000 SM.'},
+     {q:'Domestikasi hewan/tumbuhan artinya...',o:['Memburu hewan liar','Menangkap ikan','Menanam padi','Menjinakkan hewan/tanaman liar'],a:3,e:'Domestikasi = penjinakan.'},
+     {q:'Faktor pendorong Revolusi Neolitikum?',o:['Akhir zaman es & hewan besar mulai punah','Bencana gunung meletus','Serangan bangsa luar','Wabah penyakit'],a:0,e:'Akhir zaman es = pemicu utama.'},
+     {q:'Fungsi kapak persegi pada masa Neolitikum?',o:['Memotong kayu bakar','Membuka lahan pertanian','Menangkap ikan','Membuat perhiasan'],a:1,e:'Kapak persegi = membuka lahan.'}
    ]},
   {e:'🗿',title:'Megalitikum',sub:'ZAMAN BATU BESAR',
    text:'<b>Megalitikum</b> = tradisi (bukan zaman tersendiri) yang muncul bersamaan dengan Neolitikum & Perundagian. Ciri: <b>bangunan dari batu besar</b> untuk pemujaan arwah leluhur. Jenis: <b>Menhir</b>, <b>Dolmen</b>, <b>Sarkofagus</b>, <b>Punden Berundak</b> (dasar arsitektur candi), <b>Waruga</b> (Minahasa), <b>Arca</b>. Situs: <b>Gunung Padang</b> (Cianjur), <b>Pasemah</b> (Sumatera Selatan), <b>Lore Lindu</b> (Sulawesi Tengah).',
@@ -1695,11 +1710,15 @@ const PET_LEVELS=[
    src:'Haris Sukendar, Megalitik di Indonesia (2003)',
    soal:[
      {q:'Menhir berfungsi sebagai?',o:['Tugu pemujaan arwah leluhur','Peti jenazah','Meja sesajen','Alat perang'],a:0,e:'Menhir = tugu batu pemujaan.'},
-     {q:'Punden berundak menjadi dasar arsitektur?',o:['Candi (seperti Borobudur)','Rumah adat','Jembatan','Kapal'],a:0,e:'Punden berundak → dasar candi.'},
-     {q:'Situs megalitikum terbesar di Asia Tenggara?',o:['Gunung Padang','Sangiran','Trinil','Liang Bua'],a:0,e:'Gunung Padang = megalit terbesar.'},
-     {q:'Waruga adalah kubur batu dari?',o:['Minahasa, Sulawesi Utara','Alor, NTT','Bali','Pasemah, Sumatera'],a:0,e:'Waruga = Minahasa.'},
+     {q:'Punden berundak menjadi dasar arsitektur?',o:['Rumah adat','Candi (seperti Borobudur)','Jembatan','Kapal'],a:1,e:'Punden berundak → dasar candi.'},
+     {q:'Situs megalitikum terbesar di Asia Tenggara?',o:['Sangiran','Trinil','Gunung Padang','Liang Bua'],a:2,e:'Gunung Padang = megalit terbesar.'},
+     {q:'Waruga adalah kubur batu dari?',o:['Alor, NTT','Bali','Pasemah, Sumatera','Minahasa, Sulawesi Utara'],a:3,e:'Waruga = Minahasa.'},
      {q:'Sarkofagus adalah?',o:['Peti jenazah batu','Tugu batu','Gua','Gendang perunggu'],a:0,e:'Sarkofagus = peti jenazah batu (Bali).'},
-     {q:'Situs megalitikum Pasemah terkenal dengan?',o:['Patung manusia & gajah','Kapak persegi','Nekara perunggu','Fosil manusia purba'],a:0,e:'Pasemah = patung naturalistis.'}
+     {q:'Situs megalitikum Pasemah terkenal dengan?',o:['Kapak persegi','Patung manusia & gajah','Nekara perunggu','Fosil manusia purba'],a:1,e:'Pasemah = patung naturalistis.'},
+     {q:'Dolmen berfungsi sebagai?',o:['Tugu pemujaan','Peti jenazah','Meja batu untuk sesajen','Alat perang'],a:2,e:'Dolmen = meja batu sesajen.'},
+     {q:'Situs megalitikum Lore Lindu terletak di?',o:['Sumatera Selatan','Jawa Barat','NTT','Sulawesi Tengah'],a:3,e:'Lore Lindu = Sulawesi Tengah.'},
+     {q:'Bangunan megalitikum dibangun untuk?',o:['Pemujaan arwah leluhur','Tempat tinggal','Gudang senjata','Pasar'],a:0,e:'Megalitikum = pemujaan leluhur.'},
+     {q:'Yang BUKAN bangunan megalitikum?',o:['Menhir','Nekara perunggu','Dolmen','Sarkofagus'],a:1,e:'Nekara = gendang perunggu, bukan megalit.'}
    ]},
   {e:'⚒️',title:'Perundagian',sub:'ZAMAN LOGAM (500 SM – 500 M)',
    text:'<b>Perundagian</b> = puncak kebudayaan praaksara Indonesia. Manusia mampu <b>melebur & mencetak logam</b>: <b>perunggu</b> lalu <b>besi</b>. Indonesia <b>tidak mengalami zaman tembaga</b>. Teknik: <b>A cire perdue</b> (cetak lilin) & <b>Bivalve</b> (cetak dua bagian). Peninggalan: <b>Nekara</b>, <b>Moko</b>, <b>Kapak corong</b>, <b>Bejana perunggu</b>, perhiasan. Muncul <b>spesialisasi kerja</b> & perdagangan antar pulau (barter). Nekara terbesar dunia = <b>Pejeng (Bali)</b>.',
@@ -1707,16 +1726,24 @@ const PET_LEVELS=[
    src:'Soejono & Leirissa (ed.), SNI I',
    soal:[
      {q:'Indonesia tidak mengalami zaman tembaga karena?',o:['Tidak ditemukan artefak tembaga','Tembaga belum dikenal','Tidak ada tambang','Terlalu keras'],a:0,e:'Belum ada bukti artefak tembaga.'},
-     {q:'Teknik cetak lilin pembuatan perunggu?',o:['A cire perdue','Bivalve','Tempa','Tuang'],a:0,e:'A cire perdue = cetak lilin.'},
-     {q:'Nekara adalah?',o:['Gendang perunggu upacara','Kapak besi','Peti kubur','Tugu batu'],a:0,e:'Nekara = gendang perunggu.'},
-     {q:'Ciri sosial masa Perundagian?',o:['Spesialisasi kerja','Nomaden','Belum ada kepercayaan','Semua sama rata'],a:0,e:'Perundagian = spesialisasi kerja.'},
+     {q:'Teknik cetak lilin pembuatan perunggu?',o:['Bivalve','A cire perdue','Tempa','Tuang'],a:1,e:'A cire perdue = cetak lilin.'},
+     {q:'Nekara adalah?',o:['Kapak besi','Peti kubur','Gendang perunggu upacara','Tugu batu'],a:2,e:'Nekara = gendang perunggu.'},
+     {q:'Ciri sosial masa Perundagian?',o:['Nomaden','Belum ada kepercayaan','Semua sama rata','Spesialisasi kerja'],a:3,e:'Perundagian = spesialisasi kerja.'},
      {q:'Moko adalah gendang perunggu kecil dari?',o:['Alor, NTT','Jawa','Bali','Sumatera'],a:0,e:'Moko = Alor, NTT.'},
-     {q:'Nekara terbesar di dunia ditemukan di?',o:['Pejeng, Bali','Alor','Makassar','Palembang'],a:0,e:'Nekara Pejeng = terbesar dunia.'}
+     {q:'Nekara terbesar di dunia ditemukan di?',o:['Alor','Pejeng, Bali','Makassar','Palembang'],a:1,e:'Nekara Pejeng = terbesar dunia.'},
+     {q:'Zaman Logam di Indonesia berlangsung sekitar...',o:['1,8 juta-10.000 SM','10.000-4.000 SM','500 SM – 500 M','4.000-2.000 SM'],a:2,e:'Logam = 500 SM-500 M.'},
+     {q:'Teknik cetak dua bagian disebut...',o:['A cire perdue','Tempa','Tuang','Bivalve'],a:3,e:'Bivalve = cetak dua bagian.'},
+     {q:'Kapak corong berfungsi sebagai?',o:['Alat upacara & simbol status','Alat pertanian','Senjata perang','Alat rumah tangga'],a:0,e:'Kapak corong = alat upacara.'},
+     {q:'Perdagangan antar pulau masa Perundagian dilakukan dengan?',o:['Uang logam','Barter (tukar barang)','Kartu kredit','Kredit'],a:1,e:'Sebelum uang = barter.'}
    ]}
 ];
 let petState={};
 function initPetualangan(){
-  const levels=PET_LEVELS.map(lv=>({...lv, soal: shuffle(lv.soal)}));
+  /* KUNCI FIX: setiap soal diacak opsinya via shuffleOpts */
+  const levels=PET_LEVELS.map(lv=>({
+    ...lv,
+    soal: shuffle(lv.soal).map(shuffleOpts).slice(0,10)
+  }));
   petState={levels, level:0, q:0, ok:0, total:0, score:0};
   reviewData=[];
   renderPetProgress(); renderPetLevel();
@@ -1801,83 +1828,92 @@ function endPetualangan(){
 }
 
 /* ═══════════════════════════════════════════════════════════
-   BANK E — JUTAWAN (70 soal aplikasi & analisis tinggi C4–C5)
-   Termasuk: Konteks Lokal Kalteng, Tokoh Penemu, Kritik Sumber
+   BANK E — JUTAWAN (80 soal, jawaban bervariasi + shuffleOpts)
    ═══════════════════════════════════════════════════════════ */
 const BANK_E=[
-  // APLIKASI & ANALISIS UMUM (30)
+  // APLIKASI & ANALISIS UMUM (35)
   {id:'E01',q:'Jika menemukan batu bertulis di dasar sungai, ilmu paling tepat memeriksanya adalah...',o:['Paleografi (tulisan kuno)','Numismatik (koin)','Ikonografi (gambar)','Genealogi (silsilah)'],a:0,e:'Paleografi = ilmu tulisan kuno.'},
-  {id:'E02',q:'Metode penanggalan C-14 paling tepat untuk mengukur usia...',o:['Tulang & arang','Batu candi','Logam perunggu','Gerabah'],a:0,e:'C-14 hanya untuk bahan organik.'},
-  {id:'E03',q:'Mengapa Indonesia tidak mengalami zaman tembaga?',o:['Tidak ditemukan bukti artefak tembaga','Tembaga tidak cocok iklim tropis','Orang Nusantara takut tembaga','Tembaga terlalu keras'],a:0,e:'Belum ada bukti artefak tembaga.'},
-  {id:'E04',q:'Jika sebuah situs menemukan fosil, artefak, ecofact & struktur batu di lapisan sama, kesimpulan paling tepat...',o:['Situs pernah dihuni intensif','Situs hanya jalur migrasi','Situs cagar alam','Situs kuburan massal'],a:0,e:'Lapisan kaya temuan = hunian intensif.'},
+  {id:'E02',q:'Metode penanggalan C-14 paling tepat untuk mengukur usia...',o:['Batu candi','Tulang & arang','Logam perunggu','Gerabah'],a:1,e:'C-14 hanya untuk bahan organik.'},
+  {id:'E03',q:'Mengapa Indonesia tidak mengalami zaman tembaga?',o:['Tembaga tidak cocok iklim tropis','Orang Nusantara takut tembaga','Tidak ditemukan bukti artefak tembaga','Tembaga terlalu keras'],a:2,e:'Belum ada bukti artefak tembaga.'},
+  {id:'E04',q:'Jika sebuah situs menemukan fosil, artefak, ecofact & struktur batu di lapisan sama, kesimpulan paling tepat...',o:['Situs hanya jalur migrasi','Situs cagar alam','Situs kuburan massal','Situs pernah dihuni intensif'],a:3,e:'Lapisan kaya temuan = hunian intensif.'},
   {id:'E05',q:'Penyebaran Proto Melayu ke Nusantara ± 1500 SM membawa teknologi...',o:['Kapak persegi & kapak lonjong','Nekara & moko','Kapak genggam','Mata panah'],a:0,e:'Proto Melayu = kapak persegi & lonjong.'},
-  {id:'E06',q:'Kehidupan nomaden manusia Paleolitikum terutama dipengaruhi oleh...',o:['Ketersediaan sumber makanan','Perintah kepala suku','Musim hujan','Perang antar kelompok'],a:0,e:'Nomaden = ikuti sumber makanan.'},
-  {id:'E07',q:'Punden berundak dianggap akar budaya arsitektur Nusantara karena...',o:['Bentuknya diadopsi candi Hindu-Buddha','Digunakan untuk pertemuan','Menjadi tempat ibadah Islam','Jadi benteng pertahanan'],a:0,e:'Punden berundak → candi.'},
-  {id:'E08',q:'Peralihan food gathering → food producing berdampak besar bagi...',o:['Pertumbuhan populasi & peradaban','Penurunan populasi','Kepunahan bahasa','Migrasi ke luar Nusantara'],a:0,e:'Food producing = ledakan populasi.'},
+  {id:'E06',q:'Kehidupan nomaden manusia Paleolitikum terutama dipengaruhi oleh...',o:['Perintah kepala suku','Ketersediaan sumber makanan','Musim hujan','Perang antar kelompok'],a:1,e:'Nomaden = ikuti sumber makanan.'},
+  {id:'E07',q:'Punden berundak dianggap akar budaya arsitektur Nusantara karena...',o:['Digunakan untuk pertemuan','Menjadi tempat ibadah Islam','Bentuknya diadopsi candi Hindu-Buddha','Jadi benteng pertahanan'],a:2,e:'Punden berundak → candi.'},
+  {id:'E08',q:'Peralihan food gathering → food producing berdampak besar bagi...',o:['Penurunan populasi','Kepunahan bahasa','Migrasi ke luar Nusantara','Pertumbuhan populasi & peradaban'],a:3,e:'Food producing = ledakan populasi.'},
   {id:'E09',q:'Kjokkenmoddinger mengindikasikan manusia Mesolitikum...',o:['Mengonsumsi kerang & hidup di pesisir','Bertani di pegunungan','Menetap di gurun','Beternak sapi'],a:0,e:'Kjokkenmoddinger = makan kerang pesisir.'},
-  {id:'E10',q:'Nekara di Nusantara kemungkinan besar berasal dari kebudayaan...',o:['Dong Son (Vietnam)','Harappa (India)','Shang (Tiongkok)','Jomon (Jepang)'],a:0,e:'Nekara = budaya Dong Son.'},
-  {id:'E11',q:'Manik-manik India di situs Nusantara menunjukkan...',o:['Jaringan perdagangan internasional praaksara','Migrasi penduduk India','Penjajahan India','Kerajaan India di Nusantara'],a:0,e:'Manik-manik = bukti perdagangan internasional.'},
-  {id:'E12',q:'Kaitan bekal kubur & kepercayaan praaksara adalah...',o:['Bekal kubur = kepercayaan afterlife','Bekal kubur sekadar hiasan','Tidak bermakna religi','Tanda kekayaan saja'],a:0,e:'Bekal kubur = afterlife.'},
+  {id:'E10',q:'Nekara di Nusantara kemungkinan besar berasal dari kebudayaan...',o:['Harappa (India)','Dong Son (Vietnam)','Shang (Tiongkok)','Jomon (Jepang)'],a:1,e:'Nekara = budaya Dong Son.'},
+  {id:'E11',q:'Manik-manik India di situs Nusantara menunjukkan...',o:['Migrasi penduduk India','Penjajahan India','Jaringan perdagangan internasional praaksara','Kerajaan India di Nusantara'],a:2,e:'Manik-manik = bukti perdagangan internasional.'},
+  {id:'E12',q:'Kaitan bekal kubur & kepercayaan praaksara adalah...',o:['Bekal kubur sekadar hiasan','Tidak bermakna religi','Tanda kekayaan saja','Bekal kubur = kepercayaan afterlife'],a:3,e:'Bekal kubur = afterlife.'},
   {id:'E13',q:'Peralihan megalitikum ke zaman logam menunjukkan...',o:['Kemajuan teknologi manusia purba','Kemunduran kebudayaan','Migrasi besar-besaran','Kepunahan tradisi batu'],a:0,e:'Peralihan teknologi = kemajuan.'},
-  {id:'E14',q:'Bukti manusia praaksara Indonesia mengenal pelayaran adalah...',o:['Perahu bercadik & migrasi ke pulau-pulau','Jembatan kuno','Peta kuno','Ditemukan kompas'],a:0,e:'Perahu bercadik = bukti pelayaran.'},
-  {id:'E15',q:'Nilai gotong royong yang masih hidup berakar dari...',o:['Tradisi kehidupan menetap Neolitikum','Zaman logam','Masa penjajahan','Zaman Hindu-Buddha'],a:0,e:'Gotong royong = warisan Neolitikum.'},
-  {id:'E16',q:'Zaman praaksara di Indonesia berakhir dengan bukti...',o:['Prasasti Yupa (abad ke-4 M)','Candi Borobudur','Nagarakertagama','Batu bertulis Kutai'],a:0,e:'Prasasti Yupa = akhir praaksara.'},
+  {id:'E14',q:'Bukti manusia praaksara Indonesia mengenal pelayaran adalah...',o:['Jembatan kuno','Perahu bercadik & migrasi ke pulau-pulau','Peta kuno','Ditemukan kompas'],a:1,e:'Perahu bercadik = bukti pelayaran.'},
+  {id:'E15',q:'Nilai gotong royong yang masih hidup berakar dari...',o:['Zaman logam','Masa penjajahan','Tradisi kehidupan menetap Neolitikum','Zaman Hindu-Buddha'],a:2,e:'Gotong royong = warisan Neolitikum.'},
+  {id:'E16',q:'Zaman praaksara di Indonesia berakhir dengan bukti...',o:['Candi Borobudur','Nagarakertagama','Batu bertulis Kutai','Prasasti Yupa (abad ke-4 M)'],a:3,e:'Prasasti Yupa = akhir praaksara.'},
   {id:'E17',q:'Kesimpulan dari banyaknya situs megalitikum di Nusantara adalah...',o:['Tradisi pemujaan leluhur tersebar luas','Nusantara dijajah bangsa batu','Semua dari satu kerajaan','Megalitikum hanya di Jawa'],a:0,e:'Pemujaan leluhur = tradisi luas.'},
-  {id:'E18',q:'Hubungan Homo wajakensis dengan masyarakat Indonesia modern adalah...',o:['Dianggap nenek moyang Homo sapiens awal','Bukan nenek moyang','Hanya di luar Nusantara','Punya ciri Mongoloid'],a:0,e:'Homo wajakensis = sapiens awal.'},
-  {id:'E19',q:'Fosil manusia purba di Indonesia paling banyak ditemukan di...',o:['Jawa (Sangiran, Trinil, Ngandong)','Sumatera','Kalimantan','Papua'],a:0,e:'Jawa = pusat temuan fosil.'},
-  {id:'E20',q:'Situs Gunung Padang membuktikan...',o:['Bangsa Nusantara mampu membangun struktur batu besar','Nusantara dijajah bangsa luar','Megalitikum bukan tradisi Nusantara','Nusantara tidak punya peradaban kuno'],a:0,e:'Gunung Padang = kemampuan arsitektur.'},
+  {id:'E18',q:'Hubungan Homo wajakensis dengan masyarakat Indonesia modern adalah...',o:['Bukan nenek moyang','Dianggap nenek moyang Homo sapiens awal','Hanya di luar Nusantara','Punya ciri Mongoloid'],a:1,e:'Homo wajakensis = sapiens awal.'},
+  {id:'E19',q:'Fosil manusia purba di Indonesia paling banyak ditemukan di...',o:['Sumatera','Kalimantan','Jawa (Sangiran, Trinil, Ngandong)','Papua'],a:2,e:'Jawa = pusat temuan fosil.'},
+  {id:'E20',q:'Situs Gunung Padang membuktikan...',o:['Nusantara dijajah bangsa luar','Megalitikum bukan tradisi Nusantara','Nusantara tidak punya peradaban kuno','Bangsa Nusantara mampu membangun struktur batu besar'],a:3,e:'Gunung Padang = kemampuan arsitektur.'},
   {id:'E21',q:'Dampak revolusi Neolitikum terhadap struktur sosial...',o:['Munculnya hierarki (kepala suku)','Hilangnya hierarki','Kembali ke kelompok kecil','Tidak ada perubahan'],a:0,e:'Hierarki = dampak Neolitikum.'},
-  {id:'E22',q:'Bukti manusia praaksara sudah memiliki kepercayaan?',o:['Lukisan gua & bekal kubur','Fosil hewan','Alat batu','Kapak persegi'],a:0,e:'Lukisan + bekal kubur = bukti kepercayaan.'},
-  {id:'E23',q:'Jika menemukan gerabah di lapisan lebih dalam dari perunggu, artinya...',o:['Gerabah lebih tua dari perunggu','Gerabah lebih muda','Keduanya sezaman','Tidak bisa disimpulkan'],a:0,e:'Lapisan lebih dalam = lebih tua.'},
-  {id:'E24',q:'Penemuan Homo floresiensis menunjukkan...',o:['Keragaman spesies manusia purba di Nusantara','Hanya satu spesies','Nusantara kosong dari manusia purba','Homo sapiens tertua'],a:0,e:'Keragaman spesies manusia purba.'},
+  {id:'E22',q:'Bukti manusia praaksara sudah memiliki kepercayaan?',o:['Fosil hewan','Lukisan gua & bekal kubur','Alat batu','Kapak persegi'],a:1,e:'Lukisan + bekal kubur = bukti kepercayaan.'},
+  {id:'E23',q:'Jika menemukan gerabah di lapisan lebih dalam dari perunggu, artinya...',o:['Gerabah lebih muda','Keduanya sezaman','Gerabah lebih tua dari perunggu','Tidak bisa disimpulkan'],a:2,e:'Lapisan lebih dalam = lebih tua.'},
+  {id:'E24',q:'Penemuan Homo floresiensis menunjukkan...',o:['Hanya satu spesies','Nusantara kosong dari manusia purba','Homo sapiens tertua','Keragaman spesies manusia purba di Nusantara'],a:3,e:'Keragaman spesies manusia purba.'},
   {id:'E25',q:'Seorang arkeolog menemukan tulang berusia 30.000 tahun. Metode penanggalan paling tepat...',o:['Karbon-14 (C-14)','Termoluminesensi','Paleomagnetik','Uranium-Thorium'],a:0,e:'C-14 = bahan organik <50.000 tahun.'},
-  {id:'E26',q:'Jika situs tidak ada fosil manusia tapi ada artefak & ecofact, kemungkinan...',o:['Situs dikunjungi tapi bukan hunian tetap','Formasi geologi','Buatan manusia modern','Situs tidak penting'],a:0,e:'Tanpa fosil = bukan hunian tetap.'},
-  {id:'E27',q:'Bukti paling kuat Homo sapiens awal di Nusantara?',o:['Homo wajakensis','Pithecanthropus erectus','Meganthropus','Homo soloensis'],a:0,e:'Homo wajakensis = sapiens awal.'},
-  {id:'E28',q:'Mengapa naskah kuno tidak bisa jadi sumber praaksara?',o:['Praaksara = masa sebelum ada tulisan','Naskah kuno tidak penting','Berbahasa asing','Bukan sumber sejarah'],a:0,e:'Praaksara = sebelum tulisan.'},
+  {id:'E26',q:'Jika situs tidak ada fosil manusia tapi ada artefak & ecofact, kemungkinan...',o:['Formasi geologi','Situs dikunjungi tapi bukan hunian tetap','Buatan manusia modern','Situs tidak penting'],a:1,e:'Tanpa fosil = bukan hunian tetap.'},
+  {id:'E27',q:'Bukti paling kuat Homo sapiens awal di Nusantara?',o:['Pithecanthropus erectus','Meganthropus','Homo wajakensis','Homo soloensis'],a:2,e:'Homo wajakensis = sapiens awal.'},
+  {id:'E28',q:'Mengapa naskah kuno tidak bisa jadi sumber praaksara?',o:['Naskah kuno tidak penting','Berbahasa asing','Bukan sumber sejarah','Praaksara = masa sebelum ada tulisan'],a:3,e:'Praaksara = sebelum tulisan.'},
   {id:'E29',q:'Pentingnya situs Leang-Leang bagi sejarah seni dunia?',o:['Lukisan gua tertua & bukti ekspresi seni','Pusat perdagangan','Tempat ibadah kuno','Bekas kerajaan Hindu'],a:0,e:'Leang-Leang = seni praaksara tertua.'},
-  {id:'E30',q:'Alasan banyak situs megalitikum di Indonesia?',o:['Tradisi pemujaan leluhur kuat','Batu mudah didapat','Kekurangan kayu','Belum mengenal logam'],a:0,e:'Pemujaan leluhur = pendorong megalit.'},
+  {id:'E30',q:'Alasan banyak situs megalitikum di Indonesia?',o:['Batu mudah didapat','Tradisi pemujaan leluhur kuat','Kekurangan kayu','Belum mengenal logam'],a:1,e:'Pemujaan leluhur = pendorong megalit.'},
+  {id:'E31',q:'Jika sebuah alat batu ditemukan bersama kerang & tulang ikan, kemungkinan situsnya...',o:['Pemukiman pegunungan','Pasar ikan','Pemukiman tepi pantai/sungai','Kuburan'],a:2,e:'Kerang + ikan = pemukiman pesisir.'},
+  {id:'E32',q:'Analisis stratigrafi menunjukkan lapisan budaya lebih dalam berisi alat lebih kasar. Kesimpulan...',o:['Lapisan lebih dangkal lebih tua','Tidak bisa disimpulkan','Alat kasar lebih muda','Ada evolusi teknologi dari kasar → halus'],a:3,e:'Stratigrafi = evolusi teknologi.'},
+  {id:'E33',q:'Jika situs megalitikum berada di dataran tinggi, kemungkinan fungsinya adalah...',o:['Pemujaan/astronomi (punden berundak)','Pasar','Tambang','Gudang'],a:0,e:'Megalit dataran tinggi = pemujaan/astronomi.'},
+  {id:'E34',q:'Kehadiran manik-manik dari Tiongkok di situs Nusantara menunjukkan...',o:['Penjajahan Tiongkok','Perdagangan jarak jauh sudah ada sejak praaksara','Migrasi orang Tiongkok','Perang dengan Tiongkok'],a:1,e:'Manik-manik = bukti perdagangan jarak jauh.'},
+  {id:'E35',q:'Perbedaan manusia purba & manusia modern terutama terletak pada...',o:['Warna kulit','Bentuk rumah','Volume otak & struktur tengkorak','Jenis kelamin'],a:2,e:'Volume otak & tengkorak = pembeda utama.'},
   // ANALISIS TINGGI & KONTEKS LOKAL (25)
-  {id:'E31',q:'Mengapa Sungai Katingan penting bagi kajian praaksara di Kalteng?',o:['Sebagai jalur alami persebaran manusia purba dari pesisir ke pedalaman','Sebagai lokasi tambang emas kuno','Sebagai pusat perdagangan Hindu-Buddha','Sebagai bekas ibukota kerajaan'],a:0,e:'Sungai Katingan = jalur alami migrasi praaksara.'},
-  {id:'E32',q:'Teori migrasi praaksara yang menyatakan manusia menyusuri sungai besar karena...',o:['Sungai menyediakan air, makanan, & transportasi','Sungai lebih dingin','Sungai tidak ada bahaya','Sungai tidak ada hewan buas'],a:0,e:'Sungai = sumber air, makanan, transportasi.'},
-  {id:'E33',q:'Kaitan tradisi Tiwah (Dayak Ngaju) dengan masa praaksara adalah...',o:['Keduanya menekankan penghormatan kepada leluhur','Tidak ada kaitan','Tiwah berasal dari Hindu','Tiwah berasal dari Islam'],a:0,e:'Tiwah & praaksara = penghormatan leluhur.'},
-  {id:'E34',q:'Mengapa para arkeolog menganjurkan penelitian lanjutan di DAS Katingan?',o:['Karena minimnya penelitian di sana dibanding Jawa','Karena ada tambang emas','Karena ada candi Hindu','Karena ada kerajaan Majapahit'],a:0,e:'DAS Katingan = minim penelitian.'},
-  {id:'E35',q:'Jika menemukan situs di tepi sungai Katingan dengan alat batu & tulang hewan, kemungkinan situsnya...',o:['Situs berburu sementara','Pemukiman tetap','Kuburan','Pasar'],a:0,e:'Tepi sungai + alat + tulang = situs berburu.'},
-  {id:'E36',q:'Kesimpulan dari bekal kubur berbeda-beda antar makam?',o:['Ada perbedaan status sosial','Semua sama rata','Tidak ada kepercayaan','Bekal kubur acak'],a:0,e:'Bekal kubur berbeda = hierarki sosial.'},
-  {id:'E37',q:'Pelestarian warisan praaksara di era modern sebaiknya...',o:['Melibatkan masyarakat lokal & teknologi digital','Dilakukan tertutup','Dibiarkan tanpa pengelolaan','Dijual ke pihak asing'],a:0,e:'Pelestarian = partisipasi masyarakat + teknologi.'},
-  {id:'E38',q:'Pelajaran penting dari praaksara untuk era modern?',o:['Adaptasi & inovasi membuat manusia bertahan','Kekayaan = segalanya','Perang = solusi','Isolasi = aman'],a:0,e:'Adaptasi + inovasi = survival.'},
-  {id:'E39',q:'Kesimpulan tentang kepercayaan praaksara dari banyaknya menhir?',o:['Pemujaan leluhur jadi tradisi umum','Orang praaksara suka seni','Menhir hanya hiasan','Menhir tanda perang'],a:0,e:'Menhir = pemujaan leluhur.'},
-  {id:'E40',q:'Kaitan antara prasasti Yupa & akhir praaksara?',o:['Yupa = bukti tulisan pertama di Nusantara','Yupa candi tertua','Yupa sumber lisan','Yupa tidak terkait'],a:0,e:'Yupa = tulisan pertama.'},
-  {id:'E41',q:'Peran Eugene Dubois bagi arkeologi Indonesia adalah...',o:['Menemukan fosil Pithecanthropus erectus di Trinil (1891)','Mendirikan Museum Nasional','Menemukan Homo floresiensis','Memimpin ekskavasi Sangiran'],a:0,e:'Dubois = penemu Pithecanthropus di Trinil.'},
-  {id:'E42',q:'Penemuan Homo floresiensis oleh Puslit Arkenas (2003) menunjukkan pentingnya...',o:['Riset arkeologi berkelanjutan di Indonesia','Peran peneliti asing','Kerja sama internasional','Pendanaan besar'],a:0,e:'Riset berkelanjutan = kunci penemuan baru.'},
-  {id:'E43',q:'Peran von Koenigswald dalam penelitian praaksara Indonesia?',o:['Menemukan Meganthropus & Homo soloensis','Menemukan Pithecanthropus','Mendirikan BPCB','Menemukan Homo floresiensis'],a:0,e:'von Koenigswald = Meganthropus & Homo soloensis.'},
-  {id:'E44',q:'Kontribusi R.P. Soejono bagi kajian praaksara Indonesia?',o:['Menyusun Sejarah Nasional Indonesia I: Zaman Prasejarah','Menemukan Pithecanthropus','Mendirikan Museum','Menemukan Homo floresiensis'],a:0,e:'Soejono = penyusun SNI I.'},
-  {id:'E45',q:'Teuku Jacob berkontribusi dalam kajian...',o:['Paleoantropologi & Homo floresiensis','Epigrafi','Numismatik','Paleografi'],a:0,e:'Teuku Jacob = paleoantropolog.'},
-  {id:'E46',q:'Mengapa klasifikasi Pithecanthropus kini berubah menjadi Homo erectus?',o:['Karena temuan & kajian baru yang lebih lengkap','Karena aturan internasional','Karena politik','Karena kesalahan cetak'],a:0,e:'Sejarah = ilmu dinamis, berubah seiring temuan.'},
-  {id:'E47',q:'Kesimpulan dari adanya tulang hewan Stegodon di situs manusia purba?',o:['Stegodon menjadi salah satu hewan buruan','Stegodon peliharaan','Stegodon pemakan manusia','Tidak terkait'],a:0,e:'Stegodon = hewan buruan.'},
-  {id:'E48',q:'Jika Anda menemukan konten viral "sejarah praaksara" tanpa sumber, sebaiknya...',o:['Verifikasi dengan sumber arkeologi kredibel','Langsung share','Percaya saja','Abaikan'],a:0,e:'Kritik sumber = keterampilan wajib.'},
-  {id:'E49',q:'Kaitan food producing & munculnya desa adalah...',o:['Bercocok tanam membuat manusia menetap & membentuk desa','Kebetulan saja','Tidak ada hubungan','Desa muncul lebih dulu'],a:0,e:'Food producing → desa.'},
-  {id:'E50',q:'Mengapa fosil di Sangiran sangat penting bagi ilmu pengetahuan?',o:['Merekam evolusi manusia ratusan ribu tahun','Langka di dunia','Ada emas','Terbesar di dunia'],a:0,e:'Sangiran = arsip evolusi.'},
-  {id:'E51',q:'Kesimpulan tentang masyarakat Neolitikum dari adanya kepala suku?',o:['Sudah ada organisasi sosial & kepemimpinan','Masih tanpa pemimpin','Semua sama rata','Tidak ada aturan'],a:0,e:'Kepala suku = organisasi sosial.'},
-  {id:'E52',q:'Nilai budaya praaksara yang relevan untuk pelestarian alam?',o:['Menghormati alam & mengambil seperlunya','Menebang semua pohon','Eksploitasi maksimal','Individualisme'],a:0,e:'Harmoni alam = nilai praaksara.'},
-  {id:'E53',q:'Kesimpulan dari manik-manik India & Tiongkok di situs Nusantara?',o:['Nusantara bagian jaringan perdagangan maritim Asia kuno','Nusantara tidak terjangkau','Tidak ada hubungan luar','Nusantara bekas jajahan'],a:0,e:'Bukti jaringan maritim Asia.'},
-  {id:'E54',q:'Kaitan antara domestikasi hewan & peradaban?',o:['Domestikasi membuka jalan peradaban agraris','Domestikasi menghambat','Tidak ada hubungan','Baru muncul modern'],a:0,e:'Domestikasi → peradaban agraris.'},
-  {id:'E55',q:'Pelestarian situs praaksara di Kalteng sebaiknya melibatkan...',o:['Masyarakat adat Dayak & pemerintah daerah','Hanya arkeolog','Hanya pemerintah pusat','Pihak asing'],a:0,e:'Pelestarian = kolaborasi multipihak.'},
-  // KRITIK SUMBER & STUDI KASUS (15)
-  {id:'E56',q:'Jika menemukan foto "fosil manusia purba raksasa" di media sosial, langkah kritis Anda?',o:['Cek sumber asli & verifikasi ke ahli arkeologi','Percaya & bagikan','Simpan koleksi pribadi','Laporkan ke polisi'],a:0,e:'Kritik sumber = verifikasi.'},
-  {id:'E57',q:'Mengapa "sejarah praaksara" tidak bisa direkonstruksi sempurna?',o:['Karena keterbatasan bukti arkeologis yang ditemukan','Karena tidak ada peneliti','Karena dilarang pemerintah','Karena tidak penting'],a:0,e:'Keterbatasan bukti = rekonstruksi parsial.'},
-  {id:'E58',q:'Perbedaan "sumber primer" & "sumber sekunder" dalam kajian praaksara adalah...',o:['Primer = temuan asli; sekunder = kajian/tulisan tentangnya','Primer = buku; sekunder = fosil','Tidak ada perbedaan','Primer = digital; sekunder = cetak'],a:0,e:'Primer = temuan asli; sekunder = kajian.'},
-  {id:'E59',q:'Mengapa arkeolog tidak boleh langsung menyimpulkan temuan sebagai "spesies baru"?',o:['Perlu analisis panjang & verifikasi para ahli','Karena aturan internasional','Karena tidak ada dana','Karena takut salah'],a:0,e:'Kesimpulan ilmiah = proses panjang.'},
-  {id:'E60',q:'Jika ditemukan alat batu bercampur dengan sisa tumbuhan & tulang hewan di lapisan sama, artinya...',o:['Manusia menggunakan alat untuk mengolah tumbuhan/hewan','Alat tidak digunakan','Alat tidak terkait makanan','Alat hanya hiasan'],a:0,e:'Alat + sisa makanan = pola hidup.'},
-  {id:'E61',q:'Konsep "stratigrafi" dalam arkeologi membantu menentukan...',o:['Kronologi relatif temuan','Warna artefak','Nama penemu','Jenis kelamin'],a:0,e:'Stratigrafi = kronologi relatif.'},
-  {id:'E62',q:'Mengapa temuan fosil di Sangiran jauh lebih banyak dari Kalimantan?',o:['Kondisi geologis & intensitas riset berbeda','Karena Kalimantan tidak ada manusia purba','Karena Kalimantan berair','Karena Kalimantan dijajah'],a:0,e:'Geologi & intensitas riset = pembeda.'},
-  {id:'E63',q:'Peran penting situs praaksara bagi identitas bangsa adalah...',o:['Menunjukkan akar peradaban & keberagaman nenek moyang','Sekadar peninggalan kuno','Tidak penting','Hanya untuk penelitian'],a:0,e:'Jejak praaksara = akar peradaban.'},
-  {id:'E64',q:'Jika Anda menemukan benda kuno di halaman rumah, sebaiknya...',o:['Laporkan ke BPCB/pihak berwenang','Jual ke kolektor','Simpan diam-diam','Hancurkan'],a:0,e:'Laporkan = kewajiban hukum.'},
-  {id:'E65',q:'Nilai praaksara yang paling relevan untuk Indonesia modern adalah...',o:['Gotong royong & keberlanjutan lingkungan','Sistem kasta','Feodalisme','Isolasi'],a:0,e:'Gotong royong & keberlanjutan = nilai relevan.'},
-  {id:'E66',q:'"Sejarah praaksara bersifat dinamis" berarti...',o:['Interpretasi bisa berubah seiring temuan baru','Tidak bisa dipelajari','Tidak penting','Tidak ada bukti'],a:0,e:'Sejarah = ilmu hidup, dinamis.'},
-  {id:'E67',q:'Peran Sungai Katingan dalam konteks pelayaran kuno adalah...',o:['Jalur transportasi air dari pesisir ke pedalaman Kalteng','Sungai keramat','Batas kerajaan','Tidak berperan'],a:0,e:'Katingan = jalur transportasi kuno.'},
-  {id:'E68',q:'Mengapa kolaborasi masyarakat adat Dayak penting dalam pelestarian situs praaksara di Kalteng?',o:['Karena mereka penjaga tradisi & pengetahuan lokal','Karena mereka pemilik tanah','Karena diwajibkan','Karena berbayar'],a:0,e:'Masyarakat adat = penjaga tradisi.'},
-  {id:'E69',q:'Nilai yang bisa diambil dari keberhasilan manusia praaksara bertahan ribuan tahun adalah...',o:['Adaptasi & inovasi berkelanjutan','Kekayaan materi','Kekuatan militer','Isolasi'],a:0,e:'Adaptasi & inovasi = kunci survival.'},
-  {id:'E70',q:'Peran generasi muda dalam pelestarian praaksara adalah...',o:['Belajar, dokumentasi digital, & kampanye edukasi','Diam saja','Serahkan ke pemerintah','Abaikan'],a:0,e:'Peran muda = belajar & kampanye.'}
+  {id:'E36',q:'Mengapa Sungai Katingan penting bagi kajian praaksara di Kalteng?',o:['Lokasi tambang emas kuno','Pusat perdagangan Hindu-Buddha','Bekas ibukota kerajaan','Jalur alami persebaran manusia purba dari pesisir ke pedalaman'],a:3,e:'Sungai Katingan = jalur alami migrasi praaksara.'},
+  {id:'E37',q:'Teori migrasi praaksara yang menyatakan manusia menyusuri sungai besar karena...',o:['Sungai menyediakan air, makanan, & transportasi','Sungai lebih dingin','Sungai tidak ada bahaya','Sungai tidak ada hewan buas'],a:0,e:'Sungai = sumber air, makanan, transportasi.'},
+  {id:'E38',q:'Kaitan tradisi Tiwah (Dayak Ngaju) dengan masa praaksara adalah...',o:['Tidak ada kaitan','Keduanya menekankan penghormatan kepada leluhur','Tiwah berasal dari Hindu','Tiwah berasal dari Islam'],a:1,e:'Tiwah & praaksara = penghormatan leluhur.'},
+  {id:'E39',q:'Mengapa para arkeolog menganjurkan penelitian lanjutan di DAS Katingan?',o:['Karena ada tambang emas','Karena ada candi Hindu','Karena minimnya penelitian di sana dibanding Jawa','Karena ada kerajaan Majapahit'],a:2,e:'DAS Katingan = minim penelitian.'},
+  {id:'E40',q:'Jika menemukan situs di tepi sungai Katingan dengan alat batu & tulang hewan, kemungkinan situsnya...',o:['Kuburan','Pasar','Pemukiman tetap','Situs berburu sementara'],a:3,e:'Tepi sungai + alat + tulang = situs berburu.'},
+  {id:'E41',q:'Kesimpulan dari bekal kubur berbeda-beda antar makam?',o:['Ada perbedaan status sosial','Semua sama rata','Tidak ada kepercayaan','Bekal kubur acak'],a:0,e:'Bekal kubur berbeda = hierarki sosial.'},
+  {id:'E42',q:'Pelestarian warisan praaksara di era modern sebaiknya...',o:['Dilakukan tertutup','Melibatkan masyarakat lokal & teknologi digital','Dibiarkan tanpa pengelolaan','Dijual ke pihak asing'],a:1,e:'Pelestarian = partisipasi masyarakat + teknologi.'},
+  {id:'E43',q:'Pelajaran penting dari praaksara untuk era modern?',o:['Kekayaan = segalanya','Perang = solusi','Adaptasi & inovasi membuat manusia bertahan','Isolasi = aman'],a:2,e:'Adaptasi + inovasi = survival.'},
+  {id:'E44',q:'Kesimpulan tentang kepercayaan praaksara dari banyaknya menhir?',o:['Orang praaksara suka seni','Menhir hanya hiasan','Menhir tanda perang','Pemujaan leluhur jadi tradisi umum'],a:3,e:'Menhir = pemujaan leluhur.'},
+  {id:'E45',q:'Kaitan antara prasasti Yupa & akhir praaksara?',o:['Yupa = bukti tulisan pertama di Nusantara','Yupa candi tertua','Yupa sumber lisan','Yupa tidak terkait'],a:0,e:'Yupa = tulisan pertama.'},
+  {id:'E46',q:'Peran Eugene Dubois bagi arkeologi Indonesia adalah...',o:['Mendirikan Museum Nasional','Menemukan fosil Pithecanthropus erectus di Trinil (1891)','Menemukan Homo floresiensis','Memimpin ekskavasi Sangiran'],a:1,e:'Dubois = penemu Pithecanthropus di Trinil.'},
+  {id:'E47',q:'Penemuan Homo floresiensis oleh Puslit Arkenas (2003) menunjukkan pentingnya...',o:['Peran peneliti asing','Kerja sama internasional','Riset arkeologi berkelanjutan di Indonesia','Pendanaan besar'],a:2,e:'Riset berkelanjutan = kunci penemuan baru.'},
+  {id:'E48',q:'Peran von Koenigswald dalam penelitian praaksara Indonesia?',o:['Menemukan Pithecanthropus','Mendirikan BPCB','Menemukan Homo floresiensis','Menemukan Meganthropus & Homo soloensis'],a:3,e:'von Koenigswald = Meganthropus & Homo soloensis.'},
+  {id:'E49',q:'Kontribusi R.P. Soejono bagi kajian praaksara Indonesia?',o:['Menyusun Sejarah Nasional Indonesia I: Zaman Prasejarah','Menemukan Pithecanthropus','Mendirikan Museum','Menemukan Homo floresiensis'],a:0,e:'Soejono = penyusun SNI I.'},
+  {id:'E50',q:'Teuku Jacob berkontribusi dalam kajian...',o:['Epigrafi','Paleoantropologi & Homo floresiensis','Numismatik','Paleografi'],a:1,e:'Teuku Jacob = paleoantropolog.'},
+  {id:'E51',q:'Mengapa klasifikasi Pithecanthropus kini berubah menjadi Homo erectus?',o:['Karena aturan internasional','Karena politik','Karena temuan & kajian baru yang lebih lengkap','Karena kesalahan cetak'],a:2,e:'Sejarah = ilmu dinamis, berubah seiring temuan.'},
+  {id:'E52',q:'Kesimpulan dari adanya tulang hewan Stegodon di situs manusia purba?',o:['Stegodon peliharaan','Stegodon pemakan manusia','Tidak terkait','Stegodon menjadi salah satu hewan buruan'],a:3,e:'Stegodon = hewan buruan.'},
+  {id:'E53',q:'Jika Anda menemukan konten viral "sejarah praaksara" tanpa sumber, sebaiknya...',o:['Verifikasi dengan sumber arkeologi kredibel','Langsung share','Percaya saja','Abaikan'],a:0,e:'Kritik sumber = keterampilan wajib.'},
+  {id:'E54',q:'Kaitan food producing & munculnya desa adalah...',o:['Kebetulan saja','Bercocok tanam membuat manusia menetap & membentuk desa','Tidak ada hubungan','Desa muncul lebih dulu'],a:1,e:'Food producing → desa.'},
+  {id:'E55',q:'Mengapa fosil di Sangiran sangat penting bagi ilmu pengetahuan?',o:['Langka di dunia','Ada emas','Merekam evolusi manusia ratusan ribu tahun','Terbesar di dunia'],a:2,e:'Sangiran = arsip evolusi.'},
+  {id:'E56',q:'Kesimpulan tentang masyarakat Neolitikum dari adanya kepala suku?',o:['Masih tanpa pemimpin','Semua sama rata','Tidak ada aturan','Sudah ada organisasi sosial & kepemimpinan'],a:3,e:'Kepala suku = organisasi sosial.'},
+  {id:'E57',q:'Nilai budaya praaksara yang relevan untuk pelestarian alam?',o:['Menghormati alam & mengambil seperlunya','Menebang semua pohon','Eksploitasi maksimal','Individualisme'],a:0,e:'Harmoni alam = nilai praaksara.'},
+  {id:'E58',q:'Kesimpulan dari manik-manik India & Tiongkok di situs Nusantara?',o:['Nusantara tidak terjangkau','Nusantara bagian jaringan perdagangan maritim Asia kuno','Tidak ada hubungan luar','Nusantara bekas jajahan'],a:1,e:'Bukti jaringan maritim Asia.'},
+  {id:'E59',q:'Kaitan antara domestikasi hewan & peradaban?',o:['Domestikasi menghambat','Tidak ada hubungan','Domestikasi membuka jalan peradaban agraris','Baru muncul modern'],a:2,e:'Domestikasi → peradaban agraris.'},
+  {id:'E60',q:'Pelestarian situs praaksara di Kalteng sebaiknya melibatkan...',o:['Hanya arkeolog','Hanya pemerintah pusat','Pihak asing','Masyarakat adat Dayak & pemerintah daerah'],a:3,e:'Pelestarian = kolaborasi multipihak.'},
+  // KRITIK SUMBER & STUDI KASUS (20)
+  {id:'E61',q:'Jika menemukan foto "fosil manusia purba raksasa" di media sosial, langkah kritis Anda?',o:['Cek sumber asli & verifikasi ke ahli arkeologi','Percaya & bagikan','Simpan koleksi pribadi','Laporkan ke polisi'],a:0,e:'Kritik sumber = verifikasi.'},
+  {id:'E62',q:'Mengapa "sejarah praaksara" tidak bisa direkonstruksi sempurna?',o:['Karena tidak ada peneliti','Karena keterbatasan bukti arkeologis yang ditemukan','Karena dilarang pemerintah','Karena tidak penting'],a:1,e:'Keterbatasan bukti = rekonstruksi parsial.'},
+  {id:'E63',q:'Perbedaan "sumber primer" & "sumber sekunder" dalam kajian praaksara adalah...',o:['Primer = buku; sekunder = fosil','Tidak ada perbedaan','Primer = temuan asli; sekunder = kajian/tulisan tentangnya','Primer = digital; sekunder = cetak'],a:2,e:'Primer = temuan asli; sekunder = kajian.'},
+  {id:'E64',q:'Mengapa arkeolog tidak boleh langsung menyimpulkan temuan sebagai "spesies baru"?',o:['Karena aturan internasional','Karena tidak ada dana','Karena takut salah','Perlu analisis panjang & verifikasi para ahli'],a:3,e:'Kesimpulan ilmiah = proses panjang.'},
+  {id:'E65',q:'Jika ditemukan alat batu bercampur dengan sisa tumbuhan & tulang hewan di lapisan sama, artinya...',o:['Manusia menggunakan alat untuk mengolah tumbuhan/hewan','Alat tidak digunakan','Alat tidak terkait makanan','Alat hanya hiasan'],a:0,e:'Alat + sisa makanan = pola hidup.'},
+  {id:'E66',q:'Konsep "stratigrafi" dalam arkeologi membantu menentukan...',o:['Warna artefak','Kronologi relatif temuan','Nama penemu','Jenis kelamin'],a:1,e:'Stratigrafi = kronologi relatif.'},
+  {id:'E67',q:'Mengapa temuan fosil di Sangiran jauh lebih banyak dari Kalimantan?',o:['Karena Kalimantan tidak ada manusia purba','Karena Kalimantan berair','Kondisi geologis & intensitas riset berbeda','Karena Kalimantan dijajah'],a:2,e:'Geologi & intensitas riset = pembeda.'},
+  {id:'E68',q:'Peran penting situs praaksara bagi identitas bangsa adalah...',o:['Sekadar peninggalan kuno','Tidak penting','Hanya untuk penelitian','Menunjukkan akar peradaban & keberagaman nenek moyang'],a:3,e:'Jejak praaksara = akar peradaban.'},
+  {id:'E69',q:'Jika Anda menemukan benda kuno di halaman rumah, sebaiknya...',o:['Laporkan ke BPCB/pihak berwenang','Jual ke kolektor','Simpan diam-diam','Hancurkan'],a:0,e:'Laporkan = kewajiban hukum.'},
+  {id:'E70',q:'Nilai praaksara yang paling relevan untuk Indonesia modern adalah...',o:['Sistem kasta','Gotong royong & keberlanjutan lingkungan','Feodalisme','Isolasi'],a:1,e:'Gotong royong & keberlanjutan = nilai relevan.'},
+  {id:'E71',q:'"Sejarah praaksara bersifat dinamis" berarti...',o:['Tidak bisa dipelajari','Tidak penting','Interpretasi bisa berubah seiring temuan baru','Tidak ada bukti'],a:2,e:'Sejarah = ilmu hidup, dinamis.'},
+  {id:'E72',q:'Peran Sungai Katingan dalam konteks pelayaran kuno adalah...',o:['Sungai keramat','Batas kerajaan','Tidak berperan','Jalur transportasi air dari pesisir ke pedalaman Kalteng'],a:3,e:'Katingan = jalur transportasi kuno.'},
+  {id:'E73',q:'Mengapa kolaborasi masyarakat adat Dayak penting dalam pelestarian situs praaksara di Kalteng?',o:['Karena mereka penjaga tradisi & pengetahuan lokal','Karena mereka pemilik tanah','Karena diwajibkan','Karena berbayar'],a:0,e:'Masyarakat adat = penjaga tradisi.'},
+  {id:'E74',q:'Nilai yang bisa diambil dari keberhasilan manusia praaksara bertahan ribuan tahun adalah...',o:['Kekayaan materi','Adaptasi & inovasi berkelanjutan','Kekuatan militer','Isolasi'],a:1,e:'Adaptasi & inovasi = kunci survival.'},
+  {id:'E75',q:'Peran generasi muda dalam pelestarian praaksara adalah...',o:['Diam saja','Serahkan ke pemerintah','Belajar, dokumentasi digital, & kampanye edukasi','Abaikan'],a:2,e:'Peran muda = belajar & kampanye.'},
+  {id:'E76',q:'Jika menemukan situs praaksara baru, langkah pertama yang benar adalah...',o:['Gali sendiri','Jual temuan','Foto & laporkan ke BPCB','Diamkan'],a:2,e:'Laporkan ke BPCB = langkah benar.'},
+  {id:'E77',q:'Mengapa fosil manusia purba penting untuk memahami evolusi?',o:['Tidak penting','Sekadar koleksi','Hanya untuk museum','Memberi bukti fisik evolusi manusia'],a:3,e:'Fosil = bukti evolusi.'},
+  {id:'E78',q:'Kesimpulan dari situs yang memiliki lapisan budaya berkelanjutan adalah...',o:['Dihuni dalam waktu lama','Hanya dikunjungi sekali','Bukan situs penting','Tidak ada aktivitas manusia'],a:0,e:'Lapisan berkelanjutan = hunian lama.'},
+  {id:'E79',q:'Nilai kebersamaan praaksara yang masih terlihat di desa adalah...',o:['Individualisme','Gotong royong saat panen atau membangun rumah','Kasta sosial','Monopoli dagang'],a:1,e:'Gotong royong = warisan praaksara.'},
+  {id:'E80',q:'Peran arkeologi bagi pendidikan sejarah adalah...',o:['Sekadar pelengkap','Tidak penting','Menyediakan bukti fisik & data ilmiah','Hanya untuk penelitian'],a:2,e:'Arkeologi = bukti fisik & data ilmiah.'}
 ];
 function pickJwQuestions(n){ return pickFresh(BANK_E,n,'jw',q=>q.id).map(shuffleOpts); }
 const JW_MONEY=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
@@ -2111,7 +2147,6 @@ function endWheel(){
     [{v:wScore,l:'Skor'},{v:wOk+'/'+total,l:'Benar'},{v:acc+'%',l:'Akurasi'}],unlocked);
 }
 
-/* ROUTING */
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click', ()=>{
     Sound.click();
